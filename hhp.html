@@ -1,0 +1,1424 @@
+<!doctype html>
+<html lang="ja-jp">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex">
+
+<!--link rel="icon" href="/favicon.ico"-->
+<!-- https://www.favicon-generator.org/ -->
+<!--
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+-->
+<meta name="msapplication-TileColor" content="#ffffff">
+<!--
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+-->
+<meta name="theme-color" content="#ffffff">
+
+<title>HHP</title>
+
+<!--
+<meta property="og:type" content="website" />
+<meta property="og:title" content="シアター計算機"/>
+<meta property="og:description" content="シアター"/>
+<meta property="og:image" itemprop="image" content="/android-icon-192x192.png" />
+<meta property="og:url" content="http://-" />
+-->
+
+<link href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i|Roboto:400,400i,700,700i|Poppins:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+<style>
+body
+{
+	font-family: "Roboto", "Noto Sans CJK KR", "Microsoft Jhenghei", "PMingLiU", sans-serif;
+	font-feature-settings: "palt" 1;
+}
+
+.result-left
+{
+	width: 33%;
+	font-size: 80%;
+	border-bottom: 1px solid #dee2e6;
+	padding: .25rem;
+}
+
+.result-right
+{
+	width: 67%;
+	font-size: 80%;
+	border-left: 1px solid #dee2e6;
+	border-bottom: 1px solid #dee2e6;
+	padding: .25rem;
+}
+
+.results .d-flex:last-child .result-left, .results .d-flex:last-child .result-right
+{
+	border-bottom: 0;
+}
+
+.permalink-row-left
+{
+	width: 67%;
+	font-size: 80%;
+}
+
+.permalink-row-right
+{
+	width: 33%;
+	font-size: 80%;
+}
+
+@media (min-width: 768px)
+{
+	.result-left, .result-right
+	{
+		width: 50%;
+		border: 0;
+		padding: 0;
+	}
+
+	.permalink-row-left
+	{
+		width: 25%;
+	}
+
+	.permalink-row-right
+	{
+		width: 75%;
+	}
+}
+
+@media (min-width: 992px)
+{
+	.result-left, .result-right
+	{
+		font-size: inherit;
+	}
+
+	.permalink-row-left
+	{
+		font-size: inherit;
+	}
+
+	.permalink-row-right
+	{
+		font-size: inherit;
+	}
+}
+</style>
+
+<!-- <link href="/opensearch.xml" rel="search" title="Call Server" type="application/opensearchdescription+xml"> -->
+<script defer="defer" src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+	<h4 class="text-center mt-2">シアター計算機</h4>
+	<div class="d-flex flex-column flex-md-row">
+		<div style="min-width: 33%;" id="settingForm">
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>現在状況設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="currentItem" style="width: 67%;">現在の所持<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentItem" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="currentPoint" style="width: 67%;">現在の獲得pt</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentPoint" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="targetItem" style="width: 67%;">目標の<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="targetItem" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="targetPoint" style="width: 67%;">目標の獲得pt</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="targetPoint" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="defenseBorder" style="width: 67%;">防御目標ボーダー</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="defenseBorder" type="number" step="1"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>プレイヤー設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="nowJewels" style="width: 67%;">現在のジュエル数</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="nowJewels" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="now10Drinks" style="width: 67%;">10ドリンクの残存数</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="now10Drinks" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="now20Drinks" style="width: 67%;">20ドリンクの残存数</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="now20Drinks" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="now30Drinks" style="width: 67%;">30ドリンクの残存数</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="now30Drinks" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="nowMaxDrinks" style="width: 67%;">MAXドリンクの残存数</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="nowMaxDrinks" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="extraAddiblePack" style="width: 67%;">追加できる予備 PACK 数</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="extraAddiblePack" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="playerMaxStamina" style="width: 67%;">最大元気</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="playerMaxStamina" type="number" step="1"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>元気効率設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="stWasteStamina" style="width: 67%;">1回プレイの消費元気</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="stWasteStamina" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="stEarnPoint" style="width: 67%;">1回プレイでの獲得ptと<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="stEarnPoint" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="stMultiplier" style="width: 67%;">1回プレイに使われた倍率</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="stMultiplier" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="stWasteTime" style="width: 67%;">1回プレイでの所要時間 (分)</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="stWasteTime" type="number" step="0.1"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>時間効率設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="tiWasteStamina" style="width: 67%;">1回プレイの消費元気</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiWasteStamina" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="tiEarnPoint" style="width: 67%;">1回プレイでの獲得ptと<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiEarnPoint" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="tiWasteTime" style="width: 67%;">1回プレイでの所要時間 (分)</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiWasteTime" type="number" step="0.1"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>イベント曲設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="evWasteItem" style="width: 67%;">1回プレイの消費<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="evWasteItem" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="evEarnPoint" style="width: 67%;">1回プレイでの獲得pt</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="evEarnPoint" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="evMultiplier" style="width: 67%;">1回プレイに使われた倍率</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="evMultiplier" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="evWasteTime" style="width: 67%;">1回プレイでの所要時間 (分)</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="evWasteTime" type="number" step="0.1"></div>
+				</div>
+			</div>
+			<!--
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>経験値設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="currentPLevel" style="width: 67%;">現在のプロデューサーレベル</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentPLevel" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="currentPLevelExp" style="width: 67%;">現在のプロデューサー経験値</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentPLevelExp" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="stEarnExp" style="width: 67%;">元気効率1回プレイで貰える経験値</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="stEarnExp" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="tiEarnExp" style="width: 67%;">時間効率1回プレイで貰える経験値</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiEarnExp" type="number" step="0.1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="evEarnExp" style="width: 67%;">イベント曲1回プレイで貰える経験値</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="evEarnExp" type="number" step="1"></div>
+				</div>
+			</div>
+			-->
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>イベント設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="eventEndDate" style="width: 60%;">終了時刻 (現地時間)</label>
+					<div style="width: 40%;"><input class="form-control form-control-sm" id="eventEndDate" type="date"> <input id="eventEndTime" class="form-control form-control-sm" type="time" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="itemName" style="width: 67%;">イベントアイテムの名前</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="itemName" type="text"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="extraStaminaPerDay" style="width: 67%;">毎日貰える追加元気の量</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="extraStaminaPerDay" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="extraItemPerDay" style="width: 67%;">毎日貰える追加<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="extraItemPerDay" type="number" step="1"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>時速設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="maximumEvEarnItem" style="width: 67%;">イベント曲の最大獲得<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvEarnItem" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="maximumEvItemTime" style="width: 67%;">獲得<span class="itemCountName">アイテム数</span>最速プレイ時間 (分)</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvItemTime" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="maximumEvWasteItem" style="width: 67%;">イベント曲の最大消費<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvWasteItem" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="maximumEvEarnPoint" style="width: 67%;">イベント曲の最大獲得pt</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvEarnPoint" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="maximumEvMultiplier" style="width: 67%;">イベント曲最大倍率</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvMultiplier" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="maximumEvWasteTime" style="width: 67%;">イベント曲最速プレイ時間 (分)</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvWasteTime" type="number" step="0.1"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>ゲーム設定</h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="jewelToStamina" style="width: 67%;">石1回砕いて消費する石の量</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="jewelToStamina" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="jewelToPack" style="width: 67%;">PACK 1回の石の量</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="jewelToPack" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="moneyToPack" style="width: 67%;">PACK 1回分の値段</label>
+					<div style="width: 33%;"><input class="form-control form-control-sm" id="moneyToPack" type="number" step="0.01"></div>
+				</div>
+			</div>
+		</div>
+		<div style="min-width: 67%;" class="pl-md-2 results">
+			<h5 class="h2 d-md-none my-4 text-center">結果</h5>
+
+			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
+				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">現在所持</h6>
+				<div class="d-flex">
+					<div class="result-left">現在の所持<span class="itemCountName">アイテム数</span>の消費時間</div>
+					<div class="result-right" id="currentItemWasteTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">現在の所持<span class="itemCountName">アイテム数</span>の獲得pt</div>
+					<div class="result-right" id="currentItemEarnPoint"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">現在の獲得pt</div>
+					<div class="result-right" id="currentEarnPoint"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
+				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">自然回復</h6>
+				<div class="d-flex">
+					<div class="result-left">残り日数</div>
+					<div class="result-right" id="remainDays"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">追加元気</div>
+					<div class="result-right" id="remainStamina"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">追加元気の消費時間</div>
+					<div class="result-right" id="remainStaminaWasteTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">これによる追加の<span class="itemCountName">アイテム数</span></div>
+					<div class="result-right" id="extraItems"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">これによる追加の<span class="itemCountName">アイテム数</span>の消費時間</div>
+					<div class="result-right" id="extraItemWasteTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">自然回復の獲得pt</div>
+					<div class="result-right" id="extraItemEarnPoint"></div>
+				</div>
+			</div>
+			<!--
+			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
+				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">現在所持</h6>
+				<div class="d-flex">
+					<div class="result-left">自然回復による最終の獲得pt</div>
+					<div class="result-right" id="currentFinalPoint"></div>
+				</div>
+			</div>
+			-->
+			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
+				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">ドーピング</h6>
+				<div class="d-flex">
+					<div class="result-left">石、ドリンク、追加 PACK による追加元気</div>
+					<div class="result-right" id="premiumExtraStamina"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">追加元気の消費時間</div>
+					<div class="result-right" id="premiumExtraStaminaWasteTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">追加の<span class="itemCountName">アイテム数</span></div>
+					<div class="result-right" id="premiumExtraItems"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">追加の<span class="itemCountName">アイテム数</span>の消費時間</div>
+					<div class="result-right" id="premiumExtraItemsWasteTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">追加の獲得pt</div>
+					<div class="result-right" id="premiumExtraEarnPoints"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
+				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">時速</h6>
+				<div class="d-flex">
+					<div class="result-left">最大時速</div>
+					<div class="result-right" id="fastestSpeed"></div>
+				</div>
+				<!--
+				<div class="d-flex">
+					<div class="result-left">備蓄<span class="itemName">アイテム</span>がない場合の最大時速</div>
+					<div class="result-right" id="fastestSpeedWithoutItems"></div>
+				</div>
+				-->
+				<!--
+				<div class="d-flex">
+					<div class="result-left">備蓄<span class="itemName">アイテム</span>がない場合の最速元気消費量</div>
+					<div class="result-right" id="fastestWasteRateWithoutItems"></div>
+				</div>
+				-->
+				<!--
+				<div class="d-flex">
+					<div class="result-left">備蓄<span class="itemName">アイテム</span>が残ってる場合の最大時速</div>
+					<div class="result-right" id="fastestSpeedWithItems"></div>
+				</div>
+				-->
+				<!--
+				<div class="d-flex">
+					<div class="result-left">備蓄<span class="itemName">アイテム</span>が残ってる場合の最速元気消費量</div>
+					<div class="result-right" id="fastestWasteRateWithItems"></div>
+				</div>
+				-->
+				<div class="d-flex">
+					<div class="result-left">ボーダーに追いつかれるに必要の時間</div>
+					<div class="result-right" id="timeForBorderToChase"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
+				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">目標<span class="itemName">アイテム</span>逆算</h6>
+				<div class="d-flex">
+					<div class="result-left">目標<span class="itemName">アイテム</span>でイベント曲をプレイできる回数</div>
+					<div class="result-right" id="targetItemPlays"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">その回数をプレイするに必要な時間</div>
+					<div class="result-right" id="targetItemWasteTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">目標<span class="itemName">アイテム</span>による獲得pt</div>
+					<div class="result-right" id="targetItemEarnPoints"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要なプレイ回数</div>
+					<div class="result-right" id="targetItemNeedPlays"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要なプレイ時間</div>
+					<div class="result-right" id="targetItemNeedPlaysTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要な元気</div>
+					<div class="result-right" id="targetItemNeedPlaysStamina"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要なジュエル</div>
+					<div class="result-right" id="targetItemNeedPlaysJewel"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
+				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">目標ポイント逆算</h6>
+				<div class="d-flex">
+					<div class="result-left">目標ポイントまでに必要なイベント曲のプレイ回数</div>
+					<div class="result-right" id="targetPointPlays"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">そのイベント曲をプレイするに必要な時間</div>
+					<div class="result-right" id="targetPointWasteTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">そのイベント曲をプレイするに必要な<span class="itemCountName">アイテム数</span></div>
+					<div class="result-right" id="targetPointWasteItem"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要なプレイ回数</div>
+					<div class="result-right" id="targetPointNeedPlays"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要なプレイ時間</div>
+					<div class="result-right" id="targetPointNeedPlaysTime"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要な元気</div>
+					<div class="result-right" id="targetPointNeedPlaysStamina"></div>
+				</div>
+				<div class="d-flex">
+					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要なジュエル</div>
+					<div class="result-right" id="targetPointNeedPlaysJewel"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+		<h6>ページ設定</h6>
+		<div class="d-flex">
+			<div class="permalink-row-left">パーマリンク <button class="btn btn-sm btn-outline-secondary" id="permalink-copy-button" type="button"><i class="far fa-copy"></i> コピー</button></div>
+			<div class="permalink-row-right"><input class="form-control-sm form-control-plaintext font-italic" id="permalink" type="url" readonly></div>
+		</div>
+	</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function()
+{
+	var formatNumber = function(number)
+	{
+		var thousands_separator = String.fromCharCode(0x2009);
+		var decimal_point = '.';
+
+		var parts = number.toString().split('.');
+		parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_separator);
+		return parts.join(decimal_point);
+	}
+
+	var splitTwoColumnText = function(stText, tiText)
+	{
+		var html = '';
+		html += '<div class="d-flex flex-column"><div><span class="badge badge-success">元気効率</span> ';
+		html += stText;
+		html += '</div><div><span class="badge badge-warning">時間効率</span> ';
+		html += tiText;
+		html += '</div></div>';
+
+		return html;
+	};
+
+	var getTimeText = function(time, multiplier)
+	{
+		var sign = Math.sign(time);
+		time = Math.abs(time);
+
+		var min = Math.floor(time / 60);
+		var sec = time % 60;
+
+		var hr = Math.floor(min / 60);
+		min = min % 60;
+
+		var html = '';
+		if (hr > 0)
+		{
+			html += (sign * hr) + ' 時間 ';
+			if (min + sec > 0)
+			{
+				html += min + ' 分 ';
+				if (sec > 0)
+				{
+					html += sec + ' 秒 ';
+				}
+			}
+		}
+		else
+		{
+			if (min > 0)
+			{
+				html += (sign * min) + ' 分 ';
+				if (sec > 0)
+				{
+					html += sec + ' 秒 ';
+				}
+			}
+			else if (sec > 0)
+			{
+				html += (sign * sec) + ' 秒 ';
+			}
+		}
+
+		if (multiplier !== false && multiplier !== 0)
+		{
+			if (multiplier > 0)
+			{
+				html += ' (' + multiplier + '倍)';
+			}
+			else
+			{
+				html += ' (' + multiplier + ')';
+			}
+		}
+
+		return html;
+	};
+
+	var calcTheater = function()
+	{
+		var currentItem = +$('#currentItem').val();
+		var extraAddiblePack = +$('#extraAddiblePack').val();
+		var currentPoint = +$('#currentPoint').val();
+		var targetItem = +$('#targetItem').val();
+		var targetPoint = +$('#targetPoint').val();
+		var stWasteStamina = +$('#stWasteStamina').val();
+		var stEarnPoint = +$('#stEarnPoint').val();
+		var stMultiplier = +$('#stMultiplier').val();
+		var stWasteTime = +$('#stWasteTime').val();
+		var tiWasteStamina = +$('#tiWasteStamina').val();
+		var tiEarnPoint = +$('#tiEarnPoint').val();
+		var tiWasteTime = +$('#tiWasteTime').val();
+		var evWasteItem = +$('#evWasteItem').val();
+		var evEarnPoint = +$('#evEarnPoint').val();
+		var evMultiplier = +$('#evMultiplier').val();
+		var evWasteTime = +$('#evWasteTime').val();
+		var nowJewels = +$('#nowJewels').val();
+		var now10Drinks = +$('#now10Drinks').val();
+		var now20Drinks = +$('#now20Drinks').val();
+		var now30Drinks = +$('#now30Drinks').val();
+		var nowMaxDrinks = +$('#nowMaxDrinks').val();
+		var playerMaxStamina = +$('#playerMaxStamina').val();
+		var jewelToStamina = +$('#jewelToStamina').val();
+		var jewelToPack = +$('#jewelToPack').val();
+		var moneyToPack = +$('#moneyToPack').val();
+		var eventEndDate = $('#eventEndDate').val();
+		var eventEndTime = $('#eventEndTime').val();
+		var extraStaminaPerDay = +$('#extraStaminaPerDay').val();
+		var extraItemPerDay = +$('#extraItemPerDay').val();
+		var defenseBorder = +$('#defenseBorder').val();
+		var maximumEvEarnItem = +$('#maximumEvEarnItem').val();
+		var maximumEvItemTime = +$('#maximumEvItemTime').val();
+		var maximumEvWasteItem = +$('#maximumEvWasteItem').val();
+		var maximumEvEarnPoint = +$('#maximumEvEarnPoint').val();
+		var maximumEvMultiplier = +$('#maximumEvMultiplier').val();
+		var maximumEvWasteTime = +$('#maximumEvWasteTime').val();
+		var currentPLevel = +$('#currentPLevel').val();
+		var currentPLevelExp = +$('#currentPLevelExp').val();
+		var stEarnExp = +$('#stEarnExp').val();
+		var tiEarnExp = +$('#tiEarnExp').val();
+		var evEarnExp = +$('#evEarnExp').val();
+		var itemName = $('#itemName').val().trim();
+		var itemCountName = itemName + '数';
+		if (!itemName)
+		{
+			itemName = 'アイテム';
+			itemCountName = 'アイテム数';
+		}
+
+		$('.itemName').text(itemName);
+		$('.itemCountName').text(itemCountName);
+
+		var staminaEfficiency = (stEarnPoint / stWasteStamina) * (1 + (evEarnPoint / evWasteItem));
+		var timeEfficiency = (tiEarnPoint / tiWasteStamina) * (1 + (evEarnPoint / evWasteItem));
+
+		//console.log(staminaEfficiency);
+		//console.log(timeEfficiency);
+
+		var currentDate = new Date();
+		var eventEndDateTime = new Date(eventEndDate + ' ' + eventEndTime);
+		eventEndDateTime;
+
+		//console.log(currentDate);
+		//console.log(eventEndDateTime);
+
+		$('#currentEarnPoint').text(formatNumber(currentPoint) + ' pt');
+
+		var currentDateZ = new Date();
+		var eventEndDateTimeZ = new Date();
+		var timezoneOffset = 9 - currentDate.getTimezoneOffset() * -1;
+		currentDateZ.setTime(currentDate.getTime() + (timezoneOffset * 60 * 1000));
+		eventEndDateTimeZ.setTime(eventEndDateTime.getTime() + (timezoneOffset * 60 * 1000));
+		currentDateZ.setHours(0, 0, 0, 0);
+		eventEndDateTimeZ.setHours(0, 0, 0, 0);
+
+		var remainDays = (eventEndDateTimeZ.getTime() - currentDateZ.getTime()) / (24 * 60 * 60 * 1000);
+		$('#remainDays').text(remainDays + ' 日');
+		var remainStamina = Math.floor((eventEndDateTime.getTime() - currentDate.getTime()) / (5 * 60 * 1000));
+		$('#remainStamina').html(function(i, oldHtml)
+		{
+			var html = formatNumber(remainStamina);
+
+			if (extraStaminaPerDay && extraStaminaPerDay > 0)
+			{
+				html += ' + ' + formatNumber(extraStaminaPerDay * remainDays)
+				html = '<div>' + html + '</div>' + '<div class="text-muted small">' + '時間回復 + 毎日追加ドリンク' + '</div>';
+			}
+
+			return html;
+		});
+		var remainStaminaWasteTimeSt = Math.floor((remainStamina + (extraStaminaPerDay * remainDays)) / (stWasteStamina * stMultiplier)) * (stWasteTime * 60);
+		//console.log(remainStaminaWasteTimeSt);
+		var remainStaminaWasteTimeTi = Math.floor((remainStamina + (extraStaminaPerDay * remainDays)) / tiWasteStamina) * (tiWasteTime * 60);
+		$('#remainStaminaWasteTime').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(getTimeText(remainStaminaWasteTimeSt, stMultiplier), getTimeText(remainStaminaWasteTimeTi, 0));
+		});
+		var extraItemsSt = Math.floor(remainStamina / (stWasteStamina * stMultiplier)) * (stEarnPoint * stMultiplier);
+		var extraItemsTi = Math.floor(remainStamina / tiWasteStamina) * tiEarnPoint;
+		$('#extraItems').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(extraItemsSt), formatNumber(extraItemsTi));
+		});
+
+		var currentItemWasteTime = Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		$('#currentItemWasteTime').text(function(i, oldHtml)
+		{
+			return getTimeText(currentItemWasteTime, evMultiplier);
+		});
+		var currentItemEarnPoint = Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier);
+		$('#currentItemEarnPoint').text(formatNumber(currentItemEarnPoint) + ' pt');
+		var extraItemsStWasteTime = Math.floor(extraItemsSt / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		var extraItemsTiWasteTime = Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		$('#extraItemWasteTime').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(getTimeText(extraItemsStWasteTime, evMultiplier), getTimeText(extraItemsTiWasteTime, evMultiplier));
+		});
+		var extraItemEarnPointSt = Math.floor(extraItemsSt / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + extraItemsSt;
+		var extraItemEarnPointTi = Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + extraItemsTi;
+		$('#extraItemEarnPoint').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(extraItemEarnPointSt) + ' pt', formatNumber(extraItemEarnPointTi) + ' pt');
+		});
+		$('#currentFinalPoint').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText((currentPoint + currentItemEarnPoint + extraItemEarnPointSt) + ' pt', (currentPoint + currentItemEarnPoint + extraItemEarnPointTi) + ' pt');
+		});
+
+		var premiumExtraStamina = Math.floor(nowJewels / jewelToStamina) * playerMaxStamina + now10Drinks * 10 + now20Drinks * 20 + now30Drinks * 30 + nowMaxDrinks * playerMaxStamina + Math.floor((extraAddiblePack * jewelToPack) / jewelToStamina) * playerMaxStamina;
+		$('#premiumExtraStamina').html(function(i, oldHtml)
+		{
+			var num = [];
+			num.push([Math.floor(nowJewels / jewelToStamina) * playerMaxStamina, 'ジュエル: ' + formatNumber(nowJewels)]);
+			num.push([now10Drinks * 10 + now20Drinks * 20 + now30Drinks * 30 + nowMaxDrinks * playerMaxStamina, 'ドリンク: ' + now10Drinks + '/' + now20Drinks + '/' + now30Drinks + '/' + nowMaxDrinks]);
+			num.push([Math.floor((extraAddiblePack * jewelToPack) / jewelToStamina) * playerMaxStamina, '追加 PACK: ' + extraAddiblePack]);
+
+			var html = '';
+			var explanation = '';
+			for (var i = 0, c = num.length; i < c; i++)
+			{
+				if (num[i][0] !== 0)
+				{
+					if (html !== '')
+					{
+						html += ' + ';
+					}
+					html += formatNumber(num[i][0]);
+
+					if (explanation !== '')
+					{
+						explanation += '<span class="d-none d-md-inline mx-1">/</span>';
+					}
+					explanation += '<span>' + num[i][1] + '</span>';
+				}
+			}
+
+			if (explanation !== '')
+			{
+				html = '<div>' + html + '</div>' + '<div class="small text-muted d-flex flex-column flex-md-row flex-md-wrap">' + explanation + '</div>';
+			}
+			if (html === '')
+			{
+				html = '0';
+			}
+
+			return html;
+		});
+		var premiumExtraStaminaWasteTimeSt = Math.floor(premiumExtraStamina / (stWasteStamina * stMultiplier)) * (stWasteTime * 60);
+		var premiumExtraStaminaWasteTimeTi = Math.floor(premiumExtraStamina / tiWasteStamina) * (tiWasteTime * 60);
+		$('#premiumExtraStaminaWasteTime').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(getTimeText(premiumExtraStaminaWasteTimeSt, stMultiplier), getTimeText(premiumExtraStaminaWasteTimeTi, 0));
+		});
+		var premiumExtraItemsSt = Math.floor(premiumExtraStamina / (stWasteStamina * stMultiplier)) * (stEarnPoint * stMultiplier);
+		var premiumExtraItemsTi = Math.floor(premiumExtraStamina / tiWasteStamina) * tiEarnPoint;
+		$('#premiumExtraItems').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(premiumExtraItemsSt), formatNumber(premiumExtraItemsTi));
+		});
+		var premiumExtraItemsStWasteTime = Math.floor(premiumExtraItemsSt / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		var premiumExtraItemsTiWasteTime = Math.floor(premiumExtraItemsTi / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		$('#premiumExtraItemsWasteTime').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(getTimeText(premiumExtraItemsStWasteTime, evMultiplier), getTimeText(premiumExtraItemsTiWasteTime, evMultiplier));
+		});
+		var premiumExtraEarnPointsSt = Math.floor(premiumExtraItemsSt / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + premiumExtraItemsSt;
+		var premiumExtraEarnPointsTi = Math.floor(premiumExtraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + premiumExtraItemsTi;
+		$('#premiumExtraEarnPoints').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(premiumExtraEarnPointsSt) + ' pt', formatNumber(premiumExtraEarnPointsTi) + ' pt');
+		});
+
+		if (!maximumEvMultiplier)
+		{
+			maximumEvMultiplier = 1;
+		}
+		var maximumItemsInOneHour = maximumEvEarnItem * (60 / maximumEvItemTime);
+		//console.log('maximumItemsInOneHour: ', maximumItemsInOneHour);
+		var maximumPlaysInOneHour = maximumItemsInOneHour / (maximumEvWasteItem * maximumEvMultiplier);
+		//console.log('maximumPlaysInOneHour: ', maximumPlaysInOneHour);
+		var maximumTotalEarnPoint = maximumPlaysInOneHour * (maximumEvEarnPoint * maximumEvMultiplier) + maximumItemsInOneHour;
+		//console.log('maximumTotalEarnPoint: ', maximumTotalEarnPoint);
+		var maximumWasteTimeInOneHour = 1 + maximumPlaysInOneHour * (maximumEvWasteTime / 60);
+		//console.log('maximumWasteTimeInOneHour: ', maximumWasteTimeInOneHour);
+		var fastestSpeedWithoutItems = maximumTotalEarnPoint / maximumWasteTimeInOneHour;
+		//console.log('fastestSpeedWithoutItems: ', fastestSpeedWithoutItems);
+		//$('#fastestSpeedWithoutItems').text(formatNumber(parseFloat(fastestSpeedWithoutItems.toFixed(2))) + ' pt/時');
+		var fastestSpeedWithItems = (maximumEvEarnPoint * maximumEvMultiplier) * (60 / maximumEvWasteTime);
+		//$('#fastestSpeedWithItems').text(formatNumber(parseFloat(fastestSpeedWithItems.toFixed(2))) + ' pt/時');
+		$('#fastestSpeed').html(function(i, old)
+		{
+			var html = '';
+			html += '<div class="d-flex flex-column"><div><span class="badge badge-info">備蓄なし</span> ';
+			html += formatNumber(parseFloat(fastestSpeedWithoutItems.toFixed(2))) + ' pt/時';
+			html += '</div><div><span class="badge badge-danger">備蓄あり</span> ';
+			html += formatNumber(parseFloat(fastestSpeedWithItems.toFixed(2))) + ' pt/時';
+			html += '</div></div>';
+
+			return html;
+		});
+		var timeForBorderToChaseWithoutItem = ((currentPoint - defenseBorder) / fastestSpeedWithoutItems) * 60 * 60;
+		var timeForBorderToChaseWithItem = ((currentPoint - defenseBorder) / fastestSpeedWithItems) * 60 * 60;
+		$('#timeForBorderToChase').html(function(i, old)
+		{
+			var html = '';
+			html += '<div class="d-flex flex-column"><div><span class="badge badge-info">備蓄なし</span> ';
+			html += getTimeText(Math.floor(timeForBorderToChaseWithoutItem), maximumEvMultiplier);
+			html += '</div><div><span class="badge badge-danger">備蓄あり</span> ';
+			html += getTimeText(Math.floor(timeForBorderToChaseWithItem), maximumEvMultiplier);
+			html += '</div></div>';
+
+			return html;
+		});
+
+		var targetItemPlays = Math.floor(targetItem / (evWasteItem * evMultiplier));
+		$('#targetItemPlays').text(formatNumber(targetItemPlays) + ' 回');
+		var targetItemWasteTime = targetItemPlays * (evWasteTime * 60); // seconds
+		$('#targetItemWasteTime').text(function(i, oldHtml)
+		{
+			return getTimeText(targetItemWasteTime, evMultiplier);
+		});
+		var targetItemEarnPoints = targetItemPlays * (evEarnPoint * evMultiplier);
+		$('#targetItemEarnPoints').text(formatNumber(targetItemEarnPoints) + ' pt');
+		var targetItemNeedPlaysSt = Math.ceil((targetItem - currentItem) / (stEarnPoint * stMultiplier));
+		var targetItemNeedPlaysTi = Math.ceil((targetItem - currentItem) / tiEarnPoint);
+		$('#targetItemNeedPlays').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(targetItemNeedPlaysSt) + ' 回 (' + stMultiplier + '倍)', formatNumber(targetItemNeedPlaysTi) + '回');
+		});
+		var targetItemNeedPlaysTimeSt = targetItemNeedPlaysSt * (stWasteTime * 60);
+		var targetItemNeedPlaysTimeTi = targetItemNeedPlaysTi * (tiWasteTime * 60);
+		$('#targetItemNeedPlaysTime').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(getTimeText(targetItemNeedPlaysTimeSt, stMultiplier), getTimeText(targetItemNeedPlaysTimeTi, 0));
+		});
+		var targetItemNeedPlaysStaminaSt = targetItemNeedPlaysSt * (stWasteStamina * stMultiplier);
+		var targetItemNeedPlaysStaminaTi = targetItemNeedPlaysTi * tiWasteStamina;
+		$('#targetItemNeedPlaysStamina').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(targetItemNeedPlaysStaminaSt), formatNumber(targetItemNeedPlaysStaminaTi));
+		});
+		var targetItemNeedPlaysJewelSt = Math.ceil(targetItemNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina;
+		var targetItemNeedPlaysJewelTi = Math.ceil(targetItemNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina;
+		$('#targetItemNeedPlaysJewel').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(targetItemNeedPlaysJewelSt), formatNumber(targetItemNeedPlaysJewelTi));
+		});
+		var targetNeedPoint = targetPoint - (currentItemEarnPoint + currentPoint);
+		var targetPointPlays = Math.ceil(targetNeedPoint / ((evEarnPoint + evWasteItem) * evMultiplier));
+		//console.log(targetPointPlays);
+		$('#targetPointPlays').text(formatNumber(targetPointPlays) + ' 回');
+		var targetPointWasteTime = targetPointPlays * (evWasteTime * 60);
+		$('#targetPointWasteTime').html(function(i, oldHtml)
+		{
+			//return splitTwoColumnText(getTimeText((targetPointWasteTimeEv + targetPointWasteTimeSt), 'イベ曲' + evMultiplier + '倍/普通曲' + stMultiplier + '倍'), getTimeText((targetPointWasteTimeEv + targetPointWasteTimeTi), 'イベ曲' + evMultiplier + '倍'));
+			return getTimeText(targetPointWasteTime, evMultiplier);
+		});
+		var targetPointWasteItem = targetPointPlays * (evWasteItem * evMultiplier);
+		$('#targetPointWasteItem').text(formatNumber(targetPointWasteItem) + ' (' + evMultiplier + '倍)');
+		var targetPointNeedPlaysSt = Math.ceil(targetNeedPoint / (stEarnPoint * stMultiplier));
+		var targetPointNeedPlaysTi = Math.ceil(targetNeedPoint / tiEarnPoint);
+		$('#targetPointNeedPlays').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(targetPointNeedPlaysSt) + ' 回 (' + stMultiplier + '倍)', formatNumber(targetPointNeedPlaysTi) + ' 回');
+		});
+		var targetPointNeedPlaysTimeSt = targetPointNeedPlaysSt * (stWasteTime * 60);
+		var targetPointNeedPlaysTimeTi = targetPointNeedPlaysTi * (tiWasteTime * 60);
+		$('#targetPointNeedPlaysTime').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(getTimeText(targetPointNeedPlaysTimeSt, stMultiplier), getTimeText(targetPointNeedPlaysTimeTi, 0));
+		});
+		var targetPointNeedPlaysStaminaSt = targetPointNeedPlaysSt * (stWasteStamina * stMultiplier);
+		var targetPointNeedPlaysStaminaTi = targetPointNeedPlaysTi * tiWasteStamina;
+		$('#targetPointNeedPlaysStamina').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(targetPointNeedPlaysStaminaSt), formatNumber(targetPointNeedPlaysStaminaTi));
+		});
+		var targetPointNeedPlaysJewelSt = Math.ceil(targetPointNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina;
+		var targetPointNeedPlaysJewelTi = Math.ceil(targetPointNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina;
+		$('#targetPointNeedPlaysJewel').html(function(i, oldHtml)
+		{
+			return splitTwoColumnText(formatNumber(targetPointNeedPlaysJewelSt), formatNumber(targetPointNeedPlaysJewelTi));
+		});
+
+		var obj = {};
+		$('#settingForm input').each(function(i, e)
+		{
+			obj[e.id] = e.value;
+		});
+
+		//console.log(obj);
+		var j = JSON.stringify(obj)
+		//console.log(j);
+		var s = btoa(unescape(encodeURIComponent(j)));
+		//console.log(s);
+		$('#permalink').val(location.href + '#' + s);
+	};
+
+	if (location.hash !== '' && location.hash.charAt(0) === '#')
+	{
+		var s = location.hash.substr(1);
+		var j = decodeURIComponent(escape(atob(s)));
+		var obj = JSON.parse(j);
+		//console.log(obj);
+
+		var bufferToCalc;
+		$('#settingForm input').each(function(i, e)
+		{
+			e.value = obj[e.id];
+		}).on('input change', function(e)
+		{
+			//localStorage.setItem(this.id, this.value);
+			if (bufferToCalc)
+			{
+				clearTimeout(bufferToCalc);
+			}
+			bufferToCalc = setTimeout(function()
+			{
+				calcTheater();
+			}, 100);
+		});
+		/*
+		$.each(obj, function(k, v)
+		{
+			//console.log(index);
+			//console.log(value);
+		});
+		 */
+	}
+	else
+	{
+		var bufferToCalc;
+		$('#settingForm input').each(function(i, e)
+		{
+			e.value = localStorage.getItem(e.id);
+		}).on('input change', function(e)
+		{
+			localStorage.setItem(this.id, this.value);
+			if (bufferToCalc)
+			{
+				clearTimeout(bufferToCalc);
+			}
+			bufferToCalc = setTimeout(function()
+			{
+				calcTheater();
+			}, 100);
+		});
+	}
+
+
+	if ($('#permalink-copy-button').length > 0 && $('#permalink').length > 0)
+	{
+		var copiedTimeout;
+		$('#permalink-copy-button').on('click', function()
+		{
+			var copyText = document.getElementById('permalink');
+			copyText.select();
+			document.execCommand('copy');
+
+			var t = $(this);
+			t.tooltip(
+			{
+				title: 'コピーしました。',
+				trigger: 'manual',
+				placement: 'bottom'
+			});
+			t.tooltip('show');
+			if (copiedTimeout)
+			{
+				clearTimeout(copiedTimeout);
+			}
+			copiedTimeout = setTimeout(function()
+			{
+				t.tooltip('hide');
+			}, 1667);
+		}).on('hidden.bs.tooltip', function()
+		{
+			$(this).tooltip('dispose');
+		});
+	}
+
+	calcTheater();
+});
+
+var pLevel = [
+// レベル, 最大元気, 次のレベルまでに必要な経験値
+[1, 60, 50],
+[2, 61, 150],
+[3, 61, 250],
+[4, 62, 350],
+[5, 62, 450],
+[6, 63, 550],
+[7, 63, 650],
+[8, 64, 750],
+[9, 64, 850],
+[10, 65, 950],
+[11, 65, 1050],
+[12, 66, 1150],
+[13, 66, 1250],
+[14, 67, 1350],
+[15, 67, 1450],
+[16, 68, 1550],
+[17, 68, 1650],
+[18, 69, 1750],
+[19, 69, 1850],
+[20, 70, 1950],
+[21, 70, 2050],
+[22, 71, 2150],
+[23, 71, 2250],
+[24, 72, 2350],
+[25, 72, 2450],
+[26, 73, 2550],
+[27, 73, 2650],
+[28, 74, 2750],
+[29, 74, 2850],
+[30, 75, 2950],
+[31, 75, 3050],
+[32, 76, 3150],
+[33, 76, 3250],
+[34, 77, 3350],
+[35, 77, 3450],
+[36, 78, 3550],
+[37, 78, 3650],
+[38, 79, 3750],
+[39, 79, 3850],
+[40, 80, 3950],
+[41, 80, 4050],
+[42, 81, 4150],
+[43, 81, 4250],
+[44, 82, 4350],
+[45, 82, 4450],
+[46, 83, 4550],
+[47, 83, 4650],
+[48, 84, 4750],
+[49, 84, 4850],
+[50, 85, 4950],
+[51, 85, 5050],
+[52, 86, 5150],
+[53, 86, 5250],
+[54, 87, 5350],
+[55, 87, 5450],
+[56, 88, 5550],
+[57, 88, 5650],
+[58, 89, 5750],
+[59, 89, 5850],
+[60, 90, 5950],
+[61, 90, 6050],
+[62, 90, 6150],
+[63, 91, 6250],
+[64, 91, 6350],
+[65, 91, 6450],
+[66, 92, 6550],
+[67, 92, 6650],
+[68, 92, 6750],
+[69, 93, 6850],
+[70, 93, 6950],
+[71, 93, 7050],
+[72, 94, 7150],
+[73, 94, 7250],
+[74, 94, 7350],
+[75, 95, 7450],
+[76, 95, 7550],
+[77, 95, 7650],
+[78, 96, 7750],
+[79, 96, 7850],
+[80, 96, 7950],
+[81, 97, 8050],
+[82, 97, 8150],
+[83, 97, 8250],
+[84, 98, 8350],
+[85, 98, 8450],
+[86, 98, 8550],
+[87, 99, 8650],
+[88, 99, 8750],
+[89, 99, 8850],
+[90, 100, 8950],
+[91, 100, 9050],
+[92, 100, 9150],
+[93, 101, 9250],
+[94, 101, 9350],
+[95, 101, 9450],
+[96, 102, 9550],
+[97, 102, 9650],
+[98, 102, 9750],
+[99, 103, 9850],
+[100, 103, 9950],
+[101, 103, 10050],
+[102, 104, 10150],
+[103, 104, 10250],
+[104, 104, 10350],
+[105, 105, 10450],
+[106, 105, 10550],
+[107, 105, 10650],
+[108, 106, 10750],
+[109, 106, 10850],
+[110, 106, 10950],
+[111, 107, 11050],
+[112, 107, 11150],
+[113, 107, 11250],
+[114, 108, 11350],
+[115, 108, 11450],
+[116, 108, 11550],
+[117, 109, 11650],
+[118, 109, 11750],
+[119, 109, 11850],
+[120, 110, 11950],
+[121, 110, 12050],
+[122, 110, 12150],
+[123, 111, 12250],
+[124, 111, 12350],
+[125, 111, 12450],
+[126, 112, 12550],
+[127, 112, 12650],
+[128, 112, 12750],
+[129, 113, 12850],
+[130, 113, 12950],
+[131, 113, 13050],
+[132, 114, 13150],
+[133, 114, 13250],
+[134, 114, 13350],
+[135, 115, 13450],
+[136, 115, 13550],
+[137, 115, 13650],
+[138, 116, 13750],
+[139, 116, 13850],
+[140, 116, 13950],
+[141, 117, 14050],
+[142, 117, 14150],
+[143, 117, 14250],
+[144, 118, 14350],
+[145, 118, 14450],
+[146, 118, 14550],
+[147, 119, 14650],
+[148, 119, 14750],
+[149, 119, 14850],
+[150, 120, 14950],
+[151, 120, 15050],
+[152, 120, 15150],
+[153, 120, 15250],
+[154, 121, 15350],
+[155, 121, 15450],
+[156, 121, 15550],
+[157, 121, 15650],
+[158, 122, 15750],
+[159, 122, 15850],
+[160, 122, 15950],
+[161, 122, 16050],
+[162, 123, 16150],
+[163, 123, 16250],
+[164, 123, 16350],
+[165, 123, 16450],
+[166, 124, 16550],
+[167, 124, 16650],
+[168, 124, 16750],
+[169, 124, 16850],
+[170, 125, 16950],
+[171, 125, 17050],
+[172, 125, 17150],
+[173, 125, 17250],
+[174, 126, 17350],
+[175, 126, 17450],
+[176, 126, 17550],
+[177, 126, 17650],
+[178, 127, 17750],
+[179, 127, 17850],
+[180, 127, 17950],
+[181, 127, 18050],
+[182, 128, 18150],
+[183, 128, 18250],
+[184, 128, 18350],
+[185, 128, 18450],
+[186, 129, 18550],
+[187, 129, 18650],
+[188, 129, 18750],
+[189, 129, 18850],
+[190, 130, 18950],
+[191, 130, 19050],
+[192, 130, 19150],
+[193, 130, 19250],
+[194, 131, 19350],
+[195, 131, 19450],
+[196, 131, 19550],
+[197, 131, 19650],
+[198, 132, 19750],
+[199, 132, 19850],
+[200, 132, 19950],
+[201, 132, 20050],
+[202, 133, 20150],
+[203, 133, 20250],
+[204, 133, 20350],
+[205, 133, 20450],
+[206, 134, 20550],
+[207, 134, 20650],
+[208, 134, 20750],
+[209, 134, 20850],
+[210, 135, 20950],
+[211, 135, 21050],
+[212, 135, 21150],
+[213, 135, 21250],
+[214, 136, 21350],
+[215, 136, 21450],
+[216, 136, 21550],
+[217, 136, 21650],
+[218, 137, 21750],
+[219, 137, 21850],
+[220, 137, 21950],
+[221, 137, 22050],
+[222, 138, 22150],
+[223, 138, 22250],
+[224, 138, 22350],
+[225, 138, 22450],
+[226, 139, 22550],
+[227, 139, 22650],
+[228, 139, 22750],
+[229, 139, 22850],
+[230, 140, 22950],
+[231, 140, 23050],
+[232, 140, 23150],
+[233, 140, 23250],
+[234, 141, 23350],
+[235, 141, 23450],
+[236, 141, 23550],
+[237, 141, 23650],
+[238, 142, 23750],
+[239, 142, 23850],
+[240, 142, 23950],
+[241, 142, 24050],
+[242, 143, 24150],
+[243, 143, 24250],
+[244, 143, 24350],
+[245, 143, 24450],
+[246, 144, 24550],
+[247, 144, 24650],
+[248, 144, 24750],
+[249, 144, 24850],
+[250, 145, 24950],
+[251, 145, 25050],
+[252, 145, 25150],
+[253, 145, 25250],
+[254, 146, 25350],
+[255, 146, 25450],
+[256, 146, 25550],
+[257, 146, 25650],
+[258, 147, 25750],
+[259, 147, 25850],
+[260, 147, 25950],
+[261, 147, 26050],
+[262, 148, 26150],
+[263, 148, 26250],
+[264, 148, 26350],
+[265, 148, 26450],
+[266, 149, 26550],
+[267, 149, 26650],
+[268, 149, 26750],
+[269, 149, 26850],
+[270, 150, 26950],
+[271, 150, 27050],
+[272, 150, 27150],
+[273, 150, 27250],
+[274, 151, 27350],
+[275, 151, 27450],
+[276, 151, 27550],
+[277, 151, 27650],
+[278, 152, 27750],
+[279, 152, 27850],
+[280, 152, 27950],
+[281, 152, 28050],
+[282, 153, 28150],
+[283, 153, 28250],
+[284, 153, 28350],
+[285, 153, 28450],
+[286, 154, 28550],
+[287, 154, 28650],
+[288, 154, 28750],
+[289, 154, 28850],
+[290, 155, 28950],
+[291, 155, 29050],
+[292, 155, 29150],
+[293, 155, 29250],
+[294, 156, 29350],
+[295, 156, 29450],
+[296, 156, 29550],
+[297, 156, 29650],
+[298, 157, 29750],
+[299, 157, 29850],
+[300, 157, 29950],
+[301, 157, 30050],
+[302, 158, 30150],
+[303, 158, 30250],
+[304, 158, 30350],
+[305, 158, 30450],
+[306, 159, 30550],
+[307, 159, 30650],
+[308, 159, 30750],
+[309, 159, 30850],
+[310, 160, 30950],
+[311, 160, 31050],
+[312, 160, 31150],
+[313, 160, 31250],
+[314, 161, 31350],
+[315, 161, 31450],
+[316, 161, 31550],
+[317, 161, 31650],
+[318, 162, 31750],
+[319, 162, 31850],
+[320, 162, 31950],
+[321, 162, 32050],
+[322, 163, 32150],
+[323, 163, 32250],
+[324, 163, 32350],
+[325, 163, 32450],
+[326, 164, 32550],
+[327, 164, 32650],
+[328, 164, 32750],
+[329, 164, 32850],
+[330, 165, 32950],
+[331, 165, 33050],
+[332, 165, 33150],
+[333, 165, 33250],
+[334, 166, 33350],
+[335, 166, 33450],
+[336, 166, 33550],
+[337, 166, 33650],
+[338, 167, 33750],
+[339, 167, 33850],
+[340, 167, 33950],
+[341, 167, 34050],
+[342, 168, 34150],
+[343, 168, 34250],
+[344, 168, 34350],
+[345, 168, 34450],
+[346, 169, 34550],
+[347, 169, 34650],
+[348, 169, 34750],
+[349, 169, 34850],
+[350, 170, 34950],
+[351, 170, 35050],
+[352, 170, 35150],
+[353, 170, 35250],
+[354, 171, 35350],
+[355, 171, 35450],
+[356, 171, 35550],
+[357, 171, 35650],
+[358, 172, 35750],
+[359, 172, 35850],
+[360, 172, 35950],
+[361, 172, 36050],
+[362, 173, 36150],
+[363, 173, 36250],
+[364, 173, 36350],
+[365, 173, 36450],
+[366, 174, 36550],
+[367, 174, 36650],
+[368, 174, 36750],
+[369, 174, 36850],
+[370, 175, 36950],
+[371, 175, 37050],
+[372, 175, 37150],
+[373, 175, 37250],
+[374, 176, 37350],
+[375, 176, 37450],
+[376, 176, 37550],
+[377, 176, 37650],
+[378, 177, 37750],
+[379, 177, 37850],
+[380, 177, 37950],
+[381, 177, 38050],
+[382, 178, 38150],
+[383, 178, 38250],
+[384, 178, 38350],
+[385, 178, 38450],
+[386, 179, 38550],
+[387, 179, 38650],
+[388, 179, 38750],
+[389, 179, 38850],
+[390, 180, 38950],
+[391, 180, 39050],
+[392, 180, 39150],
+[393, 180, 39250],
+[394, 181, 39350],
+[395, 181, 39450],
+[396, 181, 39550],
+[397, 181, 39650],
+[398, 182, 39750],
+[399, 182, 39850],
+[400, 182, -1]
+];
+
+var expMM = 306; // 一曲 MM 30 の経験値
+var expWk = 143; // 仕事 20 体力の経験値
+</script>
+
+</body>
+</html>
+
