@@ -30,11 +30,11 @@
 -->
 <meta name="theme-color" content="#ffffff">
 
-<title>HHP</title>
+<title>ミリシタ計算機 - イベント - シアター形式</title>
 
 <!--
 <meta property="og:type" content="website" />
-<meta property="og:title" content="シアター計算機"/>
+<meta property="og:title" content="ミリシタ計算機 - イベント - シアター形式"/>
 <meta property="og:description" content="シアター"/>
 <meta property="og:image" itemprop="image" content="/android-icon-192x192.png" />
 <meta property="og:url" content="http://-" />
@@ -85,9 +85,16 @@ body
 
 @media (min-width: 768px)
 {
-	.result-left, .result-right
+	.result-left
 	{
-		width: 50%;
+		width: 55%;
+		border: 0;
+		padding: 0;
+	}
+
+	.result-right
+	{
+		width: 45%;
 		border: 0;
 		padding: 0;
 	}
@@ -130,142 +137,142 @@ body
 <body>
 
 <div class="container-fluid">
-	<h4 class="text-center mt-2">シアター計算機</h4>
+	<h4 class="text-center mt-2">ミリシタ計算機 - イベント - シアター形式</h4>
 	<div class="d-flex flex-column flex-md-row">
 		<div style="min-width: 33%;" id="settingForm">
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
 				<h6>現在状況設定</h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="currentItem" style="width: 67%;">現在の所持<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentItem" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="currentItem" style="width: 70%;">現在の所持<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="currentItem" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="currentPoint" style="width: 67%;">現在の獲得pt</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentPoint" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="currentPoint" style="width: 70%;">現在の <i class="fas fa-star text-warning"></i> 獲得pt</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="currentPoint" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="targetItem" style="width: 67%;">目標の<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="targetItem" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="targetItem" style="width: 70%;">目標の<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="targetItem" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="targetPoint" style="width: 67%;">目標の獲得pt</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="targetPoint" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="targetPoint" style="width: 70%;">目標の <i class="fas fa-star text-warning"></i> 獲得pt</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="targetPoint" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="defenseBorder" style="width: 67%;">防衛目標ボーダー</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="defenseBorder" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="defenseBorder" style="width: 70%;">防衛目標ボーダー</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="defenseBorder" type="number" step="1"></div>
 				</div>
 			</div>
 
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
 				<h6>プレイヤー設定</h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="nowJewels" style="width: 67%;">現在のジュエル数</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="nowJewels" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="nowJewels" style="width: 70%;">現在の <i class="far fa-gem text-primary"></i> ジュエル数</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="nowJewels" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="now10Drinks" style="width: 67%;">10ドリンクの数</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="now10Drinks" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="now10Drinks" style="width: 70%;">10ドリンクの数</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="now10Drinks" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="now20Drinks" style="width: 67%;">20ドリンクの数</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="now20Drinks" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="now20Drinks" style="width: 70%;">20ドリンクの数</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="now20Drinks" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="now30Drinks" style="width: 67%;">30ドリンクの数</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="now30Drinks" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="now30Drinks" style="width: 70%;">30ドリンクの数</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="now30Drinks" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="nowMaxDrinks" style="width: 67%;">MAXドリンクの数</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="nowMaxDrinks" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="nowMaxDrinks" style="width: 70%;">MAXドリンクの数</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="nowMaxDrinks" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="extraAddiblePack" style="width: 67%;">追加 PACK 数</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="extraAddiblePack" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="extraAddiblePack" style="width: 70%;">追加 PACK 数</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="extraAddiblePack" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="playerMaxStamina" style="width: 67%;">最大元気</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="playerMaxStamina" type="number" step="1"></div>
-				</div>
-			</div>
-
-			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
-				<h6>元気効率設定</h6>
-				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="stWasteStamina" style="width: 67%;">1倍1回の消費元気</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="stWasteStamina" type="number" step="1"></div>
-				</div>
-				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="stEarnPoint" style="width: 67%;">1倍1回での獲得ptと<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="stEarnPoint" type="number" step="1"></div>
-				</div>
-				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="stMultiplier" style="width: 67%;">1回プレイに使われる倍率</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="stMultiplier" type="number" step="1"></div>
-				</div>
-				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="stWasteTime" style="width: 67%;">1回プレイの平均所要時間 (分)</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="stWasteTime" type="number" step="0.1"></div>
+					<label class="col-form-label col-form-label-sm" for="playerMaxStamina" style="width: 70%;">最大 <i class="far fa-heart text-danger"></i> 元気</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="playerMaxStamina" type="number" step="1"></div>
 				</div>
 			</div>
 
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
-				<h6>時間効率設定</h6>
+				<h6>元気効率設定 <span class="badge badge-success">元気効率</span></h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="tiWasteStamina" style="width: 67%;">1回ローテの消費元気</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiWasteStamina" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="stWasteStamina" style="width: 70%;">1倍1回の消費 <i class="far fa-heart text-danger"></i> 元気</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="stWasteStamina" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="tiEarnPoint" style="width: 67%;">1回ローテでの獲得ptと<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiEarnPoint" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="stEarnPoint" style="width: 70%;">1倍1回での <i class="fas fa-star text-warning"></i> 獲得ptと<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="stEarnPoint" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="tiWasteTime" style="width: 67%;">1回ローテの平均所要時間 (分)</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiWasteTime" type="number" step="0.1"></div>
+					<label class="col-form-label col-form-label-sm" for="stMultiplier" style="width: 70%;">1回プレイに使われる倍率</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="stMultiplier" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="stWasteTime" style="width: 70%;">1回プレイの平均 <i class="far fa-clock text-success"></i> 所要時間 (分)</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="stWasteTime" type="number" step="0.1"></div>
+				</div>
+			</div>
+
+			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
+				<h6>時間効率設定 <span class="badge badge-warning">時間効率</span></h6>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="tiWasteStamina" style="width: 70%;">1回ローテの消費 <i class="far fa-heart text-danger"></i> 元気</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="tiWasteStamina" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="tiEarnPoint" style="width: 70%;">1回ローテでの <i class="fas fa-star text-warning"></i> 獲得ptと<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="tiEarnPoint" type="number" step="1"></div>
+				</div>
+				<div class="d-flex">
+					<label class="col-form-label col-form-label-sm" for="tiWasteTime" style="width: 70%;">1回ローテの平均 <i class="far fa-clock text-success"></i> 所要時間 (分)</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="tiWasteTime" type="number" step="0.1"></div>
 				</div>
 			</div>
 
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
 				<h6>イベント曲設定</h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="evWasteItem" style="width: 67%;">1倍1回の消費<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="evWasteItem" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="evWasteItem" style="width: 70%;">1倍1回の消費<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="evWasteItem" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="evEarnPoint" style="width: 67%;">1倍1回での獲得pt</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="evEarnPoint" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="evEarnPoint" style="width: 70%;">1倍1回での <i class="fas fa-star text-warning"></i> 獲得pt</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="evEarnPoint" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="evMultiplier" style="width: 67%;">1回プレイに使われる倍率</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="evMultiplier" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="evMultiplier" style="width: 70%;">1回プレイに使われる倍率</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="evMultiplier" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="evWasteTime" style="width: 67%;">1回プレイの平均所要時間 (分)</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="evWasteTime" type="number" step="0.1"></div>
+					<label class="col-form-label col-form-label-sm" for="evWasteTime" style="width: 70%;">1回プレイの平均 <i class="far fa-clock text-success"></i> 所要時間 (分)</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="evWasteTime" type="number" step="0.1"></div>
 				</div>
 			</div>
 			<!--
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
 				<h6>経験値設定</h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="currentPLevel" style="width: 67%;">現在のプロデューサーレベル</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentPLevel" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="currentPLevel" style="width: 70%;">現在のプロデューサーレベル</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="currentPLevel" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="currentPLevelExp" style="width: 67%;">現在のプロデューサー経験値</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="currentPLevelExp" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="currentPLevelExp" style="width: 70%;">現在のプロデューサー経験値</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="currentPLevelExp" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="stEarnExp" style="width: 67%;">元気効率1回プレイで貰える経験値</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="stEarnExp" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="stEarnExp" style="width: 70%;">元気効率1回プレイで貰える経験値</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="stEarnExp" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="tiEarnExp" style="width: 67%;">時間効率1回プレイで貰える経験値</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="tiEarnExp" type="number" step="0.1"></div>
+					<label class="col-form-label col-form-label-sm" for="tiEarnExp" style="width: 70%;">時間効率1回プレイで貰える経験値</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="tiEarnExp" type="number" step="0.1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="evEarnExp" style="width: 67%;">イベント曲1回プレイで貰える経験値</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="evEarnExp" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="evEarnExp" style="width: 70%;">イベント曲1回プレイで貰える経験値</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="evEarnExp" type="number" step="1"></div>
 				</div>
 			</div>
 			-->
@@ -276,61 +283,61 @@ body
 					<div style="width: 40%;"><input class="form-control form-control-sm" id="eventEndDate" type="date"> <input id="eventEndTime" class="form-control form-control-sm" type="time" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="itemName" style="width: 67%;">イベントアイテムの名前</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="itemName" type="text"></div>
+					<label class="col-form-label col-form-label-sm" for="itemName" style="width: 70%;">イベントアイテムの名前</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="itemName" type="text"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="extraStaminaPerDay" style="width: 67%;">毎日貰える追加元気</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="extraStaminaPerDay" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="extraStaminaPerDay" style="width: 70%;">毎日貰える追加 <i class="far fa-heart text-danger"></i> 元気</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="extraStaminaPerDay" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="extraItemPerDay" style="width: 67%;">毎日貰える追加<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="extraItemPerDay" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="extraItemPerDay" style="width: 70%;">毎日貰える追加<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="extraItemPerDay" type="number" step="1"></div>
 				</div>
 			</div>
 
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
-				<h6>時速設定</h6>
+				<h6>最大時速設定</h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvEarnItem" style="width: 67%;"><span class="badge badge-warning">時間効率</span> 1回最大獲得<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvEarnItem" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="maximumEvEarnItem" style="width: 70%;"><span class="badge badge-warning">時間効率</span> 1回最大獲得<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="maximumEvEarnItem" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvItemTime" style="width: 67%;"><span class="badge badge-warning">時間効率</span> 1回最速プレイ時間 (分)</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvItemTime" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="maximumEvItemTime" style="width: 70%;"><span class="badge badge-warning">時間効率</span> 1回最速 <i class="far fa-clock text-success"></i> プレイ時間 (分)</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="maximumEvItemTime" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvWasteItem" style="width: 67%;">イベ曲1倍1回の最大消費<span class="itemCountName">アイテム数</span></label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvWasteItem" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="maximumEvWasteItem" style="width: 70%;">イベ曲1倍1回の最大消費<span class="itemCountName">アイテム数</span></label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="maximumEvWasteItem" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvEarnPoint" style="width: 67%;">イベ曲1倍1回の最大獲得pt</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvEarnPoint" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="maximumEvEarnPoint" style="width: 70%;">イベ曲1倍1回の最大 <i class="fas fa-star text-warning"></i> 獲得pt</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="maximumEvEarnPoint" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvMultiplier" style="width: 67%;">イベント曲最大倍率</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvMultiplier" type="number" step="1"></div>
+					<label class="col-form-label col-form-label-sm" for="maximumEvMultiplier" style="width: 70%;">イベント曲最大倍率</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="maximumEvMultiplier" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvWasteTime" style="width: 67%;">イベント曲最速プレイ時間 (分)</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvWasteTime" type="number" step="0.1"></div>
+					<label class="col-form-label col-form-label-sm" for="maximumEvWasteTime" style="width: 70%;">イベント曲最速 <i class="far fa-clock text-success"></i> プレイ時間 (分)</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="maximumEvWasteTime" type="number" step="0.1"></div>
 				</div>
 			</div>
 
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
 				<h6>ゲーム設定</h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="jewelToStamina" style="width: 67%;">石1回砕いて消費する量</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="jewelToStamina" type="number" step="1" placeholder="e.g. 50"></div>
+					<label class="col-form-label col-form-label-sm" for="jewelToStamina" style="width: 70%;"><i class="far fa-gem text-primary"></i> 石1回砕いて消費する量</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="jewelToStamina" type="number" step="1" placeholder="e.g. 50"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="jewelToPack" style="width: 67%;">PACK 1個分の石の量</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="jewelToPack" type="number" step="1" placeholder="e.g. 8400"></div>
+					<label class="col-form-label col-form-label-sm" for="jewelToPack" style="width: 70%;">PACK 1個分の <i class="far fa-gem text-primary"></i> 石の量</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="jewelToPack" type="number" step="1" placeholder="e.g. 8400"></div>
 				</div>
 				<!--
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="moneyToPack" style="width: 67%;">PACK 1回分の値段</label>
-					<div style="width: 33%;"><input class="form-control form-control-sm" id="moneyToPack" type="number" step="0.01"></div>
+					<label class="col-form-label col-form-label-sm" for="moneyToPack" style="width: 70%;">PACK 1回分の値段</label>
+					<div style="width: 30%;"><input class="form-control form-control-sm" id="moneyToPack" type="number" step="0.01"></div>
 				</div>
 				-->
 			</div>
@@ -341,15 +348,15 @@ body
 			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
 				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">現在所持</h6>
 				<div class="d-flex">
-					<div class="result-left">現在の所持<span class="itemCountName">アイテム数</span>の消費時間</div>
+					<div class="result-left">現在の所持<span class="itemCountName">アイテム数</span>の <i class="far fa-clock text-success"></i> 消費時間</div>
 					<div class="result-right" id="currentItemWasteTime"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">現在の所持<span class="itemCountName">アイテム数</span>の獲得pt</div>
+					<div class="result-left">現在の所持<span class="itemCountName">アイテム数</span>の <i class="fas fa-star text-warning"></i> 獲得pt</div>
 					<div class="result-right" id="currentItemEarnPoint"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">現在の獲得pt</div>
+					<div class="result-left">現在の <i class="fas fa-star text-warning"></i> 獲得pt</div>
 					<div class="result-right" id="currentEarnPoint"></div>
 				</div>
 			</div>
@@ -361,11 +368,11 @@ body
 					<div class="result-right" id="remainDays"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">自然回復分の残り元気</div>
+					<div class="result-left">自然回復分の残り <i class="far fa-heart text-danger"></i> 元気</div>
 					<div class="result-right" id="remainStamina"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">その分の元気の消費時間</div>
+					<div class="result-left">その分の元気の <i class="far fa-clock text-success"></i> 消費時間</div>
 					<div class="result-right" id="remainStaminaWasteTime"></div>
 				</div>
 				<div class="d-flex">
@@ -373,11 +380,11 @@ body
 					<div class="result-right" id="extraItems"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">これによる追加の<span class="itemCountName">アイテム数</span>の消費時間</div>
+					<div class="result-left">これによる追加の<span class="itemCountName">アイテム数</span>の <i class="far fa-clock text-success"></i> 消費時間</div>
 					<div class="result-right" id="extraItemWasteTime"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">自然回復の獲得pt</div>
+					<div class="result-left">自然回復分の <i class="fas fa-star text-warning"></i> 獲得pt</div>
 					<div class="result-right" id="extraItemEarnPoint"></div>
 				</div>
 			</div>
@@ -385,7 +392,7 @@ body
 			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
 				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">現在所持</h6>
 				<div class="d-flex">
-					<div class="result-left">自然回復による最終の獲得pt</div>
+					<div class="result-left">自然回復分による最終の <i class="fas fa-star text-warning"></i> 獲得pt</div>
 					<div class="result-right" id="currentFinalPoint"></div>
 				</div>
 			</div>
@@ -393,11 +400,11 @@ body
 			<div class="border rounded px-0 px-md-2 px-lg-3 py-md-2 my-1">
 				<h6 class="mb-0 mb-md-2 mt-md-1 pb-1 px-1 pt-1 p-md-0 border-bottom">ドーピング</h6>
 				<div class="d-flex">
-					<div class="result-left">石、ドリンク、追加 PACK による追加元気</div>
+					<div class="result-left">石、ドリンク、追加 PACK による追加 <i class="far fa-heart text-danger"></i> 元気</div>
 					<div class="result-right" id="premiumExtraStamina"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">追加元気の消費時間</div>
+					<div class="result-left">追加元気の <i class="far fa-clock text-success"></i> 消費時間</div>
 					<div class="result-right" id="premiumExtraStaminaWasteTime"></div>
 				</div>
 				<div class="d-flex">
@@ -405,11 +412,11 @@ body
 					<div class="result-right" id="premiumExtraItems"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">追加の<span class="itemCountName">アイテム数</span>の消費時間</div>
+					<div class="result-left">追加の<span class="itemCountName">アイテム数</span>の <i class="far fa-clock text-success"></i> 消費時間</div>
 					<div class="result-right" id="premiumExtraItemsWasteTime"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">追加の獲得pt</div>
+					<div class="result-left">追加の <i class="fas fa-star text-warning"></i> 獲得pt</div>
 					<div class="result-right" id="premiumExtraEarnPoints"></div>
 				</div>
 			</div>
@@ -428,7 +435,7 @@ body
 				-->
 				<!--
 				<div class="d-flex">
-					<div class="result-left">備蓄<span class="itemName">アイテム</span>がない場合の最速元気消費量</div>
+					<div class="result-left">備蓄<span class="itemName">アイテム</span>がない場合の最速 <i class="far fa-heart text-danger"></i> 元気消費量</div>
 					<div class="result-right" id="fastestWasteRateWithoutItems"></div>
 				</div>
 				-->
@@ -440,12 +447,12 @@ body
 				-->
 				<!--
 				<div class="d-flex">
-					<div class="result-left">備蓄<span class="itemName">アイテム</span>が残ってる場合の最速元気消費量</div>
+					<div class="result-left">備蓄<span class="itemName">アイテム</span>が残ってる場合の最速 <i class="far fa-heart text-danger"></i> 元気消費量</div>
 					<div class="result-right" id="fastestWasteRateWithItems"></div>
 				</div>
 				-->
 				<div class="d-flex">
-					<div class="result-left">ボーダーに追いつかれるに必要の時間</div>
+					<div class="result-left">ボーダーに追いつかれるに <i class="far fa-clock text-success"></i> 必要の時間</div>
 					<div class="result-right" id="timeForBorderToChase"></div>
 				</div>
 			</div>
@@ -457,11 +464,11 @@ body
 					<div class="result-right" id="targetItemPlays"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">その回数をプレイするに必要な時間</div>
+					<div class="result-left">その回数をプレイするに <i class="far fa-clock text-success"></i> 必要な時間</div>
 					<div class="result-right" id="targetItemWasteTime"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">目標<span class="itemName">アイテム</span>による獲得pt</div>
+					<div class="result-left">目標<span class="itemName">アイテム</span>による <i class="fas fa-star text-warning"></i> 獲得pt</div>
 					<div class="result-right" id="targetItemEarnPoints"></div>
 				</div>
 				<div class="d-flex">
@@ -469,15 +476,15 @@ body
 					<div class="result-right" id="targetItemNeedPlays"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要なプレイ時間</div>
+					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要な <i class="far fa-clock text-success"></i> プレイ時間</div>
 					<div class="result-right" id="targetItemNeedPlaysTime"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要な元気</div>
+					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要な <i class="far fa-heart text-danger"></i> 元気</div>
 					<div class="result-right" id="targetItemNeedPlaysStamina"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要なジュエル</div>
+					<div class="result-left">目標<span class="itemName">アイテム</span>までに必要な <i class="far fa-gem text-primary"></i> ジュエル</div>
 					<div class="result-right" id="targetItemNeedPlaysJewel"></div>
 				</div>
 			</div>
@@ -501,15 +508,15 @@ body
 					<div class="result-right" id="targetPointNeedPlays"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要なプレイ時間</div>
+					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要な <i class="far fa-clock text-success"></i> プレイ時間</div>
 					<div class="result-right" id="targetPointNeedPlaysTime"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要な元気</div>
+					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要な <i class="far fa-heart text-danger"></i> 元気</div>
 					<div class="result-right" id="targetPointNeedPlaysStamina"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要なジュエル</div>
+					<div class="result-left">必要な<span class="itemCountName">アイテム数</span>までに必要な <i class="far fa-gem text-primary"></i> ジュエル</div>
 					<div class="result-right" id="targetPointNeedPlaysJewel"></div>
 				</div>
 			</div>
@@ -523,6 +530,58 @@ body
 		</div>
 	</div>
 </div>
+
+<div class="container-fluid">
+	<footer class="pt-3 pb-2">
+		<div class="row">
+			<div class="col text-center">
+				<small class="d-block mb-3 text-muted"><i class="far fa-copyright"></i> 2018</small>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<div class="container-fluid d-none">
+	<footer class="pt-4 my-md-5 pt-md-5 border-top">
+		<div class="row">
+			<div class="col-12 col-md">
+				<img class="mb-2" src="/android-icon-48x48.png" alt="" width="48" height="48">
+				<small class="d-block mb-3 text-muted"><i class="fas fa-copyright"></i> 2018</small>
+			</div>
+			<div class="col-6 col-md">
+				<h5>Features</h5>
+				<ul class="list-unstyled text-small">
+					<li><a class="text-muted" href="#">Cool stuff</a></li>
+					<li><a class="text-muted" href="#">Random feature</a></li>
+					<li><a class="text-muted" href="#">Team feature</a></li>
+					<li><a class="text-muted" href="#">Stuff for developers</a></li>
+					<li><a class="text-muted" href="#">Another one</a></li>
+					<li><a class="text-muted" href="#">Last time</a></li>
+				</ul>
+			</div>
+			<div class="col-6 col-md">
+				<h5>Resources</h5>
+				<ul class="list-unstyled text-small">
+					<li><a class="text-muted" href="#">Resource</a></li>
+					<li><a class="text-muted" href="#">Resource name</a></li>
+					<li><a class="text-muted" href="#">Another resource</a></li>
+					<li><a class="text-muted" href="#">Final resource</a></li>
+				</ul>
+			</div>
+			<div class="col-6 col-md">
+				<h5>About</h5>
+				<ul class="list-unstyled text-small">
+					<li><a class="text-muted" href="#">Team</a></li>
+					<li><a class="text-muted" href="#">Locations</a></li>
+					<li><a class="text-muted" href="#">Privacy</a></li>
+					<li><a class="text-muted" href="#">Terms</a></li>
+			</ul>
+			</div>
+		</div>
+	</footer>
+</div>
+
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
@@ -569,6 +628,7 @@ document.addEventListener('DOMContentLoaded', function()
 		min = min % 60;
 
 		var html = '';
+		html += '<i class="far fa-clock text-success"></i> ';
 		if (hr > 0)
 		{
 			html += (sign * hr) + ' 時間';
@@ -676,7 +736,7 @@ document.addEventListener('DOMContentLoaded', function()
 		//console.log(staminaEfficiency);
 		//console.log(timeEfficiency);
 
-		$('#currentEarnPoint').text(formatNumber(currentPoint) + ' pt');
+		$('#currentEarnPoint').html('<i class="fas fa-star text-warning"></i> ' + formatNumber(currentPoint) + ' pt');
 
 		var currentDate = new Date();
 		var eventEndDateTime = new Date(eventEndDate + ' ' + eventEndTime);
@@ -701,11 +761,11 @@ document.addEventListener('DOMContentLoaded', function()
 			eventEndDateTimeZ.setHours(0, 0, 0, 0);
 
 			var remainDays = (eventEndDateTimeZ.getTime() - currentDateZ.getTime()) / (24 * 60 * 60 * 1000);
-			$('#remainDays').text(remainDays + ' 日');
+			$('#remainDays').html('<i class="far fa-clock text-success"></i> ' + remainDays + ' 日');
 			var remainStamina = Math.floor((eventEndDateTime.getTime() - currentDate.getTime()) / (5 * 60 * 1000));
 			$('#remainStamina').html(function(i, oldHtml)
 			{
-				var html = formatNumber(remainStamina);
+				var html = '<i class="far fa-heart text-danger"></i> ' + formatNumber(remainStamina);
 
 				if (extraStaminaPerDay && extraStaminaPerDay > 0)
 				{
@@ -736,12 +796,12 @@ document.addEventListener('DOMContentLoaded', function()
 		});
 
 		var currentItemWasteTime = evWasteItem > 0 ? Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
-		$('#currentItemWasteTime').text(function(i, oldHtml)
+		$('#currentItemWasteTime').html(function(i, oldHtml)
 		{
 			return getTimeText(currentItemWasteTime, evMultiplier);
 		});
 		var currentItemEarnPoint = evWasteItem > 0 ? Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) : 0;
-		$('#currentItemEarnPoint').text(formatNumber(currentItemEarnPoint) + ' pt');
+		$('#currentItemEarnPoint').html('<i class="fas fa-star text-warning"></i> ' + formatNumber(currentItemEarnPoint) + ' pt');
 		var extraItemsStWasteTime = evWasteItem > 0 ? Math.floor(extraItemsSt / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
 		var extraItemsTiWasteTime = evWasteItem > 0 ? Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
 		$('#extraItemWasteTime').html(function(i, oldHtml)
@@ -752,18 +812,18 @@ document.addEventListener('DOMContentLoaded', function()
 		var extraItemEarnPointTi = evWasteItem > 0 ? Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + extraItemsTi : 0;
 		$('#extraItemEarnPoint').html(function(i, oldHtml)
 		{
-			return splitTwoColumnText(formatNumber(extraItemEarnPointSt) + ' pt', formatNumber(extraItemEarnPointTi) + ' pt');
+			return splitTwoColumnText('<i class="fas fa-star text-warning"></i> ' + formatNumber(extraItemEarnPointSt) + ' pt', '<i class="fas fa-star text-warning"></i> ' + formatNumber(extraItemEarnPointTi) + ' pt');
 		});
 		$('#currentFinalPoint').html(function(i, oldHtml)
 		{
-			return splitTwoColumnText((currentPoint + currentItemEarnPoint + extraItemEarnPointSt) + ' pt', (currentPoint + currentItemEarnPoint + extraItemEarnPointTi) + ' pt');
+			return splitTwoColumnText('<i class="fas fa-star text-warning"></i> ' + (currentPoint + currentItemEarnPoint + extraItemEarnPointSt) + ' pt', '<i class="fas fa-star text-warning"></i> ' + (currentPoint + currentItemEarnPoint + extraItemEarnPointTi) + ' pt');
 		});
 
 		var premiumExtraStamina = Math.floor(nowJewels / jewelToStamina) * playerMaxStamina + now10Drinks * 10 + now20Drinks * 20 + now30Drinks * 30 + nowMaxDrinks * playerMaxStamina + Math.floor((extraAddiblePack * jewelToPack) / jewelToStamina) * playerMaxStamina;
 		$('#premiumExtraStamina').html(function(i, oldHtml)
 		{
 			var num = [];
-			num.push([Math.floor(nowJewels / jewelToStamina) * playerMaxStamina, 'ジュエル: ' + formatNumber(nowJewels)]);
+			num.push([Math.floor(nowJewels / jewelToStamina) * playerMaxStamina, 'ジュエル: <i class="far fa-gem text-primary"></i> ' + formatNumber(nowJewels)]);
 			num.push([now10Drinks * 10 + now20Drinks * 20 + now30Drinks * 30 + nowMaxDrinks * playerMaxStamina, 'ドリンク: ' + now10Drinks + '/' + now20Drinks + '/' + now30Drinks + '/' + nowMaxDrinks]);
 			num.push([Math.floor((extraAddiblePack * jewelToPack) / jewelToStamina) * playerMaxStamina, '追加 PACK: ' + extraAddiblePack]);
 
@@ -776,6 +836,10 @@ document.addEventListener('DOMContentLoaded', function()
 					if (html !== '')
 					{
 						html += ' + ';
+					}
+					else
+					{
+						html += '<i class="far fa-heart text-danger"></i> ';
 					}
 					html += formatNumber(num[i][0]);
 
@@ -820,7 +884,7 @@ document.addEventListener('DOMContentLoaded', function()
 		var premiumExtraEarnPointsTi = evWasteItem > 0 ? Math.floor(premiumExtraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + premiumExtraItemsTi : 0;
 		$('#premiumExtraEarnPoints').html(function(i, oldHtml)
 		{
-			return splitTwoColumnText(formatNumber(premiumExtraEarnPointsSt) + ' pt', formatNumber(premiumExtraEarnPointsTi) + ' pt');
+			return splitTwoColumnText('<i class="fas fa-star text-warning"></i> ' + formatNumber(premiumExtraEarnPointsSt) + ' pt', '<i class="fas fa-star text-warning"></i> ' + formatNumber(premiumExtraEarnPointsTi) + ' pt');
 		});
 
 		if (!maximumEvMultiplier)
@@ -837,15 +901,17 @@ document.addEventListener('DOMContentLoaded', function()
 		//console.log('maximumWasteTimeInOneHour: ', maximumWasteTimeInOneHour);
 		var fastestSpeedWithoutItems = maximumWasteTimeInOneHour > 0 ? maximumTotalEarnPoint / maximumWasteTimeInOneHour : 0;
 		//console.log('fastestSpeedWithoutItems: ', fastestSpeedWithoutItems);
-		//$('#fastestSpeedWithoutItems').text(formatNumber(parseFloat(fastestSpeedWithoutItems.toFixed(2))) + ' pt/時');
+		//$('#fastestSpeedWithoutItems').html('<i class="fas fa-star text-warning"></i> ' + formatNumber(parseFloat(fastestSpeedWithoutItems.toFixed(2))) + ' pt/時');
 		var fastestSpeedWithItems = maximumEvWasteTime > 0 ? (maximumEvEarnPoint * maximumEvMultiplier) * (60 / maximumEvWasteTime) : 0;
-		//$('#fastestSpeedWithItems').text(formatNumber(parseFloat(fastestSpeedWithItems.toFixed(2))) + ' pt/時');
+		//$('#fastestSpeedWithItems').html('<i class="fas fa-star text-warning"></i> ' + formatNumber(parseFloat(fastestSpeedWithItems.toFixed(2))) + ' pt/時');
 		$('#fastestSpeed').html(function(i, old)
 		{
 			var html = '';
 			html += '<div class="d-flex flex-column"><div><span class="badge badge-info">備蓄なし</span> ';
+			html += '<i class="fas fa-star text-warning"></i> ';
 			html += formatNumber(parseFloat(fastestSpeedWithoutItems.toFixed(2))) + ' pt/時';
 			html += '</div><div><span class="badge badge-danger">備蓄あり</span> ';
+			html += '<i class="fas fa-star text-warning"></i> ';
 			html += formatNumber(parseFloat(fastestSpeedWithItems.toFixed(2))) + ' pt/時';
 			html += '</div></div>';
 
@@ -882,12 +948,12 @@ document.addEventListener('DOMContentLoaded', function()
 		var targetItemPlays = evWasteItem > 0 ? Math.floor(targetItem / (evWasteItem * evMultiplier)) : 0;
 		$('#targetItemPlays').text(formatNumber(targetItemPlays) + ' 回');
 		var targetItemWasteTime = targetItemPlays * (evWasteTime * 60); // seconds
-		$('#targetItemWasteTime').text(function(i, oldHtml)
+		$('#targetItemWasteTime').html(function(i, oldHtml)
 		{
 			return getTimeText(targetItemWasteTime, evMultiplier);
 		});
 		var targetItemEarnPoints = targetItemPlays * (evEarnPoint * evMultiplier);
-		$('#targetItemEarnPoints').text(formatNumber(targetItemEarnPoints) + ' pt');
+		$('#targetItemEarnPoints').html('<i class="fas fa-star text-warning"></i> ' + formatNumber(targetItemEarnPoints) + ' pt');
 		var targetItemNeedPlaysSt = stEarnPoint > 0 ? Math.ceil((targetItem - currentItem) / (stEarnPoint * stMultiplier)) : 0;
 		var targetItemNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil((targetItem - currentItem) / tiEarnPoint) : 0;
 		$('#targetItemNeedPlays').html(function(i, oldHtml)
@@ -904,13 +970,13 @@ document.addEventListener('DOMContentLoaded', function()
 		var targetItemNeedPlaysStaminaTi = targetItemNeedPlaysTi * tiWasteStamina;
 		$('#targetItemNeedPlaysStamina').html(function(i, oldHtml)
 		{
-			return splitTwoColumnText(formatNumber(targetItemNeedPlaysStaminaSt), formatNumber(targetItemNeedPlaysStaminaTi));
+			return splitTwoColumnText('<i class="far fa-heart text-danger"></i> ' + formatNumber(targetItemNeedPlaysStaminaSt), '<i class="far fa-heart text-danger"></i> ' + formatNumber(targetItemNeedPlaysStaminaTi));
 		});
 		var targetItemNeedPlaysJewelSt = playerMaxStamina > 0 ? Math.ceil(targetItemNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina : 0;
 		var targetItemNeedPlaysJewelTi = playerMaxStamina > 0 ? Math.ceil(targetItemNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina : 0;
 		$('#targetItemNeedPlaysJewel').html(function(i, oldHtml)
 		{
-			return splitTwoColumnText(formatNumber(targetItemNeedPlaysJewelSt), formatNumber(targetItemNeedPlaysJewelTi));
+			return splitTwoColumnText('<i class="far fa-gem text-primary"></i> ' + formatNumber(targetItemNeedPlaysJewelSt), '<i class="far fa-gem text-primary"></i> ' + formatNumber(targetItemNeedPlaysJewelTi));
 		});
 		var targetNeedPoint = targetPoint - (currentItemEarnPoint + currentPoint);
 		var targetPointPlays = evEarnPoint + evWasteItem > 0 ? Math.ceil(targetNeedPoint / ((evEarnPoint + evWasteItem) * evMultiplier)) : 0;
@@ -940,13 +1006,13 @@ document.addEventListener('DOMContentLoaded', function()
 		var targetPointNeedPlaysStaminaTi = targetPointNeedPlaysTi * tiWasteStamina;
 		$('#targetPointNeedPlaysStamina').html(function(i, oldHtml)
 		{
-			return splitTwoColumnText(formatNumber(targetPointNeedPlaysStaminaSt), formatNumber(targetPointNeedPlaysStaminaTi));
+			return splitTwoColumnText('<i class="far fa-heart text-danger"></i> ' + formatNumber(targetPointNeedPlaysStaminaSt), '<i class="far fa-heart text-danger"></i> ' + formatNumber(targetPointNeedPlaysStaminaTi));
 		});
 		var targetPointNeedPlaysJewelSt = playerMaxStamina > 0 ? Math.ceil(targetPointNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina : 0;
 		var targetPointNeedPlaysJewelTi = playerMaxStamina > 0 ? Math.ceil(targetPointNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina : 0;
 		$('#targetPointNeedPlaysJewel').html(function(i, oldHtml)
 		{
-			return splitTwoColumnText(formatNumber(targetPointNeedPlaysJewelSt), formatNumber(targetPointNeedPlaysJewelTi));
+			return splitTwoColumnText('<i class="far fa-gem text-primary"></i> ' + formatNumber(targetPointNeedPlaysJewelSt), '<i class="far fa-gem text-primary"></i> ' + formatNumber(targetPointNeedPlaysJewelTi));
 		});
 
 		var obj = {};
@@ -955,15 +1021,18 @@ document.addEventListener('DOMContentLoaded', function()
 			obj[e.id] = e.value;
 		});
 
-		//console.log(obj);
-		var j = JSON.stringify(obj)
-		//console.log(j);
-		var s = btoa(unescape(encodeURIComponent(j)));
-		//console.log(s);
-		$('#permalink').val(location.href + '#' + s);
+		if (window.JSON && window.btoa)
+		{
+			//console.log(obj);
+			var j = JSON.stringify(obj)
+			//console.log(j);
+			var s = btoa(unescape(encodeURIComponent(j)));
+			//console.log(s);
+			$('#permalink').val(location.href + '#' + s);
+		}
 	};
 
-	if (location.hash !== '' && location.hash.charAt(0) === '#')
+	if (location.hash !== '' && location.hash.charAt(0) === '#' && window.JSON && window.atob)
 	{
 		var s = location.hash.substr(1);
 		var j = decodeURIComponent(escape(atob(s)));
@@ -1002,10 +1071,16 @@ document.addEventListener('DOMContentLoaded', function()
 		var bufferToCalc;
 		$('#settingForm input').each(function(i, e)
 		{
-			e.value = localStorage.getItem(e.id);
+			if (window.localStorage)
+			{
+				e.value = localStorage.getItem(e.id);
+			}
 		}).on('input change', function(e)
 		{
-			localStorage.setItem(this.id, this.value);
+			if (window.localStorage)
+			{
+				localStorage.setItem(this.id, this.value);
+			}
 			if (bufferToCalc)
 			{
 				clearTimeout(bufferToCalc);
