@@ -733,8 +733,8 @@ document.addEventListener('DOMContentLoaded', function()
 		var staminaEfficiency = stWasteStamina > 0 && evWasteItem > 0 ? (stEarnPoint / stWasteStamina) * (1 + (evEarnPoint / evWasteItem)) : 0;
 		var timeEfficiency = tiWasteStamina > 0 && evWasteItem > 0 ? (tiEarnPoint / tiWasteStamina) * (1 + (evEarnPoint / evWasteItem)) : 0;
 
-		//console.log(staminaEfficiency);
-		//console.log(timeEfficiency);
+		//console.log('staminaEfficiency: ', staminaEfficiency);
+		//console.log('timeEfficiency: ', timeEfficiency);
 
 		$('#currentEarnPoint').html('<i class="fas fa-star text-warning"></i> ' + formatNumber(currentPoint) + ' pt');
 
@@ -980,19 +980,105 @@ document.addEventListener('DOMContentLoaded', function()
 		});
 
 		var targetNeedPoint = targetPoint - (currentItemEarnPoint + currentPoint);
-		var targetPointPlays = evEarnPoint + evWasteItem > 0 ? Math.ceil(targetNeedPoint / ((evEarnPoint + evWasteItem) * evMultiplier)) : 0;
+
+		var targetPointPlaysSt = 0;
+		var targetPointPlaysTi = 0;
+		var targetPointPlaysLastTimeSt = 0;
+		var targetPointPlaysLastTimeTi = 0;
+		var targetPointNeedPlaysSt = 0;
+		var targetPointNeedPlaysTi = 0;
+
+		var targetPointWasteItemSt = 0, temp_totalPointsSt = 0, temp_totalPointsStBeforeLastPlay = 0;
+		while (temp_totalPointsStBeforeLastPlay < targetNeedPoint && temp_totalPointsSt < targetNeedPoint)
+		{
+			targetPointNeedPlaysSt++;
+			targetPointWasteItemSt = targetPointNeedPlaysSt * (stEarnPoint * stMultiplier);
+			targetPointPlaysSt = Math.floor(targetPointWasteItemSt / (evWasteItem * evMultiplier));
+			temp_totalPointsSt = targetPointPlaysSt * (evEarnPoint * evMultiplier) + targetPointWasteItemSt;
+			temp_totalPointsStBeforeLastPlay = targetPointPlaysLastTimeSt * (evEarnPoint * evMultiplier) + targetPointWasteItemSt;
+			targetPointPlaysLastTimeSt = targetPointPlaysSt;
+		}
+
+		if (temp_totalPointsStBeforeLastPlay >= targetNeedPoint)
+		{
+			targetPointPlaysSt = targetPointPlaysLastTimeSt;
+			targetPointNeedPlaysSt;
+		}
+		else if (temp_totalPointsSt >= targetNeedPoint)
+		{
+			targetPointPlaysSt;
+			targetPointNeedPlaysSt;
+		}
+
+		//console.log('targetPointPlaysSt: ', targetPointPlaysSt);
+		//console.log('targetPointNeedPlaysSt: ', targetPointNeedPlaysSt);
+
+		var targetPointWasteItemTi = 0, temp_totalPointsTi = 0, temp_totalPointsTiBeforeLastPlay = 0;
+		while (temp_totalPointsTiBeforeLastPlay < targetNeedPoint && temp_totalPointsTi < targetNeedPoint)
+		{
+			targetPointNeedPlaysTi++;
+			targetPointWasteItemTi = targetPointNeedPlaysTi * tiEarnPoint;
+			targetPointPlaysTi = Math.floor(targetPointWasteItemTi / (evWasteItem * evMultiplier));
+			temp_totalPointsTi = targetPointPlaysTi * (evEarnPoint * evMultiplier) + targetPointWasteItemTi;
+			temp_totalPointsTiBeforeLastPlay = targetPointPlaysLastTimeTi * (evEarnPoint * evMultiplier) + targetPointWasteItemTi;
+			targetPointPlaysLastTimeTi = targetPointPlaysTi;
+		}
+
+		if (temp_totalPointsTiBeforeLastPlay >= targetNeedPoint)
+		{
+			targetPointPlaysTi = targetPointPlaysLastTimeTi;
+			targetPointNeedPlaysTi;
+		}
+		else if (temp_totalPointsTi >= targetNeedPoint)
+		{
+			targetPointPlaysTi;
+			targetPointNeedPlaysTi;
+		}
+
+		//var targetPointPlays = evEarnPoint + evWasteItem > 0 ? Math.ceil(targetNeedPoint / ((evEarnPoint + evWasteItem) * evMultiplier)) : 0;
 		//console.log(targetPointPlays);
-		$('#targetPointPlays').text(formatNumber(targetPointPlays) + ' 回');
-		var targetPointWasteTime = targetPointPlays * (evWasteTime * 60);
+		$('#targetPointPlays').html(function(i, oldHtml)
+		{
+			if (targetPointPlaysSt === targetPointPlaysTi)
+			{
+				return targetPointPlaysSt + ' 回 (' + evMultiplier + '倍)';
+			}
+			else if (targetPointPlaysSt > targetPointPlaysTi)
+			{
+				return targetPointPlaysTi + '～' + targetPointPlaysSt + ' 回 (' + evMultiplier + '倍)';
+			}
+			else
+			{
+				return targetPointPlaysSt + '～' + targetPointPlaysTi + ' 回 (' + evMultiplier + '倍)';
+			}
+			//return splitTwoColumnText(formatNumber(targetPointPlaysSt) + ' 回 (イベ曲' + evMultiplier + '倍/普通曲' + stMultiplier + '倍)', formatNumber(targetPointPlaysTi) + ' 回 (イベ曲' + evMultiplier + '倍)');
+		});
+		var targetPointWasteTimeSt = targetPointPlaysSt * (evWasteTime * 60);
+		var targetPointWasteTimeTi = targetPointPlaysTi * (evWasteTime * 60);
 		$('#targetPointWasteTime').html(function(i, oldHtml)
 		{
-			//return splitTwoColumnText(getTimeText((targetPointWasteTimeEv + targetPointWasteTimeSt), 'イベ曲' + evMultiplier + '倍/普通曲' + stMultiplier + '倍'), getTimeText((targetPointWasteTimeEv + targetPointWasteTimeTi), 'イベ曲' + evMultiplier + '倍'));
-			return getTimeText(targetPointWasteTime, evMultiplier);
+			return '約 ' + getTimeText(Math.max(targetPointWasteTimeSt, targetPointWasteTimeTi), evMultiplier);
+			//return splitTwoColumnText(getTimeText(targetPointWasteTimeSt, 'イベ曲' + evMultiplier + '倍/普通曲' + stMultiplier + '倍'), getTimeText(targetPointWasteTimeTi, 'イベ曲' + evMultiplier + '倍'));
 		});
-		var targetPointWasteItem = targetPointPlays * (evWasteItem * evMultiplier);
-		$('#targetPointWasteItem').text(formatNumber(targetPointWasteItem));
-		var targetPointNeedPlaysSt = stEarnPoint > 0 ? Math.ceil(targetPointWasteItem / (stEarnPoint * stMultiplier)) : 0;
-		var targetPointNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil(targetPointWasteItem / tiEarnPoint) : 0;
+		//var targetPointWasteItem = targetPointPlays * (evWasteItem * evMultiplier);
+		$('#targetPointWasteItem').html(function(i, oldHtml)
+		{
+			if (targetPointWasteItemSt === targetPointWasteItemTi)
+			{
+				return targetPointWasteItemSt;
+			}
+			else if (targetPointWasteItemSt > targetPointWasteItemTi)
+			{
+				return targetPointWasteItemTi + '～' + targetPointWasteItemSt;
+			}
+			else
+			{
+				return targetPointWasteItemSt + '～' + targetPointWasteItemTi;
+			}
+			return splitTwoColumnText(formatNumber(targetPointWasteItemSt), formatNumber(targetPointWasteItemTi));
+		});
+		//var targetPointNeedPlaysSt = stEarnPoint > 0 ? Math.ceil(targetPointWasteItem / (stEarnPoint * stMultiplier)) : 0;
+		//var targetPointNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil(targetPointWasteItem / tiEarnPoint) : 0;
 		$('#targetPointNeedPlays').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(targetPointNeedPlaysSt) + ' 回 (' + stMultiplier + '倍)', formatNumber(targetPointNeedPlaysTi) + ' 回');
@@ -1029,7 +1115,8 @@ document.addEventListener('DOMContentLoaded', function()
 			//console.log(j);
 			var s = btoa(unescape(encodeURIComponent(j)));
 			//console.log(s);
-			$('#permalink').val(location.href + '#' + s);
+			var h = location.href.split('#')[0];
+			$('#permalink').val(h + '#' + s);
 		}
 	};
 
