@@ -990,7 +990,7 @@ document.addEventListener('DOMContentLoaded', function()
 			return getTimeText(targetPointWasteTime, evMultiplier);
 		});
 		var targetPointWasteItem = targetPointPlays * (evWasteItem * evMultiplier);
-		$('#targetPointWasteItem').text(formatNumber(targetPointWasteItem) + ' (' + evMultiplier + '倍)');
+		$('#targetPointWasteItem').text(formatNumber(targetPointWasteItem));
 		var targetPointNeedPlaysSt = stEarnPoint > 0 ? Math.ceil(targetPointWasteItem / (stEarnPoint * stMultiplier)) : 0;
 		var targetPointNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil(targetPointWasteItem / tiEarnPoint) : 0;
 		$('#targetPointNeedPlays').html(function(i, oldHtml)
