@@ -978,6 +978,7 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			return splitTwoColumnText('<i class="far fa-gem text-primary"></i> ' + formatNumber(targetItemNeedPlaysJewelSt), '<i class="far fa-gem text-primary"></i> ' + formatNumber(targetItemNeedPlaysJewelTi));
 		});
+
 		var targetNeedPoint = targetPoint - (currentItemEarnPoint + currentPoint);
 		var targetPointPlays = evEarnPoint + evWasteItem > 0 ? Math.ceil(targetNeedPoint / ((evEarnPoint + evWasteItem) * evMultiplier)) : 0;
 		//console.log(targetPointPlays);
@@ -990,8 +991,8 @@ document.addEventListener('DOMContentLoaded', function()
 		});
 		var targetPointWasteItem = targetPointPlays * (evWasteItem * evMultiplier);
 		$('#targetPointWasteItem').text(formatNumber(targetPointWasteItem) + ' (' + evMultiplier + '倍)');
-		var targetPointNeedPlaysSt = stEarnPoint > 0 ? Math.ceil(targetNeedPoint / (stEarnPoint * stMultiplier)) : 0;
-		var targetPointNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil(targetNeedPoint / tiEarnPoint) : 0;
+		var targetPointNeedPlaysSt = stEarnPoint > 0 ? Math.ceil(targetPointWasteItem / (stEarnPoint * stMultiplier)) : 0;
+		var targetPointNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil(targetPointWasteItem / tiEarnPoint) : 0;
 		$('#targetPointNeedPlays').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(targetPointNeedPlaysSt) + ' 回 (' + stMultiplier + '倍)', formatNumber(targetPointNeedPlaysTi) + ' 回');
