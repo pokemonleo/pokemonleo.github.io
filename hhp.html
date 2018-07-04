@@ -973,7 +973,10 @@ document.addEventListener('DOMContentLoaded', function()
 		var bufferToCalc;
 		$('#settingForm input').each(function(i, e)
 		{
-			e.value = obj[e.id];
+			if (e.id in obj)
+			{
+				e.value = obj[e.id];
+			}
 		}).on('input change', function(e)
 		{
 			//localStorage.setItem(this.id, this.value);
@@ -1013,7 +1016,6 @@ document.addEventListener('DOMContentLoaded', function()
 			}, 100);
 		});
 	}
-
 
 	if ($('#permalink-copy-button').length > 0 && $('#permalink').length > 0)
 	{
