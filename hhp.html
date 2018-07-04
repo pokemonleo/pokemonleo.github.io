@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex">
 
-<!--link rel="icon" href="/favicon.ico"-->
+<!-- <link rel="icon" href="/favicon.ico"> -->
 <!-- https://www.favicon-generator.org/ -->
 <!--
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -292,19 +292,19 @@ body
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
 				<h6>時速設定</h6>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvEarnItem" style="width: 67%;">イベント曲の最大獲得<span class="itemCountName">アイテム数</span></label>
+					<label class="col-form-label col-form-label-sm" for="maximumEvEarnItem" style="width: 67%;">1回のプレイで最大獲得<span class="itemCountName">アイテム数</span></label>
 					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvEarnItem" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvItemTime" style="width: 67%;">獲得<span class="itemCountName">アイテム数</span>最速プレイ時間 (分)</label>
+					<label class="col-form-label col-form-label-sm" for="maximumEvItemTime" style="width: 67%;">1回のプレイでの最速プレイ時間 (分)</label>
 					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvItemTime" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvWasteItem" style="width: 67%;">イベント曲の最大消費<span class="itemCountName">アイテム数</span></label>
+					<label class="col-form-label col-form-label-sm" for="maximumEvWasteItem" style="width: 67%;">イベ曲1倍1回の最大消費<span class="itemCountName">アイテム数</span></label>
 					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvWasteItem" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
-					<label class="col-form-label col-form-label-sm" for="maximumEvEarnPoint" style="width: 67%;">イベント曲の最大獲得pt</label>
+					<label class="col-form-label col-form-label-sm" for="maximumEvEarnPoint" style="width: 67%;">イベ曲1倍1回の最大獲得pt</label>
 					<div style="width: 33%;"><input class="form-control form-control-sm" id="maximumEvEarnPoint" type="number" step="1"></div>
 				</div>
 				<div class="d-flex">
@@ -327,10 +327,12 @@ body
 					<label class="col-form-label col-form-label-sm" for="jewelToPack" style="width: 67%;">PACK 1回の石の量</label>
 					<div style="width: 33%;"><input class="form-control form-control-sm" id="jewelToPack" type="number" step="1"></div>
 				</div>
+				<!--
 				<div class="d-flex">
 					<label class="col-form-label col-form-label-sm" for="moneyToPack" style="width: 67%;">PACK 1回分の値段</label>
 					<div style="width: 33%;"><input class="form-control form-control-sm" id="moneyToPack" type="number" step="0.01"></div>
 				</div>
+				-->
 			</div>
 		</div>
 		<div style="min-width: 67%;" class="pl-md-2 results">
@@ -530,6 +532,11 @@ document.addEventListener('DOMContentLoaded', function()
 {
 	var formatNumber = function(number)
 	{
+		/*if (isNaN(number))
+		{
+			return 0;
+		}*/
+
 		var thousands_separator = String.fromCharCode(0x2009);
 		var decimal_point = '.';
 
@@ -564,13 +571,13 @@ document.addEventListener('DOMContentLoaded', function()
 		var html = '';
 		if (hr > 0)
 		{
-			html += (sign * hr) + ' 時間 ';
+			html += (sign * hr) + ' 時間';
 			if (min + sec > 0)
 			{
-				html += min + ' 分 ';
+				html += ' ' + min + ' 分';
 				if (sec > 0)
 				{
-					html += sec + ' 秒 ';
+					html += ' ' + sec + ' 秒';
 				}
 			}
 		}
@@ -578,15 +585,19 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			if (min > 0)
 			{
-				html += (sign * min) + ' 分 ';
+				html += (sign * min) + ' 分';
 				if (sec > 0)
 				{
-					html += sec + ' 秒 ';
+					html += ' ' + sec + ' 秒';
 				}
 			}
 			else if (sec > 0)
 			{
-				html += (sign * sec) + ' 秒 ';
+				html += (sign * sec) + ' 秒';
+			}
+			else
+			{
+				html += '0 秒';
 			}
 		}
 
@@ -614,14 +625,14 @@ document.addEventListener('DOMContentLoaded', function()
 		var targetPoint = +$('#targetPoint').val();
 		var stWasteStamina = +$('#stWasteStamina').val();
 		var stEarnPoint = +$('#stEarnPoint').val();
-		var stMultiplier = +$('#stMultiplier').val();
+		var stMultiplier = +$('#stMultiplier').val() || 1;
 		var stWasteTime = +$('#stWasteTime').val();
 		var tiWasteStamina = +$('#tiWasteStamina').val();
 		var tiEarnPoint = +$('#tiEarnPoint').val();
 		var tiWasteTime = +$('#tiWasteTime').val();
 		var evWasteItem = +$('#evWasteItem').val();
 		var evEarnPoint = +$('#evEarnPoint').val();
-		var evMultiplier = +$('#evMultiplier').val();
+		var evMultiplier = +$('#evMultiplier').val() || 1;
 		var evWasteTime = +$('#evWasteTime').val();
 		var nowJewels = +$('#nowJewels').val();
 		var now10Drinks = +$('#now10Drinks').val();
@@ -629,9 +640,9 @@ document.addEventListener('DOMContentLoaded', function()
 		var now30Drinks = +$('#now30Drinks').val();
 		var nowMaxDrinks = +$('#nowMaxDrinks').val();
 		var playerMaxStamina = +$('#playerMaxStamina').val();
-		var jewelToStamina = +$('#jewelToStamina').val();
-		var jewelToPack = +$('#jewelToPack').val();
-		var moneyToPack = +$('#moneyToPack').val();
+		var jewelToStamina = +$('#jewelToStamina').val() || 50;
+		var jewelToPack = +$('#jewelToPack').val() || 8400;
+		var moneyToPack = +$('#moneyToPack').val() || 9600;
 		var eventEndDate = $('#eventEndDate').val();
 		var eventEndTime = $('#eventEndTime').val();
 		var extraStaminaPerDay = +$('#extraStaminaPerDay').val();
@@ -641,7 +652,7 @@ document.addEventListener('DOMContentLoaded', function()
 		var maximumEvItemTime = +$('#maximumEvItemTime').val();
 		var maximumEvWasteItem = +$('#maximumEvWasteItem').val();
 		var maximumEvEarnPoint = +$('#maximumEvEarnPoint').val();
-		var maximumEvMultiplier = +$('#maximumEvMultiplier').val();
+		var maximumEvMultiplier = +$('#maximumEvMultiplier').val() || 1;
 		var maximumEvWasteTime = +$('#maximumEvWasteTime').val();
 		var currentPLevel = +$('#currentPLevel').val();
 		var currentPLevelExp = +$('#currentPLevelExp').val();
@@ -659,73 +670,86 @@ document.addEventListener('DOMContentLoaded', function()
 		$('.itemName').text(itemName);
 		$('.itemCountName').text(itemCountName);
 
-		var staminaEfficiency = (stEarnPoint / stWasteStamina) * (1 + (evEarnPoint / evWasteItem));
-		var timeEfficiency = (tiEarnPoint / tiWasteStamina) * (1 + (evEarnPoint / evWasteItem));
+		var staminaEfficiency = stWasteStamina > 0 && evWasteItem > 0 ? (stEarnPoint / stWasteStamina) * (1 + (evEarnPoint / evWasteItem)) : 0;
+		var timeEfficiency = tiWasteStamina > 0 && evWasteItem > 0 ? (tiEarnPoint / tiWasteStamina) * (1 + (evEarnPoint / evWasteItem)) : 0;
 
 		//console.log(staminaEfficiency);
 		//console.log(timeEfficiency);
+
+		$('#currentEarnPoint').text(formatNumber(currentPoint) + ' pt');
 
 		var currentDate = new Date();
 		var eventEndDateTime = new Date(eventEndDate + ' ' + eventEndTime);
 		eventEndDateTime;
 
 		//console.log(currentDate);
+		//console.log(eventEndDate);
+		//console.log(eventEndTime);
 		//console.log(eventEndDateTime);
+		//console.log(eventEndDateTime instanceof Date && !isNaN(eventEndDateTime));
 
-		$('#currentEarnPoint').text(formatNumber(currentPoint) + ' pt');
-
-		var currentDateZ = new Date();
-		var eventEndDateTimeZ = new Date();
-		var timezoneOffset = 9 - currentDate.getTimezoneOffset() * -1;
-		currentDateZ.setTime(currentDate.getTime() + (timezoneOffset * 60 * 1000));
-		eventEndDateTimeZ.setTime(eventEndDateTime.getTime() + (timezoneOffset * 60 * 1000));
-		currentDateZ.setHours(0, 0, 0, 0);
-		eventEndDateTimeZ.setHours(0, 0, 0, 0);
-
-		var remainDays = (eventEndDateTimeZ.getTime() - currentDateZ.getTime()) / (24 * 60 * 60 * 1000);
-		$('#remainDays').text(remainDays + ' 日');
-		var remainStamina = Math.floor((eventEndDateTime.getTime() - currentDate.getTime()) / (5 * 60 * 1000));
-		$('#remainStamina').html(function(i, oldHtml)
+		var remainDays = 0;
+		var remainStamina = 0;
+		if (eventEndDateTime instanceof Date && !isNaN(eventEndDateTime))
 		{
-			var html = formatNumber(remainStamina);
+			var currentDateZ = new Date();
+			var eventEndDateTimeZ = new Date();
+			var timezoneOffset = 9 - currentDate.getTimezoneOffset() * -1;
+			currentDateZ.setTime(currentDate.getTime() + (timezoneOffset * 60 * 1000));
+			eventEndDateTimeZ.setTime(eventEndDateTime.getTime() + (timezoneOffset * 60 * 1000));
+			currentDateZ.setHours(0, 0, 0, 0);
+			eventEndDateTimeZ.setHours(0, 0, 0, 0);
 
-			if (extraStaminaPerDay && extraStaminaPerDay > 0)
+			var remainDays = (eventEndDateTimeZ.getTime() - currentDateZ.getTime()) / (24 * 60 * 60 * 1000);
+			$('#remainDays').text(remainDays + ' 日');
+			var remainStamina = Math.floor((eventEndDateTime.getTime() - currentDate.getTime()) / (5 * 60 * 1000));
+			$('#remainStamina').html(function(i, oldHtml)
 			{
-				html += ' + ' + formatNumber(extraStaminaPerDay * remainDays)
-				html = '<div>' + html + '</div>' + '<div class="text-muted small">' + '時間回復 + 毎日追加ドリンク' + '</div>';
-			}
+				var html = formatNumber(remainStamina);
 
-			return html;
-		});
-		var remainStaminaWasteTimeSt = Math.floor((remainStamina + (extraStaminaPerDay * remainDays)) / (stWasteStamina * stMultiplier)) * (stWasteTime * 60);
+				if (extraStaminaPerDay && extraStaminaPerDay > 0)
+				{
+					html += ' + ' + formatNumber(extraStaminaPerDay * remainDays)
+					html = '<div>' + html + '</div>' + '<div class="text-muted small">' + '時間回復 + 毎日追加ドリンク' + '</div>';
+				}
+
+				return html;
+			});
+		}
+		else
+		{
+			$('#remainDays').text('0 日');
+			$('#remainStamina').text('0');
+		}
+		var remainStaminaWasteTimeSt = stWasteStamina > 0 ? Math.floor((remainStamina + (extraStaminaPerDay * remainDays)) / (stWasteStamina * stMultiplier)) * (stWasteTime * 60) : 0;
 		//console.log(remainStaminaWasteTimeSt);
-		var remainStaminaWasteTimeTi = Math.floor((remainStamina + (extraStaminaPerDay * remainDays)) / tiWasteStamina) * (tiWasteTime * 60);
+		var remainStaminaWasteTimeTi = tiWasteStamina > 0 ? Math.floor((remainStamina + (extraStaminaPerDay * remainDays)) / tiWasteStamina) * (tiWasteTime * 60) : 0;
 		$('#remainStaminaWasteTime').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(getTimeText(remainStaminaWasteTimeSt, stMultiplier), getTimeText(remainStaminaWasteTimeTi, 0));
 		});
-		var extraItemsSt = Math.floor(remainStamina / (stWasteStamina * stMultiplier)) * (stEarnPoint * stMultiplier);
-		var extraItemsTi = Math.floor(remainStamina / tiWasteStamina) * tiEarnPoint;
+		var extraItemsSt = stWasteStamina > 0 ? Math.floor(remainStamina / (stWasteStamina * stMultiplier)) * (stEarnPoint * stMultiplier) : 0;
+		var extraItemsTi = tiWasteStamina > 0 ? Math.floor(remainStamina / tiWasteStamina) * tiEarnPoint : 0;
 		$('#extraItems').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(extraItemsSt), formatNumber(extraItemsTi));
 		});
 
-		var currentItemWasteTime = Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		var currentItemWasteTime = evWasteItem > 0 ? Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
 		$('#currentItemWasteTime').text(function(i, oldHtml)
 		{
 			return getTimeText(currentItemWasteTime, evMultiplier);
 		});
-		var currentItemEarnPoint = Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier);
+		var currentItemEarnPoint = evWasteItem > 0 ? Math.floor(currentItem / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) : 0;
 		$('#currentItemEarnPoint').text(formatNumber(currentItemEarnPoint) + ' pt');
-		var extraItemsStWasteTime = Math.floor(extraItemsSt / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
-		var extraItemsTiWasteTime = Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		var extraItemsStWasteTime = evWasteItem > 0 ? Math.floor(extraItemsSt / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
+		var extraItemsTiWasteTime = evWasteItem > 0 ? Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
 		$('#extraItemWasteTime').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(getTimeText(extraItemsStWasteTime, evMultiplier), getTimeText(extraItemsTiWasteTime, evMultiplier));
 		});
-		var extraItemEarnPointSt = Math.floor(extraItemsSt / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + extraItemsSt;
-		var extraItemEarnPointTi = Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + extraItemsTi;
+		var extraItemEarnPointSt = evWasteItem > 0 ? Math.floor(extraItemsSt / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + extraItemsSt : 0;
+		var extraItemEarnPointTi = evWasteItem > 0 ? Math.floor(extraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + extraItemsTi : 0;
 		$('#extraItemEarnPoint').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(extraItemEarnPointSt) + ' pt', formatNumber(extraItemEarnPointTi) + ' pt');
@@ -774,26 +798,26 @@ document.addEventListener('DOMContentLoaded', function()
 
 			return html;
 		});
-		var premiumExtraStaminaWasteTimeSt = Math.floor(premiumExtraStamina / (stWasteStamina * stMultiplier)) * (stWasteTime * 60);
-		var premiumExtraStaminaWasteTimeTi = Math.floor(premiumExtraStamina / tiWasteStamina) * (tiWasteTime * 60);
+		var premiumExtraStaminaWasteTimeSt = stWasteStamina > 0 ? Math.floor(premiumExtraStamina / (stWasteStamina * stMultiplier)) * (stWasteTime * 60) : 0;
+		var premiumExtraStaminaWasteTimeTi = tiWasteStamina > 0 ? Math.floor(premiumExtraStamina / tiWasteStamina) * (tiWasteTime * 60) : 0;
 		$('#premiumExtraStaminaWasteTime').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(getTimeText(premiumExtraStaminaWasteTimeSt, stMultiplier), getTimeText(premiumExtraStaminaWasteTimeTi, 0));
 		});
-		var premiumExtraItemsSt = Math.floor(premiumExtraStamina / (stWasteStamina * stMultiplier)) * (stEarnPoint * stMultiplier);
-		var premiumExtraItemsTi = Math.floor(premiumExtraStamina / tiWasteStamina) * tiEarnPoint;
+		var premiumExtraItemsSt = stWasteStamina > 0 ? Math.floor(premiumExtraStamina / (stWasteStamina * stMultiplier)) * (stEarnPoint * stMultiplier) : 0;
+		var premiumExtraItemsTi = tiWasteStamina > 0 ? Math.floor(premiumExtraStamina / tiWasteStamina) * tiEarnPoint : 0;
 		$('#premiumExtraItems').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(premiumExtraItemsSt), formatNumber(premiumExtraItemsTi));
 		});
-		var premiumExtraItemsStWasteTime = Math.floor(premiumExtraItemsSt / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
-		var premiumExtraItemsTiWasteTime = Math.floor(premiumExtraItemsTi / (evWasteItem * evMultiplier)) * (evWasteTime * 60); // seconds
+		var premiumExtraItemsStWasteTime = evWasteItem > 0 ? Math.floor(premiumExtraItemsSt / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
+		var premiumExtraItemsTiWasteTime = evWasteItem > 0 ? Math.floor(premiumExtraItemsTi / (evWasteItem * evMultiplier)) * (evWasteTime * 60) : 0; // seconds
 		$('#premiumExtraItemsWasteTime').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(getTimeText(premiumExtraItemsStWasteTime, evMultiplier), getTimeText(premiumExtraItemsTiWasteTime, evMultiplier));
 		});
-		var premiumExtraEarnPointsSt = Math.floor(premiumExtraItemsSt / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + premiumExtraItemsSt;
-		var premiumExtraEarnPointsTi = Math.floor(premiumExtraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + premiumExtraItemsTi;
+		var premiumExtraEarnPointsSt = evWasteItem > 0 ? Math.floor(premiumExtraItemsSt / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + premiumExtraItemsSt : 0;
+		var premiumExtraEarnPointsTi = evWasteItem > 0 ? Math.floor(premiumExtraItemsTi / (evWasteItem * evMultiplier)) * (evEarnPoint * evMultiplier) + premiumExtraItemsTi : 0;
 		$('#premiumExtraEarnPoints').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(premiumExtraEarnPointsSt) + ' pt', formatNumber(premiumExtraEarnPointsTi) + ' pt');
@@ -803,18 +827,18 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			maximumEvMultiplier = 1;
 		}
-		var maximumItemsInOneHour = maximumEvEarnItem * (60 / maximumEvItemTime);
+		var maximumItemsInOneHour = maximumEvItemTime > 0 ? maximumEvEarnItem * (60 / maximumEvItemTime) : 0;
 		//console.log('maximumItemsInOneHour: ', maximumItemsInOneHour);
-		var maximumPlaysInOneHour = maximumItemsInOneHour / (maximumEvWasteItem * maximumEvMultiplier);
+		var maximumPlaysInOneHour = maximumEvWasteItem > 0 ? maximumItemsInOneHour / (maximumEvWasteItem * maximumEvMultiplier) : 0;
 		//console.log('maximumPlaysInOneHour: ', maximumPlaysInOneHour);
 		var maximumTotalEarnPoint = maximumPlaysInOneHour * (maximumEvEarnPoint * maximumEvMultiplier) + maximumItemsInOneHour;
 		//console.log('maximumTotalEarnPoint: ', maximumTotalEarnPoint);
-		var maximumWasteTimeInOneHour = 1 + maximumPlaysInOneHour * (maximumEvWasteTime / 60);
+		var maximumWasteTimeInOneHour = maximumEvWasteTime > 0 ? 1 + maximumPlaysInOneHour * (maximumEvWasteTime / 60) : 1 + 0;
 		//console.log('maximumWasteTimeInOneHour: ', maximumWasteTimeInOneHour);
-		var fastestSpeedWithoutItems = maximumTotalEarnPoint / maximumWasteTimeInOneHour;
+		var fastestSpeedWithoutItems = maximumWasteTimeInOneHour > 0 ? maximumTotalEarnPoint / maximumWasteTimeInOneHour : 0;
 		//console.log('fastestSpeedWithoutItems: ', fastestSpeedWithoutItems);
 		//$('#fastestSpeedWithoutItems').text(formatNumber(parseFloat(fastestSpeedWithoutItems.toFixed(2))) + ' pt/時');
-		var fastestSpeedWithItems = (maximumEvEarnPoint * maximumEvMultiplier) * (60 / maximumEvWasteTime);
+		var fastestSpeedWithItems = maximumEvWasteTime > 0 ? (maximumEvEarnPoint * maximumEvMultiplier) * (60 / maximumEvWasteTime) : 0;
 		//$('#fastestSpeedWithItems').text(formatNumber(parseFloat(fastestSpeedWithItems.toFixed(2))) + ' pt/時');
 		$('#fastestSpeed').html(function(i, old)
 		{
@@ -827,21 +851,35 @@ document.addEventListener('DOMContentLoaded', function()
 
 			return html;
 		});
-		var timeForBorderToChaseWithoutItem = ((currentPoint - defenseBorder) / fastestSpeedWithoutItems) * 60 * 60;
-		var timeForBorderToChaseWithItem = ((currentPoint - defenseBorder) / fastestSpeedWithItems) * 60 * 60;
+		var timeForBorderToChaseWithoutItem = fastestSpeedWithoutItems > 0 ? ((currentPoint - defenseBorder) / fastestSpeedWithoutItems) * 60 * 60 : 0;
+		var timeForBorderToChaseWithItem = fastestSpeedWithItems > 0 ? ((currentPoint - defenseBorder) / fastestSpeedWithItems) * 60 * 60 : 0;
 		$('#timeForBorderToChase').html(function(i, old)
 		{
 			var html = '';
 			html += '<div class="d-flex flex-column"><div><span class="badge badge-info">備蓄なし</span> ';
-			html += getTimeText(Math.floor(timeForBorderToChaseWithoutItem), maximumEvMultiplier);
+			if (timeForBorderToChaseWithoutItem === 0)
+			{
+				html += '∞';
+			}
+			else
+			{
+				html += getTimeText(Math.floor(timeForBorderToChaseWithoutItem), maximumEvMultiplier);
+			}
 			html += '</div><div><span class="badge badge-danger">備蓄あり</span> ';
-			html += getTimeText(Math.floor(timeForBorderToChaseWithItem), maximumEvMultiplier);
+			if (timeForBorderToChaseWithItem === 0)
+			{
+				html += '∞';
+			}
+			else
+			{
+				html += getTimeText(Math.floor(timeForBorderToChaseWithItem), maximumEvMultiplier);
+			}
 			html += '</div></div>';
 
 			return html;
 		});
 
-		var targetItemPlays = Math.floor(targetItem / (evWasteItem * evMultiplier));
+		var targetItemPlays = evWasteItem > 0 ? Math.floor(targetItem / (evWasteItem * evMultiplier)) : 0;
 		$('#targetItemPlays').text(formatNumber(targetItemPlays) + ' 回');
 		var targetItemWasteTime = targetItemPlays * (evWasteTime * 60); // seconds
 		$('#targetItemWasteTime').text(function(i, oldHtml)
@@ -850,8 +888,8 @@ document.addEventListener('DOMContentLoaded', function()
 		});
 		var targetItemEarnPoints = targetItemPlays * (evEarnPoint * evMultiplier);
 		$('#targetItemEarnPoints').text(formatNumber(targetItemEarnPoints) + ' pt');
-		var targetItemNeedPlaysSt = Math.ceil((targetItem - currentItem) / (stEarnPoint * stMultiplier));
-		var targetItemNeedPlaysTi = Math.ceil((targetItem - currentItem) / tiEarnPoint);
+		var targetItemNeedPlaysSt = stEarnPoint > 0 ? Math.ceil((targetItem - currentItem) / (stEarnPoint * stMultiplier)) : 0;
+		var targetItemNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil((targetItem - currentItem) / tiEarnPoint) : 0;
 		$('#targetItemNeedPlays').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(targetItemNeedPlaysSt) + ' 回 (' + stMultiplier + '倍)', formatNumber(targetItemNeedPlaysTi) + '回');
@@ -868,14 +906,14 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			return splitTwoColumnText(formatNumber(targetItemNeedPlaysStaminaSt), formatNumber(targetItemNeedPlaysStaminaTi));
 		});
-		var targetItemNeedPlaysJewelSt = Math.ceil(targetItemNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina;
-		var targetItemNeedPlaysJewelTi = Math.ceil(targetItemNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina;
+		var targetItemNeedPlaysJewelSt = playerMaxStamina > 0 ? Math.ceil(targetItemNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina : 0;
+		var targetItemNeedPlaysJewelTi = playerMaxStamina > 0 ? Math.ceil(targetItemNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina : 0;
 		$('#targetItemNeedPlaysJewel').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(targetItemNeedPlaysJewelSt), formatNumber(targetItemNeedPlaysJewelTi));
 		});
 		var targetNeedPoint = targetPoint - (currentItemEarnPoint + currentPoint);
-		var targetPointPlays = Math.ceil(targetNeedPoint / ((evEarnPoint + evWasteItem) * evMultiplier));
+		var targetPointPlays = evEarnPoint + evWasteItem > 0 ? Math.ceil(targetNeedPoint / ((evEarnPoint + evWasteItem) * evMultiplier)) : 0;
 		//console.log(targetPointPlays);
 		$('#targetPointPlays').text(formatNumber(targetPointPlays) + ' 回');
 		var targetPointWasteTime = targetPointPlays * (evWasteTime * 60);
@@ -886,8 +924,8 @@ document.addEventListener('DOMContentLoaded', function()
 		});
 		var targetPointWasteItem = targetPointPlays * (evWasteItem * evMultiplier);
 		$('#targetPointWasteItem').text(formatNumber(targetPointWasteItem) + ' (' + evMultiplier + '倍)');
-		var targetPointNeedPlaysSt = Math.ceil(targetNeedPoint / (stEarnPoint * stMultiplier));
-		var targetPointNeedPlaysTi = Math.ceil(targetNeedPoint / tiEarnPoint);
+		var targetPointNeedPlaysSt = stEarnPoint > 0 ? Math.ceil(targetNeedPoint / (stEarnPoint * stMultiplier)) : 0;
+		var targetPointNeedPlaysTi = tiEarnPoint > 0 ? Math.ceil(targetNeedPoint / tiEarnPoint) : 0;
 		$('#targetPointNeedPlays').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(targetPointNeedPlaysSt) + ' 回 (' + stMultiplier + '倍)', formatNumber(targetPointNeedPlaysTi) + ' 回');
@@ -904,8 +942,8 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			return splitTwoColumnText(formatNumber(targetPointNeedPlaysStaminaSt), formatNumber(targetPointNeedPlaysStaminaTi));
 		});
-		var targetPointNeedPlaysJewelSt = Math.ceil(targetPointNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina;
-		var targetPointNeedPlaysJewelTi = Math.ceil(targetPointNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina;
+		var targetPointNeedPlaysJewelSt = playerMaxStamina > 0 ? Math.ceil(targetPointNeedPlaysStaminaSt / playerMaxStamina) * jewelToStamina : 0;
+		var targetPointNeedPlaysJewelTi = playerMaxStamina > 0 ? Math.ceil(targetPointNeedPlaysStaminaTi / playerMaxStamina) * jewelToStamina : 0;
 		$('#targetPointNeedPlaysJewel').html(function(i, oldHtml)
 		{
 			return splitTwoColumnText(formatNumber(targetPointNeedPlaysJewelSt), formatNumber(targetPointNeedPlaysJewelTi));
