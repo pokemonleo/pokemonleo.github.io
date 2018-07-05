@@ -1067,15 +1067,15 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			if (targetPointWasteItemSt === targetPointWasteItemTi)
 			{
-				return targetPointWasteItemSt;
+				return formatNumber(targetPointWasteItemSt);
 			}
 			else if (targetPointWasteItemSt > targetPointWasteItemTi)
 			{
-				return targetPointWasteItemTi + '～' + targetPointWasteItemSt;
+				return formatNumber(targetPointWasteItemTi) + '～' + formatNumber(targetPointWasteItemSt);
 			}
 			else
 			{
-				return targetPointWasteItemSt + '～' + targetPointWasteItemTi;
+				return formatNumber(targetPointWasteItemSt) + '～' + formatNumber(targetPointWasteItemTi);
 			}
 			return splitTwoColumnText(formatNumber(targetPointWasteItemSt), formatNumber(targetPointWasteItemTi));
 		});
