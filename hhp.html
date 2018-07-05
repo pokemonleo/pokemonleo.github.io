@@ -137,7 +137,7 @@ body
 <body>
 
 <div class="container-fluid">
-	<h4 class="text-center mt-2">ミリシタ計算機 - イベント - シアター形式</h4>
+	<h4 class="text-center mt-2 my-md-4">ミリシタ計算機 - イベント - シアター形式</h4>
 	<div class="d-flex flex-column flex-md-row">
 		<div style="min-width: 33%;" id="settingForm">
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
@@ -197,7 +197,7 @@ body
 			</div>
 
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
-				<h6>元気効率設定 <span class="badge badge-success">元気効率</span></h6>
+				<h6>普通曲設定 <span class="badge badge-success">元気効率</span></h6>
 				<div class="d-flex">
 					<label class="col-form-label col-form-label-sm" for="stWasteStamina" style="width: 70%;">1倍1回の消費 <i class="far fa-heart text-danger"></i> 元気</label>
 					<div style="width: 30%;"><input class="form-control form-control-sm" id="stWasteStamina" type="number" step="1"></div>
@@ -217,7 +217,7 @@ body
 			</div>
 
 			<div class="border rounded px-2 px-md-2 px-lg-3 py-2 my-1">
-				<h6>時間効率設定 <span class="badge badge-warning">時間効率</span></h6>
+				<h6>仕事→普通曲設定 <span class="badge badge-warning">時間効率</span></h6>
 				<div class="d-flex">
 					<label class="col-form-label col-form-label-sm" for="tiWasteStamina" style="width: 70%;">1回ローテの消費 <i class="far fa-heart text-danger"></i> 元気</label>
 					<div style="width: 30%;"><input class="form-control form-control-sm" id="tiWasteStamina" type="number" step="1"></div>
@@ -496,7 +496,7 @@ body
 					<div class="result-right" id="targetPointPlays"></div>
 				</div>
 				<div class="d-flex">
-					<div class="result-left">そのイベント曲をプレイするに必要な時間</div>
+					<div class="result-left">そのイベント曲をプレイするに <i class="far fa-clock text-success"></i> 必要な時間</div>
 					<div class="result-right" id="targetPointWasteTime"></div>
 				</div>
 				<div class="d-flex">
@@ -587,6 +587,8 @@ body
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 
 <script>
+'use strict';
+
 document.addEventListener('DOMContentLoaded', function()
 {
 	var formatNumber = function(number)
@@ -754,7 +756,7 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			var currentDateZ = new Date();
 			var eventEndDateTimeZ = new Date();
-			var timezoneOffset = 9 - currentDate.getTimezoneOffset() * -1;
+			var timezoneOffset = 9 * 60 - currentDate.getTimezoneOffset() * -1;
 			currentDateZ.setTime(currentDate.getTime() + (timezoneOffset * 60 * 1000));
 			eventEndDateTimeZ.setTime(eventEndDateTime.getTime() + (timezoneOffset * 60 * 1000));
 			currentDateZ.setHours(0, 0, 0, 0);
@@ -1213,6 +1215,10 @@ document.addEventListener('DOMContentLoaded', function()
 
 	calcTheater();
 });
+</script>
+
+<script>
+'use strict';
 
 var pLevel = [
 // レベル, 最大元気, 次のレベルまでに必要な経験値
