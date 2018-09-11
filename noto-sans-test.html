@@ -4,6 +4,7 @@
 
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 span
 {
@@ -96,12 +97,35 @@ dl
 {
 	font-feature-settings: "palt" on;
 }
+
+.font-title
+{
+	font-size: 5vw;
+}
+
+.font-solo
+{
+	font-size: 13vw;
+}
+
+@media (min-width: 768px)
+{
+	.font-title
+	{
+		font-size: 36px;
+	}
+
+	.font-solo
+	{
+		font-size: 108px;
+	}
+}
 </style>
 </head>
 
 <body>
 
-<div class="sans bold" style="font-size: 36px; display: flex; ">
+<div class="sans bold font-title" style="display: flex;">
         <span class="en" style="width: 20%; text-align: center; border: 1px solid #444;" lang="en-us">EN</span>
 	<span class="tc" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0;" lang="zh-Hant-tw">TC</span>
 	<span class="sc" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0;" lang="zh-Hans-cn">SC</span>
@@ -109,7 +133,7 @@ dl
 	<span class="kr" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0;" lang="ko-kr">KR</span>
 </div>
 
-<div class="sans" style="font-size: 108px; display: flex; ">
+<div class="sans font-solo" style="display: flex;">
 	<span class="en" style="width: 20%; text-align: center; border: 1px solid #444; border-top: 0;" lang="en-us">曜</span>
 	<span class="tc" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0; border-top: 0;" lang="zh-Hant-tw">曜</span>
 	<span class="sc" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0; border-top: 0;" lang="zh-Hans-cn">曜</span>
@@ -117,7 +141,7 @@ dl
 	<span class="kr" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0; border-top: 0;" lang="ko-kr">曜</span>
 </div>
 
-<div class="sans" style="font-size: 108px; display: flex; ">
+<div class="sans font-solo" style="display: flex;">
         <span class="en" style="width: 20%; text-align: center; border: 1px solid #444; border-top: 0;" lang="en-us">骨</span>
 	<span class="tc" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0; border-top: 0;" lang="zh-Hant-tw">骨</span>
 	<span class="sc" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0; border-top: 0;" lang="zh-Hans-cn">骨</span>
@@ -125,7 +149,7 @@ dl
 	<span class="kr" style="width: 20%; text-align: center; border: 1px solid #444; border-left: 0; border-top: 0;" lang="ko-kr">骨</span>
 </div>
 
-<dl class="en" lang="en-us">
+<dl class="sans en" lang="en-us">
 <dt class="w-100">EN Thin</dt>
 <dd class="w-100">人人生而自由，在尊嚴和權利上一律平等。他們賦有理性和良心，並應以兄弟關係的精神相對待。<br>人人生而自由，在尊严和权利上一律平等。他们赋有理性和良心，并应以兄弟关係的精神相对待。<br>すべての人間は、生まれながらにして自由であり、かつ、尊厳と権利とについて平等である。人間は、理性と良心とを授けられており、互いに同胞の精神をもって行動しなければならない。<br>모든 인간은 자유롭게 태어나고 존엄과 권리가 평등합니다. 그들은 이성과 양심을 부여받으며 형제애의 정신으로 서로를 향해 행동해야합니다.</dd>
 <dt class="w-300">EN Light</dt>
@@ -142,7 +166,7 @@ dl
 <dd class="w-900">人人生而自由，在尊嚴和權利上一律平等。他們賦有理性和良心，並應以兄弟關係的精神相對待。<br>人人生而自由，在尊严和权利上一律平等。他们赋有理性和良心，并应以兄弟关係的精神相对待。<br>すべての人間は、生まれながらにして自由であり、かつ、尊厳と権利とについて平等である。人間は、理性と良心とを授けられており、互いに同胞の精神をもって行動しなければならない。<br>모든 인간은 자유롭게 태어나고 존엄과 권리가 평등합니다. 그들은 이성과 양심을 부여받으며 형제애의 정신으로 서로를 향해 행동해야합니다.</dd>
 </dl>
 
-<dl class="tc" lang="zh-Hant-tw">
+<dl class="sans tc" lang="zh-Hant-tw">
 <dt class="w-100">TC Thin</dt>
 <dd class="w-100">人人生而自由，在尊嚴和權利上一律平等。他們賦有理性和良心，並應以兄弟關係的精神相對待。</dd>
 <dt class="w-300">TC Light</dt>
@@ -159,7 +183,7 @@ dl
 <dd class="w-900">人人生而自由，在尊嚴和權利上一律平等。他們賦有理性和良心，並應以兄弟關係的精神相對待。</dd>
 </dl>
 
-<dl class="sc" lang="zh-Hans-cn">
+<dl class="sans sc" lang="zh-Hans-cn">
 <dt class="w-100">SC Thin</dt>
 <dd class="w-100">人人生而自由，在尊严和权利上一律平等。他们赋有理性和良心，并应以兄弟关係的精神相对待。</dd>
 <dt class="w-300">SC Light</dt>
@@ -176,7 +200,7 @@ dl
 <dd class="w-900">人人生而自由，在尊严和权利上一律平等。他们赋有理性和良心，并应以兄弟关係的精神相对待。</dd>
 </dl>
 
-<dl class="jp" lang="ja-jp">
+<dl class="sans jp" lang="ja-jp">
 <dt class="w-100">JP Thin</dt>
 <dd class="w-100">すべての人間は、生まれながらにして自由であり、かつ、尊厳と権利とについて平等である。人間は、理性と良心とを授けられており、互いに同胞の精神をもって行動しなければならない。</dd>
 <dt class="w-300">JP Light</dt>
@@ -193,7 +217,7 @@ dl
 <dd class="w-900">すべての人間は、生まれながらにして自由であり、かつ、尊厳と権利とについて平等である。人間は、理性と良心とを授けられており、互いに同胞の精神をもって行動しなければならない。</dd>
 </dl>
 
-<dl class="kr" lang="ko-kr">
+<dl class="sans kr" lang="ko-kr">
 <dt class="w-100">KR Thin</dt>
 <dd class="w-100">모든 인간은 자유롭게 태어나고 존엄과 권리가 평등합니다. 그들은 이성과 양심을 부여받으며 형제애의 정신으로 서로를 향해 행동해야합니다.</dd>
 <dt class="w-300">KR Light</dt>
