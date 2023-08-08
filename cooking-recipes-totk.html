@@ -26,7 +26,7 @@
       <header class="py-2">
         <h1 class="">
           <div>ティアキン レシピ一覧</div>
-          <div class="text-muted" style="font-size: 60%;">ゼルダの伝説 ティアーズ オブ ザ キングダム</div>
+          <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">ゼルダの伝説 ティアーズ オブ ザ キングダム</div>
         </h1>
       </header>
     </div>
@@ -40,7 +40,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#recipes" aria-expanded="false" aria-controls="recipes">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_04.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_04.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               レシピ全種類
             </button>
           </h2>
@@ -66,7 +66,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#max-recipes" aria-expanded="false" aria-controls="max-recipes">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Hot%20Weather%20Attack.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Hot%20Weather%20Attack.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               各効果最大レベルのレシピ
             </button>
           </h2>
@@ -92,25 +92,91 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#horse-recipes" aria-expanded="false" aria-controls="horse-recipes">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Other/Horse/Horse_Link_Mane.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Other/Horse/Horse_Link_Mane.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               馬強化用のレシピ
             </button>
           </h2>
           <div id="horse-recipes" class="accordion-collapse collapse recipe-page" data-bs-parent="#recipe-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover small">
-                <thead>
-                  <tr>
-                    <th scope="col" style="max-width: 48px; text-align: center;">番号</th>
-                    <th scope="col" style="width: 80px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">料理</th>
-                    <th scope="col" style="max-width: 30%; width: 300px;">レシピ</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="recipe-body" data-data="___recipes_horse">
-                </tbody>
-              </table>
+
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="strength-tab" data-bs-toggle="tab" data-bs-target="#strength-tab-pane" type="button" role="tab" aria-controls="strength-tab-pane" aria-selected="true">じょうぶさ</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="speed-tab" data-bs-toggle="tab" data-bs-target="#speed-tab-pane" type="button" role="tab" aria-controls="speed-tab-pane" aria-selected="false">スピード</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="stamina-tab" data-bs-toggle="tab" data-bs-target="#stamina-tab-pane" type="button" role="tab" aria-controls="stamina-tab-pane" aria-selected="false">がんばり</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pull-tab" data-bs-toggle="tab" data-bs-target="#pull-tab-pane" type="button" role="tab" aria-controls="pull-tab-pane" aria-selected="false">ひっぱり</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="strength-tab-pane" role="tabpanel" aria-labelledby="strength-tab" tabindex="0">
+                  <table class="table table-hover small">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="max-width: 48px; text-align: center;">番号</th>
+                        <th scope="col" style="width: 80px; text-align: center;">画像</th>
+                        <th scope="col" style="max-width: 25%; width: 240px;">料理</th>
+                        <th scope="col" style="max-width: 30%; width: 300px;">レシピ</th>
+                        <th scope="col">備考</th>
+                      </tr>
+                    </thead>
+                    <tbody class="recipe-body" data-data="___recipes_horse_strength">
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane fade" id="speed-tab-pane" role="tabpanel" aria-labelledby="speed-tab" tabindex="0">
+                  <table class="table table-hover small">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="max-width: 48px; text-align: center;">番号</th>
+                        <th scope="col" style="width: 80px; text-align: center;">画像</th>
+                        <th scope="col" style="max-width: 25%; width: 240px;">料理</th>
+                        <th scope="col" style="max-width: 30%; width: 300px;">レシピ</th>
+                        <th scope="col">備考</th>
+                      </tr>
+                    </thead>
+                    <tbody class="recipe-body" data-data="___recipes_horse_speed">
+                    </tbody>
+                  </table>
+
+                </div>
+                <div class="tab-pane fade" id="stamina-tab-pane" role="tabpanel" aria-labelledby="stamina-tab" tabindex="0">
+                  <table class="table table-hover small">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="max-width: 48px; text-align: center;">番号</th>
+                        <th scope="col" style="width: 80px; text-align: center;">画像</th>
+                        <th scope="col" style="max-width: 25%; width: 240px;">料理</th>
+                        <th scope="col" style="max-width: 30%; width: 300px;">レシピ</th>
+                        <th scope="col">備考</th>
+                      </tr>
+                    </thead>
+                    <tbody class="recipe-body" data-data="___recipes_horse_stamina">
+                    </tbody>
+                  </table>
+
+                </div>
+                <div class="tab-pane fade" id="pull-tab-pane" role="tabpanel" aria-labelledby="pull-tab" tabindex="0">
+                  <table class="table table-hover small">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="max-width: 48px; text-align: center;">番号</th>
+                        <th scope="col" style="width: 80px; text-align: center;">画像</th>
+                        <th scope="col" style="max-width: 25%; width: 240px;">料理</th>
+                        <th scope="col" style="max-width: 30%; width: 300px;">レシピ</th>
+                        <th scope="col">備考</th>
+                      </tr>
+                    </thead>
+                    <tbody class="recipe-body" data-data="___recipes_horse_pull">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -127,7 +193,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mushrooms" aria-expanded="false" aria-controls="mushrooms">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_E.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_E.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               キノコ系素材
             </button>
           </h2>
@@ -152,7 +218,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meats" aria-expanded="false" aria-controls="meats">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_01.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_01.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               肉系素材
             </button>
           </h2>
@@ -177,7 +243,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#seafoods" aria-expanded="false" aria-controls="seafoods">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               魚介系素材
             </button>
           </h2>
@@ -202,7 +268,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vegies" aria-expanded="false" aria-controls="vegies">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               野菜系素材
             </button>
           </h2>
@@ -227,7 +293,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fruits" aria-expanded="false" aria-controls="fruits">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               果実系素材
             </button>
           </h2>
@@ -252,7 +318,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fruits-dessert" aria-expanded="false" aria-controls="fruits-dessert">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               砂漠果実系素材
             </button>
           </h2>
@@ -277,7 +343,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#foreigns" aria-expanded="false" aria-controls="foreigns">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               外部系素材
             </button>
           </h2>
@@ -302,7 +368,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ores" aria-expanded="false" aria-controls="ores">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               鉱石系素材
             </button>
           </h2>
@@ -327,7 +393,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#enemies" aria-expanded="false" aria-controls="enemies">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               マモノ系素材
             </button>
           </h2>
@@ -352,7 +418,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#insects" aria-expanded="false" aria-controls="insects">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_M.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_M.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               虫系素材
             </button>
           </h2>
@@ -377,7 +443,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#golems" aria-expanded="false" aria-controls="golems">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               ゾナウ系素材
             </button>
           </h2>
@@ -402,7 +468,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#spices" aria-expanded="false" aria-controls="spices">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               調味料系素材
             </button>
           </h2>
@@ -427,7 +493,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#boosts" aria-expanded="false" aria-controls="boosts">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
               ブースト系素材
             </button>
           </h2>
@@ -459,7 +525,7 @@
       <footer class="py-2">
         <div class="d-flex justify-content-center align-items-center">
           <div class="small">
-            © 2023
+            © 2023 <span class="text-secondary small" style="--bs-text-opacity: .5;">(Applied to Codes Only)</span>
           </div>
         </div>
       </footer>
@@ -3634,7 +3700,7 @@
       { name: "大マックスラディッシュ (5)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_C.png" }, },
     ],
   ],
-  comments: `ハート回復 MAX + 25 追加ハート<br><img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Half.png" width="24"><img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Quarter.png" width="24"><br>ハート上限は、追加ハート含めて 40`,
+  comments: `ハート回復 MAX + 25 追加ハート<br><img loading="lazy" role="presentation" src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Half.png" width="24"><img loading="lazy" role="presentation" src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Quarter.png" width="24"><br>ハート上限は、追加ハート含めて 40`,
 },
 {
   icon: { "src": "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Extra.png" },
@@ -3645,7 +3711,7 @@
       { name: "金のリンゴ (+1)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
     ],
   ],
-  comments: `<img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart.png" width="24"> ハート回復 MAX + <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Extra.png" width="24"> <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Extra.png" width="24"> 追加ハート`,
+  comments: `<img loading="lazy" role="presentation" src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart.png" width="24"> ハート回復 MAX + <img loading="lazy" role="presentation" src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Extra.png" width="24"> <img loading="lazy" role="presentation" src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Extra.png" width="24"> 追加ハート`,
 },
 {
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Stamina%20Extra%20Food.png" },
@@ -3688,9 +3754,9 @@
   ],
   comments: `瘴気ガード Lv.3 / 30 分<br>
     <ul>
-      <li>瘴気ガード Lv.1 (効果 199 未満) : 瘴気ダメージをハート 1 個分だけ防ぐ</li>
-      <li>瘴気ガード Lv.2 (効果 200-299) : 瘴気ダメージをハート 2 個分だけ防ぐ</li>
-      <li>瘴気ガード Lv.3 (効果 300 以上) : 瘴気ダメージをハート 3 個分だけ防ぐ</li>
+      <li>瘴気ガード Lv.1 (効果 199 未満) : 瘴気ダメージをハート 1 個分防ぐ</li>
+      <li>瘴気ガード Lv.2 (効果 200-299) : 瘴気ダメージをハート 2 個分防ぐ</li>
+      <li>瘴気ガード Lv.3 (効果 300 以上) : 瘴気ダメージをハート 3 個分防ぐ</li>
     </ul>`,
 },
 {
@@ -4222,7 +4288,7 @@
       { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
     ],
   ],
-  comments: "じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)<br>ひっぱり★ → ★★の強化用料理",
+  comments: "じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)<br>ひっぱり★★ → ★★★の強化用料理",
 },
 {
   id: 104,
@@ -4322,6 +4388,428 @@
     ],
   ],
   comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+]
+</script>
+
+<script>
+  window.___recipes_horse_strength = [
+{
+  id: 16,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_01.png" },
+  name: "焼き山菜",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+    ],
+  ],
+  comments: "じょうぶさ★ → ★★の強化用料理",
+},
+{
+  id: 17,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_11.png" },
+  name: "山盛焼き山菜",
+  recipes: [
+    [
+      { name: "野菜系素材 4 種以上", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+    ],
+  ],
+  comments: "じょうぶさ★★ → ★★★の強化用料理<br>じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 100,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_03.png" },
+  name: "山菜おにぎり",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+    ],
+  ],
+  comments: "じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 65,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_02.png" },
+  name: "野菜カレー",
+  recipes: [
+    [
+      { name: "ヨロイカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
+    ],
+    [
+      { name: "ヒダマリカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
+    ],
+    [
+      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
+    ],
+    [
+      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
+    ],
+  ],
+  comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 116,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_07.png" },
+  name: "リンゴバター",
+  recipes: [
+    [
+      { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+  ],
+  comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 127,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_05.png" },
+  name: "ニンジンケーキ",
+  recipes: [
+    [
+      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+  ],
+  comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+]
+</script>
+
+<script>
+  window.___recipes_horse_speed = [
+{
+  id: 28,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_02.png" },
+  name: "塩焼き山菜",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+    ],
+  ],
+  comments: "スピード★★ → ★★★の強化用料理",
+},
+{
+  id: 10,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_03.png" },
+  name: "山菜トマト蒸し焼き",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "ハイラルトマト", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, },
+    ],
+  ],
+  comments: "スピード★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 60,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_14.png" },
+  name: "甘露煮野菜",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "ガンバリバチのハチミツ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, },
+    ],
+  ],
+  comments: "スピード★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 54,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_03.png" },
+  name: "野菜クリームスープ",
+  recipes: [
+    [
+      { name: "ヨロイカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+    [
+      { name: "ヒダマリカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+    [
+      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+    [
+      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+  ],
+  comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 113,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_N_03.png" },
+  name: "野菜オムレツ",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "トリのタマゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_04.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+    ],
+  ],
+  comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 131,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_02.png" },
+  name: "アップルパイ",
+  recipes: [
+    [
+      { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
+    ],
+    [
+      { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
+    ],
+  ],
+  comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+]
+</script>
+
+<script>
+  window.___recipes_horse_stamina = [
+{
+  id: 35,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_02.png" },
+  name: "香草炒め",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
+    ],
+  ],
+  comments: "がんばり★★ → ★★★の強化用料理",
+},
+{
+  id: 104,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_02.png" },
+  name: "山菜ミルクがゆ",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+  ],
+  comments: "がんばり★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 118,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_08.png" },
+  name: "ハチミツリンゴ",
+  recipes: [
+    [
+      { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "ガンバリバチのハチミツ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, },
+    ],
+    [
+      { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
+      { name: "ガンバリバチのハチミツ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, },
+    ],
+  ],
+  comments: "がんばり★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 53,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_07.png" },
+  name: "野菜ミルクスープ",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+  ],
+  comments: "ヨロイカボチャ、ヒダマリカボチャ、ゴーゴーニンジン、ガッツニンジンを除く<br>がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 74,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_08.png" },
+  name: "ニンジンシチュー",
+  recipes: [
+    [
+      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+  ],
+  comments: "がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 80,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_13.png" },
+  name: "野菜リゾット",
+  recipes: [
+    [
+      { name: "ヨロイカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "ヒダマリカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+  ],
+  comments: "がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+]
+</script>
+
+<script>
+  window.___recipes_horse_pull = [
+{
+  id: 100,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_03.png" },
+  name: "山菜おにぎり",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+    ],
+  ],
+  comments: "ひっぱり★★ → ★★★の強化用料理",
+},
+{
+  id: 17,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_11.png" },
+  name: "山盛焼き山菜",
+  recipes: [
+    [
+      { name: "野菜系素材 4 種以上", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+    ],
+  ],
+  comments: "ひっぱり★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 104,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_02.png" },
+  name: "山菜ミルクがゆ",
+  recipes: [
+    [
+      { name: "野菜系素材", link: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
+      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+  ],
+  comments: "ひっぱり★★★ → ★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 54,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_03.png" },
+  name: "野菜クリームスープ",
+  recipes: [
+    [
+      { name: "ヨロイカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+    [
+      { name: "ヒダマリカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+    [
+      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+    [
+      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
+      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+    ],
+  ],
+  comments: "ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 74,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_08.png" },
+  name: "ニンジンシチュー",
+  recipes: [
+    [
+      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
+      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
+      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+  ],
+  comments: "ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
+},
+{
+  id: 116,
+  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_07.png" },
+  name: "リンゴバター",
+  recipes: [
+    [
+      { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+    [
+      { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
+      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
+    ],
+  ],
+  comments: "ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 ]
 </script>
@@ -4713,6 +5201,9 @@ void (() =>
           cell2Img.src = record.icon.src
           cell2Img.alt = record.name
           cell2Img.width = 80
+          cell2Img.tabIndex = 0
+          // cell2Img.role = "presentation"
+          cell2Img.loading = "lazy"
           cell2Img.style.verticalAlign = "middle"
           cell2.appendChild(cell2Img)
         }
@@ -4766,6 +5257,8 @@ void (() =>
               const icon = document.createElement("img")
               icon.src = item.icon.src
               icon.alt = item.name
+              icon.role = "presentation"
+              icon.loading = "lazy"
               icon.style.verticalAlign = "middle"
               icon.style.height = "2em"
               icon.style.width = "auto"
@@ -4854,6 +5347,9 @@ void (() =>
           cell2Img.src = record.icon.src
           cell2Img.alt = record.name
           cell2Img.width = 48
+          cell2Img.tabIndex = 0
+          // cell2Img.role = "presentation"
+          cell2Img.loading = "lazy"
           cell2Img.style.verticalAlign = "middle"
           cell2.appendChild(cell2Img)
         }
