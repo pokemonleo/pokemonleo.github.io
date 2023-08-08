@@ -13,9 +13,57 @@
 <meta property="og:url" content="">
 <meta property="og:image" content="">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+<!-- https://www.jsdelivr.com/package/npm/bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
 <meta name="theme-color" content="#fafafa">
+
+<style>
+.hr-or
+{
+  --block-width: 25px;
+
+  position: relative;
+  overflow: visible;
+  border: none;
+  height: 1px;
+  background-image: linear-gradient(to right,
+    transparent 0%,
+    currentColor calc(50% - var(--block-width)),
+    transparent calc(50% - var(--block-width) - 1px),
+    transparent calc(50% + var(--block-width) + 1px),
+    currentColor calc(50% + var(--block-width)),
+    transparent 100%);
+}
+
+/* hr::after */
+.hr-or::after
+{
+    content: "または";
+    content: "or";
+    display: inline-block;
+    position: absolute;
+    left: calc(50% - var(--block-width));
+    padding: 0.5rem;
+    background-color: transparent;
+    min-width: calc(var(--block-width) * 2);
+    text-align: center;
+    transform: translateY(-50%);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.hr-or
+{
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+}
+</style>
 
 </head>
 
@@ -43,7 +91,7 @@
           <h3 class="accordion-header">
             <button class="accordion-button collapsed recipe-title" type="button" data-bs-toggle="collapse" data-bs-target="#recipes" aria-expanded="false" aria-controls="recipes">
               <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_04.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              レシピ全種類
+              レシピ全種類 - 番号順
             </button>
           </h3>
           <div id="recipes" class="accordion-collapse collapse recipe-page" data-bs-parent="#recipe-accordion">
@@ -190,9 +238,109 @@
 
       </div>
 
-      <h2 class="my-4">材料一覧</h2>
+      <h2 class="my-4">材料一覧 - 種類ソート順<span class="text-secondary" style="--bs-text-opacity: .5; font-size: 60%;">たぶん</span></h2>
 
       <div class="accordion accordion-flush my-4" id="ingredient-accordion">
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#fruits" aria-expanded="false" aria-controls="fruits">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              果実系素材
+            </button>
+          </h3>
+          <div id="fruits" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___fruits">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item d-none">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#fruit-likes" aria-expanded="false" aria-controls="fruit-likes">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              類果実系素材
+            </button>
+          </h3>
+          <div id="fruit-likes" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___fruit_likes">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item d-none">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#fruits-dessert" aria-expanded="false" aria-controls="fruits-dessert">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              砂漠果実系素材
+            </button>
+          </h3>
+          <div id="fruits-dessert" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___dessert_fruits">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#foreigns" aria-expanded="false" aria-controls="foreigns">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              特殊果実系素材
+            </button>
+          </h3>
+          <div id="foreigns" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___foreigns">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
         <div class="accordion-item">
           <h3 class="accordion-header">
@@ -213,56 +361,6 @@
                   </tr>
                 </thead>
                 <tbody class="ingredient-body" data-data="___mushrooms">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#meats" aria-expanded="false" aria-controls="meats">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_01.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              肉系素材
-            </button>
-          </h3>
-          <div id="meats" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___meats">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#seafoods" aria-expanded="false" aria-controls="seafoods">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              魚介系素材
-            </button>
-          </h3>
-          <div id="seafoods" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___seafoods">
                 </tbody>
               </table>
             </div>
@@ -296,12 +394,12 @@
 
         <div class="accordion-item">
           <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#fruits" aria-expanded="false" aria-controls="fruits">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              果実系素材
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#meats" aria-expanded="false" aria-controls="meats">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_01.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              肉系素材
             </button>
           </h3>
-          <div id="fruits" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+          <div id="meats" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
               <table class="table table-hover small ingredient-table">
                 <thead>
@@ -312,157 +410,7 @@
                     <th scope="col">備考</th>
                   </tr>
                 </thead>
-                <tbody class="ingredient-body" data-data="___fruits">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#fruits-dessert" aria-expanded="false" aria-controls="fruits-dessert">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              砂漠果実系素材
-            </button>
-          </h3>
-          <div id="fruits-dessert" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___dessert_fruits">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#foreigns" aria-expanded="false" aria-controls="foreigns">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              外部系素材
-            </button>
-          </h3>
-          <div id="foreigns" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___foreigns">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#ores" aria-expanded="false" aria-controls="ores">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              鉱石系素材
-            </button>
-          </h3>
-          <div id="ores" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___ores">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#enemies" aria-expanded="false" aria-controls="enemies">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              マモノ系素材
-            </button>
-          </h3>
-          <div id="enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___enemies">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#insects" aria-expanded="false" aria-controls="insects">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_M.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              虫系素材
-            </button>
-          </h3>
-          <div id="insects" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___insects">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#golems" aria-expanded="false" aria-controls="golems">
-              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              ゾナウ系素材
-            </button>
-          </h3>
-          <div id="golems" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
-            <div class="accordion-body px-0">
-              <table class="table table-hover small ingredient-table">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
-                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
-                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
-                    <th scope="col">備考</th>
-                  </tr>
-                </thead>
-                <tbody class="ingredient-body" data-data="___golems">
+                <tbody class="ingredient-body" data-data="___meats">
                 </tbody>
               </table>
             </div>
@@ -496,9 +444,384 @@
 
         <div class="accordion-item">
           <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#seafoods" aria-expanded="false" aria-controls="seafoods">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              魚介系素材
+            </button>
+          </h3>
+          <div id="seafoods" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___seafoods">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#fairies" aria-expanded="false" aria-controls="fairies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_F.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              妖精
+            </button>
+          </h3>
+          <div id="fairies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___fairies">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#insects" aria-expanded="false" aria-controls="insects">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_M.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              昆虫系素材
+            </button>
+          </h3>
+          <div id="insects" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___insects">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#ores" aria-expanded="false" aria-controls="ores">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              鉱石系素材
+            </button>
+          </h3>
+          <div id="ores" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___ores">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item d-none">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#ore-likes" aria-expanded="false" aria-controls="ore-likes">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              類鉱石系素材
+            </button>
+          </h3>
+          <div id="ore-likes" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___ore_likes">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item d-none">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#enemies" aria-expanded="false" aria-controls="enemies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              マモノ系素材
+            </button>
+          </h3>
+          <div id="enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___enemies">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#gut-enemies" aria-expanded="false" aria-controls="gut-enemies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_14.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              マモノの肝系素材
+            </button>
+          </h3>
+          <div id="gut-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___enemy_guts">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#utility-enemies" aria-expanded="false" aria-controls="utility-enemies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_19.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              マモノ実用系素材
+            </button>
+          </h3>
+          <div id="utility-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___enemy_utilities">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#blade-enemies" aria-expanded="false" aria-controls="blade-enemies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_106.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              マモノ刃物系素材
+            </button>
+          </h3>
+          <div id="blade-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___enemy_blades">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#hammer-enemies" aria-expanded="false" aria-controls="hammer-enemies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_210.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              マモノハンマー系素材
+            </button>
+          </h3>
+          <div id="hammer-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___enemy_hammers">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#whip-enemies" aria-expanded="false" aria-controls="whip-enemies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_116.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              マモノムチ系素材
+            </button>
+          </h3>
+          <div id="whip-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___enemy_whips">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#blunt-enemies" aria-expanded="false" aria-controls="blunt-enemies">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_69.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              マモノ鈍器系素材
+            </button>
+          </h3>
+          <div id="blunt-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___enemy_blunts">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#others" aria-expanded="false" aria-controls="others">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Obj_FireWoodBundle.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              その他素材
+            </button>
+          </h3>
+          <div id="others" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___others">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#zonaniums" aria-expanded="false" aria-controls="zonaniums">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_L.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              ゾナニウム系素材
+            </button>
+          </h3>
+          <div id="zonaniums" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___zonaniums">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item d-none">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#golems" aria-expanded="false" aria-controls="golems">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              ゾナウ系素材
+            </button>
+          </h3>
+          <div id="golems" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___golems">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item d-none">
+          <h3 class="accordion-header">
             <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#boosts" aria-expanded="false" aria-controls="boosts">
               <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
-              ブースト系素材
+              ブースト専用素材
             </button>
           </h3>
           <div id="boosts" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
@@ -513,6 +836,31 @@
                   </tr>
                 </thead>
                 <tbody class="ingredient-body" data-data="___boosts">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item d-none">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed ingredient-title" type="button" data-bs-toggle="collapse" data-bs-target="#horns" aria-expanded="false" aria-controls="horns">
+              <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" style="width: auto; height: 36px; vertical-align: middle; margin-right: 4px;" loading="lazy" role="presentation">
+              龍の角
+            </button>
+          </h3>
+          <div id="horns" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
+            <div class="accordion-body px-0">
+              <table class="table table-hover small ingredient-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 48px; text-align: center;">図鑑</th>
+                    <th scope="col" style="width: 48px; text-align: center;">画像</th>
+                    <th scope="col" style="max-width: 25%; width: 240px;">素材</th>
+                    <th scope="col">備考</th>
+                  </tr>
+                </thead>
+                <tbody class="ingredient-body" data-data="___horns">
                 </tbody>
               </table>
             </div>
@@ -558,8 +906,8 @@
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<!-- https://www.jsdelivr.com/package/npm/bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
 
 <script>
   window.___recipes = [
@@ -669,7 +1017,7 @@
   recipes: [
     [
       { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "果実系素材", page: "#fruits", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "類果実系素材", page: "#fruit-likes", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
     ],
   ],
   comments: "",
@@ -1159,7 +1507,7 @@
   recipes: [
     [
       { name: "キノコ系素材", page: "#mushrooms", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_E.png" }, },
-      { name: "果実系素材", page: "#fruits", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "類果実系素材", page: "#fruit-likes", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
     ],
   ],
   comments: "",
@@ -1170,7 +1518,7 @@
   name: "煮込み果実",
   recipes: [
     [
-      { name: "果実系素材", page: "#fruits", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "類果実系素材", page: "#fruit-likes", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
     ],
   ],
   comments: "ポカポカ草の実を除く",
@@ -1181,7 +1529,7 @@
   name: "山盛煮込み果実",
   recipes: [
     [
-      { name: "果実系素材 4 種以上", page: "#fruits", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "類果実系素材 4 種以上", page: "#fruit-likes", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
     ],
   ],
   comments: "",
@@ -2270,7 +2618,7 @@
   name: "ハチミツ果実",
   recipes: [
     [
-      { name: "果実系素材", page: "#fruits", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "類果実系素材", page: "#fruit-likes", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
       { name: "ガンバリバチのハチミツ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, },
     ],
   ],
@@ -2478,7 +2826,7 @@
   name: "フルーツパイ",
   recipes: [
     [
-      { name: "果実系素材", page: "#fruits", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
+      { name: "類果実系素材", page: "#fruit-likes", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
       { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
       { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
       { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
@@ -2685,13 +3033,16 @@
   name: "微妙な料理",
   recipes: [
     [
-      { name: "虫系素材 (マモノ系素材なし)", page: "#insects", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_M.png" }, },
+      { name: "昆虫系素材 (マモノ系素材なし)", page: "#insects", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_M.png" }, },
     ],
     [
-      { name: "マモノ系素材 (虫系素材なし)", page: "#enemies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" }, },
+      { name: "マモノ系素材 (昆虫系素材なし)", page: "#enemies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" }, },
     ],
     [
-      { name: "外部系素材", page: "#foreigns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" }, },
+      { name: "ブースト専用素材 (他の素材なし)", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" }, },
+    ],
+    [
+      { name: "特殊果実系素材", page: "#foreigns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" }, },
     ],
     [
       { name: "ゾナウ系素材", page: "#golems", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" }, },
@@ -2705,7 +3056,7 @@
   name: "硬すぎ料理",
   recipes: [
     [
-      { name: "鉱石系素材", page: "#ores", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" }, },
+      { name: "類鉱石系素材", page: "#ore-likes", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" }, },
     ],
   ],
   comments: "",
@@ -3773,7 +4124,7 @@
       { name: "闇の塊 (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_11.png" }, },
       { name: "闇の塊 (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_11.png" }, },
       { name: "闇の塊 (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_11.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `瘴気ガード Lv.3 / 30 分<br>
@@ -3791,21 +4142,21 @@
       { name: "ツルギバナナ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_H.png" }, },
       { name: "ツルギバナナ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_H.png" }, },
       { name: "ツルギダイ (130)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_F.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ツルギバナナ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_H.png" }, },
       { name: "ツルギバナナ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_H.png" }, },
       { name: "ツルギバナナ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_H.png" }, },
       { name: "ツルギソウ (45)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_G.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ツルギダケ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_L.png" }, },
       { name: "ツルギダケ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_L.png" }, },
       { name: "ツルギダケ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_L.png" }, },
       { name: "ツルギソウ (45)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_G.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `攻撃力アップ Lv.3 / 30 分<br>
@@ -3823,21 +4174,21 @@
       { name: "ヨロイカボチャ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
       { name: "ヨロイカボチャ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
       { name: "ヨロイダイ (130)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_G.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ヨロイカボチャ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
       { name: "ヨロイカボチャ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
       { name: "ヨロイカボチャ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
       { name: "ヨロイソウ (45)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_H.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ヨロイダケ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_M.png" }, },
       { name: "ヨロイダケ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_M.png" }, },
       { name: "ヨロイダケ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_M.png" }, },
       { name: "ヨロイソウ (45)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_H.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `防御力アップ Lv.3 / 30 分<br>
@@ -3856,14 +4207,14 @@
       { name: "ゴーゴーハスの実 (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_E.png" }, },
       { name: "ゴーゴーハスの実 (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_E.png" }, },
       { name: "ゴーゴーニンジン (45)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ゴーゴースミレ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_O.png" }, },
       { name: "ゴーゴースミレ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_O.png" }, },
       { name: "ゴーゴースミレ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_O.png" }, },
       { name: "ゴーゴーダケ (45)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_MushroomGet_D.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `移動力アップ Lv.3 / 30 分<br>
@@ -3881,7 +4232,7 @@
       { name: "姫しずか (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_J.png" }, },
       { name: "姫しずか (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_J.png" }, },
       { name: "姫しずか (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_J.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `静かさアップ Lv.3 / 30 分<br>
@@ -3899,7 +4250,7 @@
       { name: "水の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/WaterFruit.png" }, },
       { name: "水の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/WaterFruit.png" }, },
       { name: "水の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/WaterFruit.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "水の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/WaterFruit.png" }, },
@@ -3942,7 +4293,7 @@
       { name: "アカリホラウオ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_AC.png" }, },
       { name: "アカリホラウオ (90)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_AC.png" }, },
       { name: "アカリダケ (45)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_MushroomGet_K.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `発光 Lv.3 / 30 分<br>
@@ -3959,13 +4310,13 @@
     [
       { name: "ヒンヤリマス (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_C.png" }, },
       { name: "ヒンヤリマス (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_C.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ヒンヤリダケ (70)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_B.png" }, },
       { name: "ヒンヤリダケ (70)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_B.png" }, },
       { name: "ヒンヤリダケ (70)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_B.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `暑さガード Lv.2 / 30 分<br>
@@ -3981,13 +4332,13 @@
     [
       { name: "ポカポカマス (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_J.png" }, },
       { name: "ポカポカマス (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_J.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ポカポカダケ (70)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_C.png" }, },
       { name: "ポカポカダケ (70)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_C.png" }, },
       { name: "ポカポカダケ (70)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_C.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `寒さガード Lv.2 / 30 分<br>
@@ -4003,13 +4354,13 @@
     [
       { name: "ビリビリマス (150)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_D.png" }, },
       { name: "ビリビリマス (150)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_D.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "ビリビリダケ (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_H.png" }, },
       { name: "ビリビリダケ (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_H.png" }, },
       { name: "ビリビリダケ (100)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_H.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
   ],
   comments: `エレキガード Lv.3 / 30 分<br>
@@ -4045,7 +4396,7 @@
       { name: "火炎の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FireFruit.png" }, },
       { name: "火炎の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FireFruit.png" }, },
       { name: "火炎の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FireFruit.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "火炎の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FireFruit.png" }, },
@@ -4068,7 +4419,7 @@
       { name: "冷気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/IceFruit.png" }, },
       { name: "冷気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/IceFruit.png" }, },
       { name: "冷気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/IceFruit.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "冷気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/IceFruit.png" }, },
@@ -4091,7 +4442,7 @@
       { name: "電気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ElectricalFruit.png" }, },
       { name: "電気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ElectricalFruit.png" }, },
       { name: "電気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ElectricalFruit.png" }, },
-      { name: "龍の角", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
+      { name: "龍の角", page: "#horns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, },
     ],
     [
       { name: "電気の実 (35)", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ElectricalFruit.png" }, },
@@ -4893,6 +5244,34 @@
 </script>
 
 <script>
+  window.___fishes = [
+{ id: 56, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_I.png" }, name: "マックスサーモン", comments: "マックス効果 4", },
+{ id: 54, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_B.png" }, name: "マックスバス", comments: "マックス効果 2", },
+{ id: 53, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" }, name: "ハイラルバス", },
+{ id: 55, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_L.png" }, name: "ガンバリバス", comments: "がんばり回復効果 112%", },
+{ id: 57, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_C.png" }, name: "ヒンヤリマス", comments: "暑さガード効果 100", },
+{ id: 58, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_J.png" }, name: "ポカポカマス", comments: "寒さガード効果 100", },
+{ id: 59, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_D.png" }, name: "ビリビリマス", comments: "エレキガード効果 150", },
+{ id: 60, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_X.png" }, name: "シノビマス", comments: "静かさアップ効果 70", },
+{ id: 61, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_E.png" }, name: "ツルギゴイ", comments: "攻撃力アップ効果 90", },
+{ id: 62, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_H.png" }, name: "ヨロイゴイ", comments: "防御力アップ効果 90", },
+{ id: 63, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_Z.png" }, name: "サンケゴイ", },
+{ id: 64, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_AA.png" }, name: "ムカシアロワナ", },
+{ id: 65, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_AC.png" }, name: "アカリホラウオ", comments: "発光効果 90", },
+{ id: 66, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_F.png" }, name: "ツルギダイ", comments: "攻撃力アップ効果 130", },
+{ id: 67, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_G.png" }, name: "ヨロイダイ", comments: "防御力アップ効果 130", },
+]
+</script>
+
+<script>
+  window.___crabs = [
+{ id: 69, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_K.png" }, name: "ツルギガニ", comments: "攻撃力アップ効果 90", },
+{ id: 70, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_O.png" }, name: "ヨロイガニ", comments: "防御力アップ効果 90", },
+{ id: 71, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_Z.png" }, name: "ガンバリガニ", comments: "がんばり回復効果 56%", },
+]
+</script>
+
+<script>
   window.___vegies = [
 { id: 236, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_C.png" }, name: "大マックスラディッシュ", comments: "マックス効果 5", },
 { id: 235, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_B.png" }, name: "マックスラディッシュ", comments: "マックス効果 3", },
@@ -4917,6 +5296,25 @@
 
 <script>
   window.___fruits = [
+{ id: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", comments: "確定大成功、効果時間 20 秒延長", },
+{ id: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
+{ id: 207, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, name: "ハイラルトマト", },
+{ id: 203, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, name: "リンゴ", },
+{ id: 206, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_B.png" }, name: "イチゴ", },
+{ id: 210, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_C.png" }, name: "ビリビリフルーツ", comments: "エレキガード効果 50", },
+{ id: 211, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_E.png" }, name: "ゴーゴーハスの実", comments: "移動力アップ効果 90", },
+{ id: 208, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, name: "ヒンヤリメロン", comments: "暑さガード効果 35", },
+{ id: 212, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_H.png" }, name: "ツルギバナナ", comments: "攻撃力アップ効果 90", },
+{ id: 209, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_I.png" }, name: "ポカポカ草の実", comments: "寒さガード効果 35", },
+{ id: 213, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FireFruit.png" }, name: "火炎の実", comments: "高温時炎攻撃効果 35", },
+{ id: 214, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/IceFruit.png" }, name: "冷気の実", comments: "低温時冷気攻撃効果 35", },
+{ id: 216, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ElectricalFruit.png" }, name: "電気の実", comments: "雷雨時電気攻撃効果 35", },
+{ id: 215, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/WaterFruit.png" }, name: "水の実", comments: "泳ぎスピードアップ効果 35", },
+]
+</script>
+
+<script>
+  window.___fruit_likes = [
 { id: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", comments: "確定大成功、効果時間 20 秒延長", },
 { id: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
 { id: 207, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, name: "ハイラルトマト", },
@@ -4958,7 +5356,7 @@
 </script>
 
 <script>
-  window.___ores = [
+  window.___ore_likes = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_A.png" }, name: "ダイヤモンド", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_B.png" }, name: "ルビー", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_C.png" }, name: "サファイア", },
@@ -4972,6 +5370,19 @@
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Obj_FireWoodBundle.png" }, name: "薪の束", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_L.png" }, name: "ゾナニウム", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_M.png" }, name: "大きなゾナニウム", },
+]
+</script>
+
+<script>
+  window.___ores = [
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_A.png" }, name: "ダイヤモンド", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_B.png" }, name: "ルビー", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_C.png" }, name: "サファイア", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_D.png" }, name: "トパーズ", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" }, name: "オパール", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_F.png" }, name: "コハク", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_G.png" }, name: "夜光石", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_I.png" }, name: "火打ち石", },
 ]
 </script>
 
@@ -5074,6 +5485,157 @@
 </script>
 
 <script>
+  window.___enemy_guts = [
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_02.png" }, name: "ボコブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_08.png" }, name: "モリブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_105.png" }, name: "ホラブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_121.png" }, name: "ギブドの肝", comments: "確定大成功、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_136.png" }, name: "ボスボコブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_14.png" }, name: "ライネルの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_157.png" }, name: "グリオークの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_190.png" }, name: "デグガーマの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_25.png" }, name: "モルドラジークの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_34.png" }, name: "ヒノックスの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+]
+</script>
+
+<script>
+  window.___enemy_utilities = [
+{ id: 258, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_15.png" }, name: "赤チュチュゼリー", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 259, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_17.png" }, name: "白チュチュゼリー", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 260, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_16.png" }, name: "黄チュチュゼリー", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 257, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_40.png" }, name: "チュチュゼリー", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_57.png" }, name: "オクタ風船", comments: "効果時間 40 秒延長" },
+{ id: 261, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_19.png" }, name: "キースの目玉", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 262, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_117.png" }, name: "ファイアキースの目玉", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 263, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_119.png" }, name: "アイスキースの目玉", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 264, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_118.png" }, name: "エレキースの目玉", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_21.png" }, name: "オクタの目玉", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 269, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_66.png" }, name: "カックーダの目玉", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_18.png" }, name: "キースの羽", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_44.png" }, name: "ファイアキースの羽", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_46.png" }, name: "アイスキースの羽", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_45.png" }, name: "エレキースの羽", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_124.png" }, name: "カックーダの羽", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_123.png" }, name: "ギブドの羽", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_156.png" }, name: "グリオークの羽", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_24.png" }, name: "モルドラジークの背びれ", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+]
+</script>
+
+<script>
+  window.___enemy_blades = [
+{ id: 271, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_77.png" }, name: "ボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 272, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_78.png" }, name: "青ボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 273, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_79.png" }, name: "黒ボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 274, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_80.png" }, name: "白銀ボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 275, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_64.png" }, name: "ボスボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 276, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_132.png" }, name: "青ボスボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 277, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_133.png" }, name: "黒ボスボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 278, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_134.png" }, name: "白銀ボスボコブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 283, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_106.png" }, name: "リザルフォスの角", comments: "効果時間 40 秒延長" },
+{ id: 284, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_107.png" }, name: "青リザルフォスの角", comments: "効果時間 40 秒延長" },
+{ id: 285, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_108.png" }, name: "黒リザルフォスの角", comments: "効果時間 40 秒延長" },
+{ id: 289, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_109.png" }, name: "白銀リザルフォスの角", comments: "効果時間 40 秒延長" },
+{ id: 286, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_58.png" }, name: "火吹きリザルフォスの角", comments: "効果時間 40 秒延長" },
+{ id: 287, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_59.png" }, name: "雹吐きリザルフォスの角", comments: "効果時間 40 秒延長" },
+{ id: 288, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_60.png" }, name: "シビレリザルフォスの角", comments: "効果時間 40 秒延長" },
+{ id: 294, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_148.png" }, name: "ライネルの刃角", comments: "効果時間 40 秒延長" },
+{ id: 296, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_149.png" }, name: "青髪ライネルの刃角", comments: "効果時間 40 秒延長" },
+{ id: 298, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_150.png" }, name: "白髪ライネルの刃角", comments: "効果時間 40 秒延長" },
+{ id: 300, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_151.png" }, name: "白銀ライネルの刃角", comments: "効果時間 40 秒延長" },
+{ id: 302, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_166.png" }, name: "兵隊ゴーレムの角", },
+{ id: 303, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_167.png" }, name: "兵隊ゴーレムの角 (中等)", },
+{ id: 304, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_168.png" }, name: "兵隊ゴーレムの角 (上等)", },
+{ id: 305, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_169.png" }, name: "兵隊ゴーレムの角 (特等)", },
+{ id: 306, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_67.png" }, name: "隊長ゴーレムの角", },
+{ id: 307, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_191.png" }, name: "隊長ゴーレムの角 (中等)", },
+{ id: 308, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_192.png" }, name: "隊長ゴーレムの角 (上等)", },
+{ id: 309, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_193.png" }, name: "隊長ゴーレムの角 (特等)", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_32.png" }, name: "ヒノックスの爪", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 315, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_153.png" }, name: "グリオークの火炎角", comments: "効果時間 40 秒延長" },
+{ id: 316, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_154.png" }, name: "グリオークの氷雪角", comments: "効果時間 40 秒延長" },
+{ id: 317, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_155.png" }, name: "グリオークの雷電角", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, name: "オルドラの角", comments: "確定大成功、効果時間 30 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_212.png" }, name: "ネルドラの角", comments: "確定大成功、効果時間 30 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_213.png" }, name: "フロドラの角", comments: "確定大成功、効果時間 30 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_214.png" }, name: "白龍の角", comments: "確定大成功、効果時間 30 分延長", },
+]
+</script>
+
+<script>
+  window.___enemy_hammers = [
+{ id: 265, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_181.png" }, name: "ライクライクの胃石", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 266, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_182.png" }, name: "ファイアライクの胃石", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 267, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_184.png" }, name: "アイスライクの胃石", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 268, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_183.png" }, name: "エレキライクの胃石", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 279, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_89.png" }, name: "モリブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 280, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_90.png" }, name: "青モリブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 281, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_91.png" }, name: "黒モリブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 282, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_92.png" }, name: "白銀モリブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 290, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_100.png" }, name: "ホラブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 291, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_101.png" }, name: "青ホラブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 292, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_102.png" }, name: "黒ホラブリンの角", comments: "効果時間 40 秒延長" },
+{ id: 293, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_103.png" }, name: "白銀ホラブリンの角", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_13.png" }, name: "ライネルのひづめ", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 295, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" }, name: "ライネルの砕角", comments: "効果時間 40 秒延長" },
+{ id: 297, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_216.png" }, name: "青髪ライネルの砕角", comments: "効果時間 40 秒延長" },
+{ id: 299, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_217.png" }, name: "白髪ライネルの砕角", comments: "効果時間 40 秒延長" },
+{ id: 301, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_218.png" }, name: "白銀ライネルの砕角", comments: "効果時間 40 秒延長" },
+{ id: 310, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_142.png" }, name: "ヒノックスの角", comments: "効果時間 40 秒延長" },
+{ id: 311, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_143.png" }, name: "青ヒノックスの角", comments: "効果時間 40 秒延長" },
+{ id: 312, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_144.png" }, name: "黒ヒノックスの角", comments: "効果時間 40 秒延長" },
+{ id: 313, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_208.png" }, name: "スタルヒノックスの角", comments: "効果時間 40 秒延長" },
+{ id: 314, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_210.png" }, name: "モルドラジークのアゴ骨", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ id: 318, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_186.png" }, name: "デグガーマの大牙", comments: "効果時間 40 秒延長" },
+{ id: 319, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_187.png" }, name: "黒曜デグガーマの大牙", comments: "効果時間 40 秒延長" },
+{ id: 320, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_188.png" }, name: "白蒼デグガーマの大牙", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_228.png" }, name: "オルドラの龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_229.png" }, name: "ネルドラの龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_230.png" }, name: "フロドラの龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_231.png" }, name: "白龍の龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
+]
+</script>
+
+<script>
+  window.___enemy_whips = [
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_05.png" }, name: "リザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_114.png" }, name: "青リザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_115.png" }, name: "黒リザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_116.png" }, name: "白銀リザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_41.png" }, name: "火吹きリザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_42.png" }, name: "雹吐きリザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_43.png" }, name: "シビレリザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
+]
+</script>
+
+<script>
+  window.___enemy_blunts = [
+{ id: 270, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_69.png" }, name: "ギブドの骨", comments: "効果時間 40 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_20.png" }, name: "オクタの足", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_01.png" }, name: "ボコブリンの牙", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_07.png" }, name: "モリブリンの牙", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_135.png" }, name: "ボスボコブリンの牙", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_33.png" }, name: "ヒノックスの牙", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_104.png" }, name: "ホラブリンの爪", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_04.png" }, name: "リザルフォスの爪", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_189.png" }, name: "デグガーマの爪", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_38.png" }, name: "オルドラのウロコ", comments: "確定大成功、効果時間 1 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_49.png" }, name: "ネルドラのウロコ", comments: "確定大成功、効果時間 1 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_53.png" }, name: "フロドラのウロコ", comments: "確定大成功、効果時間 1 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_158.png" }, name: "白龍のウロコ", comments: "確定大成功、効果時間 1 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_39.png" }, name: "オルドラの爪", comments: "確定大成功、効果時間 3 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_50.png" }, name: "ネルドラの爪", comments: "確定大成功、効果時間 3 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_54.png" }, name: "フロドラの爪", comments: "確定大成功、効果時間 3 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_159.png" }, name: "白龍の爪", comments: "確定大成功、効果時間 3 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_47.png" }, name: "オルドラの牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_51.png" }, name: "ネルドラの牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_55.png" }, name: "フロドラの牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_160.png" }, name: "白龍の牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
+]
+</script>
+
+<script>
   window.___insects = [
 { id: 73, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_N.png" }, name: "ヒンヤリアゲハ", comments: "暑さガード効果 35", },
 { id: 74, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_Q.png" }, name: "ポカポカアゲハ", comments: "寒さガード効果 35", },
@@ -5127,7 +5689,47 @@
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, name: "きび砂糖", comments: "大成功確率 +30% 、効果時間 50 秒延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, name: "ゴロンの香辛粉", comments: "大成功確率 +10% 、効果時間 1 分延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, name: "ヤギのバター", comments: "大成功確率 +10% 、効果時間 50 秒延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_08.png" }, name: "マモノエキス", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_08.png" }, name: "マモノエキス", comments: "大成功は必ず発生しない、回復量、効果レベル、効果時間がランダムに変化" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_09.png" }, name: "油ツボ", comments: "大成功確率 +10% 、効果時間 50 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_11.png" }, name: "闇の塊", comments: "瘴気ガード効果 100" },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, name: "岩塩", comments: "効果時間 30 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" }, name: "星のかけら", comments: "確定大成功、効果時間 1 分延長", },
+]
+</script>
+
+<script>
+  window.___fairies = [
+{ id: 72, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_F.png" }, name: "妖精", },
+]
+</script>
+
+<script>
+  window.___others = [
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Weapon_01.png" }, name: "古代の刃", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_KingScale.png" }, name: "王のウロコ", },
+{ id: 255, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FldObj_Pinecone_A_01.png" }, name: "ハイラルボックリ", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Obj_FireWoodBundle.png" }, name: "薪の束", },
+]
+</script>
+
+<script>
+  window.___zonaniums = [
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_L.png" }, name: "ゾナニウム", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_M.png" }, name: "大きなゾナニウム", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" }, name: "ゾナウエネルギー", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_131.png" }, name: "大きなゾナウエネルギー", },
+]
+</script>
+
+<script>
+  window.___boosts = [
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, name: "ハイラル米", comments: "効果時間 30 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, name: "タバンタ小麦", comments: "効果時間 30 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_10.png" }, name: "ハテノチーズ", comments: "大成功確率 +10% 、効果時間 50 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, name: "きび砂糖", comments: "大成功確率 +30% 、効果時間 50 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, name: "ゴロンの香辛粉", comments: "大成功確率 +10% 、効果時間 1 分延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, name: "ヤギのバター", comments: "大成功確率 +10% 、効果時間 50 秒延長", },
+{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_08.png" }, name: "マモノエキス", comments: "大成功は必ず発生しない、回復量、効果レベル、効果時間がランダムに変化" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_09.png" }, name: "油ツボ", comments: "大成功確率 +10% 、効果時間 50 秒延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_11.png" }, name: "闇の塊", comments: "瘴気ガード効果 100" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, name: "岩塩", comments: "効果時間 30 秒延長", },
@@ -5156,28 +5758,11 @@
 </script>
 
 <script>
-  window.___boosts = [
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" }, name: "星のかけら", comments: "確定大成功、効果時間 1 分延長", },
+  window.___horns = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, name: "オルドラの角", comments: "確定大成功、効果時間 30 分延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_212.png" }, name: "ネルドラの角", comments: "確定大成功、効果時間 30 分延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_213.png" }, name: "フロドラの角", comments: "確定大成功、効果時間 30 分延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_214.png" }, name: "白龍の角", comments: "確定大成功、効果時間 30 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_228.png" }, name: "オルドラの龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_229.png" }, name: "ネルドラの龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_230.png" }, name: "フロドラの龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_231.png" }, name: "白龍の龍岩石", comments: "大成功確率 +10% 、効果時間 80 秒延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_38.png" }, name: "オルドラのウロコ", comments: "確定大成功、効果時間 1 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_49.png" }, name: "ネルドラのウロコ", comments: "確定大成功、効果時間 1 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_53.png" }, name: "フロドラのウロコ", comments: "確定大成功、効果時間 1 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_158.png" }, name: "白龍のウロコ", comments: "確定大成功、効果時間 1 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_39.png" }, name: "オルドラの爪", comments: "確定大成功、効果時間 3 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_50.png" }, name: "ネルドラの爪", comments: "確定大成功、効果時間 3 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_54.png" }, name: "フロドラの爪", comments: "確定大成功、効果時間 3 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_159.png" }, name: "白龍の爪", comments: "確定大成功、効果時間 3 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_47.png" }, name: "オルドラの牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_51.png" }, name: "ネルドラの牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_55.png" }, name: "フロドラの牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
-{ icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_160.png" }, name: "白龍の牙のかけら", comments: "確定大成功、効果時間 10 分延長", },
 ]
 </script>
 
@@ -5247,6 +5832,7 @@ void (() =>
           if (pageFirst === true)
           {
             const blocker = document.createElement("hr")
+            blocker.classList.add("hr-or")
             blocker.style.margin = ".5em 0"
             cell4.appendChild(blocker)
           }
@@ -5445,7 +6031,7 @@ void (() =>
     //   return
     // }
 
-    const collapseElementList = document.querySelectorAll('.recipe-page')
+    const collapseElementList = document.querySelectorAll('.recipe-page, .ingredient-page')
     for (const collapseElement of collapseElementList)
     {
       collapseElement.addEventListener("shown.bs.collapse", () =>
