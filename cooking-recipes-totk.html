@@ -6221,6 +6221,55 @@ void (() =>
     modal.show()
   }
 
+  const renderPageBody = tbody =>
+  {
+    if (!tbody)
+    {
+      return
+    }
+
+    if (!tbody.dataset.data)
+    {
+      return
+    }
+
+    renderPageBodyByData(tbody, window.pages[tbody.dataset.data])
+  }
+
+  const renderPageBodyByData = (tbody, page = {}) =>
+  {
+    if (!tbody)
+    {
+      return
+    }
+
+    const { cache, data, title, icon, type, } = page
+    if (cache)
+    {
+      tbody.innerHTML = cache
+      return
+    }
+    else
+    {
+      page.cache = ''
+    }
+
+    if (!data)
+    {
+      return
+    }
+
+    switch (type)
+    {
+      case "recipe":
+        renderRecipeBodyByData(tbody, page)
+        break
+      case "ingredient":
+        renderIngredientBodyByData(tbody, page)
+        break
+    }
+  }
+
   const renderRecipeBody = tbody =>
   {
     if (!tbody)
@@ -6243,7 +6292,7 @@ void (() =>
       return
     }
 
-    const { cache, data, title, icon, } = page
+    const { cache, data, title, icon, type, } = page
     if (cache)
     {
       tbody.innerHTML = cache
@@ -6508,7 +6557,7 @@ void (() =>
       return
     }
 
-    const { cache, data, title, icon, } = page
+    const { cache, data, title, icon, type, } = page
     if (cache)
     {
       tbody.innerHTML = cache
@@ -6602,15 +6651,17 @@ void (() =>
   {
     for (const body of document.querySelectorAll(".recipe-body, .ingredient-body"))
     {
-      switch (body.dataset.type)
-      {
-        case "recipe":
-          renderRecipeBody(body)
-          break
-        case "ingredient":
-          renderIngredientBody(body)
-          break
-      }
+      renderPageBody(body)
+
+      // switch (body.dataset.type)
+      // {
+      //   case "recipe":
+      //     renderRecipeBody(body)
+      //     break
+      //   case "ingredient":
+      //     renderIngredientBody(body)
+      //     break
+      // }
     }
   }
 
