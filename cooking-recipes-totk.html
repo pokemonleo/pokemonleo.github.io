@@ -64,7 +64,7 @@
           </h3>
           <div id="recipes" class="accordion-collapse collapse recipe-page" data-bs-parent="#recipe-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">番号</th>
@@ -90,7 +90,7 @@
           </h3>
           <div id="max-recipes" class="accordion-collapse collapse recipe-page" data-bs-parent="#recipe-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover table-dark small recipe-table" style="--bs-table-bg: rgb(33 37 41 / 85%); --bs-link-color-rgb: 13,173,253;">
+              <table class="table table-hover table-dark small recipe-table" style="--bs-table-bg: rgb(33 37 41 / 85%); --bs-link-color-rgb: 13,173,253; font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;"></th>
@@ -117,23 +117,43 @@
           <div id="horse-recipes" class="accordion-collapse collapse recipe-page" data-bs-parent="#recipe-accordion">
             <div class="accordion-body px-0">
 
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <ul class="nav nav-tabs flex-nowrap" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="strength-tab" data-bs-toggle="tab" data-bs-target="#strength-tab-pane" type="button" role="tab" aria-controls="strength-tab-pane" aria-selected="true">じょうぶさ</button>
+                  <button class="nav-link active" id="strength-tab" data-bs-toggle="tab" data-bs-target="#strength-tab-pane" type="button" role="tab" aria-controls="strength-tab-pane" aria-selected="true" style="
+                    padding-left: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    padding-right: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
+                    じょうぶさ
+                  </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="speed-tab" data-bs-toggle="tab" data-bs-target="#speed-tab-pane" type="button" role="tab" aria-controls="speed-tab-pane" aria-selected="false">スピード</button>
+                  <button class="nav-link" id="speed-tab" data-bs-toggle="tab" data-bs-target="#speed-tab-pane" type="button" role="tab" aria-controls="speed-tab-pane" aria-selected="false" style="
+                    padding-left: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    padding-right: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
+                    スピード
+                  </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="stamina-tab" data-bs-toggle="tab" data-bs-target="#stamina-tab-pane" type="button" role="tab" aria-controls="stamina-tab-pane" aria-selected="false">がんばり</button>
+                  <button class="nav-link" id="stamina-tab" data-bs-toggle="tab" data-bs-target="#stamina-tab-pane" type="button" role="tab" aria-controls="stamina-tab-pane" aria-selected="false" style="
+                    padding-left: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    padding-right: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
+                    がんばり
+                  </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pull-tab" data-bs-toggle="tab" data-bs-target="#pull-tab-pane" type="button" role="tab" aria-controls="pull-tab-pane" aria-selected="false">ひっぱり</button>
+                  <button class="nav-link" id="pull-tab" data-bs-toggle="tab" data-bs-target="#pull-tab-pane" type="button" role="tab" aria-controls="pull-tab-pane" aria-selected="false" style="
+                    padding-left: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    padding-right: clamp(6px, (100vw - 600px) * (16 - 6) / 300 + 6px, 16px);
+                    font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
+                    ひっぱり
+                  </button>
                 </li>
               </ul>
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="strength-tab-pane" role="tabpanel" aria-labelledby="strength-tab" tabindex="0">
-                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                     <thead>
                       <tr>
                         <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">番号</th>
@@ -148,7 +168,7 @@
                   </table>
                 </div>
                 <div class="tab-pane fade" id="speed-tab-pane" role="tabpanel" aria-labelledby="speed-tab" tabindex="0">
-                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                     <thead>
                       <tr>
                         <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">番号</th>
@@ -164,7 +184,7 @@
 
                 </div>
                 <div class="tab-pane fade" id="stamina-tab-pane" role="tabpanel" aria-labelledby="stamina-tab" tabindex="0">
-                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                     <thead>
                       <tr>
                         <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">番号</th>
@@ -180,7 +200,7 @@
 
                 </div>
                 <div class="tab-pane fade" id="pull-tab-pane" role="tabpanel" aria-labelledby="pull-tab" tabindex="0">
-                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+                  <table class="table table-hover recipe-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                     <thead>
                       <tr>
                         <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">番号</th>
@@ -219,7 +239,7 @@
           </h3>
           <div id="fruits" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -244,7 +264,7 @@
           </h3>
           <div id="fruit-likes" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -269,7 +289,7 @@
           </h3>
           <div id="fruits-dessert" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -294,7 +314,7 @@
           </h3>
           <div id="foreigns" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -319,7 +339,7 @@
           </h3>
           <div id="mushrooms" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -344,7 +364,7 @@
           </h3>
           <div id="vegies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -369,7 +389,7 @@
           </h3>
           <div id="meats" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -394,7 +414,7 @@
           </h3>
           <div id="spices" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -419,7 +439,7 @@
           </h3>
           <div id="seafoods" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -444,7 +464,7 @@
           </h3>
           <div id="fairies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -469,7 +489,7 @@
           </h3>
           <div id="insects" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -494,7 +514,7 @@
           </h3>
           <div id="ores" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -519,7 +539,7 @@
           </h3>
           <div id="ore-likes" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -544,7 +564,7 @@
           </h3>
           <div id="enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -569,7 +589,7 @@
           </h3>
           <div id="gut-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -594,7 +614,7 @@
           </h3>
           <div id="utility-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -619,7 +639,7 @@
           </h3>
           <div id="blade-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -644,7 +664,7 @@
           </h3>
           <div id="hammer-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -669,7 +689,7 @@
           </h3>
           <div id="whip-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -694,7 +714,7 @@
           </h3>
           <div id="blunt-enemies" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -719,7 +739,7 @@
           </h3>
           <div id="others" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -744,7 +764,7 @@
           </h3>
           <div id="zonaniums" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -769,7 +789,7 @@
           </h3>
           <div id="golems" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -794,7 +814,7 @@
           </h3>
           <div id="boosts" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
@@ -819,7 +839,7 @@
           </h3>
           <div id="horns" class="accordion-collapse collapse ingredient-page" data-bs-parent="#ingredient-accordion">
             <div class="accordion-body px-0">
-              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * 2 / 200 + .75em, .875em)">
+              <table class="table table-hover ingredient-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
                 <thead>
                   <tr>
                     <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
