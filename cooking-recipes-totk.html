@@ -900,6 +900,8 @@
 <style>
   html, body
   {
+    font-language-override: "JAN";
+    -webkit-locale: "ja";
     line-break: strict;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -5711,241 +5713,259 @@ void (() =>
     return window.___recipes.find(recipe => recipe.key === key)
   }
 
-  const renderingRecipes = () =>
+  const renderRecipeBody = tbody =>
   {
-    const rBodies = document.getElementsByClassName("recipe-body")
-    for (const body of rBodies)
+    if (!tbody)
     {
-      const data = window[body.dataset.data]
-      if (!data)
+      return
+    }
+
+    if (!tbody.dataset.data)
+    {
+      return
+    }
+
+    const data = window[tbody.dataset.data]
+    if (!data)
+    {
+      return
+    }
+
+    for (const _record of data)
+    {
+      const record =
+      {
+        ...getRecipe(_record.useRecipeKey),
+        ..._record
+      }
+
+      // If the data is going to retreive by key, skip the record if no key is retreived
+      if (record.useRecipeKey && !record.key)
       {
         continue
       }
-      for (const _record of data)
+
+      const line = document.createElement("tr")
+      tbody.appendChild(line)
+
+      const cell1 = document.createElement("th")
+      cell1.scope = "row"
+      cell1.style.textAlign = "center"
+      cell1.style.verticalAlign = "middle"
+      cell1.style.wordBreak = "keep-all"
+      cell1.style.fontSize = "12px"
+      cell1.style.padding = "0"
+      if (record.number)
       {
-        const record =
+        cell1.innerHTML = record.number
+      }
+      line.appendChild(cell1)
+
+      const cell2 = document.createElement("td")
+      cell2.style.padding = "0"
+      cell2.style.textAlign = "center"
+      cell2.style.verticalAlign = "middle"
+      if (record.icon && record.icon.src)
+      {
+        const cell2Img = document.createElement("img")
+        cell2Img.src = record.icon.src
+        cell2Img.alt = record.name
+        // cell2Img.width = 80
+        cell2Img.tabIndex = 0
+        // cell2Img.role = "presentation"
+        cell2Img.loading = "lazy"
+        cell2Img.style.verticalAlign = "middle"
+        cell2Img.style.width = "100%"
+        cell2Img.style.height = "auto"
+        cell2Img.style.aspectRatio = "1 / 1"
+        cell2Img.style.objectFit = "contain"
+        cell2.appendChild(cell2Img)
+      }
+      line.appendChild(cell2)
+
+      const cell3 = document.createElement("td")
+      cell3.style.verticalAlign = "middle"
+      cell3.innerHTML = record.name
+      line.appendChild(cell3)
+
+      const cell4 = document.createElement("td")
+      cell4.style.verticalAlign = "middle"
+      cell4.style.lineHeight = "1.75"
+      let pageFirst = false
+      for (const recipe of record.recipes)
+      {
+        if (pageFirst === true)
         {
-          ...getRecipe(_record.useRecipeKey),
-          ..._record
+          const blocker = document.createElement("hr")
+          blocker.classList.add("hr-or")
+          blocker.style.margin = ".5em 0"
+          cell4.appendChild(blocker)
         }
 
-        // If the data is going to retreive by key, skip the record if no key is retreived
-        if (record.useRecipeKey && !record.key)
+        const page = document.createElement("ul")
+        page.style.marginLeft = "1.5em"
+        page.style.marginBottom = "0"
+        page.style.paddingLeft = "0"
+        page.style.listStyleType = "none"
+        cell4.appendChild(page)
+        let itemFirst = false
+        for (const _item of recipe)
         {
-          continue
-        }
-
-        const line = document.createElement("tr")
-        body.appendChild(line)
-
-        const cell1 = document.createElement("th")
-        cell1.scope = "row"
-        cell1.style.textAlign = "center"
-        cell1.style.verticalAlign = "middle"
-        cell1.style.wordBreak = "keep-all"
-        cell1.style.fontSize = "12px"
-        cell1.style.padding = "0"
-        if (record.number)
-        {
-          cell1.innerHTML = record.number
-        }
-        line.appendChild(cell1)
-
-        const cell2 = document.createElement("td")
-        cell2.style.padding = "0"
-        cell2.style.textAlign = "center"
-        cell2.style.verticalAlign = "middle"
-        if (record.icon && record.icon.src)
-        {
-          const cell2Img = document.createElement("img")
-          cell2Img.src = record.icon.src
-          cell2Img.alt = record.name
-          // cell2Img.width = 80
-          cell2Img.tabIndex = 0
-          // cell2Img.role = "presentation"
-          cell2Img.loading = "lazy"
-          cell2Img.style.verticalAlign = "middle"
-          cell2Img.style.width = "100%"
-          cell2Img.style.height = "auto"
-          cell2Img.style.aspectRatio = "1 / 1"
-          cell2Img.style.objectFit = "contain"
-          cell2.appendChild(cell2Img)
-        }
-        line.appendChild(cell2)
-
-        const cell3 = document.createElement("td")
-        cell3.style.verticalAlign = "middle"
-        cell3.innerHTML = record.name
-        line.appendChild(cell3)
-
-        const cell4 = document.createElement("td")
-        cell4.style.verticalAlign = "middle"
-        cell4.style.lineHeight = "1.75"
-        let pageFirst = false
-        for (const recipe of record.recipes)
-        {
-          if (pageFirst === true)
+          const item =
           {
-            const blocker = document.createElement("hr")
-            blocker.classList.add("hr-or")
-            blocker.style.margin = ".5em 0"
-            cell4.appendChild(blocker)
+            ...getMaterial(_item.useMaterialKey),
+            ..._item
           }
 
-          const page = document.createElement("ul")
-          page.style.marginLeft = "1.5em"
-          page.style.marginBottom = "0"
-          page.style.paddingLeft = "0"
-          page.style.listStyleType = "none"
-          cell4.appendChild(page)
-          let itemFirst = false
-          for (const _item of recipe)
+          // If the data is going to retreive by key, skip the item if no key is retreived
+          if (item.useMaterialKey && !item.key)
           {
-            const item =
-            {
-              ...getMaterial(_item.useMaterialKey),
-              ..._item
-            }
+            continue
+          }
 
-            // If the data is going to retreive by key, skip the item if no key is retreived
-            if (item.useMaterialKey && !item.key)
-            {
-              continue
-            }
+          const line = document.createElement("li")
+          line.style.position = "relative"
+          page.appendChild(line)
 
-            const line = document.createElement("li")
-            line.style.position = "relative"
-            page.appendChild(line)
+          if (itemFirst === true)
+          {
+            const padding = document.createElement("span")
+            padding.style.left = "-1em"
+            padding.style.position = "absolute"
+            padding.style.textAlign = "center"
+            padding.style.width = "1em"
+            padding.style.lineHeight = "inherit"
+            padding.innerHTML = "+"
+            line.appendChild(padding)
+          }
 
-            if (itemFirst === true)
-            {
-              const padding = document.createElement("span")
-              padding.style.left = "-1em"
-              padding.style.position = "absolute"
-              padding.style.textAlign = "center"
-              padding.style.width = "1em"
-              padding.style.lineHeight = "inherit"
-              padding.innerHTML = "+"
-              line.appendChild(padding)
-            }
+          if (item.icon && item.icon.src)
+          {
+            const icon = document.createElement("img")
+            icon.src = item.icon.src
+            icon.alt = item.name
+            icon.role = "presentation"
+            icon.loading = "lazy"
+            icon.style.verticalAlign = "middle"
+            icon.style.height = "2em"
+            icon.style.width = "auto"
+            icon.style.margin = "-.5em 0"
+            icon.style.aspectRatio = "1 / 1"
+            icon.style.objectFit = "contain"
+            line.appendChild(icon)
+          }
 
-            if (item.icon && item.icon.src)
+          if (item.page)
+          {
+            const name = document.createElement("a")
+            name.href = item.page
+            name.innerHTML = item.name
+            line.appendChild(name)
+            name.addEventListener("click", e =>
             {
-              const icon = document.createElement("img")
-              icon.src = item.icon.src
-              icon.alt = item.name
-              icon.role = "presentation"
-              icon.loading = "lazy"
-              icon.style.verticalAlign = "middle"
-              icon.style.height = "2em"
-              icon.style.width = "auto"
-              icon.style.margin = "-.5em 0"
-              icon.style.aspectRatio = "1 / 1"
-              icon.style.objectFit = "contain"
-              line.appendChild(icon)
-            }
-
-            if (item.page)
-            {
-              const name = document.createElement("a")
-              name.href = item.page
-              name.innerHTML = item.name
-              line.appendChild(name)
-              name.addEventListener("click", e =>
+              const target = document.querySelector(item.page)
+              if (!target)
               {
-                const target = document.querySelector(item.page)
-                if (!target)
+                return
+              }
+
+              const modal = document.querySelector("#ingredient-modal")
+              if (modal && window.bootstrap?.Modal)
+              {
+                const popup = new window.bootstrap.Modal(modal)
+                if (!popup)
                 {
                   return
                 }
 
-                const modal = document.querySelector("#ingredient-modal")
-                if (modal && window.bootstrap?.Modal)
+                if (!target.parentElement)
                 {
-                  const popup = new window.bootstrap.Modal(modal)
-                  if (!popup)
-                  {
-                    return
-                  }
-
-                  if (!target.parentElement)
-                  {
-                    return
-                  }
-
-                  const parent = target.parentElement
-                  const titleElement = parent.querySelector(".ingredient-title")
-                  const tableElement = parent.querySelector(".ingredient-table")
-
-                  const modalTitle = document.querySelector("#ingredient-modal-title")
-                  const modalBody = document.querySelector("#ingredient-modal-body")
-
-                  if (modalTitle)
-                  {
-                    modalTitle.innerHTML = ""
-                    if (titleElement && titleElement.innerHTML)
-                    {
-                      modalTitle.innerHTML = titleElement.innerHTML
-                    }
-                  }
-                  if (modalBody)
-                  {
-                    modalBody.innerHTML = ""
-                    if (tableElement)
-                    {
-                      modalBody.appendChild(tableElement.cloneNode(true))
-                    }
-                  }
-
-                  e.preventDefault()
-                  popup.show()
+                  return
                 }
-                else
+
+                const parent = target.parentElement
+                const titleElement = parent.querySelector(".ingredient-title")
+                const tableElement = parent.querySelector(".ingredient-table")
+
+                const modalTitle = document.querySelector("#ingredient-modal-title")
+                const modalBody = document.querySelector("#ingredient-modal-body")
+
+                if (modalTitle)
                 {
-                  const collapse = window.bootstrap?.Collapse?.getOrCreateInstance(target)
-                  if (!collapse)
+                  modalTitle.innerHTML = ""
+                  if (titleElement && titleElement.innerHTML)
                   {
-                    return
+                    modalTitle.innerHTML = titleElement.innerHTML
                   }
-
-                  e.preventDefault()
-                  collapse.show()
-                  target.scrollIntoView({ behavior: "instant", })
                 }
-              })
-            }
-            else
-            {
-              const name = document.createElement("span")
-              name.innerHTML = item.name
-              line.appendChild(name)
-            }
+                if (modalBody)
+                {
+                  modalBody.innerHTML = ""
+                  if (tableElement)
+                  {
+                    modalBody.appendChild(tableElement.cloneNode(true))
+                  }
+                }
 
-            itemFirst = true
+                e.preventDefault()
+                popup.show()
+              }
+              else
+              {
+                const collapse = window.bootstrap?.Collapse?.getOrCreateInstance(target)
+                if (!collapse)
+                {
+                  return
+                }
+
+                e.preventDefault()
+                collapse.show()
+                target.scrollIntoView({ behavior: "instant", })
+              }
+            })
+          }
+          else
+          {
+            const name = document.createElement("span")
+            name.innerHTML = item.name
+            line.appendChild(name)
           }
 
-          pageFirst = true
+          itemFirst = true
         }
-        line.appendChild(cell4)
 
-        const cell5 = document.createElement("td")
-        if (record.memo)
-        {
-          cell5.innerHTML = record.memo
-        }
-        line.appendChild(cell5)
+        pageFirst = true
       }
+      line.appendChild(cell4)
+
+      const cell5 = document.createElement("td")
+      if (record.memo)
+      {
+        cell5.innerHTML = record.memo
+      }
+      line.appendChild(cell5)
+    }
+  }
+
+  const renderIngredientBody = tbody =>
+  {
+    if (!tbody)
+    {
+      return
     }
 
-    const iBodies = document.getElementsByClassName("ingredient-body")
-    for (const body of iBodies)
+    if (!tbody.dataset.data)
     {
-      const data = window[body.dataset.data]
-      if (!data)
-      {
-        continue
-      }
-      for (const _record of data)
+      return
+    }
+
+    const data = window[tbody.dataset.data]
+    if (!data)
+    {
+      return
+    }
+
+    for (const _record of data)
       {
         const record =
         {
@@ -5960,7 +5980,7 @@ void (() =>
         }
 
         const line = document.createElement("tr")
-        body.appendChild(line)
+        tbody.appendChild(line)
 
         const cell1 = document.createElement("th")
         cell1.scope = "row"
@@ -6008,6 +6028,21 @@ void (() =>
           cell4.innerHTML = record.memo
         }
         line.appendChild(cell4)
+      }
+  }
+
+  const renderingRecipes = () =>
+  {
+    for (const body of document.querySelectorAll(".recipe-body, .ingredient-body"))
+    {
+      switch (body.dataset.type)
+      {
+        case "recipe":
+          renderRecipeBody(body)
+          break
+        case "ingredient":
+          renderIngredientBody(body)
+          break
       }
     }
   }
