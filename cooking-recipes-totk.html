@@ -226,7 +226,7 @@
 
       </div>
 
-      <h2 class="my-4">材料一覧 - 種類ソート順<span class="text-secondary" style="--bs-text-opacity: .5; font-size: 60%;">たぶん</span></h2>
+      <h2 class="my-4">素材一覧 - 種類ソート順<span class="text-secondary" style="--bs-text-opacity: .5; font-size: 60%;">たぶん</span></h2>
 
       <div class="accordion accordion-flush my-4" id="ingredient-accordion">
 
@@ -898,58 +898,59 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
 
 <style>
-html, body
-{
-  line-break: strict;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  /* word-wrap: break-word; */
-}
+  html, body
+  {
+    line-break: strict;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    /* word-wrap: break-word; */
+  }
 
-.hr-or
-{
-  --block-width: 25px;
+  .hr-or
+  {
+    --block-width: 25px;
 
-  position: relative;
-  overflow: visible;
-  border: none;
-  height: 1px;
-  background-image: linear-gradient(to right,
-    transparent 0%,
-    currentColor calc(50% - var(--block-width)),
-    transparent calc(50% - var(--block-width) - 1px),
-    transparent calc(50% + var(--block-width) + 1px),
-    currentColor calc(50% + var(--block-width)),
-    transparent 100%);
-}
+    position: relative;
+    overflow: visible;
+    border: none;
+    height: 1px;
+    background-image: linear-gradient(to right,
+      transparent 0%,
+      currentColor calc(50% - var(--block-width)),
+      transparent calc(50% - var(--block-width) - 1px),
+      transparent calc(50% + var(--block-width) + 1px),
+      currentColor calc(50% + var(--block-width)),
+      transparent 100%);
+  }
 
-/* hr::after */
-.hr-or::after
-{
-    content: "または";
-    content: "or";
-    display: inline-block;
-    position: absolute;
-    left: calc(50% - var(--block-width));
-    padding: 0.5rem;
-    background-color: transparent;
-    min-width: calc(var(--block-width) * 2);
-    text-align: center;
-    transform: translateY(-50%);
-    font-size: 12px;
-    white-space: nowrap;
-}
+  /* hr::after */
+  .hr-or::after
+  {
+      content: "または";
+      content: "or";
+      display: inline-block;
+      position: absolute;
+      left: calc(50% - var(--block-width));
+      padding: 0.5rem;
+      background-color: transparent;
+      min-width: calc(var(--block-width) * 2);
+      text-align: center;
+      transform: translateY(-50%);
+      font-size: 12px;
+      white-space: nowrap;
+  }
 
-.hr-or
-{
-    margin-block-start: .5em;
-    margin-block-end: .5em;
-}
+  .hr-or
+  {
+      margin-block-start: .5em;
+      margin-block-end: .5em;
+  }
 </style>
 
 <script>
-  window.___recipes = [
+window.___recipes = [
 {
+  key: "Item_Cook_A_01",
   number: 1,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_01.png" },
   name: "串焼きキノコ",
@@ -961,6 +962,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_09",
   number: 2,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_09.png" },
   name: "串焼き肉キノコ添え",
@@ -973,6 +975,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_08",
   number: 3,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_08.png" },
   name: "串焼き魚キノコ添え",
@@ -985,6 +988,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_06",
   number: 4,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_06.png" },
   name: "串焼き肉",
@@ -996,6 +1000,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_05",
   number: 5,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_05.png" },
   name: "串焼き魚",
@@ -1007,6 +1012,7 @@ html, body
   comments: "ツルギガニ、ヨロイガニ、ガンバリガニ、シノビタニシを除く",
 },
 {
+  key: "Item_Cook_B_23",
   number: 6,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_23.png" },
   name: "魚貝串焼き",
@@ -1027,6 +1033,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_16",
   number: 7,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_16.png" },
   name: "山盛串焼き肉",
@@ -1038,6 +1045,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_15",
   number: 8,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_15.png" },
   name: "山盛串焼き魚",
@@ -1049,6 +1057,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_03",
   number: 9,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_03.png" },
   name: "蒸し焼き果実",
@@ -1061,6 +1070,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_03",
   number: 10,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_03.png" },
   name: "山菜トマト蒸し焼き",
@@ -1073,6 +1083,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_02",
   number: 11,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_02.png" },
   name: "包み焼きキノコ包み",
@@ -1085,6 +1096,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_05",
   number: 12,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_05.png" },
   name: "包み焼き肉",
@@ -1097,6 +1109,7 @@ html, body
   comments: "ヨロイカボチャ、ヒダマリカボチャ以外",
 },
 {
+  key: "Item_Cook_A_04",
   number: 13,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_04.png" },
   name: "包み焼き魚",
@@ -1109,6 +1122,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_21",
   number: 14,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_21.png" },
   name: "炒めポカポカ",
@@ -1120,6 +1134,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_22",
   number: 15,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_22.png" },
   name: "ナッツ炒め",
@@ -1134,6 +1149,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_01",
   number: 16,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_01.png" },
   name: "焼き山菜",
@@ -1145,6 +1161,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_11",
   number: 17,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_11.png" },
   name: "山盛焼き山菜",
@@ -1156,6 +1173,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_06",
   number: 18,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_06.png" },
   name: "丸ごと焼き",
@@ -1167,6 +1185,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_07",
   number: 19,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_07.png" },
   name: "バター炒め",
@@ -1179,6 +1198,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_13",
   number: 20,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_13.png" },
   name: "山盛焼きキノコ",
@@ -1190,6 +1210,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_P_03",
   number: 21,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_03.png" },
   name: "ケモノステーキ",
@@ -1202,6 +1223,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_P_04",
   number: 22,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_04.png" },
   name: "上ケモノステーキ",
@@ -1214,6 +1236,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_P_05",
   number: 23,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_05.png" },
   name: "極上ケモノステーキ",
@@ -1226,6 +1249,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_10",
   number: 24,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_10.png" },
   name: "炒めガニ",
@@ -1246,6 +1270,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_17",
   number: 25,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_17.png" },
   name: "山海焼き",
@@ -1262,6 +1287,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_18",
   number: 26,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_18.png" },
   name: "上山海焼き",
@@ -1278,6 +1304,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_19",
   number: 27,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_19.png" },
   name: "極上山海焼き",
@@ -1294,6 +1321,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_02",
   number: 28,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_02.png" },
   name: "塩焼き山菜",
@@ -1306,6 +1334,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_01",
   number: 29,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_01.png" },
   name: "塩焼きキノコ",
@@ -1318,6 +1347,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_04",
   number: 30,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_04.png" },
   name: "岩塩焼き肉",
@@ -1334,6 +1364,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_05",
   number: 31,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_05.png" },
   name: "上岩塩焼き肉",
@@ -1350,6 +1381,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_06",
   number: 32,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_06.png" },
   name: "極上岩塩焼き肉",
@@ -1366,6 +1398,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_03",
   number: 33,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_03.png" },
   name: "塩焼き魚",
@@ -1378,6 +1411,7 @@ html, body
   comments: "ツルギガニ、ヨロイガニ、ガンバリガニを除く",
 },
 {
+  key: "Item_Cook_D_09",
   number: 34,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_09.png" },
   name: "岩塩焼きガニ",
@@ -1398,6 +1432,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_P_02",
   number: 35,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_02.png" },
   name: "香草炒め",
@@ -1410,6 +1445,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_P_01",
   number: 36,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_01.png" },
   name: "香りキノコ炒め",
@@ -1422,6 +1458,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_07",
   number: 37,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_07.png" },
   name: "スパイシー焼き肉",
@@ -1434,6 +1471,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_D_08",
   number: 38,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_08.png" },
   name: "スパイシー焼き魚",
@@ -1446,6 +1484,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_05",
   number: 39,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_05.png" },
   name: "魚貝オイル煮込み",
@@ -1459,6 +1498,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_06",
   number: 40,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_06.png" },
   name: "トリ肉オイル揚げ",
@@ -1471,6 +1511,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_07",
   number: 41,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_07.png" },
   name: "上トリ肉オイル揚げ",
@@ -1483,6 +1524,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_08",
   number: 42,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_08.png" },
   name: "極上トリ肉オイル揚げ",
@@ -1495,6 +1537,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_H_01",
   number: 43,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_H_01.png" },
   name: "魚ムニエル",
@@ -1508,6 +1551,7 @@ html, body
   comments: "ツルギダイ、ヨロイダイ、マックスサーモンを除く",
 },
 {
+  key: "Item_Cook_H_02",
   number: 44,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_H_02.png" },
   name: "鯛ムニエル",
@@ -1526,6 +1570,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_H_03",
   number: 45,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_H_03.png" },
   name: "サーモンムニエル",
@@ -1539,6 +1584,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_07",
   number: 46,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_07.png" },
   name: "果実のキノコあえ",
@@ -1551,6 +1597,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_02",
   number: 47,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_02.png" },
   name: "煮込み果実",
@@ -1562,6 +1609,7 @@ html, body
   comments: "ポカポカ草の実を除く",
 },
 {
+  key: "Item_Cook_B_12",
   number: 48,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_12.png" },
   name: "山盛煮込み果実",
@@ -1573,6 +1621,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_01",
   number: 49,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_01.png" },
   name: "煮込みトマト",
@@ -1584,6 +1633,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_02",
   number: 50,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_02.png" },
   name: "トマトスープ",
@@ -1597,6 +1647,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_04",
   number: 51,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_04.png" },
   name: "キノコのトマト煮込み",
@@ -1609,6 +1660,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_05",
   number: 52,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_05.png" },
   name: "魚貝トマトスープ",
@@ -1621,6 +1673,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_07",
   number: 53,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_07.png" },
   name: "野菜ミルクスープ",
@@ -1634,6 +1687,7 @@ html, body
   comments: "ヨロイカボチャ、ヒダマリカボチャ、ゴーゴーニンジン、ガッツニンジンを除く",
 },
 {
+  key: "Item_Cook_F_03",
   number: 54,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_03.png" },
   name: "野菜クリームスープ",
@@ -1662,6 +1716,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_06",
   number: 55,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_06.png" },
   name: "キノコミルクスープ",
@@ -1676,6 +1731,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_F_01",
   number: 56,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_01.png" },
   name: "肉入りミルクスープ",
@@ -1690,6 +1746,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_F_02",
   number: 57,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_02.png" },
   name: "魚入りミルクスープ",
@@ -1704,6 +1761,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_04",
   number: 58,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_04.png" },
   name: "貝のチャウダー",
@@ -1718,6 +1776,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_F_04",
   number: 59,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_04.png" },
   name: "ハートミルクスープ",
@@ -1738,6 +1797,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_14",
   number: 60,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_14.png" },
   name: "甘露煮野菜",
@@ -1750,6 +1810,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_11",
   number: 61,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_11.png" },
   name: "甘露煮キノコ",
@@ -1762,6 +1823,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_12",
   number: 62,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_12.png" },
   name: "甘露煮肉",
@@ -1774,6 +1836,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_13",
   number: 63,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_13.png" },
   name: "甘露煮魚",
@@ -1786,6 +1849,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_01",
   number: 64,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_01.png" },
   name: "カレーライス",
@@ -1798,6 +1862,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_02",
   number: 65,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_02.png" },
   name: "野菜カレー",
@@ -1826,6 +1891,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_06",
   number: 66,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_06.png" },
   name: "ケモノ肉カレー",
@@ -1839,6 +1905,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_07",
   number: 67,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_07.png" },
   name: "上肉カレー",
@@ -1852,6 +1919,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_09",
   number: 68,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_09.png" },
   name: "極上肉カレー",
@@ -1865,6 +1933,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_04",
   number: 69,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_04.png" },
   name: "チキンカレー",
@@ -1878,6 +1947,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_05",
   number: 70,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_05.png" },
   name: "上チキンカレー",
@@ -1891,6 +1961,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_08",
   number: 71,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_08.png" },
   name: "極上チキンカレー",
@@ -1904,6 +1975,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_J_03",
   number: 72,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_03.png" },
   name: "海の幸カレー",
@@ -1923,6 +1995,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_01",
   number: 73,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_01.png" },
   name: "チーズカレー",
@@ -1936,6 +2009,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_08",
   number: 74,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_08.png" },
   name: "ニンジンシチュー",
@@ -1956,6 +2030,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_03",
   number: 75,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_03.png" },
   name: "カボチャシチュー",
@@ -1976,6 +2051,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_01",
   number: 76,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_01.png" },
   name: "肉シチュー",
@@ -1996,6 +2072,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_02",
   number: 77,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_02.png" },
   name: "上肉シチュー",
@@ -2016,6 +2093,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_05",
   number: 78,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_05.png" },
   name: "極上肉シチュー",
@@ -2036,6 +2114,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_B_20",
   number: 79,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_20.png" },
   name: "肉詰めカボチャ",
@@ -2052,6 +2131,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_13",
   number: 80,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_13.png" },
   name: "野菜リゾット",
@@ -2084,6 +2164,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_12",
   number: 81,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_12.png" },
   name: "キノコリゾット",
@@ -2098,6 +2179,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_14",
   number: 82,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_14.png" },
   name: "サーモンリゾット",
@@ -2112,6 +2194,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_17",
   number: 83,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_17.png" },
   name: "カニリゾット",
@@ -2138,6 +2221,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_10",
   number: 84,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_10.png" },
   name: "チーズリゾット",
@@ -2170,6 +2254,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_E_01",
   number: 85,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_E_01.png" },
   name: "チキンピラフ",
@@ -2184,6 +2269,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_E_02",
   number: 86,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_E_02.png" },
   name: "上チキンピラフ",
@@ -2198,6 +2284,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_E_03",
   number: 87,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_E_03.png" },
   name: "極上チキンピラフ",
@@ -2212,6 +2299,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_N_01",
   number: 88,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_N_01.png" },
   name: "海鮮パエリア",
@@ -2262,6 +2350,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_11",
   number: 89,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_11.png" },
   name: "カレーピラフ",
@@ -2275,6 +2364,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_E_04",
   number: 90,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_E_04.png" },
   name: "目玉焼きライス",
@@ -2287,6 +2377,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_08",
   number: 91,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_08.png" },
   name: "パラパラチャーハン",
@@ -2301,6 +2392,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_10",
   number: 92,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_10.png" },
   name: "海鮮チャーハン",
@@ -2319,6 +2411,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_16",
   number: 93,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_16.png" },
   name: "カニ玉チャーハン",
@@ -2345,6 +2438,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_05",
   number: 94,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_05.png" },
   name: "ケモノ肉丼",
@@ -2358,6 +2452,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_06",
   number: 95,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_06.png" },
   name: "上ケモノ肉丼",
@@ -2371,6 +2466,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_09",
   number: 96,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_09.png" },
   name: "極上ケモノ肉丼",
@@ -2384,6 +2480,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_02",
   number: 97,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_02.png" },
   name: "チーズケモノ肉丼",
@@ -2398,6 +2495,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_03",
   number: 98,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_03.png" },
   name: "上チーズケモノ肉丼",
@@ -2412,6 +2510,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_04",
   number: 99,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_04.png" },
   name: "極上チーズケモノ肉丼",
@@ -2426,6 +2525,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_03",
   number: 100,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_03.png" },
   name: "山菜おにぎり",
@@ -2438,6 +2538,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_04",
   number: 101,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_04.png" },
   name: "キノコおにぎり",
@@ -2450,6 +2551,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_15",
   number: 102,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_15.png" },
   name: "肉おにぎり",
@@ -2462,6 +2564,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_G_02",
   number: 103,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_02.png" },
   name: "海鮮おにぎり",
@@ -2474,6 +2577,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_02",
   number: 104,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_02.png" },
   name: "山菜ミルクがゆ",
@@ -2487,6 +2591,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_M_01",
   number: 105,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_M_01.png" },
   name: "小麦パン",
@@ -2499,6 +2604,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_09",
   number: 106,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_09.png" },
   name: "とろとろチーズパン",
@@ -2511,6 +2617,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_04",
   number: 107,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_04.png" },
   name: "トマトピザ",
@@ -2524,6 +2631,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_04",
   number: 108,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_04.png" },
   name: "ミートパイ",
@@ -2538,6 +2646,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_15",
   number: 109,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_15.png" },
   name: "フィッシュパイ",
@@ -2552,6 +2661,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_10",
   number: 110,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_10.png" },
   name: "チーズトマト",
@@ -2564,6 +2674,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_10",
   number: 111,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_10.png" },
   name: "鮮魚のチーズ焼き",
@@ -2576,6 +2687,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_A_10",
   number: 112,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_10.png" },
   name: "たまご焼き",
@@ -2587,6 +2699,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_N_03",
   number: 113,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_N_03.png" },
   name: "野菜オムレツ",
@@ -2601,6 +2714,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_N_04",
   number: 114,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_N_04.png" },
   name: "キノコオムレツ",
@@ -2615,6 +2729,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_01",
   number: 115,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_01.png" },
   name: "チーズオムレツ",
@@ -2635,6 +2750,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_07",
   number: 116,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_07.png" },
   name: "リンゴバター",
@@ -2651,6 +2767,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_09",
   number: 117,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_09.png" },
   name: "ハチミツ果実",
@@ -2663,6 +2780,7 @@ html, body
   comments: "リンゴ、金のリンゴを除く",
 },
 {
+  key: "Item_Cook_I_08",
   number: 118,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_08.png" },
   name: "ハチミツリンゴ",
@@ -2679,6 +2797,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_16",
   number: 119,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_16.png" },
   name: "ハチミツアメ",
@@ -2690,6 +2809,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_13",
   number: 120,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_13.png" },
   name: "あげバナナ",
@@ -2703,6 +2823,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_14",
   number: 121,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_14.png" },
   name: "たまごプリン",
@@ -2716,6 +2837,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_10",
   number: 122,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_10.png" },
   name: "プレーンクレープ",
@@ -2730,6 +2852,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_11",
   number: 123,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_11.png" },
   name: "イチゴクレープ",
@@ -2745,6 +2868,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_17",
   number: 124,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_17.png" },
   name: "ハチミツクレープ",
@@ -2760,6 +2884,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_12",
   number: 125,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_12.png" },
   name: "ナッツケーキ",
@@ -2780,24 +2905,25 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_N_02",
   number: 126,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_N_02.png" },
   name: "フルーツケーキ",
   recipes: [
     [
-      { name: "デザート果物系素材", page: "#fruits-dessert", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, },
+      { name: "デザート素材 (リンゴ以外)", page: "#fruits-dessert", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, },
       { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
       { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
       { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
     ],
     [
-      { name: "デザート果物系素材", page: "#fruits-dessert", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, },
+      { name: "デザート素材 (金のリンゴ以外)", page: "#fruits-dessert", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, },
       { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
       { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
       { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
     ],
     [
-      { name: "デザート果物系素材", page: "#fruits-dessert", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, },
+      { name: "デザート素材 (イチゴ以外)", page: "#fruits-dessert", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, },
       { name: "イチゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_B.png" }, },
       { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
       { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
@@ -2806,6 +2932,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_05",
   number: 127,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_05.png" },
   name: "ニンジンケーキ",
@@ -2826,6 +2953,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_06",
   number: 128,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_06.png" },
   name: "カボチャケーキ",
@@ -2846,6 +2974,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_Q_09",
   number: 129,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_09.png" },
   name: "チーズケーキ",
@@ -2859,6 +2988,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_01",
   number: 130,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_01.png" },
   name: "フルーツパイ",
@@ -2873,6 +3003,7 @@ html, body
   comments: "リンゴ、金のリンゴを除く",
 },
 {
+  key: "Item_Cook_I_02",
   number: 131,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_02.png" },
   name: "アップルパイ",
@@ -2893,6 +3024,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_I_03",
   number: 132,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_03.png" },
   name: "エッグタルト",
@@ -2907,6 +3039,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_K_09",
   number: 133,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_09.png" },
   name: "ホットミルク",
@@ -2918,6 +3051,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_R_03",
   number: 134,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_03.png" },
   name: "ヴァーイミーツヴォーイ",
@@ -2932,6 +3066,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_L_01",
   number: 135,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_L_01.png" },
   name: "マモノ煮込み",
@@ -2945,6 +3080,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_L_02",
   number: 136,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_L_02.png" },
   name: "マモノスープ",
@@ -2959,6 +3095,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_L_05",
   number: 137,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_L_05.png" },
   name: "マモノカレー",
@@ -2972,6 +3109,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_L_04",
   number: 138,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_L_04.png" },
   name: "マモノにぎり",
@@ -2985,6 +3123,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_L_03",
   number: 139,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_L_03.png" },
   name: "マモノケーキ",
@@ -2999,6 +3138,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_05",
   number: 140,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_05.png" },
   name: "マジン煮込み",
@@ -3012,6 +3152,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_07",
   number: 141,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_07.png" },
   name: "マジンスープ",
@@ -3026,6 +3167,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_08",
   number: 142,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_08.png" },
   name: "マジンカレー",
@@ -3039,6 +3181,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_06",
   number: 143,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_06.png" },
   name: "マジンにぎり",
@@ -3052,6 +3195,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_S_09",
   number: 144,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_S_09.png" },
   name: "マジンケーキ",
@@ -3066,6 +3210,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_O_01",
   number: 145,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_O_01.png" },
   name: "微妙な料理",
@@ -3077,7 +3222,7 @@ html, body
       { name: "マモノ系素材 (昆虫系素材なし)", page: "#enemies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" }, },
     ],
     [
-      { name: "ブースト専用素材 (他の素材なし)", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" }, },
+      { name: "ブースト専用素材 (完成料理なし)", page: "#boosts", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" }, },
     ],
     [
       { name: "非食用果実系素材", page: "#foreigns", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" }, },
@@ -3089,6 +3234,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_O_02",
   number: 146,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_O_02.png" },
   name: "硬すぎ料理",
@@ -3100,6 +3246,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Roast_03",
   number: 147,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_03.png" },
   name: "焼きリンゴ",
@@ -3111,6 +3258,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_59",
   number: 148,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_59.png" },
   name: "金の焼きリンゴ",
@@ -3122,6 +3270,7 @@ html, body
   comments: "ハート回復量 2 1/4",
 },
 {
+  key: "Item_Roast_13",
   number: 149,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_13.png" },
   name: "焼きポカポカ草の実",
@@ -3133,6 +3282,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_54",
   number: 150,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_54.png" },
   name: "焼きハイラルトマト",
@@ -3144,6 +3294,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Roast_07",
   number: 151,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_07.png" },
   name: "焼きイチゴ",
@@ -3155,6 +3306,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_08",
   number: 152,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_08.png" },
   name: "焼きビリビリフルーツ",
@@ -3166,6 +3318,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_12",
   number: 153,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_12.png" },
   name: "焼きヒンヤリメロン",
@@ -3177,6 +3330,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_10",
   number: 154,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_10.png" },
   name: "焼きヤシの実",
@@ -3188,6 +3342,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Roast_11",
   number: 155,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_11.png" },
   name: "焼きツルギバナナ",
@@ -3199,6 +3354,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_16",
   number: 156,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_16.png" },
   name: "焼きゴーゴーハスの実",
@@ -3210,6 +3366,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_27",
   number: 157,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_27.png" },
   name: "焼きツルギソウ",
@@ -3221,6 +3378,7 @@ html, body
   comments: "ハート回復量 1/2",
 },
 {
+  key: "Item_Roast_28",
   number: 158,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_28.png" },
   name: "焼きヨロイソウ",
@@ -3232,6 +3390,7 @@ html, body
   comments: "ハート回復量 1/2",
 },
 {
+  key: "Item_Roast_24",
   number: 159,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_24.png" },
   name: "焼きゴーゴーニンジン",
@@ -3243,6 +3402,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_50",
   number: 160,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_50.png" },
   name: "焼きガッツニンジン",
@@ -3254,6 +3414,7 @@ html, body
   comments: "ハート回復量 3",
 },
 {
+  key: "Item_Roast_15",
   number: 161,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_15.png" },
   name: "焼きヨロイカボチャ",
@@ -3265,6 +3426,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_55",
   number: 162,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_55.png" },
   name: "焼きヒダマリカボチャ",
@@ -3276,6 +3438,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_18",
   number: 163,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_18.png" },
   name: "焼きラディッシュ",
@@ -3287,6 +3450,7 @@ html, body
   comments: "ハート回復量 3 3/4",
 },
 {
+  key: "Item_Roast_19",
   number: 164,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_19.png" },
   name: "焼き大ラディッシュ",
@@ -3298,6 +3462,7 @@ html, body
   comments: "ハート回復量 6",
 },
 {
+  key: "Item_Roast_56",
   number: 165,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_56.png" },
   name: "焼きソラダケ",
@@ -3309,6 +3474,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_06",
   number: 166,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_06.png" },
   name: "焼きハイラルダケ",
@@ -3320,6 +3486,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_04",
   number: 167,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_04.png" },
   name: "焼きガンバリダケ",
@@ -3331,6 +3498,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_36",
   number: 168,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_36.png" },
   name: "焼きゴーゴーダケ",
@@ -3342,6 +3510,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_32",
   number: 169,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_32.png" },
   name: "焼きポカポカダケ",
@@ -3353,6 +3522,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_31",
   number: 170,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_31.png" },
   name: "焼きヒンヤリダケ",
@@ -3364,6 +3534,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_33",
   number: 171,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_33.png" },
   name: "焼きビリビリダケ",
@@ -3375,6 +3546,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_37",
   number: 172,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_37.png" },
   name: "焼きツルギダケ",
@@ -3386,6 +3558,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_38",
   number: 173,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_38.png" },
   name: "焼きヨロイダケ",
@@ -3397,6 +3570,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_39",
   number: 174,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_39.png" },
   name: "焼きシノビダケ",
@@ -3408,6 +3582,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_58",
   number: 175,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_58.png" },
   name: "焼きアカリダケ",
@@ -3419,6 +3594,7 @@ html, body
   comments: "ハート回復量 3/4",
 },
 {
+  key: "Item_Roast_53",
   number: 176,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_53.png" },
   name: "焼きガッツダケ",
@@ -3430,6 +3606,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Roast_05",
   number: 177,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_05.png" },
   name: "焼きマックストリュフ",
@@ -3441,6 +3618,7 @@ html, body
   comments: "ハート回復量 3",
 },
 {
+  key: "Item_Roast_49",
   number: 178,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_49.png" },
   name: "焼き大マックストリュフ",
@@ -3452,6 +3630,7 @@ html, body
   comments: "ハート回復量 4 1/2",
 },
 {
+  key: "Item_Roast_01",
   number: 179,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_01.png" },
   name: "焼きケモノ肉",
@@ -3463,6 +3642,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Roast_40",
   number: 180,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_40.png" },
   name: "焼き上ケモノ肉",
@@ -3474,6 +3654,7 @@ html, body
   comments: "ハート回復量 2 1/4",
 },
 {
+  key: "Item_Roast_45",
   number: 181,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_45.png" },
   name: "焼き極上ケモノ肉",
@@ -3485,6 +3666,7 @@ html, body
   comments: "ハート回復量 4 1/2",
 },
 {
+  key: "Item_Roast_02",
   number: 182,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_02.png" },
   name: "焼きトリ肉",
@@ -3496,6 +3678,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Roast_41",
   number: 183,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_41.png" },
   name: "焼き上トリ肉",
@@ -3507,6 +3690,7 @@ html, body
   comments: "ハート回復量 2 1/4",
 },
 {
+  key: "Item_Roast_46",
   number: 184,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_46.png" },
   name: "焼き極上トリ肉",
@@ -3518,6 +3702,7 @@ html, body
   comments: "ハート回復量 4 1/2",
 },
 {
+  key: "Item_RoastFish_16",
   number: 185,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_16.png" },
   name: "焼きアロワナ",
@@ -3529,6 +3714,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_RoastFish_01",
   number: 186,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_01.png" },
   name: "焼きバス",
@@ -3543,6 +3729,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_RoastFish_03",
   number: 187,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_03.png" },
   name: "焼きマス",
@@ -3563,6 +3750,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_RoastFish_07",
   number: 188,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_07.png" },
   name: "焼きゴイ",
@@ -3580,6 +3768,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_RoastFish_09",
   number: 189,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_09.png" },
   name: "焼きダイ",
@@ -3594,6 +3783,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_RoastFish_18",
   number: 190,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_18.png" },
   name: "焼きホラウオ",
@@ -3605,6 +3795,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_RoastFish_02",
   number: 191,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_02.png" },
   name: "焼きマックスバス",
@@ -3616,6 +3807,7 @@ html, body
   comments: "ハート回復量 3",
 },
 {
+  key: "Item_RoastFish_04",
   number: 192,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_04.png" },
   name: "焼きマックスサーモン",
@@ -3627,6 +3819,7 @@ html, body
   comments: "ハート回復量 4 1/2",
 },
 {
+  key: "Item_RoastFish_15",
   number: 193,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_15.png" },
   name: "焼きガニ",
@@ -3644,6 +3837,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_RoastFish_13",
   number: 194,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_RoastFish_13.png" },
   name: "焼きシノビタニシ",
@@ -3655,6 +3849,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Roast_52",
   number: 195,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_52.png" },
   name: "焼き木の実",
@@ -3666,6 +3861,7 @@ html, body
   comments: "ハート回復量 1/2",
 },
 {
+  key: "Item_Roast_48",
   number: 196,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_48.png" },
   name: "焼きどんぐり",
@@ -3677,6 +3873,7 @@ html, body
   comments: "ハート回復量 1/2",
 },
 {
+  key: "Item_Roast_51",
   number: 197,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Roast_51.png" },
   name: "焼きタマゴ",
@@ -3688,6 +3885,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Boiled_01",
   number: 198,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Boiled_01.png" },
   name: "ゆでタマゴ",
@@ -3699,6 +3897,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Chilled_01",
   number: 199,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Chilled_01.png" },
   name: "凍結ケモノ肉",
@@ -3710,6 +3909,7 @@ html, body
   comments: "ハート回復量 1",
 },
 {
+  key: "Item_Chilled_02",
   number: 200,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Chilled_02.png" },
   name: "凍結上ケモノ肉",
@@ -3721,6 +3921,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Chilled_03",
   number: 201,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Chilled_03.png" },
   name: "凍結極上ケモノ肉",
@@ -3732,6 +3933,7 @@ html, body
   comments: "ハート回復量 3",
 },
 {
+  key: "Item_Chilled_04",
   number: 202,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Chilled_04.png" },
   name: "凍結トリ肉",
@@ -3743,6 +3945,7 @@ html, body
   comments: "ハート回復量 1",
 },
 {
+  key: "Item_Chilled_05",
   number: 203,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Chilled_05.png" },
   name: "凍結上トリ肉",
@@ -3754,6 +3957,7 @@ html, body
   comments: "ハート回復量 1 1/2",
 },
 {
+  key: "Item_Chilled_06",
   number: 204,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Chilled_06.png" },
   name: "凍結極上トリ肉",
@@ -3765,6 +3969,7 @@ html, body
   comments: "ハート回復量 3",
 },
 {
+  key: "Item_ChilledFish_16",
   number: 205,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_16.png" },
   name: "凍結アロワナ",
@@ -3776,6 +3981,7 @@ html, body
   comments: "ハート回復量 2",
 },
 {
+  key: "Item_ChilledFish_01",
   number: 206,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_01.png" },
   name: "凍結バス",
@@ -3790,6 +3996,7 @@ html, body
   comments: "ハート回復量 2",
 },
 {
+  key: "Item_ChilledFish_03",
   number: 207,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_03.png" },
   name: "凍結マス",
@@ -3810,6 +4017,7 @@ html, body
   comments: "ハート回復量 1",
 },
 {
+  key: "Item_ChilledFish_04",
   number: 208,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_04.png" },
   name: "凍結ゴイ",
@@ -3827,6 +4035,7 @@ html, body
   comments: "ハート回復量 1",
 },
 {
+  key: "Item_ChilledFish_05",
   number: 209,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_05.png" },
   name: "凍結ダイ",
@@ -3841,6 +4050,7 @@ html, body
   comments: "ハート回復量 1",
 },
 {
+  key: "Item_ChilledFish_18",
   number: 210,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_18.png" },
   name: "凍結ホラウオ",
@@ -3852,6 +4062,7 @@ html, body
   comments: "ハート回復量 2",
 },
 {
+  key: "Item_ChilledFish_06",
   number: 211,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_06.png" },
   name: "凍結マックスバス",
@@ -3863,6 +4074,7 @@ html, body
   comments: "ハート回復量 2",
 },
 {
+  key: "Item_ChilledFish_02",
   number: 212,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_02.png" },
   name: "凍結マックスサーモン",
@@ -3874,6 +4086,7 @@ html, body
   comments: "ハート回復量 4",
 },
 {
+  key: "Item_ChilledFish_07",
   number: 213,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_07.png" },
   name: "凍結ガニ",
@@ -3891,6 +4104,7 @@ html, body
   comments: "ハート回復量 2",
 },
 {
+  key: "Item_ChilledFish_08",
   number: 214,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_ChilledFish_08.png" },
   name: "凍結タニシ",
@@ -3902,6 +4116,7 @@ html, body
   comments: "ハート回復量 1",
 },
 {
+  key: "Item_Cook_C_17_StaminaRecover",
   number: 215,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_StaminaRecover.png" },
   name: "がんばり薬",
@@ -3918,6 +4133,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_AllSpeed",
   number: 216,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_AllSpeed.png" },
   name: "ゴーゴー薬",
@@ -3934,6 +4150,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_ResistCold",
   number: 217,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_ResistCold.png" },
   name: "ピリ辛薬",
@@ -3950,6 +4167,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_ResistHot",
   number: 218,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_ResistHot.png" },
   name: "ひんやり薬",
@@ -3966,6 +4184,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_ResistElectric",
   number: 219,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_ResistElectric.png" },
   name: "エレキ薬",
@@ -3982,6 +4201,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_ResistBurn",
   number: 220,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_ResistBurn.png" },
   name: "燃えず薬",
@@ -3998,6 +4218,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_AttackUp",
   number: 221,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_AttackUp.png" },
   name: "チカラ薬",
@@ -4010,6 +4231,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_DefenseUp",
   number: 222,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_DefenseUp.png" },
   name: "カチコチ薬",
@@ -4022,6 +4244,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_QuietnessUp",
   number: 223,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_QuietnessUp.png" },
   name: "しのび薬",
@@ -4034,6 +4257,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_NotSlippy",
   number: 224,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_NotSlippy.png" },
   name: "滑らず薬",
@@ -4050,6 +4274,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_LightEmission",
   number: 225,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_LightEmission.png" },
   name: "アカリ薬",
@@ -4062,6 +4287,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_ExStaminaMaxUp",
   number: 226,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_ExStaminaMaxUp.png" },
   name: "スタミナ薬",
@@ -4074,6 +4300,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_17_LifeMaxUp",
   number: 227,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_17_LifeMaxUp.png" },
   name: "マックス薬",
@@ -4086,6 +4313,7 @@ html, body
   comments: "",
 },
 {
+  key: "Item_Cook_C_16",
   number: 228,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_C_16.png" },
   name: "妖精の力水",
@@ -4100,7 +4328,7 @@ html, body
 </script>
 
 <script>
-  window.___recipes_max = [
+window.___recipes_max = [
 {
   icon: { "src": "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Heart%20Extra.png" },
   name: "マックス料理",
@@ -4499,20 +4727,9 @@ html, body
 </script>
 
 <script>
-  window.___recipes_horse = [
+window.___recipes_horse_strength = [
 {
-  number: 10,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_03.png" },
-  name: "山菜トマト蒸し焼き",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "ハイラルトマト", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, },
-    ],
-  ],
-  comments: "スピード★★★ → ★★★★の強化用料理 (3 つ必要)",
-},
-{
+  key: "Item_Cook_B_01",
   number: 16,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_01.png" },
   name: "焼き山菜",
@@ -4524,301 +4741,7 @@ html, body
   comments: "じょうぶさ★ → ★★の強化用料理",
 },
 {
-  number: 17,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_11.png" },
-  name: "山盛焼き山菜",
-  recipes: [
-    [
-      { name: "野菜系素材 4 種以上", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-    ],
-  ],
-  comments: "じょうぶさ★★ → ★★★の強化用料理<br>じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)<br>ひっぱり★★★ → ★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 28,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_02.png" },
-  name: "塩焼き山菜",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-    ],
-  ],
-  comments: "スピード★★ → ★★★の強化用料理",
-},
-{
-  number: 35,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_02.png" },
-  name: "香草炒め",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
-    ],
-  ],
-  comments: "がんばり★★ → ★★★の強化用料理",
-},
-{
-  number: 53,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_07.png" },
-  name: "野菜ミルクスープ",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-    ],
-  ],
-  comments: "ヨロイカボチャ、ヒダマリカボチャ、ゴーゴーニンジン、ガッツニンジンを除く<br>がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 54,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_03.png" },
-  name: "野菜クリームスープ",
-  recipes: [
-    [
-      { name: "ヨロイカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-    ],
-    [
-      { name: "ヒダマリカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-    ],
-    [
-      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-    ],
-    [
-      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-    ],
-  ],
-  comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)<br>ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 60,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_14.png" },
-  name: "甘露煮野菜",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "ガンバリバチのハチミツ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, },
-    ],
-  ],
-  comments: "スピード★★★ → ★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 65,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_02.png" },
-  name: "野菜カレー",
-  recipes: [
-    [
-      { name: "ヨロイカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
-    ],
-    [
-      { name: "ヒダマリカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
-    ],
-    [
-      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
-    ],
-    [
-      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "ゴロンの香辛粉", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, },
-    ],
-  ],
-  comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 74,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_08.png" },
-  name: "ニンジンシチュー",
-  recipes: [
-    [
-      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
-      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-    [
-      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
-      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-  ],
-  comments: "がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)<br>ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 80,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_13.png" },
-  name: "野菜リゾット",
-  recipes: [
-    [
-      { name: "ヨロイカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-    [
-      { name: "ヒダマリカボチャ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-    [
-      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-    [
-      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-  ],
-  comments: "がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 100,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_03.png" },
-  name: "山菜おにぎり",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-    ],
-  ],
-  comments: "じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)<br>ひっぱり★★ → ★★★の強化用料理",
-},
-{
-  number: 104,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_02.png" },
-  name: "山菜ミルクがゆ",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "ハイラル米", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, },
-      { name: "フレッシュミルク", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, },
-    ],
-  ],
-  comments: "がんばり★★★ → ★★★★の強化用料理 (3 つ必要)<br>ひっぱり★★★ → ★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 113,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_N_03.png" },
-  name: "野菜オムレツ",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-      { name: "トリのタマゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_04.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-      { name: "岩塩", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, },
-    ],
-  ],
-  comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 116,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_07.png" },
-  name: "リンゴバター",
-  recipes: [
-    [
-      { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-    [
-      { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-  ],
-  comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)<br>ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 118,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_08.png" },
-  name: "ハチミツリンゴ",
-  recipes: [
-    [
-      { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
-      { name: "ガンバリバチのハチミツ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, },
-    ],
-    [
-      { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
-      { name: "ガンバリバチのハチミツ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, },
-    ],
-  ],
-  comments: "がんばり★★★ → ★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 127,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_05.png" },
-  name: "ニンジンケーキ",
-  recipes: [
-    [
-      { name: "ゴーゴーニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, },
-      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
-      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-    [
-      { name: "ガッツニンジン", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, },
-      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
-      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-    ],
-  ],
-  comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-{
-  number: 131,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_02.png" },
-  name: "アップルパイ",
-  recipes: [
-    [
-      { name: "リンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, },
-      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
-    ],
-    [
-      { name: "金のリンゴ", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, },
-      { name: "タバンタ小麦", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, },
-      { name: "ヤギのバター", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, },
-      { name: "きび砂糖", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, },
-    ],
-  ],
-  comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
-},
-]
-</script>
-
-<script>
-  window.___recipes_horse_strength = [
-{
-  number: 16,
-  icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_01.png" },
-  name: "焼き山菜",
-  recipes: [
-    [
-      { name: "野菜系素材", page: "#vegies", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, },
-    ],
-  ],
-  comments: "じょうぶさ★ → ★★の強化用料理",
-},
-{
+  key: "Item_Cook_B_11",
   number: 17,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_11.png" },
   name: "山盛焼き山菜",
@@ -4830,6 +4753,7 @@ html, body
   comments: "じょうぶさ★★ → ★★★の強化用料理<br>じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_G_03",
   number: 100,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_03.png" },
   name: "山菜おにぎり",
@@ -4842,6 +4766,7 @@ html, body
   comments: "じょうぶさ★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_J_02",
   number: 65,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_J_02.png" },
   name: "野菜カレー",
@@ -4870,6 +4795,7 @@ html, body
   comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_I_07",
   number: 116,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_07.png" },
   name: "リンゴバター",
@@ -4886,6 +4812,7 @@ html, body
   comments: "じょうぶさ★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_I_05",
   number: 127,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_05.png" },
   name: "ニンジンケーキ",
@@ -4909,8 +4836,9 @@ html, body
 </script>
 
 <script>
-  window.___recipes_horse_speed = [
+window.___recipes_horse_speed = [
 {
+  key: "Item_Cook_D_02",
   number: 28,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_D_02.png" },
   name: "塩焼き山菜",
@@ -4923,6 +4851,7 @@ html, body
   comments: "スピード★★ → ★★★の強化用料理",
 },
 {
+  key: "Item_Cook_Q_03",
   number: 10,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_Q_03.png" },
   name: "山菜トマト蒸し焼き",
@@ -4935,6 +4864,7 @@ html, body
   comments: "スピード★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_A_14",
   number: 60,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_A_14.png" },
   name: "甘露煮野菜",
@@ -4947,6 +4877,7 @@ html, body
   comments: "スピード★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_F_03",
   number: 54,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_03.png" },
   name: "野菜クリームスープ",
@@ -4975,6 +4906,7 @@ html, body
   comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_N_03",
   number: 113,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_N_03.png" },
   name: "野菜オムレツ",
@@ -4989,6 +4921,7 @@ html, body
   comments: "スピード★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_I_02",
   number: 131,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_02.png" },
   name: "アップルパイ",
@@ -5012,8 +4945,9 @@ html, body
 </script>
 
 <script>
-  window.___recipes_horse_stamina = [
+window.___recipes_horse_stamina = [
 {
+  key: "Item_Cook_P_02",
   number: 35,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_P_02.png" },
   name: "香草炒め",
@@ -5026,6 +4960,7 @@ html, body
   comments: "がんばり★★ → ★★★の強化用料理",
 },
 {
+  key: "Item_Cook_R_02",
   number: 104,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_02.png" },
   name: "山菜ミルクがゆ",
@@ -5039,6 +4974,7 @@ html, body
   comments: "がんばり★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_I_08",
   number: 118,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_08.png" },
   name: "ハチミツリンゴ",
@@ -5055,6 +4991,7 @@ html, body
   comments: "がんばり★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_K_07",
   number: 53,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_07.png" },
   name: "野菜ミルクスープ",
@@ -5068,6 +5005,7 @@ html, body
   comments: "ヨロイカボチャ、ヒダマリカボチャ、ゴーゴーニンジン、ガッツニンジンを除く<br>がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_K_08",
   number: 74,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_08.png" },
   name: "ニンジンシチュー",
@@ -5088,6 +5026,7 @@ html, body
   comments: "がんばり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_G_13",
   number: 80,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_13.png" },
   name: "野菜リゾット",
@@ -5123,8 +5062,9 @@ html, body
 </script>
 
 <script>
-  window.___recipes_horse_pull = [
+window.___recipes_horse_pull = [
 {
+  key: "Item_Cook_G_03",
   number: 100,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_G_03.png" },
   name: "山菜おにぎり",
@@ -5137,6 +5077,7 @@ html, body
   comments: "ひっぱり★★ → ★★★の強化用料理",
 },
 {
+  key: "Item_Cook_B_11",
   number: 17,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_B_11.png" },
   name: "山盛焼き山菜",
@@ -5148,6 +5089,7 @@ html, body
   comments: "ひっぱり★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_R_02",
   number: 104,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_R_02.png" },
   name: "山菜ミルクがゆ",
@@ -5161,6 +5103,7 @@ html, body
   comments: "ひっぱり★★★ → ★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_F_03",
   number: 54,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_F_03.png" },
   name: "野菜クリームスープ",
@@ -5189,6 +5132,7 @@ html, body
   comments: "ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_K_08",
   number: 74,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_K_08.png" },
   name: "ニンジンシチュー",
@@ -5209,6 +5153,7 @@ html, body
   comments: "ひっぱり★★★★ → ★★★★★の強化用料理 (3 つ必要)",
 },
 {
+  key: "Item_Cook_I_07",
   number: 116,
   icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Cook_I_07.png" },
   name: "リンゴバター",
@@ -5228,7 +5173,7 @@ html, body
 </script>
 
 <script>
-  window.___mushrooms = [
+window.___mushrooms = [
 { number: 223, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_N.png" }, name: "大マックストリュフ", comments: "マックス効果 4", },
 { number: 222, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_F.png" }, name: "マックストリュフ", comments: "マックス効果 1", },
 { number: 220, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_O.png" }, name: "ガッツダケ", comments: "スタミナ効果 10%", },
@@ -5247,7 +5192,7 @@ html, body
 </script>
 
 <script>
-  window.___meats = [
+window.___meats = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_11.png" }, name: "極上ケモノ肉", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_12.png" }, name: "極上トリ肉", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_02.png" }, name: "上ケモノ肉", },
@@ -5258,7 +5203,7 @@ html, body
 </script>
 
 <script>
-  window.___seafoods = [
+window.___seafoods = [
 { number: 56, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_I.png" }, name: "マックスサーモン", comments: "マックス効果 4", },
 { number: 54, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_B.png" }, name: "マックスバス", comments: "マックス効果 2", },
 { number: 53, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" }, name: "ハイラルバス", },
@@ -5282,7 +5227,7 @@ html, body
 </script>
 
 <script>
-  window.___fishes = [
+window.___fishes = [
 { number: 56, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_I.png" }, name: "マックスサーモン", comments: "マックス効果 4", },
 { number: 54, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_B.png" }, name: "マックスバス", comments: "マックス効果 2", },
 { number: 53, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" }, name: "ハイラルバス", },
@@ -5302,7 +5247,7 @@ html, body
 </script>
 
 <script>
-  window.___crabs = [
+window.___crabs = [
 { number: 69, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_K.png" }, name: "ツルギガニ", comments: "攻撃力アップ効果 90", },
 { number: 70, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_O.png" }, name: "ヨロイガニ", comments: "防御力アップ効果 90", },
 { number: 71, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_Z.png" }, name: "ガンバリガニ", comments: "がんばり回復効果 56%", },
@@ -5310,7 +5255,7 @@ html, body
 </script>
 
 <script>
-  window.___vegies = [
+window.___vegies = [
 { number: 236, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_C.png" }, name: "大マックスラディッシュ", comments: "マックス効果 5", },
 { number: 235, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_B.png" }, name: "マックスラディッシュ", comments: "マックス効果 3", },
 { number: 241, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, name: "ガッツニンジン", comments: "スタミナ効果 40%", },
@@ -5333,7 +5278,7 @@ html, body
 </script>
 
 <script>
-  window.___fruits = [
+window.___fruits = [
 { number: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", comments: "確定大成功、効果時間 20 秒延長", },
 { number: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
 { number: 207, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, name: "ハイラルトマト", },
@@ -5352,7 +5297,7 @@ html, body
 </script>
 
 <script>
-  window.___fruit_likes = [
+window.___fruit_likes = [
 { number: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", comments: "確定大成功、効果時間 20 秒延長", },
 { number: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
 { number: 207, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, name: "ハイラルトマト", },
@@ -5374,7 +5319,7 @@ html, body
 </script>
 
 <script>
-  window.___dessert_fruits = [
+window.___dessert_fruits = [
 { number: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", comments: "確定大成功、効果時間 20 秒延長", },
 { number: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
 { number: 203, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, name: "リンゴ", },
@@ -5386,7 +5331,7 @@ html, body
 </script>
 
 <script>
-  window.___foreigns = [
+window.___foreigns = [
 { number: 252, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" }, name: "バクダン花", },
 { number: 232, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/SmokeFruit.png" }, name: "ケムリダケ", },
 { number: 251, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ConfusionFruit.png" }, name: "コンラン花", },
@@ -5394,7 +5339,7 @@ html, body
 </script>
 
 <script>
-  window.___ore_likes = [
+window.___ore_likes = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_A.png" }, name: "ダイヤモンド", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_B.png" }, name: "ルビー", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_C.png" }, name: "サファイア", },
@@ -5412,7 +5357,7 @@ html, body
 </script>
 
 <script>
-  window.___ores = [
+window.___ores = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_A.png" }, name: "ダイヤモンド", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_B.png" }, name: "ルビー", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_C.png" }, name: "サファイア", },
@@ -5425,7 +5370,7 @@ html, body
 </script>
 
 <script>
-  window.___enemies = [
+window.___enemies = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_02.png" }, name: "ボコブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_08.png" }, name: "モリブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_105.png" }, name: "ホラブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
@@ -5523,7 +5468,7 @@ html, body
 </script>
 
 <script>
-  window.___enemy_guts = [
+window.___enemy_guts = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_02.png" }, name: "ボコブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_08.png" }, name: "モリブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_105.png" }, name: "ホラブリンの肝", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
@@ -5538,7 +5483,7 @@ html, body
 </script>
 
 <script>
-  window.___enemy_utilities = [
+window.___enemy_utilities = [
 { number: 258, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_15.png" }, name: "赤チュチュゼリー", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
 { number: 259, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_17.png" }, name: "白チュチュゼリー", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
 { number: 260, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_16.png" }, name: "黄チュチュゼリー", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
@@ -5562,7 +5507,7 @@ html, body
 </script>
 
 <script>
-  window.___enemy_blades = [
+window.___enemy_blades = [
 { number: 271, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_77.png" }, name: "ボコブリンの角", comments: "効果時間 40 秒延長" },
 { number: 272, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_78.png" }, name: "青ボコブリンの角", comments: "効果時間 40 秒延長" },
 { number: 273, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_79.png" }, name: "黒ボコブリンの角", comments: "効果時間 40 秒延長" },
@@ -5602,7 +5547,7 @@ html, body
 </script>
 
 <script>
-  window.___enemy_hammers = [
+window.___enemy_hammers = [
 { number: 265, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_181.png" }, name: "ライクライクの胃石", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
 { number: 266, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_182.png" }, name: "ファイアライクの胃石", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
 { number: 267, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_184.png" }, name: "アイスライクの胃石", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
@@ -5636,7 +5581,7 @@ html, body
 </script>
 
 <script>
-  window.___enemy_whips = [
+window.___enemy_whips = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_05.png" }, name: "リザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_114.png" }, name: "青リザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_115.png" }, name: "黒リザルフォスのしっぽ", comments: "大成功確率 +30% 、効果時間 160 秒延長" },
@@ -5648,7 +5593,7 @@ html, body
 </script>
 
 <script>
-  window.___enemy_blunts = [
+window.___enemy_blunts = [
 { number: 270, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_69.png" }, name: "ギブドの骨", comments: "効果時間 40 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_20.png" }, name: "オクタの足", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_01.png" }, name: "ボコブリンの牙", comments: "大成功確率 +10% 、効果時間 80 秒延長" },
@@ -5674,7 +5619,7 @@ html, body
 </script>
 
 <script>
-  window.___insects = [
+window.___insects = [
 { number: 73, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_N.png" }, name: "ヒンヤリアゲハ", comments: "暑さガード効果 35", },
 { number: 74, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_Q.png" }, name: "ポカポカアゲハ", comments: "寒さガード効果 35", },
 { number: 75, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_R.png" }, name: "ビリビリアゲハ", comments: "エレキガード効果 50", },
@@ -5699,7 +5644,7 @@ html, body
 </script>
 
 <script>
-  window.___golems = [
+window.___golems = [
 { number: 302, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_166.png" }, name: "兵隊ゴーレムの角", },
 { number: 303, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_167.png" }, name: "兵隊ゴーレムの角 (中等)", },
 { number: 304, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_168.png" }, name: "兵隊ゴーレムの角 (上等)", },
@@ -5715,7 +5660,7 @@ html, body
 </script>
 
 <script>
-  window.___spices = [
+window.___spices = [
 { number: 254, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, name: "ガンバリバチのハチミツ", comments: "がんばり回復効果 56%", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, name: "ハイラル米", comments: "効果時間 30 秒延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_04.png" }, name: "トリのタマゴ", comments: "大成功確率 +10% 、効果時間 1 分延長", },
@@ -5736,13 +5681,13 @@ html, body
 </script>
 
 <script>
-  window.___fairies = [
+window.___fairies = [
 { number: 72, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_F.png" }, name: "妖精", },
 ]
 </script>
 
 <script>
-  window.___others = [
+window.___others = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Weapon_01.png" }, name: "古代の刃", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_KingScale.png" }, name: "王のウロコ", },
 { number: 255, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FldObj_Pinecone_A_01.png" }, name: "ハイラルボックリ", },
@@ -5751,7 +5696,7 @@ html, body
 </script>
 
 <script>
-  window.___zonaniums = [
+window.___zonaniums = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_L.png" }, name: "ゾナニウム", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_M.png" }, name: "大きなゾナニウム", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" }, name: "ゾナウエネルギー", },
@@ -5760,7 +5705,7 @@ html, body
 </script>
 
 <script>
-  window.___boosts = [
+window.___boosts = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, name: "ハイラル米", comments: "効果時間 30 秒延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, name: "タバンタ小麦", comments: "効果時間 30 秒延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_10.png" }, name: "ハテノチーズ", comments: "大成功確率 +10% 、効果時間 50 秒延長", },
@@ -5796,11 +5741,267 @@ html, body
 </script>
 
 <script>
-  window.___horns = [
+window.___horns = [
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, name: "オルドラの角", comments: "確定大成功、効果時間 30 分延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_212.png" }, name: "ネルドラの角", comments: "確定大成功、効果時間 30 分延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_213.png" }, name: "フロドラの角", comments: "確定大成功、効果時間 30 分延長", },
 { icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_214.png" }, name: "白龍の角", comments: "確定大成功、効果時間 30 分延長", },
+]
+</script>
+
+<script>
+window.___materials = [
+{ key: "Item_Fruit_P", number: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", },
+{ key: "Item_Fruit_G", number: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
+{ key: "Item_Fruit_M", number: 207, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, name: "ハイラルトマト", },
+{ key: "Item_Fruit_A", number: 203, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_A.png" }, name: "リンゴ", },
+{ key: "Item_Fruit_B", number: 206, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_B.png" }, name: "イチゴ", },
+{ key: "Item_Fruit_C", number: 210, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_C.png" }, name: "ビリビリフルーツ", },
+{ key: "Item_Fruit_E", number: 211, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_E.png" }, name: "ゴーゴーハスの実", },
+{ key: "Item_Fruit_F", number: 208, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_F.png" }, name: "ヒンヤリメロン", },
+{ key: "Item_Fruit_H", number: 212, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_H.png" }, name: "ツルギバナナ", },
+{ key: "Item_Fruit_I", number: 209, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_I.png" }, name: "ポカポカ草の実", },
+{ key: "FireFruit", number: 213, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FireFruit.png" }, name: "火炎の実", },
+{ key: "IceFruit", number: 214, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/IceFruit.png" }, name: "冷気の実", },
+{ key: "ElectricalFruit", number: 216, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ElectricalFruit.png" }, name: "電気の実", },
+{ key: "WaterFruit", number: 215, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/WaterFruit.png" }, name: "水の実", },
+{ key: "LightFruit", number: 217, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/LightFruit.png" }, name: "カガヤキの実", },
+{ key: "BombFruit", number: 252, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BombFruit.png" }, name: "バクダン花", },
+{ key: "SmokeFruit", number: 232, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/SmokeFruit.png" }, name: "ケムリダケ", },
+{ key: "ConfusionFruit", number: 251, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/ConfusionFruit.png" }, name: "コンラン花", },
+{ key: "Item_Mushroom_N", number: 223, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_N.png" }, name: "大マックストリュフ", },
+{ key: "Item_Mushroom_F", number: 222, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_F.png" }, name: "マックストリュフ", },
+{ key: "Item_Mushroom_O", number: 220, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_O.png" }, name: "ガッツダケ", },
+{ key: "Item_MushroomGet_D", number: 227, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_MushroomGet_D.png" }, name: "ゴーゴーダケ", },
+{ key: "Item_MushroomGet_K", number: 231, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_MushroomGet_K.png" }, name: "アカリダケ", },
+{ key: "Item_Mushroom_A", number: 221, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_A.png" }, name: "ガンバリダケ", },
+{ key: "Item_Mushroom_B", number: 224, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_B.png" }, name: "ヒンヤリダケ", },
+{ key: "Item_Mushroom_C", number: 225, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_C.png" }, name: "ポカポカダケ", },
+{ key: "Item_Mushroom_E", number: 218, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_E.png" }, name: "ハイラルダケ", },
+{ key: "Item_Mushroom_H", number: 226, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_H.png" }, name: "ビリビリダケ", },
+{ key: "Item_Mushroom_J", number: 230, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_J.png" }, name: "シノビダケ", },
+{ key: "Item_Mushroom_L", number: 228, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_L.png" }, name: "ツルギダケ", },
+{ key: "Item_Mushroom_M", number: 229, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_M.png" }, name: "ヨロイダケ", },
+{ key: "Item_Mushroom_P", number: 219, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Mushroom_P.png" }, name: "ソラダケ", },
+{ key: "Item_PlantGet_C", number: 236, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_C.png" }, name: "大マックスラディッシュ", },
+{ key: "Item_PlantGet_B", number: 235, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_B.png" }, name: "マックスラディッシュ", },
+{ key: "Item_PlantGet_Q", number: 241, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_Q.png" }, name: "ガッツニンジン", },
+{ key: "Item_PlantGet_A", number: 233, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_A.png" }, name: "ハイラル草", },
+{ key: "Item_PlantGet_J", number: 253, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_J.png" }, name: "姫しずか", },
+{ key: "Item_Fruit_J", number: 242, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_J.png" }, name: "ヨロイカボチャ", },
+{ key: "Item_Fruit_N", number: 243, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_N.png" }, name: "ヒダマリカボチャ", },
+{ key: "Item_PlantGet_M", number: 240, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_M.png" }, name: "ゴーゴーニンジン", },
+{ key: "Item_PlantGet_S", number: 234, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_S.png" }, name: "ガンバリ草", },
+{ key: "Item_PlantGet_U", number: 256, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_U.png" }, name: "コログの葉", },
+{ key: "Item_PlantGet_E", number: 237, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_E.png" }, name: "ヒンヤリハーブ", },
+{ key: "Item_PlantGet_F", number: 238, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_F.png" }, name: "ポカポカハーブ", },
+{ key: "Item_PlantGet_G", number: 245, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_G.png" }, name: "ツルギソウ", },
+{ key: "Item_PlantGet_H", number: 246, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_H.png" }, name: "ヨロイソウ", },
+{ key: "Item_PlantGet_I", number: 247, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_I.png" }, name: "しのび草", },
+{ key: "Item_PlantGet_L", number: 239, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_L.png" }, name: "ビリビリハーブ", },
+{ key: "Item_PlantGet_O", number: 244, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_O.png" }, name: "ゴーゴースミレ", },
+{ key: "Item_PlantGet_R", number: 248, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_PlantGet_R.png" }, name: "ヒダマリ草", },
+{ key: "Item_Meat_11", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_11.png" }, name: "極上ケモノ肉", },
+{ key: "Item_Meat_12", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_12.png" }, name: "極上トリ肉", },
+{ key: "Item_Meat_02", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_02.png" }, name: "上ケモノ肉", },
+{ key: "Item_Meat_07", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_07.png" }, name: "上トリ肉", },
+{ key: "Item_Meat_01", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_01.png" }, name: "ケモノ肉", },
+{ key: "Item_Meat_06", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Meat_06.png" }, name: "トリ肉", },
+{ key: "BeeHome", number: 254, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/BeeHome.png" }, name: "ガンバリバチのハチミツ", },
+{ key: "Item_Material_03", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_03.png" }, name: "ハイラル米", },
+{ key: "Item_Material_04", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_04.png" }, name: "トリのタマゴ", },
+{ key: "Item_Material_07", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_07.png" }, name: "タバンタ小麦", },
+{ key: "Item_Material_10", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_10.png" }, name: "ハテノチーズ", },
+{ key: "Item_Material_05", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_05.png" }, name: "フレッシュミルク", },
+{ key: "Item_Fruit_K", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_K.png" }, name: "どんぐり", },
+{ key: "Item_Fruit_L", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_L.png" }, name: "小鳥の木の実", },
+{ key: "Item_Material_01", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_01.png" }, name: "きび砂糖", },
+{ key: "Item_Material_02", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_02.png" }, name: "ゴロンの香辛粉", },
+{ key: "Item_Material_06", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_06.png" }, name: "ヤギのバター", },
+{ key: "Item_Material_08", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_08.png" }, name: "マモノエキス", },
+{ key: "Item_Material_09", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_09.png" }, name: "油ツボ", },
+{ key: "Item_Material_11", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Material_11.png" }, name: "闇の塊", },
+{ key: "Item_Ore_H", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_H.png" }, name: "岩塩", },
+{ key: "Item_Ore_J", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_J.png" }, name: "星のかけら", },
+{ key: "Item_FishGet_I", number: 56, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_I.png" }, name: "マックスサーモン", },
+{ key: "Item_FishGet_B", number: 54, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_B.png" }, name: "マックスバス", },
+{ key: "Item_FishGet_A", number: 53, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_A.png" }, name: "ハイラルバス", },
+{ key: "Item_FishGet_L", number: 55, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_L.png" }, name: "ガンバリバス", },
+{ key: "Item_FishGet_C", number: 57, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_C.png" }, name: "ヒンヤリマス", },
+{ key: "Item_FishGet_J", number: 58, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_J.png" }, name: "ポカポカマス", },
+{ key: "Item_FishGet_D", number: 59, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_D.png" }, name: "ビリビリマス", },
+{ key: "Item_FishGet_X", number: 60, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_X.png" }, name: "シノビマス", },
+{ key: "Item_FishGet_E", number: 61, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_E.png" }, name: "ツルギゴイ", },
+{ key: "Item_FishGet_H", number: 62, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_H.png" }, name: "ヨロイゴイ", },
+{ key: "Item_FishGet_Z", number: 63, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_Z.png" }, name: "サンケゴイ", },
+{ key: "Item_FishGet_AA", number: 64, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_AA.png" }, name: "ムカシアロワナ", },
+{ key: "Item_FishGet_AC", number: 65, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_AC.png" }, name: "アカリホラウオ", },
+{ key: "Item_FishGet_F", number: 66, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_F.png" }, name: "ツルギダイ", },
+{ key: "Item_FishGet_G", number: 67, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_G.png" }, name: "ヨロイダイ", },
+{ key: "Item_FishGet_M", number: 68, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_FishGet_M.png" }, name: "シノビタニシ", },
+{ key: "Item_InsectGet_K", number: 69, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_K.png" }, name: "ツルギガニ", },
+{ key: "Item_InsectGet_O", number: 70, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_O.png" }, name: "ヨロイガニ", },
+{ key: "Item_InsectGet_Z", number: 71, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_InsectGet_Z.png" }, name: "ガンバリガニ", },
+{ key: "Animal_Insect_F", number: 72, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_F.png" }, name: "妖精", },
+{ key: "Animal_Insect_N", number: 73, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_N.png" }, name: "ヒンヤリアゲハ", },
+{ key: "Animal_Insect_Q", number: 74, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_Q.png" }, name: "ポカポカアゲハ", },
+{ key: "Animal_Insect_R", number: 75, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_R.png" }, name: "ビリビリアゲハ", },
+{ key: "Animal_Insect_AB", number: 76, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_AB.png" }, name: "ヒケシアゲハ", },
+{ key: "Animal_Insect_C", number: 77, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_C.png" }, name: "ヒンヤリヤンマ", },
+{ key: "Animal_Insect_T", number: 78, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_T.png" }, name: "ポカポカヤンマ", },
+{ key: "Animal_Insect_I", number: 79, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_I.png" }, name: "ビリビリヤンマ", },
+{ key: "Animal_Insect_AA", number: 83, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_AA.png" }, name: "ガンバリカブト", },
+{ key: "Animal_Insect_G", number: 81, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_G.png" }, name: "ツルギカブト", },
+{ key: "Animal_Insect_P", number: 82, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_P.png" }, name: "ヨロイカブト", },
+{ key: "Animal_Insect_E", number: 84, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_E.png" }, name: "シズカホタル", },
+{ key: "Animal_Insect_AI", number: 85, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_AI.png" }, name: "ヤミホタル", },
+{ key: "Animal_Insect_H", number: 80, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_H.png" }, name: "ガンバリバッタ", },
+{ key: "Animal_Insect_B", number: 87, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_B.png" }, name: "ガッツガエル", },
+{ key: "Animal_Insect_A", number: 86, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_A.png" }, name: "ゴーゴーガエル", },
+{ key: "Animal_Insect_AG", number: 88, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_AG.png" }, name: "ハリツキガエル", },
+{ key: "Animal_Insect_M", number: 90, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_M.png" }, name: "マックストカゲ", },
+{ key: "Animal_Insect_S", number: 89, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_S.png" }, name: "ゴーゴートカゲ", },
+{ key: "Animal_Insect_X", number: 91, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_X.png" }, name: "ヒケシトカゲ", },
+{ key: "Animal_Insect_AH", number: 92, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Animal_Insect_AH.png" }, name: "ハリツキトカゲ", },
+{ key: "Item_Ore_A", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_A.png" }, name: "ダイヤモンド", },
+{ key: "Item_Ore_B", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_B.png" }, name: "ルビー", },
+{ key: "Item_Ore_C", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_C.png" }, name: "サファイア", },
+{ key: "Item_Ore_D", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_D.png" }, name: "トパーズ", },
+{ key: "Item_Ore_E", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_E.png" }, name: "オパール", },
+{ key: "Item_Ore_F", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_F.png" }, name: "コハク", },
+{ key: "Item_Ore_G", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_G.png" }, name: "夜光石", },
+{ key: "Item_Ore_I", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_I.png" }, name: "火打ち石", },
+{ key: "Item_Enemy_02", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_02.png" }, name: "ボコブリンの肝", },
+{ key: "Item_Enemy_08", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_08.png" }, name: "モリブリンの肝", },
+{ key: "Item_Enemy_105", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_105.png" }, name: "ホラブリンの肝", },
+{ key: "Item_Enemy_121", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_121.png" }, name: "ギブドの肝", },
+{ key: "Item_Enemy_136", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_136.png" }, name: "ボスボコブリンの肝", },
+{ key: "Item_Enemy_14", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_14.png" }, name: "ライネルの肝", },
+{ key: "Item_Enemy_157", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_157.png" }, name: "グリオークの肝", },
+{ key: "Item_Enemy_190", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_190.png" }, name: "デグガーマの肝", },
+{ key: "Item_Enemy_25", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_25.png" }, name: "モルドラジークの肝", },
+{ key: "Item_Enemy_34", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_34.png" }, name: "ヒノックスの肝", },
+{ key: "Item_Enemy_15", number: 258, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_15.png" }, name: "赤チュチュゼリー", },
+{ key: "Item_Enemy_17", number: 259, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_17.png" }, name: "白チュチュゼリー", },
+{ key: "Item_Enemy_16", number: 260, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_16.png" }, name: "黄チュチュゼリー", },
+{ key: "Item_Enemy_40", number: 257, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_40.png" }, name: "チュチュゼリー", },
+{ key: "Item_Enemy_57", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_57.png" }, name: "オクタ風船", },
+{ key: "Item_Enemy_19", number: 261, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_19.png" }, name: "キースの目玉", },
+{ key: "Item_Enemy_117", number: 262, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_117.png" }, name: "ファイアキースの目玉", },
+{ key: "Item_Enemy_119", number: 263, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_119.png" }, name: "アイスキースの目玉", },
+{ key: "Item_Enemy_118", number: 264, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_118.png" }, name: "エレキースの目玉", },
+{ key: "Item_Enemy_21", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_21.png" }, name: "オクタの目玉", },
+{ key: "Item_Enemy_66", number: 269, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_66.png" }, name: "カックーダの目玉", },
+{ key: "Item_Enemy_18", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_18.png" }, name: "キースの羽", },
+{ key: "Item_Enemy_44", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_44.png" }, name: "ファイアキースの羽", },
+{ key: "Item_Enemy_46", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_46.png" }, name: "アイスキースの羽", },
+{ key: "Item_Enemy_45", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_45.png" }, name: "エレキースの羽", },
+{ key: "Item_Enemy_124", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_124.png" }, name: "カックーダの羽", },
+{ key: "Item_Enemy_123", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_123.png" }, name: "ギブドの羽", },
+{ key: "Item_Enemy_156", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_156.png" }, name: "グリオークの羽", },
+{ key: "Item_Enemy_24", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_24.png" }, name: "モルドラジークの背びれ", },
+{ key: "Item_Enemy_77", number: 271, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_77.png" }, name: "ボコブリンの角", },
+{ key: "Item_Enemy_78", number: 272, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_78.png" }, name: "青ボコブリンの角", },
+{ key: "Item_Enemy_79", number: 273, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_79.png" }, name: "黒ボコブリンの角", },
+{ key: "Item_Enemy_80", number: 274, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_80.png" }, name: "白銀ボコブリンの角", },
+{ key: "Item_Enemy_64", number: 275, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_64.png" }, name: "ボスボコブリンの角", },
+{ key: "Item_Enemy_132", number: 276, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_132.png" }, name: "青ボスボコブリンの角", },
+{ key: "Item_Enemy_133", number: 277, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_133.png" }, name: "黒ボスボコブリンの角", },
+{ key: "Item_Enemy_134", number: 278, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_134.png" }, name: "白銀ボスボコブリンの角", },
+{ key: "Item_Enemy_106", number: 283, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_106.png" }, name: "リザルフォスの角", },
+{ key: "Item_Enemy_107", number: 284, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_107.png" }, name: "青リザルフォスの角", },
+{ key: "Item_Enemy_108", number: 285, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_108.png" }, name: "黒リザルフォスの角", },
+{ key: "Item_Enemy_109", number: 289, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_109.png" }, name: "白銀リザルフォスの角", },
+{ key: "Item_Enemy_58", number: 286, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_58.png" }, name: "火吹きリザルフォスの角", },
+{ key: "Item_Enemy_59", number: 287, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_59.png" }, name: "雹吐きリザルフォスの角", },
+{ key: "Item_Enemy_60", number: 288, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_60.png" }, name: "シビレリザルフォスの角", },
+{ key: "Item_Enemy_148", number: 294, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_148.png" }, name: "ライネルの刃角", },
+{ key: "Item_Enemy_149", number: 296, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_149.png" }, name: "青髪ライネルの刃角", },
+{ key: "Item_Enemy_150", number: 298, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_150.png" }, name: "白髪ライネルの刃角", },
+{ key: "Item_Enemy_151", number: 300, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_151.png" }, name: "白銀ライネルの刃角", },
+{ key: "Item_Enemy_166", number: 302, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_166.png" }, name: "兵隊ゴーレムの角", },
+{ key: "Item_Enemy_167", number: 303, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_167.png" }, name: "兵隊ゴーレムの角(中等)", },
+{ key: "Item_Enemy_168", number: 304, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_168.png" }, name: "兵隊ゴーレムの角(上等)", },
+{ key: "Item_Enemy_169", number: 305, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_169.png" }, name: "兵隊ゴーレムの角(特等)", },
+{ key: "Item_Enemy_67", number: 306, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_67.png" }, name: "隊長ゴーレムの角", },
+{ key: "Item_Enemy_191", number: 307, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_191.png" }, name: "隊長ゴーレムの角(中等)", },
+{ key: "Item_Enemy_192", number: 308, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_192.png" }, name: "隊長ゴーレムの角(上等)", },
+{ key: "Item_Enemy_193", number: 309, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_193.png" }, name: "隊長ゴーレムの角(特等)", },
+{ key: "Item_Enemy_32", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_32.png" }, name: "ヒノックスの爪", },
+{ key: "Item_Enemy_153", number: 315, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_153.png" }, name: "グリオークの火炎角", },
+{ key: "Item_Enemy_154", number: 316, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_154.png" }, name: "グリオークの氷雪角", },
+{ key: "Item_Enemy_155", number: 317, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_155.png" }, name: "グリオークの雷電角", },
+{ key: "Item_Enemy_211", number: 321, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" }, name: "オルドラの角", },
+{ key: "Item_Enemy_212", number: 323, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_212.png" }, name: "ネルドラの角", },
+{ key: "Item_Enemy_213", number: 325, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_213.png" }, name: "フロドラの角", },
+{ key: "Item_Enemy_214", number: 327, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_214.png" }, name: "白龍の角", },
+{ key: "Item_Enemy_181", number: 265, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_181.png" }, name: "ライクライクの胃石", },
+{ key: "Item_Enemy_182", number: 266, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_182.png" }, name: "ファイアライクの胃石", },
+{ key: "Item_Enemy_184", number: 267, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_184.png" }, name: "アイスライクの胃石", },
+{ key: "Item_Enemy_183", number: 268, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_183.png" }, name: "エレキライクの胃石", },
+{ key: "Item_Enemy_89", number: 279, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_89.png" }, name: "モリブリンの角", },
+{ key: "Item_Enemy_90", number: 280, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_90.png" }, name: "青モリブリンの角", },
+{ key: "Item_Enemy_91", number: 281, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_91.png" }, name: "黒モリブリンの角", },
+{ key: "Item_Enemy_92", number: 282, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_92.png" }, name: "白銀モリブリンの角", },
+{ key: "Item_Enemy_100", number: 290, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_100.png" }, name: "ホラブリンの角", },
+{ key: "Item_Enemy_101", number: 291, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_101.png" }, name: "青ホラブリンの角", },
+{ key: "Item_Enemy_102", number: 292, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_102.png" }, name: "黒ホラブリンの角", },
+{ key: "Item_Enemy_103", number: 293, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_103.png" }, name: "白銀ホラブリンの角", },
+{ key: "Item_Enemy_13", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_13.png" }, name: "ライネルのひづめ", },
+{ key: "Item_Enemy_215", number: 295, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_215.png" }, name: "ライネルの砕角", },
+{ key: "Item_Enemy_216", number: 297, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_216.png" }, name: "青髪ライネルの砕角", },
+{ key: "Item_Enemy_217", number: 299, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_217.png" }, name: "白髪ライネルの砕角", },
+{ key: "Item_Enemy_218", number: 301, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_218.png" }, name: "白銀ライネルの砕角", },
+{ key: "Item_Enemy_142", number: 310, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_142.png" }, name: "ヒノックスの角", },
+{ key: "Item_Enemy_143", number: 311, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_143.png" }, name: "青ヒノックスの角", },
+{ key: "Item_Enemy_144", number: 312, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_144.png" }, name: "黒ヒノックスの角", },
+{ key: "Item_Enemy_208", number: 313, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_208.png" }, name: "スタルヒノックスの角", },
+{ key: "Item_Enemy_210", number: 314, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_210.png" }, name: "モルドラジークのアゴ骨", },
+{ key: "Item_Enemy_186", number: 318, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_186.png" }, name: "デグガーマの大牙", },
+{ key: "Item_Enemy_187", number: 319, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_187.png" }, name: "黒曜デグガーマの大牙", },
+{ key: "Item_Enemy_188", number: 320, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_188.png" }, name: "白蒼デグガーマの大牙", },
+{ key: "Item_Enemy_228", number: 322, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_228.png" }, name: "オルドラの龍岩石", },
+{ key: "Item_Enemy_229", number: 324, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_229.png" }, name: "ネルドラの龍岩石", },
+{ key: "Item_Enemy_230", number: 326, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_230.png" }, name: "フロドラの龍岩石", },
+{ key: "Item_Enemy_231", number: 328, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_231.png" }, name: "白龍の龍岩石", },
+{ key: "Item_Enemy_05", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_05.png" }, name: "リザルフォスのしっぽ", },
+{ key: "Item_Enemy_114", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_114.png" }, name: "青リザルフォスのしっぽ", },
+{ key: "Item_Enemy_115", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_115.png" }, name: "黒リザルフォスのしっぽ", },
+{ key: "Item_Enemy_116", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_116.png" }, name: "白銀リザルフォスのしっぽ", },
+{ key: "Item_Enemy_41", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_41.png" }, name: "火吹きリザルフォスのしっぽ", },
+{ key: "Item_Enemy_42", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_42.png" }, name: "雹吐きリザルフォスのしっぽ", },
+{ key: "Item_Enemy_43", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_43.png" }, name: "シビレリザルフォスのしっぽ", },
+{ key: "Item_Enemy_69", number: 270, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_69.png" }, name: "ギブドの骨", },
+{ key: "Item_Enemy_20", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_20.png" }, name: "オクタの足", },
+{ key: "Item_Enemy_01", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_01.png" }, name: "ボコブリンの牙", },
+{ key: "Item_Enemy_07", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_07.png" }, name: "モリブリンの牙", },
+{ key: "Item_Enemy_135", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_135.png" }, name: "ボスボコブリンの牙", },
+{ key: "Item_Enemy_33", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_33.png" }, name: "ヒノックスの牙", },
+{ key: "Item_Enemy_104", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_104.png" }, name: "ホラブリンの爪", },
+{ key: "Item_Enemy_04", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_04.png" }, name: "リザルフォスの爪", },
+{ key: "Item_Enemy_189", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_189.png" }, name: "デグガーマの爪", },
+{ key: "Item_Enemy_38", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_38.png" }, name: "オルドラのウロコ", },
+{ key: "Item_Enemy_49", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_49.png" }, name: "ネルドラのウロコ", },
+{ key: "Item_Enemy_53", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_53.png" }, name: "フロドラのウロコ", },
+{ key: "Item_Enemy_158", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_158.png" }, name: "白龍のウロコ", },
+{ key: "Item_Enemy_39", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_39.png" }, name: "オルドラの爪", },
+{ key: "Item_Enemy_50", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_50.png" }, name: "ネルドラの爪", },
+{ key: "Item_Enemy_54", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_54.png" }, name: "フロドラの爪", },
+{ key: "Item_Enemy_159", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_159.png" }, name: "白龍の爪", },
+{ key: "Item_Enemy_47", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_47.png" }, name: "オルドラの牙のかけら", },
+{ key: "Item_Enemy_51", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_51.png" }, name: "ネルドラの牙のかけら", },
+{ key: "Item_Enemy_55", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_55.png" }, name: "フロドラの牙のかけら", },
+{ key: "Item_Enemy_160", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_160.png" }, name: "白龍の牙のかけら", },
+{ key: "Item_Weapon_01", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Weapon_01.png" }, name: "古代の刃", },
+{ key: "Item_KingScale", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_KingScale.png" }, name: "王のウロコ", },
+{ key: "LightBall_Small", number: 249, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/LightBall_Small.png" }, name: "アカリバナの種", },
+{ key: "LightBall_Large", number: 250, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/LightBall_Large.png" }, name: "巨大なアカリバナの種", },
+{ key: "FldObj_Pinecone_A_01", number: 255, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/FldObj_Pinecone_A_01.png" }, name: "ハイラルボックリ", },
+{ key: "Obj_FireWoodBundle", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Obj_FireWoodBundle.png" }, name: "薪の束", },
+{ key: "Item_Ore_L", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_L.png" }, name: "ゾナニウム", },
+{ key: "Item_Ore_M", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Ore_M.png" }, name: "大きなゾナニウム", },
+{ key: "Item_Enemy_130", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_130.png" }, name: "ゾナウエネルギー", },
+{ key: "Item_Enemy_131", icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_131.png" }, name: "大きなゾナウエネルギー", },
 ]
 </script>
 
@@ -6080,13 +6281,7 @@ void (() =>
 
   const scrollIntoOpenedCollapsed = () =>
   {
-    // if (!window.bootstrap?.Collapse)
-    // {
-    //   return
-    // }
-
-    const collapseElementList = document.querySelectorAll('.recipe-page, .ingredient-page')
-    for (const collapseElement of collapseElementList)
+    for (const collapseElement of document.querySelectorAll('.recipe-page, .ingredient-page'))
     {
       collapseElement.addEventListener("shown.bs.collapse", () =>
       {
