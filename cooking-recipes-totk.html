@@ -85,7 +85,7 @@
           <h3 class="accordion-header">
             <button class="accordion-button collapsed recipe-title" type="button" data-bs-toggle="collapse" data-bs-target="#max-recipes" aria-expanded="false" aria-controls="max-recipes">
               <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Hot%20Weather%20Attack.png" style="width: 36px; height: 36px; vertical-align: middle; object-fit: contain; margin-right: 4px;" loading="lazy" role="presentation">
-              各効果最大レベルのレシピ
+              最大効果レベル料理のレシピ
             </button>
           </h3>
           <div id="max-recipes" class="accordion-collapse collapse recipe-page" data-bs-parent="#recipe-accordion">
@@ -111,7 +111,7 @@
           <h3 class="accordion-header">
             <button class="accordion-button collapsed recipe-title" type="button" data-bs-toggle="collapse" data-bs-target="#horse-recipes" aria-expanded="false" aria-controls="horse-recipes">
               <img src="https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Other/Horse/Horse_Link_Mane.png" style="width: 36px; height: 36px; vertical-align: middle; object-fit: contain; margin-right: 4px;" loading="lazy" role="presentation">
-              馬強化用のレシピ
+              馬強化用料理のレシピ
             </button>
           </h3>
           <div id="horse-recipes" class="accordion-collapse collapse recipe-page" data-bs-parent="#recipe-accordion">
@@ -5857,6 +5857,8 @@ void (() =>
           cell2Img.style.verticalAlign = "middle"
           cell2Img.style.width = "100%"
           cell2Img.style.height = "auto"
+          cell2Img.style.aspectRatio = "1 / 1"
+          cell2Img.style.objectFit = "contain"
           cell2.appendChild(cell2Img)
         }
         line.appendChild(cell2)
@@ -5916,6 +5918,8 @@ void (() =>
               icon.style.height = "2em"
               icon.style.width = "auto"
               icon.style.margin = "-.5em 0"
+              icon.style.aspectRatio = "1 / 1"
+              icon.style.objectFit = "contain"
               line.appendChild(icon)
             }
 
@@ -6053,6 +6057,8 @@ void (() =>
           cell2Img.style.verticalAlign = "middle"
           cell2Img.style.width = "100%"
           cell2Img.style.height = "auto"
+          cell2Img.style.aspectRatio = "1 / 1"
+          cell2Img.style.objectFit = "contain"
           cell2.appendChild(cell2Img)
         }
         line.appendChild(cell2)
