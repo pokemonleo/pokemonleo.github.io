@@ -6099,7 +6099,7 @@ void (() =>
 
   const getRandomPositiveInteger = number =>
   {
-    if (number <= 1)
+    if (number < 2)
     {
       return 0
     }
@@ -6128,12 +6128,12 @@ void (() =>
       return
     }
 
-    const { title: name, data, iconData, } = window.pages[page]
+    const { title: name, data, _____iconData, } = window.pages[page]
     let { icon, } = window.pages[page]
-    if (!icon && (data || iconData))
+    if (!icon && (data || _____iconData))
     {
       const records = []
-      if (!iconData)
+      if (!_____iconData)
       {
         for (const _record of data)
         {
@@ -6162,7 +6162,7 @@ void (() =>
             }
         }
 
-        window.pages[page].iconData = records // cache the icon for all data
+        window.pages[page]._____iconData = records // cache the icon for all data
       }
 
       const index = getRandomPositiveInteger(records.length)
