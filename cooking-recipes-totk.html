@@ -897,7 +897,8 @@
 
   .focus-expandable:focus
   {
-    transform: scale(3.5);
+    transform: scale(3.25);
+    transform-origin: 37.5% 50%;
     outline: none;
     transition: transform .15s ease-in-out;
     pointer-events: none;
@@ -2761,7 +2762,7 @@ window.___recipes = [
   name: "ハチミツアメ",
   recipes: [
     [
-      { useMaterialKey: "BeeHome", },
+      { useMaterialKey: "BeeHome", name: "ガンバリバチのハチミツ (他の調味料素材なし)" },
     ],
   ],
   memo: "",
@@ -4277,10 +4278,10 @@ window.___recipes = [
   name: "妖精の力水",
   recipes: [
     [
-      { useMaterialKey: "Animal_Insect_F", },
+      { useMaterialKey: "Animal_Insect_F", name: "妖精 (薬以外の完成料理なし)" },
     ],
   ],
-  memo: "",
+  memo: "これに完成した場合、素材にあった特殊効果は打ち消される",
 },
 ]
 
@@ -4366,7 +4367,7 @@ window.pages =
             { useMaterialKey: "Item_Material_11", name: "闇の塊 (100)", },
             { useMaterialKey: "Item_Material_11", name: "闇の塊 (100)", },
             { useMaterialKey: "Item_Material_11", name: "闇の塊 (100)", },
-            { useMaterialKey: "Item_Fruit_A", name: "単体で料理完成できる、特殊効果がない素材", },
+            { page: "_vanilla_single_materials", useMaterialKey: "Item_Fruit_A", name: "単体で料理完成できる、特殊効果がない素材", },
             { page: "horns", },
           ],
         ],
@@ -5826,6 +5827,45 @@ window.pages =
 </script>
 
 <script>
+window.pages =
+{
+  ...(window.pages || {}),
+  _vanilla_single_materials: {
+    title: "単体で料理完成できる素材 (特殊効果なし)",
+    // icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Enemy_211.png" },
+    type: "ingredient",
+    data: [
+      { useMaterialKey: "Item_Fruit_P", },
+      { useMaterialKey: "Item_Fruit_G", },
+      { useMaterialKey: "Item_Fruit_M", },
+      { useMaterialKey: "Item_Fruit_A", },
+      { useMaterialKey: "Item_Fruit_B", },
+      { useMaterialKey: "LightFruit", },
+      { useMaterialKey: "Item_Mushroom_E", },
+      { useMaterialKey: "Item_Mushroom_P", },
+      { useMaterialKey: "Item_PlantGet_A", },
+      { useMaterialKey: "Item_PlantGet_U", },
+      { useMaterialKey: "Item_Meat_11", },
+      { useMaterialKey: "Item_Meat_12", },
+      { useMaterialKey: "Item_Meat_02", },
+      { useMaterialKey: "Item_Meat_07", },
+      { useMaterialKey: "Item_Meat_01", },
+      { useMaterialKey: "Item_Meat_06", },
+      { useMaterialKey: "Item_Material_04", },
+      { useMaterialKey: "Item_Material_05", },
+      { useMaterialKey: "Item_Fruit_K", },
+      { useMaterialKey: "Item_Fruit_L", },
+      { useMaterialKey: "Item_FishGet_A", },
+      { useMaterialKey: "Item_FishGet_Z", },
+      { useMaterialKey: "Item_FishGet_AA", },
+      { useMaterialKey: "LightBall_Small", },
+      { useMaterialKey: "LightBall_Large", },
+    ],
+  },
+}
+</script>
+
+<script>
 window.___materials = [
   { key: "Item_Fruit_P", number: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", memo: "確定大成功、効果時間 20 秒延長", },
   { key: "Item_Fruit_G", number: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
@@ -6116,63 +6156,109 @@ void (() =>
     return buf.reduce((num, _n) => _n >= 0 ? num + 1 : num, 0)
   }
 
-  const getPage = page =>
+  const getPageForItem = key =>
   {
+    if (!key)
+    {
+      return
+    }
+
+    const page = preGetPage(key)
     if (!page)
     {
       return
     }
 
-    if (!window.pages[page])
+    const { title: name, _____iconData, } = page
+    let { icon, } = page
+    if (!icon && _____iconData)
     {
-      return
-    }
-
-    const { title: name, data, _____iconData, } = window.pages[page]
-    let { icon, } = window.pages[page]
-    if (!icon && (data || _____iconData))
-    {
-      const records = []
-      if (!_____iconData)
-      {
-        for (const _record of data)
-        {
-            // Skip if this is a page
-            if (_record.page)
-            {
-              continue
-            }
-
-            const record =
-            {
-              // ...getPage(_record.page), // only get material of non-page
-              ...getMaterial(_record.useMaterialKey),
-              ..._record
-            }
-
-            // If the data is going to retreive by key, skip the item if no key is retreived
-            if (record.useMaterialKey && !record.key)
-            {
-              continue
-            }
-
-            if (record.icon)
-            {
-              records.push(record)
-            }
-        }
-
-        window.pages[page]._____iconData = records // cache the icon for all data
-      }
-
+      const records = _____iconData
       const index = getRandomPositiveInteger(records.length)
       if (records[index])
       {
         icon = records[index].icon
-        // window.pages[page].icon = icon // cache the icon to prevent repeatly do this in the same page
+        // window.pages[key].icon = icon // cache the icon to prevent repeatly do this in the same page
       }
     }
     return { name, icon, }
+  }
+
+  const getPage = key =>
+  {
+    if (!key)
+    {
+      return
+    }
+
+    const page = preGetPage(key)
+    if (!page)
+    {
+      return
+    }
+
+    const { title: name, _____iconData, } = page
+    let { icon, } = page
+    if (!icon && _____iconData)
+    {
+      const records = _____iconData
+      const index = getRandomPositiveInteger(records.length)
+      if (records[index])
+      {
+        icon = records[index].icon
+        // window.pages[key].icon = icon // cache the icon to prevent repeatly do this in the same page
+      }
+    }
+    return { ...page, icon, }
+  }
+
+  const preGetPage = key =>
+  {
+    if (!key)
+    {
+      return
+    }
+
+    if (!window.pages[key])
+    {
+      return
+    }
+
+    const { data, _____iconData, icon, } = window.pages[key]
+    if (!icon && !_____iconData && data)
+    {
+      const records = []
+      for (const _record of data)
+      {
+          // Skip if this is a page
+          if (_record.page)
+          {
+            continue
+          }
+
+          const record =
+          {
+            // ...getPage(_record.page), // only get material of non-page
+            ...getMaterial(_record.useMaterialKey),
+            ..._record
+          }
+
+          // If the data is going to retreive by key, skip the item if no key is retreived
+          if (record.useMaterialKey && !record.key)
+          {
+            continue
+          }
+
+          if (record.icon)
+          {
+            records.push(record)
+          }
+      }
+
+      window.pages[key]._____iconData = records // cache the icon for all data
+    }
+
+    return window.pages[key]
   }
 
   const getMaterial = key =>
@@ -6358,6 +6444,10 @@ void (() =>
 
       const line = document.createElement("tr")
       line.classList.add("focus-within-paint")
+      if (record.key)
+      {
+        line.dataset.key = record.key
+      }
       tbody.appendChild(line)
 
       const cell1 = document.createElement("th")
@@ -6433,7 +6523,7 @@ void (() =>
         {
           const item =
           {
-            ...getPage(_item.page),
+            ...getPageForItem(_item.page),
             ...getMaterial(_item.useMaterialKey),
             ..._item
           }
@@ -6489,7 +6579,7 @@ void (() =>
             {
               e.preventDefault()
               name.classList.add("modal-opened-link")
-              renderIngredientBodyOnModal(window.pages[item.page])
+              renderIngredientBodyOnModal(getPage(item.page))
             })
           }
           else
@@ -6564,7 +6654,7 @@ void (() =>
     {
       const record =
       {
-        ...getPage(_record.page),
+        ...getPageForItem(_record.page),
         ...getMaterial(_record.useMaterialKey),
         ..._record
       }
@@ -6577,6 +6667,10 @@ void (() =>
 
       const line = document.createElement("tr")
       line.classList.add("focus-within-paint")
+      if (record.key)
+      {
+        line.dataset.key = record.key
+      }
       tbody.appendChild(line)
 
       const cell1 = document.createElement("th")
