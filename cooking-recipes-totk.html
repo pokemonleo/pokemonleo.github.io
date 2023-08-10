@@ -6097,8 +6097,15 @@ void (() =>
     console.log("Rendering Full Page Elapsed:", Math.trunc((_____end - _____start) * 100) / 100, "ms")
   }
 
-  const getRandomNumber = number =>
+  const getRandomPositiveInteger = number =>
   {
+    if (number <= 1)
+    {
+      return 0
+    }
+
+    number = Math.trunc(number)
+
     if (!window.crypto?.getRandomValues)
     {
       return Math.trunc(Math.random() * number)
@@ -6121,35 +6128,47 @@ void (() =>
       return
     }
 
-    const { title: name, data, } = window.pages[page]
+    const { title: name, data, iconData, } = window.pages[page]
     let { icon, } = window.pages[page]
-    if (!icon && data)
+    if (!icon && (data || iconData))
     {
       const records = []
-      for (const _record of data)
+      if (!iconData)
       {
-          const record =
-          {
-            ...getPage(_record.page),
-            ...getMaterial(_record.useMaterialKey),
-            ..._record
-          }
+        for (const _record of data)
+        {
+            // Skip if this is a page
+            if (_record.page)
+            {
+              continue
+            }
 
-          // If the data is going to retreive by key, skip the item if no key is retreived
-          if (record.useMaterialKey && !record.key)
-          {
-            continue
-          }
+            const record =
+            {
+              // ...getPage(_record.page), // only get material of non-page
+              ...getMaterial(_record.useMaterialKey),
+              ..._record
+            }
 
-          if (record.icon)
-          {
-            records.push(record)
-          }
+            // If the data is going to retreive by key, skip the item if no key is retreived
+            if (record.useMaterialKey && !record.key)
+            {
+              continue
+            }
+
+            if (record.icon)
+            {
+              records.push(record)
+            }
+        }
+
+        window.pages[page].iconData = records // cache the icon for all data
       }
 
-      if (records[ getRandomNumber(records.length) ])
+      const index = getRandomPositiveInteger(records.length)
+      if (records[index])
       {
-        icon = records[ getRandomNumber(records.length) ].icon
+        icon = records[index].icon
         // window.pages[page].icon = icon // cache the icon to prevent repeatly do this in the same page
       }
     }
