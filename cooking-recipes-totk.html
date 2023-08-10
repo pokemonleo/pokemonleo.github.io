@@ -897,7 +897,7 @@
 
   .focus-expandable:focus
   {
-    transform: scale(3.25);
+    transform: scale(3.2);
     transform-origin: 37.5% 50%;
     outline: none;
     transition: transform .15s ease-in-out;
@@ -6224,7 +6224,8 @@ void (() =>
       return
     }
 
-    const { data, _____iconData, icon, } = window.pages[key]
+    const page = window.pages[key]
+    const { data, _____iconData, icon, } = page
     if (!icon && !_____iconData && data)
     {
       const records = []
@@ -6255,10 +6256,12 @@ void (() =>
           }
       }
 
-      window.pages[key]._____iconData = records // cache the icon for all data
+      // cache the icon for all data
+      // page._____iconData = records
+      Object.defineProperty(page, '_____iconData', { value: records, enumerable: false, })
     }
 
-    return window.pages[key]
+    return page
   }
 
   const getMaterial = key =>
@@ -6546,7 +6549,7 @@ void (() =>
             padding.style.textAlign = "center"
             padding.style.width = "1em"
             padding.style.lineHeight = "inherit"
-            padding.innerHTML = "+"
+            padding.innerHTML = " + "
             line.appendChild(padding)
           }
 
