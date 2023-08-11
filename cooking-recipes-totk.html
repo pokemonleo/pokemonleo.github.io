@@ -4506,11 +4506,11 @@ window.pages =
         memo: `<i data-icon-name="stealth-up"></i><i data-icon-name="stealth-up"></i><i data-icon-name="stealth-up"></i> 静かさアップ Lv.3 / 30 分<br>
           <dl>
             <dt><i data-icon-name="stealth-up"></i> 静かさアップ Lv.1 (効果 199 未満)</dt>
-            <dd>寝ている魔物にしゃがみ歩きで近寄っても気付かれにくい</dd>
+            <dd>出す音が 20% 減少</dd>
             <dt><i data-icon-name="stealth-up"></i><i data-icon-name="stealth-up"></i> 静かさアップ Lv.2 (効果 200-299)</dt>
-            <dd>多くの生き物を歩きながら捕まえられる</dd>
+            <dd>出す音が 40% 減少</dd>
             <dt><i data-icon-name="stealth-up"></i><i data-icon-name="stealth-up"></i><i data-icon-name="stealth-up"></i> 静かさアップ Lv.3 (効果 300 以上)</dt>
-            <dd>音に敏感な生き物も歩きながら捕まえられる</dd>
+            <dd>出す音が 70% 減少</dd>
           </dl>`,
       },
       {
@@ -4536,6 +4536,8 @@ window.pages =
             <dd>泳ぎ移動速度 1.3 倍</dd>
             <dt><i data-icon-name="swim-speed-up"></i><i data-icon-name="swim-speed-up"></i> 泳ぎスピードアップ Lv.2 (効果 200 以上)</dt>
             <dd>泳ぎ移動速度 1.6 倍</dd>
+            <dt><i data-icon-name="swim-speed-up"></i><i data-icon-name="swim-speed-up"></i><i data-icon-name="swim-speed-up"></i> 泳ぎスピードアップ Lv.3</dt>
+            <dd>泳ぎ移動速度 2 倍</dd>
           </dl>`,
       },
       {
@@ -4553,11 +4555,11 @@ window.pages =
         memo: `<i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.3 / 8 分以上<br>
           <dl>
             <dt><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.1 (効果 199 未満)</dt>
-            <dd>滑らずによじ登れる移動距離が約 2 倍</dd>
+            <dd>濡れている壁でよじ登れる間、 6 秒ごとに滑り落ちる</dd>
             <dt><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.2 (効果 200-299)</dt>
-            <dd>滑らずによじ登れる移動距離が約 3 倍</dd>
+            <dd>濡れている壁でよじ登れる間、 8 秒ごとに滑り落ちる</dd>
             <dt><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.3 (効果 300 以上)</dt>
-            <dd>滑らずによじ登れる移動距離が約 4 倍</dd>
+            <dd>濡れている壁でよじ登れる間、 10 秒ごとに滑り落ちる</dd>
           </dl>`,
       },
       {
@@ -4575,11 +4577,11 @@ window.pages =
         memo: `<i data-icon-name="glow"></i> 発光 Lv.3 / 30 分<br>
           <dl>
             <dt><i data-icon-name="glow"></i> 発光 Lv.1 (効果 199 未満)</dt>
-            <dd>光を発し周囲を照らす</dd>
+            <dd>光度 10 の光で周囲を照らす</dd>
             <dt><i data-icon-name="glow"></i><i data-icon-name="glow"></i> 発光 Lv.2 (効果 200-299)</dt>
-            <dd>光の強さが約 2 倍</dd>
+            <dd>光度 30 の光で周囲を照らす</dd>
             <dt><i data-icon-name="glow"></i><i data-icon-name="glow"></i><i data-icon-name="glow"></i> 発光 Lv.3 (効果 300 以上)</dt>
-            <dd>光の強さが約 3 倍</dd>
+            <dd>光度 60 の光で周囲を照らす</dd>
           </dl>`,
       },
       {
@@ -4601,9 +4603,9 @@ window.pages =
         memo: `<i data-icon-name="heat-resistance"></i><i data-icon-name="heat-resistance"></i> 暑さガード Lv.2 / 30 分<br>
           <dl>
             <dt><i data-icon-name="heat-resistance"></i> 暑さガード Lv.1 (効果 199 未満)</dt>
-            <dd>レベル 1 の猛暑環境を耐える</dd>
+            <dd>50 ℃ までの猛暑環境を耐える</dd>
             <dt><i data-icon-name="heat-resistance"></i><i data-icon-name="heat-resistance"></i> 暑さガード Lv.2 (効果 200 以上)</dt>
-            <dd>レベル 2 の猛暑環境を耐える (最大)</dd>
+            <dd>すべての猛暑環境を耐える</dd>
           </dl>`,
       },
       {
@@ -4625,9 +4627,9 @@ window.pages =
         memo: `<i data-icon-name="cold-resistance"></i><i data-icon-name="cold-resistance"></i> 寒さガード Lv.2 / 30 分<br>
           <dl>
             <dt><i data-icon-name="cold-resistance"></i> 寒さガード Lv.1 (効果 199 未満)</dt>
-            <dd>レベル 1 の寒冷環境を耐える</dd>
+            <dd>-10 ℃ までの寒冷環境を耐える</dd>
             <dt><i data-icon-name="cold-resistance"></i><i data-icon-name="cold-resistance"></i> 寒さガード Lv.2 (効果 200 以上)</dt>
-            <dd>レベル 2 の寒冷環境を耐える (最大)</dd>
+            <dd>すべての寒冷環境を耐える</dd>
           </dl>`,
       },
       {
@@ -4649,11 +4651,11 @@ window.pages =
         memo: `<i data-icon-name="shock-resistance"></i><i data-icon-name="shock-resistance"></i><i data-icon-name="shock-resistance"></i> エレキガード Lv.3 / 30 分<br>
           <dl>
             <dt><i data-icon-name="shock-resistance"></i> エレキガード Lv.1 (効果 199 未満)</dt>
-            <dd>しびれダメージをハート 1 個分防ぐ</dd>
+            <dd>電気の属性ダメージを 1/3 防ぐ</dd>
             <dt><i data-icon-name="shock-resistance"></i><i data-icon-name="shock-resistance"></i> エレキガード Lv.2 (効果 200-299)</dt>
-            <dd>しびれダメージをハート 2 個分防ぐ</dd>
+            <dd>電気の属性ダメージを 2/3 防ぐ</dd>
             <dt><i data-icon-name="shock-resistance"></i><i data-icon-name="shock-resistance"></i><i data-icon-name="shock-resistance"></i> エレキガード Lv.3 (効果 300 以上)</dt>
-            <dd>しびれダメージを無効化 (装備に落雷しなくなる？)</dd>
+            <dd>電気の属性ダメージを無効化</dd>
           </dl>`,
       },
       {
@@ -4671,9 +4673,9 @@ window.pages =
         memo: `<i data-icon-name="flame-guard"></i><i data-icon-name="flame-guard"></i> 炎ガード Lv.2 / 10 分以上<br>
           <dl>
             <dt><i data-icon-name="flame-guard"></i> 炎ガード Lv.1 (効果 199 未満)</dt>
-            <dd>レベル 1 の灼熱環境を耐える</dd>
+            <dd>一部の灼熱環境を耐える</dd>
             <dt><i data-icon-name="flame-guard"></i><i data-icon-name="flame-guard"></i> 炎ガード Lv.2 (効果 200 以上)</dt>
-            <dd>レベル 2 の灼熱環境を耐える (最大)</dd>
+            <dd>すべての灼熱環境を耐える</dd>
           </dl>`,
       },
       {
@@ -4696,9 +4698,11 @@ window.pages =
         memo: `<i data-icon-name="hot-weather-attack"></i> 高温時炎攻撃 Lv.1 / 1～30 分<br>(大成功や <i data-ingredient-icon-key="Item_Material_08"></i> マモノエキスで Lv.2 に上がる可能性がある)<br>
           <dl>
             <dt><i data-icon-name="hot-weather-attack"></i> 高温時炎攻撃 Lv.1 (効果 199 未満)</dt>
-            <dd>高温環境時、フィニッシュ攻撃で炎属性の追撃を発生</dd>
+            <dd>高温環境時、フィニッシュ攻撃とタメ攻撃でダメージ +5 の炎属性の範囲攻撃を追加発生</dd>
             <dt><i data-icon-name="hot-weather-attack"></i><i data-icon-name="hot-weather-attack"></i> 高温時炎攻撃 Lv.2 (効果 200 以上)</dt>
-            <dd>追撃の範囲が広くなる</dd>
+            <dd>フィニッシュ攻撃の追加攻撃の範囲が +50% 、タメ攻撃の追加攻撃の範囲が +33%</dd>
+            <dt><i data-icon-name="hot-weather-attack"></i><i data-icon-name="hot-weather-attack"></i><i data-icon-name="hot-weather-attack"></i> 高温時炎攻撃 Lv.3</dt>
+            <dd>フィニッシュ攻撃の追加攻撃の範囲が +100% 、タメ攻撃の追加攻撃の範囲が +66%</dd>
           </dl>`,
       },
       {
@@ -4721,9 +4725,11 @@ window.pages =
         memo: `<i data-icon-name="cold-weather-attack"></i> 低温時冷気攻撃 Lv.1 / 1～30 分<br>(大成功や <i data-ingredient-icon-key="Item_Material_08"></i> マモノエキスで Lv.2 に上がる可能性がある)<br>
           <dl>
             <dt><i data-icon-name="cold-weather-attack"></i> 低温時冷気攻撃 Lv.1 (効果 199 未満)</dt>
-            <dd>低温環境時、フィニッシュ攻撃で氷属性の追撃を発生</dd>
+            <dd>低温環境時、フィニッシュ攻撃とタメ攻撃でダメージ +5 の氷属性の範囲攻撃を追加発生</dd>
             <dt><i data-icon-name="cold-weather-attack"></i><i data-icon-name="cold-weather-attack"></i> 低温時冷気攻撃 Lv.2 (効果 200 以上)</dt>
-            <dd>追撃の範囲が広くなる</dd>
+            <dd>フィニッシュ攻撃の追加攻撃の範囲が +50% 、タメ攻撃の追加攻撃の範囲が +33%</dd>
+            <dt><i data-icon-name="cold-weather-attack"></i><i data-icon-name="cold-weather-attack"></i><i data-icon-name="cold-weather-attack"></i> 低温時冷気攻撃 Lv.3</dt>
+            <dd>フィニッシュ攻撃の追加攻撃の範囲が +100% 、タメ攻撃の追加攻撃の範囲が +66%</dd>
           </dl>`,
       },
       {
@@ -4746,9 +4752,11 @@ window.pages =
         memo: `<i data-icon-name="stormy-weather-attack"></i> 雷雨時電気攻撃 Lv.1 / 1～30 分<br>(大成功や <i data-ingredient-icon-key="Item_Material_08"></i> マモノエキスで Lv.2 に上がる可能性がある)<br>
           <dl>
             <dt><i data-icon-name="stormy-weather-attack"></i> 雷雨時電気攻撃 Lv.1 (効果 199 未満)</dt>
-            <dd>雷雨時、フィニッシュ攻撃で電気属性の追撃を発生</dd>
+            <dd>雷雨時、フィニッシュ攻撃とタメ攻撃でダメージ +5 の電気属性の範囲攻撃を追加発生</dd>
             <dt><i data-icon-name="stormy-weather-attack"></i><i data-icon-name="stormy-weather-attack"></i> 雷雨時電気攻撃 Lv.2 (効果 200 以上)</dt>
-            <dd>追撃の範囲が広くなる</dd>
+            <dd>フィニッシュ攻撃の追加攻撃の範囲が +50% 、タメ攻撃の追加攻撃の範囲が +33%</dd>
+            <dt><i data-icon-name="stormy-weather-attack"></i><i data-icon-name="stormy-weather-attack"></i><i data-icon-name="stormy-weather-attack"></i> 雷雨時電気攻撃 Lv.3</dt>
+            <dd>フィニッシュ攻撃の追加攻撃の範囲が +100% 、タメ攻撃の追加攻撃の範囲が +66%</dd>
           </dl>`,
       },
     ],
