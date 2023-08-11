@@ -980,7 +980,7 @@ window.___recipes = [
       { page: "seafoods", },
     ],
   ],
-  memo: "ツルギガニ、ヨロイガニ、ガンバリガニ、シノビタニシを除く",
+  memo: `<i data-ingredient-icon-key="Item_InsectGet_K"></i> ツルギガニ、 <i data-ingredient-icon-key="Item_InsectGet_O"></i> ヨロイガニ、 <i data-ingredient-icon-key="Item_InsectGet_Z"></i> ガンバリガニ、 <i data-ingredient-icon-key="Item_FishGet_M"></i> シノビタニシ以外`,
 },
 {
   key: "Item_Cook_B_23",
@@ -1077,7 +1077,7 @@ window.___recipes = [
       { page: "meats", },
     ],
   ],
-  memo: "ヨロイカボチャ、ヒダマリカボチャ以外",
+  memo: `<i data-ingredient-icon-key="Item_Fruit_J"></i> ヨロイカボチャ、 <i data-ingredient-icon-key="Item_Fruit_N"></i> ヒダマリカボチャ以外`,
 },
 {
   key: "Item_Cook_A_04",
@@ -1379,7 +1379,7 @@ window.___recipes = [
       { useIngredientKey: "Item_Ore_H", },
     ],
   ],
-  memo: "ツルギガニ、ヨロイガニ、ガンバリガニを除く",
+  memo: `<i data-ingredient-icon-key="Item_InsectGet_K"></i> ツルギガニ、 <i data-ingredient-icon-key="Item_InsectGet_O"></i> ヨロイガニ、 <i data-ingredient-icon-key="Item_InsectGet_Z"></i> ガンバリガニ以外`,
 },
 {
   key: "Item_Cook_D_09",
@@ -1519,7 +1519,7 @@ window.___recipes = [
       { useIngredientKey: "Item_Material_07", },
     ],
   ],
-  memo: "ツルギダイ、ヨロイダイ、マックスサーモンを除く",
+  memo: `<i data-ingredient-icon-key="Item_FishGet_F"></i> ツルギダイ、 <i data-ingredient-icon-key="Item_FishGet_G"></i> ヨロイダイ、 <i data-ingredient-icon-key="Item_FishGet_I"></i> マックスサーモン以外`,
 },
 {
   key: "Item_Cook_H_02",
@@ -1577,7 +1577,7 @@ window.___recipes = [
       { page: "fruit_likes", },
     ],
   ],
-  memo: "ポカポカ草の実を除く",
+  memo: `<i data-ingredient-icon-key="Item_Fruit_I"></i> ポカポカ草の実以外`,
 },
 {
   key: "Item_Cook_B_12",
@@ -1655,7 +1655,7 @@ window.___recipes = [
       { useIngredientKey: "Item_Material_05", },
     ],
   ],
-  memo: "ヨロイカボチャ、ヒダマリカボチャ、ゴーゴーニンジン、ガッツニンジンを除く",
+  memo: `<i data-ingredient-icon-key="Item_Fruit_J"></i> ヨロイカボチャ、 <i data-ingredient-icon-key="Item_Fruit_N"></i> ヒダマリカボチャ、 <i data-ingredient-icon-key="Item_PlantGet_M"></i> ゴーゴーニンジン、 <i data-ingredient-icon-key="Item_PlantGet_Q"></i> ガッツニンジン以外`,
 },
 {
   key: "Item_Cook_F_03",
@@ -2748,7 +2748,7 @@ window.___recipes = [
       { useIngredientKey: "BeeHome", },
     ],
   ],
-  memo: "リンゴ、金のリンゴを除く",
+  memo: `<i data-ingredient-icon-key="Item_Fruit_A"></i> リンゴ、 <i data-ingredient-icon-key="Item_Fruit_P"></i> 金のリンゴ以外`,
 },
 {
   key: "Item_Cook_I_08",
@@ -2971,7 +2971,7 @@ window.___recipes = [
       { useIngredientKey: "Item_Material_01", },
     ],
   ],
-  memo: "リンゴ、金のリンゴを除く",
+  memo: `<i data-ingredient-icon-key="Item_Fruit_A"></i> リンゴ、 <i data-ingredient-icon-key="Item_Fruit_P"></i> 金のリンゴ以外`,
 },
 {
   key: "Item_Cook_I_02",
@@ -4369,7 +4369,7 @@ window.pages =
             { useIngredientKey: "Item_PlantGet_R", name: "ヒダマリ草 (3)", },
           ],
         ],
-        memo: `<i data-icon-name="heart-gloom-heal"></i> 瘴気ダメージ回復 15`,
+        memo: `<i data-icon-name="heart-gloom-heal">15</i> 瘴気ダメージ回復 15`,
       },
       {
         icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Gloom%20Resistance.png" },
@@ -4530,7 +4530,7 @@ window.pages =
             { useIngredientKey: "Item_Material_08", },
           ],
         ],
-        memo: `<i data-icon-name="swim-speed-up"></i> 泳ぎスピードアップ Lv.1 / 1～30 分<br>(大成功やマモノエキスで Lv.2 に上がる可能性がある)<br>
+        memo: `<i data-icon-name="swim-speed-up"></i> 泳ぎスピードアップ Lv.1 / 1～30 分<br>(大成功や <i data-ingredient-icon-name="マモノエキス"></i> マモノエキスで Lv.2 に上がる可能性がある)<br>
           <dl>
             <dt><i data-icon-name="swim-speed-up"></i> 泳ぎスピードアップ Lv.1 (効果 199 未満)</dt>
             <dd>泳ぎ移動速度 1.3 倍</dd>
@@ -4693,7 +4693,7 @@ window.pages =
             { useIngredientKey: "Item_Material_08", },
           ],
         ],
-        memo: `<i data-icon-name="hot-weather-attack"></i> 高温時炎攻撃 Lv.1 / 1～30 分<br>(大成功やマモノエキスで Lv.2 に上がる可能性がある)<br>
+        memo: `<i data-icon-name="hot-weather-attack"></i> 高温時炎攻撃 Lv.1 / 1～30 分<br>(大成功や <i data-ingredient-icon-name="マモノエキス"></i> マモノエキスで Lv.2 に上がる可能性がある)<br>
           <dl>
             <dt><i data-icon-name="hot-weather-attack"></i> 高温時炎攻撃 Lv.1 (効果 199 未満)</dt>
             <dd>高温環境時、フィニッシュ攻撃で炎属性の追撃を発生</dd>
@@ -4718,7 +4718,7 @@ window.pages =
             { useIngredientKey: "Item_Material_08", },
           ],
         ],
-        memo: `<i data-icon-name="cold-weather-attack"></i> 低温時冷気攻撃 Lv.1 / 1～30 分<br>(大成功やマモノエキスで Lv.2 に上がる可能性がある)<br>
+        memo: `<i data-icon-name="cold-weather-attack"></i> 低温時冷気攻撃 Lv.1 / 1～30 分<br>(大成功や <i data-ingredient-icon-name="マモノエキス"></i> マモノエキスで Lv.2 に上がる可能性がある)<br>
           <dl>
             <dt><i data-icon-name="cold-weather-attack"></i> 低温時冷気攻撃 Lv.1 (効果 199 未満)</dt>
             <dd>低温環境時、フィニッシュ攻撃で氷属性の追撃を発生</dd>
@@ -4743,7 +4743,7 @@ window.pages =
             { useIngredientKey: "Item_Material_08", },
           ],
         ],
-        memo: `<i data-icon-name="stormy-weather-attack"></i> 雷雨時電気攻撃 Lv.1 / 1～30 分<br>(大成功やマモノエキスで Lv.2 に上がる可能性がある)<br>
+        memo: `<i data-icon-name="stormy-weather-attack"></i> 雷雨時電気攻撃 Lv.1 / 1～30 分<br>(大成功や <i data-ingredient-icon-name="マモノエキス"></i> マモノエキスで Lv.2 に上がる可能性がある)<br>
           <dl>
             <dt><i data-icon-name="stormy-weather-attack"></i> 雷雨時電気攻撃 Lv.1 (効果 199 未満)</dt>
             <dd>雷雨時、フィニッシュ攻撃で電気属性の追撃を発生</dd>
@@ -4855,7 +4855,7 @@ window.pages =
       },
       {
         useRecipeKey: "Item_Cook_K_07",
-        memo: `ヨロイカボチャ、ヒダマリカボチャ、ゴーゴーニンジン、ガッツニンジンを除く<br>がんばり<span role="presentation" aria-hidden="true">★★★★ → ★★★★★</span><span class="sr-only visually-hidden" inert style="pointer-events: none; user-select: none;">星 4 から星 5 へ</span>の強化用料理 (3 つ必要)`,
+        memo: `<i data-ingredient-icon-key="Item_Fruit_J"></i> ヨロイカボチャ、 <i data-ingredient-icon-key="Item_Fruit_N"></i> ヒダマリカボチャ、 <i data-ingredient-icon-key="Item_PlantGet_M"></i> ゴーゴーニンジン、 <i data-ingredient-icon-key="Item_PlantGet_Q"></i> ガッツニンジン以外<br>がんばり<span role="presentation" aria-hidden="true">★★★★ → ★★★★★</span><span class="sr-only visually-hidden" inert style="pointer-events: none; user-select: none;">星 4 から星 5 へ</span>の強化用料理 (3 つ必要)`,
       },
       {
         useRecipeKey: "Item_Cook_K_08",
@@ -5914,7 +5914,7 @@ window.pages =
 </script>
 
 <script>
-window.___materials = [
+window.___ingredients = [
   { key: "Item_Fruit_P", number: 204, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_P.png" }, name: "金のリンゴ", memo: "確定大成功、効果時間 20 秒延長", },
   { key: "Item_Fruit_G", number: 205, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_G.png" }, name: "ヤシの実", },
   { key: "Item_Fruit_M", number: 207, icon: { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/Items/Item_Fruit_M.png" }, name: "ハイラルトマト", },
@@ -6287,8 +6287,8 @@ void (() =>
 
           const record =
           {
-            // ...getPage(_record.page), // only get material of non-page
-            ...getMaterial(_record.useIngredientKey),
+            // ...getPage(_record.page), // only get record of non-page
+            ...getIngredientByKey(_record.useIngredientKey),
             ..._record
           }
 
@@ -6312,17 +6312,27 @@ void (() =>
     return page
   }
 
-  const getMaterial = key =>
+  const getIngredientByKey = key =>
   {
     if (!key)
     {
       return
     }
 
-    return window.___materials.find(material => material.key === key)
+    return window.___ingredients.find(material => material.key === key)
   }
 
-  const getRecipe = key =>
+  const getIngredientByName = name =>
+  {
+    if (!name)
+    {
+      return
+    }
+
+    return window.___ingredients.find(material => material.name === name)
+  }
+
+  const getRecipeByKey = key =>
   {
     if (!key)
     {
@@ -6330,6 +6340,140 @@ void (() =>
     }
 
     return window.___recipes.find(recipe => recipe.key === key)
+  }
+
+  const getRecipeByName = name =>
+  {
+    if (!name)
+    {
+      return
+    }
+
+    return window.___recipes.find(recipe => recipe.name === name)
+  }
+
+  const getRecipeIconByKey = key =>
+  {
+    if (!key)
+    {
+      return
+    }
+
+    const recipe = getRecipeByKey(key)
+    if (!recipe?.icon)
+    {
+      return
+    }
+
+    const img = document.createElement("img")
+    img.src = recipe.icon.src
+    // img.alt = recipe.name
+    img.alt = ""
+    img.role = "presentation"
+    img.loading = "lazy"
+    img.ariaHidden = true
+    img.style.verticalAlign = "middle"
+    img.style.height = "2em"
+    img.style.width = "auto"
+    img.style.margin = "-.5em -0.25em"
+    img.style.aspectRatio = "1 / 1"
+    img.style.objectFit = "contain"
+    img.style.pointerEvents = "none"
+    img.style.userSelect = "none"
+    return img
+  }
+
+  const getRecipeIconByName = name =>
+  {
+    if (!name)
+    {
+      return
+    }
+
+    const recipe = getRecipeByName(name)
+    if (!recipe?.icon)
+    {
+      return
+    }
+
+    const img = document.createElement("img")
+    img.src = recipe.icon.src
+    // img.alt = recipe.name
+    img.alt = ""
+    img.role = "presentation"
+    img.loading = "lazy"
+    img.ariaHidden = true
+    img.style.verticalAlign = "middle"
+    img.style.height = "2em"
+    img.style.width = "auto"
+    img.style.margin = "-.5em -0.25em"
+    img.style.aspectRatio = "1 / 1"
+    img.style.objectFit = "contain"
+    img.style.pointerEvents = "none"
+    img.style.userSelect = "none"
+    return img
+  }
+
+  const getIngredientIconByKey = key =>
+  {
+    if (!key)
+    {
+      return
+    }
+
+    const ingredient = getIngredientByKey(key)
+    if (!ingredient?.icon)
+    {
+      return
+    }
+
+    const img = document.createElement("img")
+    img.src = ingredient.icon.src
+    // img.alt = ingredient.name
+    img.alt = ""
+    img.role = "presentation"
+    img.loading = "lazy"
+    img.ariaHidden = true
+    img.style.verticalAlign = "middle"
+    img.style.height = "2em"
+    img.style.width = "auto"
+    img.style.margin = "-.5em -0.25em"
+    img.style.aspectRatio = "1 / 1"
+    img.style.objectFit = "contain"
+    img.style.pointerEvents = "none"
+    img.style.userSelect = "none"
+    return img
+  }
+
+  const getIngredientIconByName = name =>
+  {
+    if (!name)
+    {
+      return
+    }
+
+    const ingredient = getIngredientByName(name)
+    if (!ingredient?.icon)
+    {
+      return
+    }
+
+    const img = document.createElement("img")
+    img.src = ingredient.icon.src
+    // img.alt = ingredient.name
+    img.alt = ""
+    img.role = "presentation"
+    img.loading = "lazy"
+    img.ariaHidden = true
+    img.style.verticalAlign = "middle"
+    img.style.height = "2em"
+    img.style.width = "auto"
+    img.style.margin = "-.5em -0.25em"
+    img.style.aspectRatio = "1 / 1"
+    img.style.objectFit = "contain"
+    img.style.pointerEvents = "none"
+    img.style.userSelect = "none"
+    return img
   }
 
   const icons = {
@@ -6377,14 +6521,14 @@ void (() =>
     "stormy-weather-attack": { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Stormy%20Weather%20Attack.png", },
     "swim-speed-up": { src: "https://raw.githubusercontent.com/TOTKSheet/TOTKImages/main/RisoIcons/Swim%20Speed%20Up.png", },
   }
-  const getMemoIcon = iconName =>
+  const getMemoIcon = name =>
   {
-    if (!iconName)
+    if (!name)
     {
       return
     }
 
-    const icon = icons[iconName]
+    const icon = icons[name]
     if (!icon)
     {
       return
@@ -6428,8 +6572,43 @@ void (() =>
       return memo
     }
 
-    const icons = body.querySelectorAll("i[data-icon-name]")
-    for (const _i of icons)
+    for (const _i of body.querySelectorAll("i[data-recipe-icon-key]"))
+    {
+      const icon = getRecipeIconByKey(_i.dataset.recipeIconKey)
+      if (icon)
+      {
+        _i.replaceWith(icon)
+      }
+    }
+
+    for (const _i of body.querySelectorAll("i[data-recipe-icon-name]"))
+    {
+      const icon = getRecipeIconByName(_i.dataset.recipeIconName)
+      if (icon)
+      {
+        _i.replaceWith(icon)
+      }
+    }
+
+    for (const _i of body.querySelectorAll("i[data-ingredient-icon-key]"))
+    {
+      const icon = getIngredientIconByKey(_i.dataset.ingredientIconKey)
+      if (icon)
+      {
+        _i.replaceWith(icon)
+      }
+    }
+
+    for (const _i of body.querySelectorAll("i[data-ingredient-icon-name]"))
+    {
+      const icon = getIngredientIconByName(_i.dataset.ingredientIconName)
+      if (icon)
+      {
+        _i.replaceWith(icon)
+      }
+    }
+
+    for (const _i of body.querySelectorAll("i[data-icon-name]"))
     {
       const icon = getMemoIcon(_i.dataset.iconName)
       if (icon)
@@ -6446,7 +6625,7 @@ void (() =>
           textBlock.style.top = "100%"
           textBlock.style.left = "100%"
           textBlock.style.fontSize = "12px"
-          textBlock.style.transform = "translate(-50%, -50%) scale(0.75)"
+          textBlock.style.transform = "translate(calc(-50% - 2.5px), -50%) scale(0.75)"
           textBlock.style.whiteSpace = "nowrap"
           textBlock.style.textAlign = "center"
           wrapper.appendChild(textBlock)
@@ -6617,7 +6796,7 @@ void (() =>
     {
       const record =
       {
-        ...getRecipe(_record.useRecipeKey),
+        ...getRecipeByKey(_record.useRecipeKey),
         ..._record
       }
 
@@ -6754,7 +6933,7 @@ void (() =>
           const item =
           {
             ...getPageForItem(_item.page),
-            ...getMaterial(_item.useIngredientKey),
+            ...getIngredientByKey(_item.useIngredientKey),
             ..._item
           }
 
@@ -6898,7 +7077,7 @@ void (() =>
       const record =
       {
         ...getPageForItem(_record.page),
-        ...getMaterial(_record.useIngredientKey),
+        ...getIngredientByKey(_record.useIngredientKey),
         ..._record
       }
 
