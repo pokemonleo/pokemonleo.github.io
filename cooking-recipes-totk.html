@@ -4303,7 +4303,7 @@ window.___recipes = [
       { useMaterialKey: "Animal_Insect_F", name: "妖精 (薬以外の完成料理なし)" },
     ],
   ],
-  memo: "これに完成した場合、素材にあった特殊効果は打ち消される",
+  memo: "これに完成した場合、合計ハート回復量が 3 減少し、素材にあった特殊効果は打ち消される",
 },
 ]
 
@@ -4583,9 +4583,9 @@ window.pages =
         memo: `<i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.3 / 8 分以上<br>
           <dl>
             <dt><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.1 (効果 200 未満)</dt>
-            <dd>濡れている壁でよじ登る間、滑り落ちるまでに 6 秒秒かかる</dd>
+            <dd>濡れている壁でよじ登る間、滑り落ちるまでに 6 秒かかる</dd>
             <dt><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.2 (効果 200-299)</dt>
-            <dd>濡れている壁でよじ登る間、滑り落ちるまでに 8 秒秒かかる</dd>
+            <dd>濡れている壁でよじ登る間、滑り落ちるまでに 8 秒かかる</dd>
             <dt><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i><i data-icon-name="slip-resistance"></i> 滑り軽減 Lv.3 (効果 300 以上)</dt>
             <dd>濡れている壁でよじ登る間、滑り落ちるまでに 10 秒かかる</dd>
             <dt>効果時間は全材料一つごとに 30 秒、ハリツキ素材一つごとにさらに 90 秒、最大 30 分</dt>
@@ -7093,8 +7093,8 @@ void (() =>
         srOnly.ariaLevel = "5"
         srOnly.style.pointerEvents = "none"
         srOnly.style.userSelect = "none"
-        srOnly.innerHTML = "備考: "
-        cell4.appendChild(srOnly)
+        srOnly.innerHTML = "補足: "
+        cell5.appendChild(srOnly)
 
         const memo = document.createElement("span")
         const richMemo = convertMemoRich(record.memo)
@@ -7317,7 +7317,7 @@ void (() =>
         srOnly.ariaLevel = "5"
         srOnly.style.pointerEvents = "none"
         srOnly.style.userSelect = "none"
-        srOnly.innerHTML = "備考: "
+        srOnly.innerHTML = "食事効果: "
         cell4.appendChild(srOnly)
 
         const memo = document.createElement("span")
