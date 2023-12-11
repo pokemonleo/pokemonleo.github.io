@@ -353,6 +353,7 @@ void (() =>
 
     readyAddPlayerButton()
     addPlayer()
+    renderPTitleTooltips()
 
     const _____end = window.performance.now()
     console.log("Rendering Full Page Elapsed:", Math.trunc((_____end - _____start) * 100) / 100, "ms")
@@ -604,6 +605,16 @@ void (() =>
       const parent = document.getElementById("scoresheet")
       parent.append(...player.lines)
     }
+
+    renderTooltip(playername.line)
+    renderTooltip(wonder.line)
+    renderTooltip(treasure.line)
+    renderTooltip(military.line)
+    renderTooltip(civilian.line)
+    renderTooltip(commercial.line)
+    renderTooltip(scientific.line)
+    renderTooltip(guilds.line)
+    renderTooltip(total.line)
   }
 
   const createLine = options =>
@@ -679,6 +690,30 @@ void (() =>
     }
 
     return div
+  }
+
+  const renderPTitleTooltips = () =>
+  {
+    if (!window.bootstrap?.Tooltip)
+    {
+      return
+    }
+
+    const titles = document.getElementsByClassName("ptitle")
+    for (const title of Array.from(titles))
+    {
+      new bootstrap.Tooltip(title)
+    }
+  }
+
+  const renderTooltip = element =>
+  {
+    if (!window.bootstrap?.Tooltip)
+    {
+      return
+    }
+
+    new bootstrap.Tooltip(element)
   }
 
 })()
