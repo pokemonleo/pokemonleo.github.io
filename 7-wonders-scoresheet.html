@@ -22,11 +22,11 @@
   <meta name="twitter:image" content="">
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://cdnjs.com">
+  <!-- <link rel="preconnect" href="https://cdnjs.com"> -->
   <link rel="preconnect" href="https://raw.githubusercontent.com">
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-  <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous">
+  <!-- <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"> -->
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="preload" as="style" href="https://rsms.me/inter/inter.css" crossorigin="anonymous">
 
@@ -367,6 +367,7 @@ void (() =>
       "class": "pname-input",
       attribute: {
         type: "text",
+        placeholder: "Insert "
       },
     })
 
@@ -383,9 +384,13 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
+        "click": () =>
+        {
+          wonder.input.select()
+        },
         "change input": () =>
         {
-          player.counts.wonder = parseFloat(wonder.input.value)
+          player.counts.wonder = parseFloat(wonder.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -404,9 +409,13 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
+        "click": () =>
+        {
+          treasure.input.select()
+        },
         "change input": () =>
         {
-          player.counts.treasure = parseFloat(treasure.input.value)
+          player.counts.treasure = parseFloat(treasure.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -425,9 +434,13 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
+        "click": () =>
+        {
+          military.input.select()
+        },
         "change input": () =>
         {
-          player.counts.military = parseFloat(military.input.value)
+          player.counts.military = parseFloat(military.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -446,9 +459,13 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
+        "click": () =>
+        {
+          civilian.input.select()
+        },
         "change input": () =>
         {
-          player.counts.civilian = parseFloat(civilian.input.value)
+          player.counts.civilian = parseFloat(civilian.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -467,9 +484,13 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
+        "click": () =>
+        {
+          commercial.input.select()
+        },
         "change input": () =>
         {
-          player.counts.commercial = parseFloat(commercial.input.value)
+          player.counts.commercial = parseFloat(commercial.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -488,9 +509,13 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
+        "click": () =>
+        {
+          scientific.input.select()
+        },
         "change input": () =>
         {
-          player.counts.scientific = parseFloat(scientific.input.value)
+          player.counts.scientific = parseFloat(scientific.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -509,9 +534,13 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
+        "click": () =>
+        {
+          guilds.input.select()
+        },
         "change input": () =>
         {
-          player.counts.guilds = parseFloat(guilds.input.value)
+          player.counts.guilds = parseFloat(guilds.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -530,10 +559,10 @@ void (() =>
       let total = 0
       for (const key in player.counts)
       {
-        total += parseFloat(player.counts[key])
+        total += parseFloat(player.counts[key]) || 0
       }
 
-      return total
+      return total || 0
     }
 
     const player =
