@@ -156,6 +156,7 @@
     grid-auto-flow: column;
 
     font-size: clamp(16px, 3vw, 2rem);
+    font-size: 2rem;
 
     overflow-x: auto;
   }
@@ -213,6 +214,7 @@
   .total
   {
     font-size: clamp(32px, 5vw, 4rem);
+    font-size: 5rem;
     font-weight: bold;
     display: grid;
     place-items: center;
@@ -234,6 +236,7 @@
   #scoresheet .ptitle:not(.total)
   {
     border-bottom: clamp(2px, .25vw, 4px) solid rgb(0 0 0 / 10%);
+    border-bottom: 3px solid rgb(0 0 0 / 10%);
   }
 
   .ptitle .icon
@@ -281,6 +284,7 @@
   #scoresheet input:not(.total-input)
   {
     border-bottom: clamp(2px, .25vw, 4px) solid rgb(0 0 0 / 10%);
+    border-bottom: 3px solid rgb(0 0 0 / 10%);
   }
 
   #scoresheet input:not(.total-input):focus
@@ -384,7 +388,7 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
-        "click": () =>
+        "focus": () =>
         {
           wonder.input.select()
         },
@@ -409,7 +413,7 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
-        "click": () =>
+        "focus": () =>
         {
           treasure.input.select()
         },
@@ -434,7 +438,7 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
-        "click": () =>
+        "focus": () =>
         {
           military.input.select()
         },
@@ -459,7 +463,7 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
-        "click": () =>
+        "focus": () =>
         {
           civilian.input.select()
         },
@@ -484,7 +488,7 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
-        "click": () =>
+        "focus": () =>
         {
           commercial.input.select()
         },
@@ -509,7 +513,7 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
-        "click": () =>
+        "focus": () =>
         {
           scientific.input.select()
         },
@@ -534,7 +538,7 @@ void (() =>
         placeholder: "0",
       },
       eventListeners: {
-        "click": () =>
+        "focus": () =>
         {
           guilds.input.select()
         },
