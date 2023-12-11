@@ -64,7 +64,10 @@
         <div class="military ptitle" title="Military conflicts: Each player adds their Victory and Defeat tokens (this total can be negative!)."><span class="icon">⚔️</span><span class="text sr-only">Military conflicts</span></div>
         <div class="civilian ptitle" title="Civilian structures: Each player adds the victory points of their Civilian structures. This amount is indicated on each Civilian structure."><span class="icon">▮</span><span class="text sr-only">Civilian structures</span></div>
         <div class="commercial ptitle" title="Commercial structures: Some commercial structures from Age III grant victory points."><span class="icon">●</span><span class="text sr-only">Commercial structures</span></div>
-        <div class="scientific ptitle" title="Scientific structures: The scientific cards earn victory points in two very different ways: from sets of identical symbols and from sets of 3 different symbols."><span class="icon">▲</span><span class="text sr-only">Scientific structures</span></div>
+        <div class="scientific ptitle" title="Scientific structures: For first symbol of scientific cards earn victory points by the number of symbol squared."><span class="icon">▲<sub>Icon 1</sub></span><span class="text sr-only">Scientific structures: Icon 1</span></div>
+        <div class="scientific ptitle" title="Scientific structures: For second symbol of scientific cards earn victory points by the number of symbol squared."><span class="icon">▲<sub>Icon 2</sub></span><span class="text sr-only">Scientific structures: Icon 2</span></div>
+        <div class="scientific ptitle" title="Scientific structures: For third symbol of scientific cards earn victory points by the number of symbol squared."><span class="icon">▲<sub>Icon 3</sub></span><span class="text sr-only">Scientific structures: Icon 3</span></div>
+        <div class="scientific ptitle" title="Scientific structures: The scientific cards earn victory points from sets of 3 different symbols."><span class="icon">▲<sub>Set Bonus</sub></span><span class="text sr-only">Scientific structures: Set Bonus</span></div>
         <div class="guilds ptitle" title="Guilds: Each Guild is worth a number of victory points depending on the configuration of the player’s city and/or that of the two neighboring cities (see description of the structures)."><span class="icon">★</span><span class="text sr-only">Guilds</span></div>
         <div class="total ptitle" title="Total"><span class="icon">Σ</span><span class="text sr-only">Total</span></div>
 
@@ -150,7 +153,7 @@
   {
     display: grid;
     grid-template-columns: minmax(90px, auto);
-    grid-template-rows: repeat(9, minmax(0, 1fr));
+    grid-template-rows: repeat(12, minmax(0, 1fr));
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-auto-flow: column;
@@ -244,6 +247,11 @@
     width: 100%;
     display: block;
     text-align: center;
+  }
+
+  .ptitle .icon sup, .ptitle .icon sub
+  {
+    font-size: .375em;
   }
 
   .ptitle .text
@@ -507,8 +515,8 @@ void (() =>
       },
     })
 
-    const scientific = createLineObject({
-      title: "Scientific structures: The scientific cards earn victory points in two very different ways: from sets of identical symbols and from sets of 3 different symbols.",
+    const scientific1 = createLineObject({
+      title: "Scientific structures: For first symbol of scientific cards earn victory points by the number of symbol squared.",
       "titleClass": "scientific",
 
       element: "input",
@@ -522,11 +530,86 @@ void (() =>
       eventListeners: {
         "focus": () =>
         {
-          scientific.input.select()
+          scientific1.input.select()
         },
         "change input": () =>
         {
-          player.counts.scientific = parseFloat(scientific.input.value) || 0
+          player.counts.scientific1 = parseFloat(scientific1.input.value) || 0
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const scientific2 = createLineObject({
+      title: "Scientific structures: For second symbol of scientific cards earn victory points by the number of symbol squared.",
+      "titleClass": "scientific",
+
+      element: "input",
+      "class": "scientific-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "focus": () =>
+        {
+          scientific2.input.select()
+        },
+        "change input": () =>
+        {
+          player.counts.scientific2 = parseFloat(scientific2.input.value) || 0
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const scientific3 = createLineObject({
+      title: "Scientific structures: For third symbol of scientific cards earn victory points by the number of symbol squared.",
+      "titleClass": "scientific",
+
+      element: "input",
+      "class": "scientific-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "focus": () =>
+        {
+          scientific3.input.select()
+        },
+        "change input": () =>
+        {
+          player.counts.scientific3 = parseFloat(scientific3.input.value) || 0
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const scientific_sb = createLineObject({
+      title: "Scientific structures: The scientific cards earn victory points from sets of 3 different symbols.",
+      "titleClass": "scientific",
+
+      element: "input",
+      "class": "scientific-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "focus": () =>
+        {
+          scientific_sb.input.select()
+        },
+        "change input": () =>
+        {
+          player.counts.scientific_sb = parseFloat(scientific_sb.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -586,7 +669,10 @@ void (() =>
         military.line,
         civilian.line,
         commercial.line,
-        scientific.line,
+        scientific1.line,
+        scientific2.line,
+        scientific3.line,
+        scientific_sb.line,
         guilds.line,
         total.line,
       ],
@@ -613,7 +699,10 @@ void (() =>
     renderTooltip(military.line)
     renderTooltip(civilian.line)
     renderTooltip(commercial.line)
-    renderTooltip(scientific.line)
+    renderTooltip(scientific1.line)
+    renderTooltip(scientific2.line)
+    renderTooltip(scientific3.line)
+    renderTooltip(scientific_sb.line)
     renderTooltip(guilds.line)
     renderTooltip(total.line)
   }
