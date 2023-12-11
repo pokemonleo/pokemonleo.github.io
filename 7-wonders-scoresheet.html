@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="ja-JP">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>SCORESHEET | 7 WONDERS</title>
+  <meta name="description" content="Your own calculation at the scoresheet for 7 Wonders">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="SCORESHEET | 7 WONDERS">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pokemonleo.github.io/7-wonders-scoresheet.html">
+  <meta property="og:description" content="Your own calculation at the scoresheet for 7 Wonders">
+  <meta property="og:image" content="">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="pokemonleo.github.io">
+  <meta property="twitter:url" content="https://pokemonleo.github.io/7-wonders-scoresheet.html">
+  <meta name="twitter:title" content="SCORESHEET | 7 WONDERS">
+  <meta name="twitter:description" content="Your own calculation at the scoresheet for 7 Wonders">
+  <meta name="twitter:image" content="">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.com">
+  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous">
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="preload" as="style" href="https://rsms.me/inter/inter.css" crossorigin="anonymous">
+
+  <!-- https://www.jsdelivr.com/package/npm/bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+  <link rel="icon" href="" sizes="any">
+
+  <meta name="theme-color" content="#fafafa">
+
+</head>
+
+<body>
+
+  <section class="my-4">
+    <div class="container">
+      <header class="py-2">
+        <h1 class="">
+          <div>SCORESHEET | 7 WONDERS</div>
+          <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">Your own calculation at the scoresheet for 7 Wonders</div>
+        </h1>
+      </header>
+    </div>
+  </section>
+
+  <section class="my-4">
+    <div class="container">
+
+      <div id="scoresheet">
+
+        <div class="pname ptitle" title="Player name"><span class="icon">👤 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Player name</span></div>
+        <div class="wonder ptitle" title="Wonder"><span class="icon">⛰️ <i class="fa-solid fa-mountain-sun"></i></span><span class="text sr-only">Wonder</span></div>
+        <div class="treasure ptitle" title="Treasury contents"><span class="icon">💰 <i class="fa-solid fa-circle-dollar-to-slot"></i></span><span class="text sr-only">Treasury contents</span></div>
+        <div class="military ptitle" title="Military conflicts"><span class="icon">⚔️</span><span class="text sr-only">Military conflicts</span></div>
+        <div class="civilian ptitle" title="Civilian structures"><span class="icon">▮</span><span class="text sr-only">Civilian structures</span></div>
+        <div class="commercial ptitle" title="Commercial structures"><span class="icon">●</span><span class="text sr-only">Commercial structures</span></div>
+        <div class="scientific ptitle" title="Scientific structures"><span class="icon">▲</span><span class="text sr-only">Scientific structures</span></div>
+        <div class="guilds ptitle" title="Guilds"><span class="icon">★</span><span class="text sr-only">Guilds</span></div>
+        <div class="total ptitle" title="Total"><span class="icon">Σ</span><span class="text sr-only">Total</span></div>
+
+        <!--
+        <div class="pname" title="Player name"><input class="pname-input" type="text"></div>
+        <div class="wonder" title="Wonder"><input class="wonder-input" type="number" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="treasure" title="Treasury contents"><input class="treasure-input" type="number" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="military" title="Military conflicts"><input class="military-input" type="number" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="civilian" title="Civilian structures"><input class="civilian-input" type="number" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="commercial" title="Commercial structures"><input class="commercial-input" type="number" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="scientific" title="Scientific structures"><input class="scientific-input" type="number" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="guilds" title="Guilds"><input class="guilds-input" type="number" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="total" title="Total"><input class="total-input" type="number" readonly></div>
+        -->
+
+        <div class="pname ptitle" id="add-before-this"><button id="add-player-button" class="btn btn-success btn-lg" type="button">Add player</button></div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="my-4">
+    <div class="container">
+      <footer class="py-2">
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="small">
+            © 2024 <span class="text-secondary small" style="--bs-text-opacity: .5;">(Applies to Codes Only)</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <div class="modal fade" id="material-modal" tabindex="-1" aria-labelledby="material-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5 d-flex align-items-center" id="material-modal-title"></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body" id="material-modal-body">
+          <table class="table table-hover material-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
+            <thead>
+              <tr>
+                <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
+                <th scope="col" style="width: 5.5vw; min-width: 24px; max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">画像</th>
+                <th scope="col" style="min-width: 120px; max-width: 24vw; width: 240px;">素材</th>
+                <th scope="col" style="min-width: 14vw;">備考</th>
+              </tr>
+            </thead>
+            <tbody class="material-body" data-type="material">
+            </tbody>
+          </table>
+        </div>
+        <!--
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<!-- https://www.jsdelivr.com/package/npm/bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+
+<style>
+  html, body
+  {
+    font-language-override: "ENG";
+    -webkit-locale: "en";
+    line-break: strict;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    /* word-wrap: break-word; */
+  }
+
+  #scoresheet
+  {
+    display: grid;
+    grid-template-columns: minmax(90px, auto);
+    grid-template-rows: repeat(8, minmax(0, 1fr));
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-auto-flow: column;
+
+    font-size: clamp(16px, 3vw, 2rem);
+
+    overflow-x: auto;
+  }
+
+  #scoresheet > div
+  {
+    min-width: 90px;
+  }
+
+  .pname
+  {
+
+  }
+
+  .wonder
+  {
+    color: #475569;
+  }
+
+  .treasure
+  {
+    color: #a16207;
+  }
+
+  .military
+  {
+    color: #9f1239;
+    background-color: #fca5a5;
+  }
+
+  .civilian
+  {
+    color: #1e40af;
+    background-color: #7dd3fc;
+  }
+
+  .commercial
+  {
+    color: #854d0e;
+    background-color: #fcd34d;
+  }
+
+  .scientific
+  {
+    color: #166534;
+    background-color: #6ee7b7;
+  }
+
+  .guilds
+  {
+    color: #5b21b6;
+    background-color: #c4b5fd;
+  }
+
+  .total
+  {
+    font-size: clamp(32px, 5vw, 4rem);
+    font-weight: bold;
+    display: grid;
+    place-items: center;
+  }
+
+  #scoresheet .ptitle
+  {
+    /* width: 180px; */
+    padding: 0 8px;
+    display: grid;
+    place-items: center left;
+  }
+
+  #add-before-this
+  {
+    place-items: center;
+  }
+
+  #scoresheet .ptitle:not(.total)
+  {
+    border-bottom: clamp(2px, .25vw, 4px) solid rgb(0 0 0 / 10%);
+  }
+
+  .ptitle .icon
+  {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .ptitle .text
+  {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  #scoresheet input
+  {
+    display: block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-align: center;
+    border: none;
+    transition: border-color .4s ease-in-out;
+    outline: none;
+    background-color: transparent;
+  }
+
+  #scoresheet input::placeholder
+  {
+    color: rgb(0 0 0 / 25%);
+  }
+
+  #scoresheet input:not(.total-input)
+  {
+    border-bottom: clamp(2px, .25vw, 4px) solid rgb(0 0 0 / 10%);
+  }
+
+  #scoresheet input:not(.total-input):focus
+  {
+    border-color: rgb(0 0 0 / 50%);
+  }
+
+  .pname-input
+  {
+
+  }
+
+  .wonder-input
+  {
+
+  }
+
+  .treasure-input
+  {
+
+  }
+
+  .military-input
+  {
+
+  }
+
+  .civilian-input
+  {
+
+  }
+
+  .commercial-input
+  {
+
+  }
+
+  .scientific-input
+  {
+
+  }
+
+  .guilds-input
+  {
+
+  }
+
+  .total-input
+  {
+    font-weight: bold;
+  }
+
+</style>
+
+<script>
+void (() =>
+{
+  const main = () =>
+  {
+    const _____start = window.performance.now()
+
+    readyAddPlayerButton()
+    addPlayer()
+
+    const _____end = window.performance.now()
+    console.log("Rendering Full Page Elapsed:", Math.trunc((_____end - _____start) * 100) / 100, "ms")
+  }
+
+  document.addEventListener("DOMContentLoaded", () => void main())
+
+  const readyAddPlayerButton = () =>
+  {
+    const button = document.getElementById("add-player-button")
+    button.addEventListener("click", addPlayer)
+  }
+
+  const addPlayer = () =>
+  {
+    const playername = createLineObject({
+      title: "Player name",
+      "titleClass": "pname",
+
+      element: "input",
+      "class": "pname-input",
+      attribute: {
+        type: "text",
+      },
+    })
+
+    const wonder = createLineObject({
+      title: "Wonder",
+      "titleClass": "wonder",
+
+      element: "input",
+      "class": "wonder-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "change input": () =>
+        {
+          player.counts.wonder = parseFloat(wonder.input.value)
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const treasure = createLineObject({
+      title: "Treasury contents",
+      "titleClass": "treasure",
+
+      element: "input",
+      "class": "treasure-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "change input": () =>
+        {
+          player.counts.treasure = parseFloat(treasure.input.value)
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const military = createLineObject({
+      title: "Military conflicts",
+      "titleClass": "military",
+
+      element: "input",
+      "class": "military-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "change input": () =>
+        {
+          player.counts.military = parseFloat(military.input.value)
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const civilian = createLineObject({
+      title: "Civilian structures",
+      "titleClass": "civilian",
+
+      element: "input",
+      "class": "civilian-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "change input": () =>
+        {
+          player.counts.civilian = parseFloat(civilian.input.value)
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const commercial = createLineObject({
+      title: "Commercial structures",
+      "titleClass": "commercial",
+
+      element: "input",
+      "class": "commercial-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "change input": () =>
+        {
+          player.counts.commercial = parseFloat(commercial.input.value)
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const scientific = createLineObject({
+      title: "Scientific structures",
+      "titleClass": "scientific",
+
+      element: "input",
+      "class": "scientific-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "change input": () =>
+        {
+          player.counts.scientific = parseFloat(scientific.input.value)
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const guilds = createLineObject({
+      title: "Guilds",
+      "titleClass": "guilds",
+
+      element: "input",
+      "class": "guilds-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "change input": () =>
+        {
+          player.counts.guilds = parseFloat(guilds.input.value)
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const total = createLineObject({
+      title: "Total",
+      "titleClass": "total",
+
+      element: "span",
+      "class": "total-input",
+    })
+
+    const calculate = () =>
+    {
+      let total = 0
+      for (const key in player.counts)
+      {
+        total += parseFloat(player.counts[key])
+      }
+
+      return total
+    }
+
+    const player =
+    {
+      counts: {},
+      lines: [
+        playername.line,
+        wonder.line,
+        treasure.line,
+        military.line,
+        civilian.line,
+        commercial.line,
+        scientific.line,
+        guilds.line,
+        total.line,
+      ],
+    }
+
+    const before = document.getElementById("add-before-this")
+
+    if (before)
+    {
+      for (const line of player.lines)
+      {
+        before.parentNode.insertBefore(line, before)
+      }
+    }
+    else
+    {
+      const parent = document.getElementById("scoresheet")
+      parent.append(...player.lines)
+    }
+  }
+
+  const createLine = options =>
+  {
+    const input = createInput(options)
+    const div = createBlock(options)
+    div.append(input)
+
+    return div
+  }
+
+  const createLineObject = options =>
+  {
+    const input = createInput(options)
+    const div = createBlock(options)
+    div.append(input)
+
+    return { line: div, input: input }
+  }
+
+  const createTotalObject = options =>
+  {
+    const text = createText(options)
+    const div = createBlock(options)
+    div.append(text)
+
+    return { line: div, text: text }
+  }
+
+  const createInput = options =>
+  {
+    if (!options?.element)
+    {
+      return
+    }
+
+    const input = document.createElement(options.element)
+    if (options?.class)
+    {
+      input.classList.add(...options.class.split(/\s/))
+    }
+    if (options?.attribute)
+    {
+      for (const key in options.attribute)
+      {
+        input[key] = options.attribute[key]
+      }
+    }
+    if (options?.eventListeners)
+    {
+      for (const event in options.eventListeners)
+      {
+        for (const _event of event.split(/\s/))
+        {
+          input.addEventListener(_event, options.eventListeners[event])
+        }
+      }
+    }
+
+    return input
+  }
+
+  const createBlock = options =>
+  {
+    const div = document.createElement("div")
+    if (options?.titleClass)
+    {
+      div.classList.add(...options.titleClass.split(/\s/))
+    }
+    if (options?.title)
+    {
+      div.title = options.title
+    }
+
+    return div
+  }
+
+})()
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</html>
