@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ja-JP">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>RULES | 7 WONDERS</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="RULES | 7 WONDERS">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pokemonleo.github.io/7-wonders-scoresheet.html">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjUuMSBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMyBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTAgNjRDMCA0Ni4zIDE0LjMgMzIgMzIgMzJIMjg4YzExLjUgMCAyMiA2LjEgMjcuNyAxNi4xczUuNyAyMi4yLS4xIDMyLjFsLTIyNCAzODRjLTguOSAxNS4zLTI4LjUgMjAuNC00My44IDExLjVzLTIwLjQtMjguNS0xMS41LTQzLjhMMjMyLjMgOTZIMzJDMTQuMyA5NiAwIDgxLjcgMCA2NHoiLz48L3N2Zz4=">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="pokemonleo.github.io">
+  <meta property="twitter:url" content="https://pokemonleo.github.io/7-wonders-scoresheet.html">
+  <meta name="twitter:title" content="RULES | 7 WONDERS">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjUuMSBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMyBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTAgNjRDMCA0Ni4zIDE0LjMgMzIgMzIgMzJIMjg4YzExLjUgMCAyMiA2LjEgMjcuNyAxNi4xczUuNyAyMi4yLS4xIDMyLjFsLTIyNCAzODRjLTguOSAxNS4zLTI4LjUgMjAuNC00My44IDExLjVzLTIwLjQtMjguNS0xMS41LTQzLjhMMjMyLjMgOTZIMzJDMTQuMyA5NiAwIDgxLjcgMCA2NHoiLz48L3N2Zz4=">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <!-- <link rel="preconnect" href="https://cdnjs.cloudflare.com"> -->
+  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  <!-- <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"> -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="preload" as="style" href="https://rsms.me/inter/inter.css" crossorigin="anonymous">
+
+  <!-- https://www.jsdelivr.com/package/npm/bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjUuMSBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMyBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTAgNjRDMCA0Ni4zIDE0LjMgMzIgMzIgMzJIMjg4YzExLjUgMCAyMiA2LjEgMjcuNyAxNi4xczUuNyAyMi4yLS4xIDMyLjFsLTIyNCAzODRjLTguOSAxNS4zLTI4LjUgMjAuNC00My44IDExLjVzLTIwLjQtMjguNS0xMS41LTQzLjhMMjMyLjMgOTZIMzJDMTQuMyA5NiAwIDgxLjcgMCA2NHoiLz48L3N2Zz4=" sizes="any">
+
+  <meta name="theme-color" content="#fafafa">
+
+</head>
+
+<body>
+
+  <!--
+  <section class="my-4">
+    <div class="container">
+      <header class="py-2">
+        <h1 class="">
+          <div>RULES | 7 WONDERS</div>
+          <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;"></div>
+        </h1>
+      </header>
+    </div>
+  </section>
+  -->
+
+  <section class="my-4">
+    <div class="container">
+
+      <section class="h3-section">
+        <h3>遊戲準備</h3>
+        <ul>
+          <li>將手牌按時代劃分為 3 堆牌庫，將不符合玩家人數的卡牌除外，然後分別洗牌</li>
+          <ul>
+            <li>第 Ⅲ 時代牌庫中的<span style="color: #5b21b6;"><span style="font-family: Meiryo;">★</span>紫色卡牌</span>數量為玩家人數 +2 ，隨機將多餘的卡牌除外，然後洗牌</li>
+          </ul>
+          <li>每位玩家拿取 1 塊奇蹟面板 (城邦)</li>
+          <li>每位玩家拿取 3 個錢幣</li>
+          <li>遊戲開始</li>
+        </ul>
+      </section>
+
+      <section class="h3-section age1">
+        <h3>第 Ⅰ 時代</h3>
+
+        <section>
+          <h4>建設階段</h4>
+          <ul>
+            <li>每個玩家獲派發 7 張第 Ⅰ 時代的手牌</li>
+            <ul>
+              <li>從獲派發的手牌選擇 1 張...</li>
+              <dl>
+                <dt style="font-weight: bold;">使用 (建造)</dt>
+                <dd>公開，每個玩家不能建造兩個完全相同的建築物</dd>
+                <ul>
+                  <li>費用區為空時，費用: 免費</li>
+                  <li>費用區為錢幣時，將錢幣費用支付回中央</li>
+                  <li>費用區為資源時，從自己和兩鄰玩家中指定相應資源數量 (每回合計算)</li>
+                  <ul>
+                    <li>自己的資源可以取用奇蹟面板起始資源、<span style="color: #c2410c;"><span style="font-family: Meiryo;">■</span>棕色資源</span>、<span style="color: #78716c;"><span style="font-family: Meiryo;">◆</span>灰色資源</span>、<span style="color: #f59e0b;"><span style="font-family: Meiryo;">●</span>黃色資源</span>和奇蹟階段資源</li>
+                    <li>使用兩鄰玩家的資源時，每 1 個資源向該玩家支付 2 個錢幣 (購買)</li>
+                    <li>只能購買兩鄰玩家的奇蹟面板起始資源、<span style="color: #c2410c;"><span style="font-family: Meiryo;">■</span>棕色資源</span>和<span style="color: #78716c;"><span style="font-family: Meiryo;">◆</span>灰色資源</span></li>
+                    <li>從其他玩家購買得來的的錢幣不能用於該回合的支付</li>
+                    <li>其他玩家該回合建造的資源不能於該回合內購買</li>
+                  </ul>
+                  <li>費用區有第二行為連鎖符號，滿足條件則費用: 免費</li>
+                </ul>
+                <dt style="font-weight: bold;">建造奇蹟的一個階段</dt>
+                <dd>公開於奇蹟面板指定地方，左格優先</dd>
+                <dt style="font-weight: bold;">出售並獲得 3 個硬幣</dt>
+                <dd>捨棄</dd>
+              </dl>
+              <li>將剩餘的手牌以背朝上，根據背面的旋轉圖示遞給隔鄰玩家</li>
+            </ul>
+            <li>重複 6 回合，最後 1 張沒有選到的手牌直接捨棄</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>軍事衝突 結算階段</h4>
+          <ul>
+            <li>總結自己擁有軍事符號的數量，並和兩鄰玩家分別比較軍事強度</li>
+          </ul>
+        </section>
+
+      </section>
+
+      <section class="h3-section age2">
+        <h3>第 Ⅱ 時代</h3>
+
+        <section>
+          <h4>建設階段</h4>
+          <ul>
+            <li>和 第 Ⅰ 時代 相同，但獲派發第 Ⅱ 時代的手牌</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>軍事衝突 結算階段</h4>
+          <ul>
+            <li>和 第 Ⅰ 時代 相同</li>
+          </ul>
+        </section>
+
+      </section>
+
+      <section class="h3-section age3">
+        <h3>第 Ⅲ 時代</h3>
+
+        <section>
+          <h4>建設階段</h4>
+          <ul>
+            <li>和 第 Ⅰ 時代 相同，但獲派發第 Ⅲ 時代的手牌</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>軍事衝突 結算階段</h4>
+          <ul>
+            <li>和 第 Ⅰ 時代 相同</li>
+          </ul>
+        </section>
+
+      </section>
+
+      <section class="h3-section">
+        <h3>遊戲結束</h3>
+
+        <ul>
+          <li>統計得分</li>
+          <li>奇蹟面板 &mdash; 根據奇蹟面板上成功建造的奇蹟階段，獲得面值上的分數</li>
+          <li>財產 &mdash; 每 3 個幣值的錢幣，獲得 1 分，少於 3 個不算分</li>
+          <li><span style="color: #dc2626;"><span style="font-family: Meiryo;">×</span>軍事衝突</span> &mdash; 將勝利與失敗的<span style="color: #dc2626;"><span style="font-family: Meiryo;">×</span>軍事衝突標記</span>總結，此分可以負數</li>
+          <li><span style="color: #06b6d4;"><span style="font-family: Meiryo;">▮</span>市民建築</span> &mdash; 獲得<span style="color: #06b6d4;"><span style="font-family: Meiryo;">▮</span>藍色卡牌</span>面值上的分數</li>
+          <li><span style="color: #d97706;"><span style="font-family: Meiryo;">●</span>商業建築</span> &mdash; 根據<span style="color: #d97706;"><span style="font-family: Meiryo;">●</span>黃色卡牌</span>和參考表上的描述，獲得分數</li>
+          <li><span style="color: #22c55e;"><span style="font-family: Meiryo;">▲</span>科學建築</span> &mdash; 計算<span style="color: #22c55e;"><span style="font-family: Meiryo;">▲</span>綠色卡牌</span>上的符號數量，根據以下兩個方法計算分數，並累積每個分數</li>
+          <ul>
+            <li>每一款<span style="color: #22c55e;"><span style="font-family: Meiryo;">▲</span>綠色卡牌</span>上的記號，可以獲得該數量的平方的分數 (1 個: 1 分 / 2 個: 4 分 / 3 個: 9 分 / 4 個: 16 分...)</li>
+            <li>三款記號各自計分，在最後累積總分</li>
+            <li>每當三款記號有 1 整套，每 1 組算 7 分，在最後累積總分</li>
+          </ul>
+          <li><span style="color: #5b21b6;"><span style="font-family: Meiryo;">★</span>公會</span> &mdash; 根據<span style="color: #5b21b6;"><span style="font-family: Meiryo;">★</span>紫色卡牌</span>和參考表上的描述，獲得分數</li>
+        </ul>
+      </section>
+
+    </section>
+  </section>
+
+  <section class="my-4">
+    <div class="container">
+      <footer class="py-2">
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="small">
+            © 2024 <span class="text-secondary small" style="--bs-text-opacity: .5;">(Applies to Codes Only)</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <div class="modal fade" id="material-modal" tabindex="-1" aria-labelledby="material-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5 d-flex align-items-center" id="material-modal-title"></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        </div>
+        <div class="modal-body" id="material-modal-body">
+          <table class="table table-hover material-table" style="font-size: clamp(.75em, (100vw - 600px) * (14 - 12) / 200 + .75em, .875em);">
+            <thead>
+              <tr>
+                <th scope="col" style="max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">図鑑</th>
+                <th scope="col" style="width: 5.5vw; min-width: 24px; max-width: 48px; padding-left: 0; padding-right: 0; text-align: center;">画像</th>
+                <th scope="col" style="min-width: 120px; max-width: 24vw; width: 240px;">素材</th>
+                <th scope="col" style="min-width: 14vw;">備考</th>
+              </tr>
+            </thead>
+            <tbody class="material-body" data-type="material">
+            </tbody>
+          </table>
+        </div>
+        <!--
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<!-- https://www.jsdelivr.com/package/npm/bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+
+<style>
+  html, body
+  {
+    font-language-override: "JAN";
+    -webkit-locale: "ja";
+    line-break: strict;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    /* word-wrap: break-word; */
+  }
+
+  .h3-section
+  {
+    border: 3px solid #94a3b8;
+    background-color: #f1f5f9;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+  }
+
+  .h3-section h3
+  {
+    font-size: 1.25rem;
+    margin: .5rem 0;
+  }
+
+  .h3-section h4
+  {
+    font-size: 1.125rem;
+    margin: .5rem 0;
+  }
+
+  :is(.h3-section) :where(dl, ol, ul)
+  {
+    list-style-type: disc;
+    padding-left: 1.25em;
+    margin: .25em 0;
+  }
+
+  :is(.h3-section) :where(dt)
+  {
+    display: list-item;
+    font-weight: inherit;
+  }
+
+  :is(.h3-section) :where(dd)
+  {
+    margin-bottom: 0;
+  }
+
+  .age1
+  {
+    border-color: #f97316;
+    background-color: #fed7aa;
+  }
+
+  .age2
+  {
+    border-color: #e7e5e4;
+    background-color: #f5f5f4;
+  }
+
+  .age3
+  {
+    border-color: #fde047;
+    background-color: #fde68a;
+  }
+
+</style>
+
+<script>
+void (() =>
+{
+  const main = () =>
+  {
+    const _____start = window.performance.now()
+
+    const _____end = window.performance.now()
+    console.log("Rendering Full Page Elapsed:", Math.trunc((_____end - _____start) * 100) / 100, "ms")
+  }
+
+  document.addEventListener("DOMContentLoaded", () => void main())
+
+})()
+</script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+</html>
