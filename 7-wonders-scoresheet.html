@@ -60,7 +60,7 @@
 
         <div class="pname ptitle" title="Player"><span class="icon">👤 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Player name</span></div>
         <div class="wonder ptitle" title="Wonder: Each player then adds to their score the victory points from their wonder."><span class="icon">⛰️ <i class="fa-solid fa-mountain-sun"></i></span><span class="text sr-only">Wonder</span></div>
-        <div class="treasure ptitle" title="Treasury contents: For every 3 coins in their possession at the end of the game, players score 1 victory point. Leftover coins score no points."><span class="icon">💰 <i class="fa-solid fa-circle-dollar-to-slot"></i></span><span class="text sr-only">Treasury contents</span></div>
+        <div class="treasure ptitle" title="Treasury contents: For every 3 coins in their possession at the end of the game, players score 1 victory point. Leftover coins score no points."><span class="icon">💰<span style="color: #000;">■</span> <i class="fa-solid fa-circle-dollar-to-slot"></i></span><span class="text sr-only">Treasury contents</span></div>
         <div class="military ptitle" title="Military conflicts: Each player adds their Victory and Defeat tokens (this total can be negative!)."><span class="icon">⚔️</span><span class="text sr-only">Military conflicts</span></div>
         <div class="civilian ptitle" title="Civilian structures: Each player adds the victory points of their Civilian structures. This amount is indicated on each Civilian structure."><span class="icon">▮</span><span class="text sr-only">Civilian structures</span></div>
         <div class="commercial ptitle" title="Commercial structures: Some commercial structures from Age III grant victory points."><span class="icon">●</span><span class="text sr-only">Commercial structures</span></div>
@@ -69,6 +69,10 @@
         <div class="scientific ptitle" title="Scientific structures: For third symbol of scientific cards earn victory points by the number of symbol squared."><span class="icon">▲<sub>Icon 3</sub></span><span class="text sr-only">Scientific structures: Icon 3</span></div>
         <div class="scientific ptitle" title="Scientific structures: The scientific cards earn victory points from sets of 3 different symbols."><span class="icon">▲<sub>Set Bonus</sub></span><span class="text sr-only">Scientific structures: Set Bonus</span></div>
         <div class="guilds ptitle" title="Guilds: Each Guild is worth a number of victory points depending on the configuration of the player’s city and/or that of the two neighboring cities (see description of the structures)."><span class="icon">★</span><span class="text sr-only">Guilds</span></div>
+        <div class="cities ptitle" title="Cities expansion"><span class="icon">○</span><span class="text sr-only">Cities expansion</span></div>
+        <div class="leaders ptitle" title="Leaders expansion"><span class="icon">👤 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Leaders expansion</span></div>
+        <div class="armada ptitle" title="Armada expansion"><span class="icon">⬟</span><span class="text sr-only">Armada expansion</span></div>
+        <div class="armada ptitle" title="Armada expansion"><span class="icon">🌊</span><span class="text sr-only">Armada expansion</span></div>
         <div class="total ptitle" title="Total"><span class="icon">Σ</span><span class="text sr-only">Total</span></div>
 
         <!--
@@ -153,7 +157,7 @@
   {
     display: grid;
     grid-template-columns: minmax(90px, auto);
-    grid-template-rows: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(16, minmax(0, 1fr));
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-auto-flow: column;
@@ -212,6 +216,22 @@
   {
     color: #5b21b6;
     background-color: #c4b5fd;
+  }
+
+  .cities
+  {
+    color: #f4f4f5;
+    background-color: #71717a;
+  }
+
+  .leaders
+  {
+    color: #78716c;
+  }
+
+  .armada
+  {
+    color: #22d3ee;
   }
 
   .total
@@ -341,6 +361,21 @@
   }
 
   .guilds-input
+  {
+
+  }
+
+  .cities-input
+  {
+
+  }
+
+  .leaders-input
+  {
+
+  }
+
+  .armada-input
   {
 
   }
@@ -645,6 +680,106 @@ void (() =>
       },
     })
 
+    const cities = createLineObject({
+      title: "Cities expansion",
+      "titleClass": "cities",
+
+      element: "input",
+      "class": "cities-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "focus": () =>
+        {
+          cities.input.select()
+        },
+        "change input": () =>
+        {
+          player.counts.cities = parseFloat(cities.input.value) || 0
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const leaders = createLineObject({
+      title: "Leaders expansion",
+      "titleClass": "leaders",
+
+      element: "input",
+      "class": "leaders-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "focus": () =>
+        {
+          leaders.input.select()
+        },
+        "change input": () =>
+        {
+          player.counts.leaders = parseFloat(leaders.input.value) || 0
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const armada1 = createLineObject({
+      title: "Armada expansion",
+      "titleClass": "armada",
+
+      element: "input",
+      "class": "armada-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "focus": () =>
+        {
+          armada1.input.select()
+        },
+        "change input": () =>
+        {
+          player.counts.armada1 = parseFloat(armada1.input.value) || 0
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
+    const armada2 = createLineObject({
+      title: "Armada expansion",
+      "titleClass": "armada",
+
+      element: "input",
+      "class": "armada-input",
+      attribute: {
+        type: "number",
+        step: "1",
+        inputMode: "numeric",
+        placeholder: "0",
+      },
+      eventListeners: {
+        "focus": () =>
+        {
+          armada2.input.select()
+        },
+        "change input": () =>
+        {
+          player.counts.armada2 = parseFloat(armada2.input.value) || 0
+          total.input.innerHTML = calculate()
+        },
+      },
+    })
+
     const total = createLineObject({
       title: "Total",
       "titleClass": "total",
@@ -679,6 +814,10 @@ void (() =>
         scientific3.line,
         scientific_sb.line,
         guilds.line,
+        cities.line,
+        leaders.line,
+        armada1.line,
+        armada2.line,
         total.line,
       ],
     }
@@ -709,6 +848,10 @@ void (() =>
     renderTooltip(scientific3.line)
     renderTooltip(scientific_sb.line)
     renderTooltip(guilds.line)
+    renderTooltip(cities.line)
+    renderTooltip(leaders.line)
+    renderTooltip(armada1.line)
+    renderTooltip(armada2.line)
     renderTooltip(total.line)
   }
 
