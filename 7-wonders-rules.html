@@ -82,12 +82,12 @@
             <ul>
               <li>從獲派發的手牌選擇 1 張...</li>
               <dl>
-                <dt style="font-weight: bold;">使用 (建造)</dt>
+                <dt style="list-style-type: &quot;1. &quot;; font-weight: bold;">使用 (建造)</dt>
                 <dd>公開，每個玩家不能建造兩個完全相同的建築物</dd>
                 <ul>
-                  <li>費用區為空時，費用: 免費</li>
-                  <li>費用區為錢幣時，將錢幣費用支付回中央</li>
-                  <li>費用區為資源時，取用自己和兩鄰玩家中擁有的資源，每 1 個費用圖示均需要 1 個資源圖示 (每回合計算)</li>
+                  <li style="list-style-type: &quot;(A) &quot;;">費用區為空時，費用: 免費</li>
+                  <li style="list-style-type: &quot;(B) &quot;;">費用區為錢幣時，將錢幣費用支付回中央</li>
+                  <li style="list-style-type: &quot;(C) &quot;;">費用區為資源時，取用自己和兩鄰玩家中擁有的資源，每 1 個費用圖示均需要 1 個資源圖示 (每回合計算)</li>
                   <ul>
                     <li>玩家可以取用自己的奇蹟面板起始資源、<span style="color: #c2410c;"><span class="icon">■</span>棕色資源</span>、<span style="color: #78716c;"><span class="icon">◆</span>灰色資源</span>、<span style="color: #f59e0b;"><span class="icon">●</span>黃色資源</span>和建造了的奇蹟階段資源</li>
                     <li>取用兩鄰玩家的資源時，每 1 個資源向該玩家支付 2 個錢幣 (購買)</li>
@@ -95,16 +95,19 @@
                     <li>從其他玩家購買得來的的錢幣不能用於該回合的支付</li>
                     <li>玩家不能購買其他玩家在該回合建造的資源</li>
                   </ul>
-                  <li>費用區有第二行為連鎖符號，滿足條件則費用: 免費</li>
+                  <li style="list-style-type: &quot;(D) &quot;;">費用區有第二行為連鎖符號，滿足條件則費用: 免費</li>
                 </ul>
-                <dt style="font-weight: bold;">建造奇蹟的一個階段</dt>
-                <dd>公開於奇蹟面板指定地方，左格優先</dd>
-                <dt style="font-weight: bold;">出售並獲得 3 個硬幣</dt>
-                <dd>捨棄該卡牌</dd>
+                <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">用於建造奇蹟階段</dt>
+                <dd>以背朝上，將卡牌置於奇蹟面板指定地方，從左至右</dd>
+                <ul>
+                  <li>如需要支付費用，依建造同樣方式處理</li>
+                </ul>
+                <dt style="list-style-type: &quot;3. &quot;; font-weight: bold;">出售，獲得 3 個硬幣</dt>
+                <dd>以背朝上，捨棄該卡牌</dd>
               </dl>
-              <li>將剩餘的手牌以背朝上，根據背面的旋轉圖示遞給隔鄰玩家</li>
+              <li>將剩餘的手牌以背朝上，根據背面的旋轉圖示遞給隔鄰玩家，並從另外一邊個玩家領取他剩餘的手牌</li>
             </ul>
-            <li>重複 6 個回合，最後 1 張沒有選到的手牌直接捨棄</li>
+            <li>重複 6 個回合，最後 1 張沒選到的手牌不會遞給隔鄰玩家，直接捨棄</li>
           </ul>
         </section>
 
@@ -112,7 +115,7 @@
           <h4><span style="color: #dc2626;">軍事衝突</span>結算階段</h4>
           <ul>
             <li>總結自己擁有<span style="color: #dc2626;"><span class="icon">🞭</span>軍事符號</span>的數量，並和兩鄰玩家分別比較軍事強度</li>
-            <li>戰勝者拿取 +1 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事符號</span>，戰敗者拿取 -1 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事符號</span></li>
+            <li>戰勝者拿取 +1 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事衝突標記</span>，戰敗者拿取 -1 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事衝突標記</span>，平手則不獲得任何<span style="color: #dc2626;"><span class="icon">🞭</span>軍事衝突標記</span></li>
           </ul>
         </section>
 
@@ -131,7 +134,7 @@
         <section>
           <h4><span style="color: #dc2626;">軍事衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +3 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事符號</span></li>
+            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +3 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事衝突標記</span></li>
           </ul>
         </section>
 
@@ -150,7 +153,7 @@
         <section>
           <h4><span style="color: #dc2626;">軍事衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +5 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事符號</span></li>
+            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +5 的<span style="color: #dc2626;"><span class="icon">🞭</span>軍事衝突標記</span></li>
           </ul>
         </section>
 
