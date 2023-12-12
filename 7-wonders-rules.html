@@ -58,7 +58,7 @@
 
   <section class="my-4">
     <div class="container">
-      <div class="d-flex gap-4">
+      <div class="d-flex flex-wrap gap-4">
         <div class="form-check form-switch">
           <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="cities-switches" data-target=".cities-line, .cities-sublines, .cities-section" checked>
           <label class="form-check-label" for="cities-switches">城邦擴充</label>
@@ -90,7 +90,7 @@
             <li>第 Ⅲ 時代牌庫中的<span class="guilds"><span class="icon">★</span>紫色卡牌</span>數量為玩家人數 +2 <span class="text-muted-more">（玩家數量 8 人時為 9 張）</span>，將多餘的卡牌隨機除外，以背朝上，然後洗牌</li>
             <li class="cities-line">將等同玩家數量的<span class="cities"><span class="icon">○</span>黑色卡牌</span><span class="text-muted-more">（玩家數量 8 人時為 7 張）</span>（每個時代），混入對應時代的牌庫，然後洗牌（其他卡牌沒有額外限制，可直接混入）</li>
             <li class="leaders-line"><span class="leaders">白色卡牌</span>獨立為一個牌庫，分別洗牌</li>
-            <li class="leaders-line">部分<span class="guilds"><span class="icon">★</span>紫色卡牌</span>只能用在啟用領袖擴充時混入</li>
+            <li class="leaders-line">部分<span class="guilds"><span class="icon">★</span>紫色卡牌</span>只能在啟用領袖擴充時混入</li>
             <li class="armada-line">將等同玩家數量的<span class="armada">艦隊卡牌</span><span class="text-muted-more">（玩家數量 8 人時為 7 張）</span>（每個時代），混入對應時代的牌庫，然後洗牌</li>
           </ul>
           <li class="armada-line">將<span class="armada">島嶼卡牌</span>按等級劃分為 3 堆牌庫，分別洗牌</li>
@@ -107,20 +107,20 @@
           </ul>
           <li class="armada-line">每位玩家拿取 1 張造船廠面板（船塢）</li>
           <li class="armada-line">每位玩家拿取 4 色各 1 個艦隊標記，置於造船廠面板最下面的一格</li>
-          <li>每位玩家拿取 3 個錢幣</li>
+          <li>每位玩家拿取 3 個面值為 1 的錢幣</li>
           <ul>
-            <li class="leaders-line">拿取 +3 個錢幣</li>
+            <li class="leaders-line">拿取 +3 個面值為 1 的錢幣</li>
           </ul>
           <li>遊戲開始</li>
         </ul>
       </section>
 
       <section class="h3-section leaders-section">
-        <h3>領袖階段</h3>
+        <h3>分派領袖階段</h3>
 
         <section>
           <ul>
-            <li>每位玩家獲派發 4 張<span class="leaders">領袖卡牌</span>（將沒派發的<span class="leaders">領袖卡牌</span>除外，以背朝上）</li>
+            <li>每位玩家獲派發隨機 4 張<span class="leaders">領袖卡牌</span>（將沒派發的<span class="leaders">領袖卡牌</span>除外，以背朝上）</li>
             <li>從獲派發的<span class="leaders">領袖卡牌</span>中選擇 1 張，以背朝上做為自己的領袖牌庫，再將剩餘的卡牌以背朝上遞給右鄰玩家，並從另外一邊的玩家領取他剩餘的卡牌</li>
             <li>重複 3 次，並將領到的最後 1 張<span class="leaders">領袖卡牌</span>加進自己的領袖牌庫，總共 4 張</li>
           </ul>
@@ -149,10 +149,10 @@
                   <li class="armada-line">艦隊建造和穹樓參建無法在同一個回合內進行</li>
                 </ul>
               </ul>
-              <dt style="list-style-type: &quot;3. &quot;; font-weight: bold;">出售，獲得 3 個錢幣</dt>
+              <dt style="list-style-type: &quot;3. &quot;; font-weight: bold;">出售，獲得 3 個錢幣面值</dt>
               <dd>以背朝上，除外該卡牌</dd>
               <ul>
-                <li class="armada-line">玩家可以選擇，不獲取 3 個錢幣，改為將<span class="commercial">黃色</span>艦隊在造船廠上往上移動 1 格</li>
+                <li class="armada-line">玩家可以選擇，不獲取錢幣，改為將<span class="commercial">黃色</span>艦隊在造船廠上往上移動 1 格</li>
               </ul>
             </dl>
           </ul>
@@ -161,12 +161,12 @@
         <section class="h4-section">
           <h4>建造階段</h4>
           <ul>
-            <li>每位玩家獲派發 7 張第 Ⅰ 時代的卡牌</li>
+            <li>每位玩家獲派發隨機 7 張第 Ⅰ 時代的卡牌</li>
             <ul>
               <li class="cities-line">獲派發手牌 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
               <li class="armada-line">獲派發手牌 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
             </ul>
-            <li>每位玩家從獲派發的手牌選擇 1 張，全員選擇後...</li>
+            <li>每位玩家從手牌選擇 1 張，全員選擇後...</li>
             <dl>
               <dt style="list-style-type: &quot;1. &quot;; font-weight: bold;">使用（建造建築物）</dt>
               <dd>公開，以面朝上置於自己城邦</dd>
@@ -180,7 +180,7 @@
                 <li style="list-style-type: &quot;(C) &quot;;">費用區為資源時，使用此卡牌必須要在自己和兩鄰玩家中擁有對應的資源，每 1 個費用圖示均需要 1 個資源圖示（每回合計算）</li>
                 <ul>
                   <li>玩家自己的奇蹟面板起始資源、<span class="material"><span class="icon">■</span>棕色資源</span>、<span class="goods"><span class="icon">◆</span>灰色資源</span>、<span class="commercial"><span class="icon">●</span>黃色資源</span>和建造了的奇蹟階段資源，可以用於支付</li>
-                  <li>取用兩鄰玩家的資源時，每 1 個資源向該玩家支付 2 個錢幣（購買）</li>
+                  <li>取用兩鄰玩家的資源時，每 1 個資源向該玩家支付 2 個錢幣面值（購買）</li>
                   <li>兩鄰玩家的奇蹟面板起始資源、<span class="material"><span class="icon">■</span>棕色資源</span>和<span class="goods"><span class="icon">◆</span>灰色資源</span>，可以在購買後用於支付</li>
                   <li>從其他玩家購買得來的的錢幣不能用於該回合的支付</li>
                   <li>該回合建造所產生的資源無法用於支付該回合的建造，其他玩家也不能購買該資源</li>
@@ -208,10 +208,10 @@
                 </ul>
               </section>
 
-              <dt style="list-style-type: &quot;3. &quot;; font-weight: bold;">出售，獲得 3 個錢幣</dt>
+              <dt style="list-style-type: &quot;3. &quot;; font-weight: bold;">出售，獲得 3 個錢幣面值</dt>
               <dd>以背朝上，捨棄該卡牌</dd>
               <ul>
-                <li class="armada-line">玩家可以選擇，不獲取 3 個錢幣，改為將<span class="commercial">黃色</span>艦隊在造船廠上往上移動 1 格</li>
+                <li class="armada-line">玩家可以選擇，不獲取錢幣，改為將<span class="commercial">黃色</span>艦隊在造船廠上往上移動 1 格</li>
               </ul>
             </dl>
 
@@ -235,13 +235,13 @@
               </dl>
             </section>
 
-            <li class="cities-line">結算錢幣或卡牌的遺失或捨棄，如遺失的是錢幣，將錢幣繳回中央或從中央拿取<span class="cities"><span class="icon">■</span>負債標記</span></li>
+            <li class="cities-line">結算錢幣損失，將錢幣繳回中央或從中央拿取<span class="cities"><span class="icon">■</span>負債標記</span></li>
             <ul class="cities-sublines">
-              <li>該回合從其他玩家或透過卡牌效果取得的錢幣可以用於支付錢幣的遺失</li>
-              <li>玩家可以選擇拿取<span class="cities"><span class="icon">■</span>負債標記</span>，即使他們仍然還有多餘的錢幣，但是<span class="cities"><span class="icon">■</span>負債標記</span>會在遊戲結束後另外計分</li>
-              <li>玩家拿取的<span class="cities"><span class="icon">■</span>負債標記</span>永遠不會遺失，即使他們有多餘的錢幣，也不能拿來償還已經擁有的債務</li>
-              <li>只有當玩家承受遺失錢幣的效果時，玩家才可以選擇拿取<span class="cities"><span class="icon">■</span>負債標記</span>（你不能借錢）</li>
-              <li>造成錢幣遺失的事件包括...</li>
+              <li>該回合從其他玩家或透過卡牌效果取得的錢幣可以用於支付錢幣的損失</li>
+              <li>即使玩家還有多餘的錢幣，他依然可以選擇拿取<span class="cities"><span class="icon">■</span>負債標記</span>來取代繳回錢幣，但是<span class="cities"><span class="icon">■</span>負債標記</span>會在遊戲結束後另外計分</li>
+              <li>玩家拿取的<span class="cities"><span class="icon">■</span>負債標記</span>不會移除，即使玩家有多餘的錢幣，也不能拿來償還已經擁有的債務</li>
+              <li>只有當玩家損失錢幣時，玩家才可以選擇拿取<span class="cities"><span class="icon">■</span>負債標記</span>（你不能借錢）</li>
+              <li>造成錢幣損失的事件包括...</li>
               <ul>
                 <li>債務</li>
                 <li class="armada-line">海賊事件</li>
@@ -249,7 +249,16 @@
               </ul>
             </ul>
 
-            <li>將剩餘的手牌以背朝上，根據背面的旋轉圖示遞給隔鄰玩家，並從另外一邊的玩家領取他剩餘的手牌</li>
+            <li>回合中的流程為...</li>
+            <ul style="list-style-type: decimal;">
+              <li>一次支付所有建造費用（包括擴充包所追加的行動費用）</li>
+              <li>使用、建造或捨棄卡牌（包括擴充包所追加的相關行動）</li>
+              <li>結算損失錢幣以外的卡牌效果和行動效果</li>
+              <li class="armada-line">結算島嶼探索</li>
+              <li>如有特殊效果從棄牌堆選擇卡牌進行建造，在此期間中進行</li>
+              <li class="cities-line">結算錢幣損失</li>
+            </ul>
+            <li>回合結算最後，將剩餘的手牌以背朝上，根據背面的旋轉圖示遞給隔鄰玩家，這會是該玩家下一個回合的手牌，並從另外一邊的玩家領取他剩餘的手牌</li>
             <li>重複 6 個回合，最後 1 張沒選到的手牌不會遞給隔鄰玩家，以背朝上，直接捨棄</li>
             <ul>
               <li class="cities-line">因獲派發手牌 +1 ，重複回合數也 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
@@ -263,7 +272,7 @@
 
           <ul>
             <li>如果這個時代的穹樓項目上還有剩下的參建棋，穹樓項目視為建造失敗，沒有玩家可以領取獎勵</li>
-            <li>如果玩家沒有參建過穹樓項目（城邦內沒有該項目的參建棋），該玩家必須支付罰鍰，只有在無法支付全部罰鍰時，不支付任何罰鍰，改為拿取 -2 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
+            <li>如果玩家沒有參建過穹樓項目（城邦內沒有該項目的參建棋），該玩家必須支付罰鍰，只有在無法支付全部罰鍰時，不支付任何罰鍰，改為拿取 <span class="score-minus">-2</span> 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
           </ul>
         </section>
 
@@ -281,7 +290,7 @@
               <li>因此而導致玩家的兩鄰為另外同一個玩家，只視為一對一的一次<span class="military">軍事衝突</span>（每一組玩家的<span class="military">軍事衝突</span>，一個時代裡只會結算一次）</li>
               <li class="armada-line">收到入侵標記的玩家無法以外交標記來迴避其<span class="military">陸軍衝突</span></li>
             </ul>
-            <li>戰勝者拿取 +1 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span>，戰敗者拿取 -1 的<span class="military"><span class="icon">⯃</span>軍事衝突標記</span>，平手則不獲得任何<span class="military">軍事衝突標記</span></li>
+            <li>戰勝者拿取 <span class="score-plus">+1</span> 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span>，戰敗者拿取 <span class="score-minus">-1</span> 的<span class="military"><span class="icon">⯃</span>軍事衝突標記</span>，平手則不獲得任何<span class="military">軍事衝突標記</span></li>
           </ul>
         </section>
 
@@ -289,13 +298,13 @@
           <h4><span class="armada">海軍衝突</span>結算階段</h4>
           <ul>
             <li>總結自己擁有<span class="armada"><span class="icon">&#x2693;&#xFE0E;</span>海軍符號</span>的數量（城邦、造船廠和島嶼），並和<strong>所有玩家</strong>分別比較海軍強度</li>
-            <li>海軍強度最低者拿取 -1 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
+            <li>海軍強度最低者拿取 <span class="score-minus">-1</span> 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
             <ul>
               <li>此玩家即使是強度第二高或第三高者，也不能獲得戰勝標記</li>
               <li>同時有最低者，所有最低者拿取戰敗標記</li>
               <li>如果所有玩家均為最低者，所有玩家均不會獲得任何<span class="armada">海軍衝突標記</span></li>
             </ul>
-            <li>海軍強度最高者拿取 +3 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 +1 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
+            <li>海軍強度最高者拿取 <span class="score-plus">+3</span> 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 <span class="score-plus">+1</span> 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
             <ul>
               <li>同時有最高者時，所有最高者拿取第二高的戰勝標記（獎勵降級），而原本拿取第二高的玩家改拿取第三高的戰勝標記（如果還有）</li>
               <li>同時有第二高者或第三高者時，如獎勵降級導致無法取得戰勝標記時，就不會取得戰勝標記</li>
@@ -326,22 +335,22 @@
           <h4>未完成項目結算</h4>
 
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但無法支付全部罰鍰的玩家要拿取 -3 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但無法支付全部罰鍰的玩家要拿取 <span class="score-minus">-3</span> 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
           </ul>
         </section>
 
         <section class="h4-section military-section">
           <h4><span class="military">軍事衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +3 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 <span class="score-plus">+3</span> 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span></li>
           </ul>
         </section>
 
         <section class="h4-section armada-section">
           <h4><span class="armada">海軍衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 -2 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
-            <li>海軍強度最高者拿取 +5 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 +3 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 <span class="score-minus">-2</span> 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
+            <li>海軍強度最高者拿取 <span class="score-plus">+5</span> 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 <span class="score-plus">+3</span> 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
           </ul>
         </section>
 
@@ -368,22 +377,22 @@
           <h4>未完成項目結算</h4>
 
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但無法支付全部罰鍰的玩家要拿取 -5 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但無法支付全部罰鍰的玩家要拿取 <span class="score-minus">-5</span> 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
           </ul>
         </section>
 
         <section class="h4-section military-section">
           <h4><span class="military">軍事衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +5 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 <span class="score-plus">+5</span> 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span></li>
           </ul>
         </section>
 
         <section class="h4-section armada-section">
           <h4><span class="armada">海軍衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 -3 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
-            <li>海軍強度最高者拿取 +7 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 +5 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第三高者拿取 +3 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 <span class="score-minus">-3</span> 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
+            <li>海軍強度最高者拿取 <span class="score-plus">+7</span> 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 <span class="score-plus">+5</span> 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第三高者拿取 <span class="score-plus">+3</span> 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
           </ul>
         </section>
 
@@ -397,22 +406,22 @@
 
           <ul>
             <li>奇蹟面板 &mdash; 根據奇蹟面板上成功建造的階段，獲得面值上的🌿分數</li>
-            <li>財產 &mdash; 每 3 個錢幣獲得🌿 1 分，少於 3 個不算分</li>
+            <li>財產 &mdash; 每 3 個錢幣面值獲得🌿 <span class="score-plus">1</span> 分，少於 3 個不算分</li>
             <ul>
-              <li class="cities-line">每個<span class="cities"><span class="icon">■</span>負債標記</span>將獲得🌿 -1 分，此分可以負數</li>
+              <li class="cities-line">每 1 個<span class="cities"><span class="icon">■</span>負債標記</span>面值將獲得🌿 <span class="score-minus">-1</span> 分，此分可以負數</li>
             </ul>
             <li><span class="military"><span class="icon">&#x2694;&#xFE0E;</span>軍事衝突</span> &mdash; 將<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>戰勝</span>與<span class="military"><span class="icon">⯃</span>戰敗</span>的<span class="military">軍事衝突標記</span>結算，此分可以負數</li>
             <li><span class="civilian"><span class="icon">▮</span>市民建築</span> &mdash; 獲得<span class="civilian"><span class="icon">▮</span>藍色卡牌</span>面值上的🌿分數</li>
             <li><span class="commercial"><span class="icon">●</span>商業建築</span> &mdash; 根據<span class="commercial"><span class="icon">●</span>黃色卡牌</span>和參考表上的描述，獲得🌿分數</li>
             <li><span class="scientific"><span class="icon">▲</span>科學建築</span> &mdash; 計算<span class="scientific"><span class="icon">▲</span>綠色卡牌</span>上的符號數量，根據以下兩個方法計算🌿分數，並累積每個🌿分數</li>
             <ul>
-              <li>結算每一種記號（石板／指南針／齒輪），每種記號可以獲得該記號數量的平方的🌿分數 (1 —🌿 1 / 2 —🌿 4 / 3 —🌿 9 / 4 —🌿 16 / ...)</li>
+              <li>結算每一種記號（石板／指南針／齒輪），每種記號可以獲得該記號數量的平方的🌿分數 (1 —🌿 <span class="score-plus">1</span> / 2 —🌿 <span class="score-plus">4</span> / 3 —🌿 <span class="score-plus">9</span> / 4 —🌿 <span class="score-plus">16</span> / ...)</li>
               <li>三種記號（石板／指南針／齒輪）各自計分，在最後累積總分</li>
-              <li>每當三種記號（石板／指南針／齒輪）有完整 1 組，每有 1 組加算🌿 7 分，在最後累積總分</li>
+              <li>每當三種記號（石板／指南針／齒輪）有完整 1 組，每有 1 組加算🌿 <span class="score-plus">7</span> 分，在最後累積總分</li>
             </ul>
             <li><span class="guilds"><span class="icon">★</span>公會</span> &mdash; 根據<span class="guilds"><span class="icon">★</span>紫色卡牌</span>和參考表上的描述，獲得🌿分數</li>
             <ul>
-              <li class="armada-line">所有<span class="guilds"><span class="icon">★</span>紫色卡牌</span>的得分，限制每張最多🌿 10 分</li>
+              <li class="armada-line">所有<span class="guilds"><span class="icon">★</span>紫色卡牌</span>的得分，限制每張最多🌿 <span class="score-minus">10</span> 分</li>
             </ul>
             <li class="cities-line"><span class="cities"><span class="icon">○</span>城邦</span> &mdash; 根據<span class="cities"><span class="icon">○</span>黑色卡牌</span>和參考表上的描述，獲得🌿分數</li>
             <li class="leaders-line"><span class="leaders">領袖</span> &mdash; 根據<span class="leaders">白色卡牌</span>和參考表上的描述，獲得🌿分數</li>
@@ -528,8 +537,7 @@
     position: relative;
   }
 
-  :where(.h3-section, .h4-section):has( + :where(.h3-section, .h4-section):not([hidden])):after,
-  :where(.h3-section, .h4-section):has( + :where(.h3-section, .h4-section)[hidden] + :where(.h3-section, .h4-section):not([hidden])):after
+  :where(.h3-section, .h4-section):has( ~ :where(.h3-section, .h4-section):not([hidden])):after
   {
     position: absolute;
     top: calc(100% - 2px);
@@ -677,7 +685,10 @@
   {
     color: #d4d4d4;
     background-color: #262626;
-    border-radius: 4px;
+    border-radius: .125em;
+    white-space: nowrap;
+    padding-inline: .125em;
+    margin-inline: .125em;
   }
 
   .leaders
@@ -685,7 +696,10 @@
     box-shadow: 0 0 4px #52525b;
     background-color: #fafafa;
     color: #52525b;
-    border-radius: 4px;
+    border-radius: .125em;
+    white-space: nowrap;
+    padding-inline: .125em;
+    margin-inline: .125em;
   }
 
   .armada
@@ -812,6 +826,18 @@
     /* .text-bg-primary */
     color: #fff;
     background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1));
+  }
+
+  .score-plus
+  {
+    font-weight: bold;
+    color: #0d9488;
+  }
+
+  .score-minus
+  {
+    font-weight: bold;
+    color: #e11d48;
   }
 
 </style>
