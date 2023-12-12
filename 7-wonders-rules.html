@@ -975,11 +975,14 @@ void (() =>
     }
 
     const elements = document.querySelectorAll(target)
-    if (Array.from(elements).every(element => element.checked))
+    const _array = Array.from(elements)
+    const total = _array.length
+    const current = _array.reduce((amount, element) => amount += +element.checked, 0)
+    if (current >= total)
     {
       button.checked = true
     }
-    else if (Array.from(elements).every(element => !element.checked))
+    else if (current <= 0)
     {
       button.checked = false
     }
