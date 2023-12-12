@@ -58,6 +58,29 @@
 
   <section class="my-4">
     <div class="container">
+      <div class="d-flex gap-4">
+        <div class="form-check form-switch">
+          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="cities-switches" data-target=".cities-line, .cities-sublines, .cities-section" checked>
+          <label class="form-check-label" for="cities-switches">城邦</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="leaders-switches" data-target=".leaders-line, .leaders-sublines, .leaders-section" checked>
+          <label class="form-check-label" for="leaders-switches">領袖</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="armada-switches" data-target=".armada-line, .armada-sublines, .armada-section" checked>
+          <label class="form-check-label" for="armada-switches">艦隊</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="edifice-switches" data-target=".edifice-line, .edifice-sublines, .edifice-section" checked>
+          <label class="form-check-label" for="edifice-switches">穹樓</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-4">
+    <div class="container">
 
       <section class="h3-section">
         <h3>遊戲準備</h3>
@@ -65,35 +88,35 @@
           <li>將卡牌按時代劃分為 3 堆牌庫，將不符合玩家人數的卡牌除外，以背朝上，然後分別洗牌</li>
           <ul>
             <li>第 Ⅲ 時代牌庫中的<span class="guilds"><span class="icon">★</span>紫色卡牌</span>數量為玩家人數 +2 <span class="text-muted-more">（玩家數量 8 人時為 9 張）</span>，將多餘的卡牌隨機除外，以背朝上，然後洗牌</li>
-            <li><span class="badge rounded-pill text-bg-secondary">城邦</span> 將等同玩家數量的<span class="cities"><span class="icon">○</span>黑色卡牌</span><span class="text-muted-more">（玩家數量 8 人時為 7 張）</span>（每個時代），混入對應時代的牌庫，然後洗牌（其他卡牌沒有額外限制，可直接混入）</li>
-            <li><span class="badge rounded-pill text-bg-warning">領袖</span> <span class="leaders">白色卡牌</span>獨立為一個牌庫，分別洗牌</li>
-            <li><span class="badge rounded-pill text-bg-warning">領袖</span> 部分<span class="guilds"><span class="icon">★</span>紫色卡牌</span>只能用在啟用領袖擴張時混入</li>
-            <li><span class="badge rounded-pill text-bg-info">艦隊</span> 將等同玩家數量的<span class="armada">艦隊卡牌</span><span class="text-muted-more">（玩家數量 8 人時為 7 張）</span>（每個時代），混入對應時代的牌庫，然後洗牌</li>
+            <li class="cities-line">將等同玩家數量的<span class="cities"><span class="icon">○</span>黑色卡牌</span><span class="text-muted-more">（玩家數量 8 人時為 7 張）</span>（每個時代），混入對應時代的牌庫，然後洗牌（其他卡牌沒有額外限制，可直接混入）</li>
+            <li class="leaders-line"><span class="leaders">白色卡牌</span>獨立為一個牌庫，分別洗牌</li>
+            <li class="leaders-line">部分<span class="guilds"><span class="icon">★</span>紫色卡牌</span>只能用在啟用領袖擴張時混入</li>
+            <li class="armada-line">將等同玩家數量的<span class="armada">艦隊卡牌</span><span class="text-muted-more">（玩家數量 8 人時為 7 張）</span>（每個時代），混入對應時代的牌庫，然後洗牌</li>
           </ul>
-          <li><span class="badge rounded-pill text-bg-info">艦隊</span> 將<span class="armada">艦隊卡牌</span>按等級劃分為 3 堆牌庫，分別洗牌</li>
-          <li><span class="badge rounded-pill text-bg-primary">穹樓</span> 將<span class="edifice">穹樓面板</span>按時代劃分為 3 堆，各取隨機 1 張，藍圖面朝上公開，其餘的卡牌除外</li>
-          <li><span class="badge rounded-pill text-bg-primary">穹樓</span> 根據玩家人數拿取指定數量的參建棋，按時代放在<span class="edifice">穹樓面板</span>的藍圖上面 (3 &mdash; 2 / 4 &mdash; 3 / 5 &mdash; 3 / 6 &mdash; 4 / 7 &mdash; 5)</li>
+          <li class="armada-line">將<span class="armada">艦隊卡牌</span>按等級劃分為 3 堆牌庫，分別洗牌</li>
+          <li class="edifice-line">將<span class="edifice">穹樓面板</span>按時代劃分為 3 堆，各取隨機 1 張，藍圖面朝上公開，其餘的卡牌除外</li>
+          <li class="edifice-line">根據玩家人數拿取指定數量的參建棋，按時代放在<span class="edifice">穹樓面板</span>的藍圖上面 (3 &mdash; 2 / 4 &mdash; 3 / 5 &mdash; 3 / 6 &mdash; 4 / 7 &mdash; 5)</li>
         </ul>
         <hr>
         <ul>
           <li>每位玩家拿取 1 張奇蹟面板（城邦）</li>
           <ul>
-            <li><span class="badge rounded-pill text-bg-secondary">城邦</span> 追加 2 張奇蹟面板，沒有額外限制，可直接混入</li>
-            <li><span class="badge rounded-pill text-bg-warning">領袖</span> 追加 1 張奇蹟面板，沒有額外限制，可直接混入</li>
-            <li><span class="badge rounded-pill text-bg-primary">穹樓</span> 追加奇蹟面板 &mdash; 迦太基，沒有額外限制，可直接混入（奇蹟面板 &mdash; 烏爾只能在啟用穹樓擴張時混入）</li>
+            <li class="cities-line">追加 2 張奇蹟面板，沒有額外限制，可直接混入</li>
+            <li class="leaders-line">追加 1 張奇蹟面板，沒有額外限制，可直接混入</li>
+            <li class="edifice-line">追加奇蹟面板 &mdash; 迦太基，沒有額外限制，可直接混入（奇蹟面板 &mdash; 烏爾只能在啟用穹樓擴張時混入）</li>
           </ul>
-          <li><span class="badge rounded-pill text-bg-info">艦隊</span> 每位玩家拿取 1 張造船廠面板（船塢）</li>
+          <li class="armada-line">每位玩家拿取 1 張造船廠面板（船塢）</li>
+          <li class="armada-line">每位玩家拿取 4 色各 1 個艦隊標記，置於造船廠面板最下面的一格</li>
           <li>每位玩家拿取 3 個錢幣</li>
           <ul>
-            <li><span class="badge rounded-pill text-bg-warning">領袖</span> 拿取 +3 個錢幣</li>
+            <li class="leaders-line">拿取 +3 個錢幣</li>
           </ul>
-          <li><span class="badge rounded-pill text-bg-info">艦隊</span> 每位玩家拿</li>
           <li>遊戲開始</li>
         </ul>
       </section>
 
       <section class="h3-section leaders-section">
-        <h3><span class="badge rounded-pill text-bg-warning">領袖</span> 領袖階段</h3>
+        <h3>領袖階段</h3>
 
         <section>
           <ul>
@@ -108,7 +131,7 @@
         <h3>第 Ⅰ 時代</h3>
 
         <section class="h4-section leaders-section">
-          <h4><span class="badge rounded-pill text-bg-warning">領袖</span> 雇用階段</h4>
+          <h4>雇用階段</h4>
           <ul>
             <li>每位玩家從自己的<span class="leaders">領袖牌庫</span>中選擇 1 張，全員選擇後同時公開，然後...</li>
             <dl>
@@ -117,14 +140,19 @@
               <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">用於建造奇蹟階段</dt>
               <dd>以背朝上，將卡牌置於奇蹟面板指定地方，從左至右</dd>
               <ul>
-                <li><span class="badge rounded-pill text-bg-info">艦隊</span> 當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段的費用，加上支付造船廠上對應格子的費用，能將同樣擁有奇蹟圖示的艦隊在造船廠上往上移動 1 格（詳細請見建造階段）</li>
-                <li><span class="badge rounded-pill text-bg-primary">穹樓</span> 每個時代只限 1 次，當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段的費用，加上支付參建項目的費用，能將這個時代的穹樓項目上拿取 1 個參建棋，置於自己城邦（詳細請見建造階段）</li>
-                <li>艦隊建造和穹樓參建無法在同一個回合內進行</li>
+                <li class="armada-line">當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段的費用，加上支付造船廠上對應格子的費用，能將同樣擁有奇蹟圖示的艦隊在造船廠上往上移動 1 格（詳細請見建造階段）</li>
+                <ul class="armada-sublines">
+                  <li class="edifice-line">艦隊建造和穹樓參建無法在同一個回合內進行</li>
+                </ul>
+                <li class="edifice-line">每個時代只限 1 次，當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段的費用，加上支付參建項目的費用，能將這個時代的穹樓項目上拿取 1 個參建棋，置於自己城邦（詳細請見建造階段）</li>
+                <ul class="edifice-sublines">
+                  <li class="armada-line">艦隊建造和穹樓參建無法在同一個回合內進行</li>
+                </ul>
               </ul>
               <dt style="list-style-type: &quot;3. &quot;; font-weight: bold;">出售，獲得 3 個錢幣</dt>
               <dd>以背朝上，除外該卡牌</dd>
               <ul>
-                <li><span class="badge rounded-pill text-bg-info">艦隊</span> 玩家可以選擇，不獲取 3 個錢幣，改為將<span class="commercial"><span class="icon">●</span>黃色</span>艦隊在造船廠上往上移動 1 格</li>
+                <li class="armada-line">玩家可以選擇，不獲取 3 個錢幣，改為將<span class="commercial">黃色</span>艦隊在造船廠上往上移動 1 格</li>
               </ul>
             </dl>
           </ul>
@@ -135,8 +163,8 @@
           <ul>
             <li>每位玩家獲派發 7 張第 Ⅰ 時代的卡牌</li>
             <ul>
-              <li><span class="badge rounded-pill text-bg-secondary">城邦</span> 獲派發手牌 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
-              <li><span class="badge rounded-pill text-bg-info">艦隊</span> 獲派發手牌 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
+              <li class="cities-line">獲派發手牌 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
+              <li class="armada-line">獲派發手牌 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
             </ul>
             <li>每位玩家從獲派發的手牌選擇 1 張，全員選擇後...</li>
             <dl>
@@ -167,7 +195,7 @@
               </ul>
 
               <section class="h4-section edifice-section">
-                <h4><span class="badge rounded-pill text-bg-primary">穹樓</span> 參建穹樓項目</h4>
+                <h4>參建穹樓項目</h4>
 
                 <ul>
                   <li>每個時代只限 1 次，當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段的費用，加上支付參建項目的費用，能將這個時代的穹樓項目上拿取 1 個參建棋，置於自己城邦</li>
@@ -176,19 +204,19 @@
                     <li>如果同一個回合有多個玩家同時參建穹樓項目，而參建棋不夠分配，從遊戲盒裡拿取多餘的參建棋，分配給所有參建了的玩家</li>
                   </ul>
                   <li>如果穹樓項目上沒有剩下的參建棋，視為建造成功，反轉穹樓面板，建築面朝上，所有擁有該項目參建棋的玩家即時領取獎勵</li>
-                  <li><span class="badge rounded-pill text-bg-info">艦隊</span> 當玩家在建造了奇蹟階段後選擇參建穹樓項目，該玩家不能在同一個回合建造海軍</li>
+                  <li class="armada-line">當玩家在建造了奇蹟階段後選擇參建穹樓項目，該玩家不能在同一個回合建造海軍</li>
                 </ul>
               </section>
 
               <dt style="list-style-type: &quot;3. &quot;; font-weight: bold;">出售，獲得 3 個錢幣</dt>
               <dd>以背朝上，捨棄該卡牌</dd>
               <ul>
-                <li><span class="badge rounded-pill text-bg-info">艦隊</span> 玩家可以選擇，不獲取 3 個錢幣，改為將<span class="commercial"><span class="icon">●</span>黃色</span>艦隊在造船廠上往上移動 1 格</li>
+                <li class="armada-line">玩家可以選擇，不獲取 3 個錢幣，改為將<span class="commercial">黃色</span>艦隊在造船廠上往上移動 1 格</li>
               </ul>
             </dl>
 
             <section class="h4-section armada-section">
-              <h4><span class="badge rounded-pill text-bg-info">艦隊</span> 海軍建造階段</h4>
+              <h4>海軍建造階段</h4>
 
               <ul>
                 <li>在 1. 建造建築物階段或 2. 建造奇蹟階段的之後，可以執行海軍建造階段</li>
@@ -202,13 +230,13 @@
                 <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">奇蹟階段</dt>
                 <dd>當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段的費用，加上支付造船廠上對應格子的費用，能將同樣擁有奇蹟圖示的艦隊在造船廠上往上移動 1 格</dd>
                 <ul>
-                  <li><span class="badge rounded-pill text-bg-primary">穹樓</span> 當玩家在建造了奇蹟階段後選擇建造海軍，該玩家不能在同一個回合參建穹樓項目</li>
+                  <li class="edifice-line">當玩家在建造了奇蹟階段後選擇建造海軍，該玩家不能在同一個回合參建穹樓項目</li>
                 </ul>
               </dl>
             </section>
 
-            <li><span class="badge rounded-pill text-bg-secondary">城邦</span> 結算錢幣或卡牌的遺失或捨棄，如遺失的是錢幣，將錢幣繳回中央或從中央拿取<span class="cities"><span class="icon">■</span>負債標記</span></li>
-            <ul>
+            <li class="cities-line">結算錢幣或卡牌的遺失或捨棄，如遺失的是錢幣，將錢幣繳回中央或從中央拿取<span class="cities"><span class="icon">■</span>負債標記</span></li>
+            <ul class="cities-sublines">
               <li>該回合從其他玩家或透過卡牌效果取得的錢幣可以用於支付錢幣的遺失</li>
               <li>玩家可以選擇拿取<span class="cities"><span class="icon">■</span>負債標記</span>，即使他們仍然還有多餘的錢幣，但是<span class="cities"><span class="icon">■</span>負債標記</span>會在遊戲結束後另外計分</li>
               <li>玩家拿取的<span class="cities"><span class="icon">■</span>負債標記</span>永遠不會遺失，即使他們有多餘的錢幣，也不能拿來償還已經擁有的債務</li>
@@ -216,22 +244,22 @@
               <li>造成錢幣遺失的事件包括...</li>
               <ul>
                 <li>債務</li>
-                <li><span class="badge rounded-pill text-bg-info">艦隊</span> 海賊事件</li>
-                <li><span class="badge rounded-pill text-bg-info">艦隊</span> 徵收賦稅</li>
+                <li class="armada-line">海賊事件</li>
+                <li class="armada-line">徵收賦稅</li>
               </ul>
             </ul>
 
             <li>將剩餘的手牌以背朝上，根據背面的旋轉圖示遞給隔鄰玩家，並從另外一邊的玩家領取他剩餘的手牌</li>
             <li>重複 6 個回合，最後 1 張沒選到的手牌不會遞給隔鄰玩家，以背朝上，直接捨棄</li>
             <ul>
-              <li><span class="badge rounded-pill text-bg-secondary">城邦</span> 因獲派發手牌 +1 ，重複回合數也 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
-              <li><span class="badge rounded-pill text-bg-info">艦隊</span> 因獲派發手牌 +1 ，重複回合數也 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
+              <li class="cities-line">因獲派發手牌 +1 ，重複回合數也 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
+              <li class="armada-line">因獲派發手牌 +1 ，重複回合數也 +1 <span class="text-muted-more">（玩家數量 8 人時例外）</span></li>
             </ul>
           </ul>
         </section>
 
         <section class="h4-section edifice-section">
-          <h4><span class="badge rounded-pill text-bg-primary">穹樓</span> 未完成項目結算</h4>
+          <h4>未完成項目結算</h4>
 
           <ul>
             <li>如果這個時代的穹樓項目上還有剩下的參建棋，穹樓項目視為建造失敗，沒有玩家可以領取獎勵</li>
@@ -242,31 +270,32 @@
         <section class="h4-section military-section">
           <h4><span class="military">軍事衝突</span>結算階段</h4>
           <ul>
-            <li>總結自己擁有<span class="military"><span class="icon">🞭</span>軍事符號</span>的數量，並和兩鄰玩家分別比較軍事強度</li>
+            <li>總結自己擁有<span class="military"><span class="icon">&#x2694;&#xFE0E;</span>軍事符號</span>的數量，並和兩鄰玩家分別比較軍事強度</li>
             <ul>
-              <li><span class="badge rounded-pill text-bg-info">艦隊</span> 如果玩家有交出入侵標記給其他玩家，入侵玩家需要同時和受入侵的玩家比較軍事強度，同樣視為<span class="military"><span class="icon">🞭</span>陸軍衝突</span>，之後，移除入侵標記</li>
-              <li><span class="badge rounded-pill text-bg-info">艦隊</span> 因此而導致玩家的不同衝突目標指著另外同一個玩家，只視這些玩家之間為一次<span class="military"><span class="icon">🞭</span>陸軍衝突</span>（每一組玩家的<span class="military"><span class="icon">🞭</span>陸軍衝突</span>，一個時代裡只會結算一次）</li>
+              <li class="armada-line">如果玩家有交出入侵標記給其他玩家，入侵玩家需要同時和受入侵的玩家比較軍事強度，同樣視為<span class="military">陸軍衝突</span>，之後，移除入侵標記</li>
+              <li class="armada-line">因此而導致玩家的不同衝突目標指著另外同一個玩家，只視這些玩家之間為一次<span class="military">陸軍衝突</span>（每一組玩家的<span class="military">陸軍衝突</span>，一個時代裡只會結算一次）</li>
             </ul>
-            <li><span class="badge rounded-pill text-bg-secondary">城邦</span> 如果自己城邦內擁有外交標記，在本次結算階段期間，該玩家將視為已被除外，結算後移除外交標記</li>
-            <ul>
-              <li>因此而導致玩家的兩鄰為另外同一個玩家，只視為一對一的一次<span class="military"><span class="icon">🞭</span>軍事衝突</span>（每一組玩家的<span class="military"><span class="icon">🞭</span>軍事衝突</span>，一個時代裡只會結算一次）</li>
-              <li><span class="badge rounded-pill text-bg-info">艦隊</span> 收到入侵標記的玩家無法以外交標記來迴避其<span class="military"><span class="icon">🞭</span>陸軍衝突</span></li>
+            <li class="cities-line">如果自己城邦內擁有外交標記，在本次結算階段期間，該玩家將視為已被除外，不和任何玩家發生<span class="military">軍事衝突</span>，結算後移除外交標記</li>
+            <ul class="cities-sublines">
+              <li>除外期間的兩鄰玩家將會被改視為相鄰，這兩名玩家將會發生<span class="military">軍事衝突</span></li>
+              <li>因此而導致玩家的兩鄰為另外同一個玩家，只視為一對一的一次<span class="military">軍事衝突</span>（每一組玩家的<span class="military">軍事衝突</span>，一個時代裡只會結算一次）</li>
+              <li class="armada-line">收到入侵標記的玩家無法以外交標記來迴避其<span class="military">陸軍衝突</span></li>
             </ul>
-            <li>戰勝者拿取 +1 的<span class="military"><span class="icon">🞭</span>軍事衝突標記</span>，戰敗者拿取 -1 的<span class="military"><span class="icon">🞭</span>軍事衝突標記</span>，平手則不獲得任何<span class="military"><span class="icon">🞭</span>軍事衝突標記</span></li>
+            <li>戰勝者拿取 +1 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span>，戰敗者拿取 -1 的<span class="military"><span class="icon">⯃</span>軍事衝突標記</span>，平手則不獲得任何<span class="military">軍事衝突標記</span></li>
           </ul>
         </section>
 
         <section class="h4-section armada-section">
-          <h4><span class="badge rounded-pill text-bg-info">艦隊</span> <span class="armada">海軍衝突</span>結算階段</h4>
+          <h4><span class="armada">海軍衝突</span>結算階段</h4>
           <ul>
-            <li>總結自己擁有<span class="armada"><span class="icon">●</span>海軍符號</span>的數量（城邦、造船廠和島嶼），並和<strong>所有玩家</strong>分別比較海軍強度</li>
-            <li>海軍強度最低者拿取 -1 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span></li>
+            <li>總結自己擁有<span class="armada"><span class="icon">&#x2693;&#xFE0E;</span>海軍符號</span>的數量（城邦、造船廠和島嶼），並和<strong>所有玩家</strong>分別比較海軍強度</li>
+            <li>海軍強度最低者拿取 -1 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
             <ul>
               <li>此玩家即使是強度第二高或第三高者，也不能獲得戰勝標記</li>
               <li>同時有最低者，所有最低者拿取戰敗標記</li>
-              <li>如果所有玩家均為最低者，所有玩家均不會獲得任何<span class="armada"><span class="icon">●</span>海軍衝突標記</span></li>
+              <li>如果所有玩家均為最低者，所有玩家均不會獲得任何<span class="armada">海軍衝突標記</span></li>
             </ul>
-            <li>海軍強度最高者拿取 +3 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span>、第二高者拿取 +1 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span></li>
+            <li>海軍強度最高者拿取 +3 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 +1 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
             <ul>
               <li>同時有最高者時，所有最高者拿取第二高的戰勝標記（獎勵降級），而原本拿取第二高的玩家改拿取第三高的戰勝標記（如果還有）</li>
               <li>同時有第二高者或第三高者時，如獎勵降級導致無法取得戰勝標記時，就不會取得戰勝標記</li>
@@ -280,7 +309,7 @@
         <h3>第 Ⅱ 時代</h3>
 
         <section class="h4-section leaders-section">
-          <h4><span class="badge rounded-pill text-bg-warning">領袖</span> 雇用階段</h4>
+          <h4>雇用階段</h4>
           <ul>
             <li>和 第 Ⅰ 時代 相同，從剩餘 3 張的領袖牌庫中選擇</li>
           </ul>
@@ -294,7 +323,7 @@
         </section>
 
         <section class="h4-section edifice-section">
-          <h4><span class="badge rounded-pill text-bg-primary">穹樓</span> 未完成項目結算</h4>
+          <h4>未完成項目結算</h4>
 
           <ul>
             <li>和 第 Ⅰ 時代 相同，但無法支付全部罰鍰的玩家要拿取 -3 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
@@ -304,15 +333,15 @@
         <section class="h4-section military-section">
           <h4><span class="military">軍事衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +3 的<span class="military"><span class="icon">🞭</span>軍事衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +3 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span></li>
           </ul>
         </section>
 
         <section class="h4-section armada-section">
-          <h4><span class="badge rounded-pill text-bg-info">艦隊</span> <span class="armada">海軍衝突</span>結算階段</h4>
+          <h4><span class="armada">海軍衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 -2 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span></li>
-            <li>海軍強度最高者拿取 +5 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span>、第二高者拿取 +3 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 -2 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
+            <li>海軍強度最高者拿取 +5 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 +3 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
           </ul>
         </section>
 
@@ -322,7 +351,7 @@
         <h3>第 Ⅲ 時代</h3>
 
         <section class="h4-section leaders-section">
-          <h4><span class="badge rounded-pill text-bg-warning">領袖</span> 雇用階段</h4>
+          <h4>雇用階段</h4>
           <ul>
             <li>和 第 Ⅰ 時代 相同，從剩餘 2 張的領袖牌庫中選擇，並將剩下沒有公開的領袖除外，以背朝上</li>
           </ul>
@@ -336,7 +365,7 @@
         </section>
 
         <section class="h4-section edifice-section">
-          <h4><span class="badge rounded-pill text-bg-primary">穹樓</span> 未完成項目結算</h4>
+          <h4>未完成項目結算</h4>
 
           <ul>
             <li>和 第 Ⅰ 時代 相同，但無法支付全部罰鍰的玩家要拿取 -5 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
@@ -346,15 +375,15 @@
         <section class="h4-section military-section">
           <h4><span class="military">軍事衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +5 的<span class="military"><span class="icon">🞭</span>軍事衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但戰勝者拿取 +5 的<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span></li>
           </ul>
         </section>
 
         <section class="h4-section armada-section">
-          <h4><span class="badge rounded-pill text-bg-info">艦隊</span> <span class="armada">海軍衝突</span>結算階段</h4>
+          <h4><span class="armada">海軍衝突</span>結算階段</h4>
           <ul>
-            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 -3 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span></li>
-            <li>海軍強度最高者拿取 +7 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span>、第二高者拿取 +5 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span>、第三高者拿取 +3 的<span class="armada"><span class="icon">●</span>海軍衝突標記</span></li>
+            <li>和 第 Ⅰ 時代 相同，但海軍強度最低者拿取 -3 的<span class="armada"><span class="icon">⬟</span>海軍衝突標記</span></li>
+            <li>海軍強度最高者拿取 +7 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第二高者拿取 +5 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span>、第三高者拿取 +3 的<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>海軍衝突標記</span></li>
           </ul>
         </section>
 
@@ -370,9 +399,9 @@
             <li>奇蹟面板 &mdash; 根據奇蹟面板上成功建造的階段，獲得面值上的🌿分數</li>
             <li>財產 &mdash; 每 3 個錢幣獲得🌿 1 分，少於 3 個不算分</li>
             <ul>
-              <li><span class="badge rounded-pill text-bg-secondary">城邦</span> 每個<span class="cities"><span class="icon">■</span>負債標記</span>將獲得🌿 -1 分，此分可以負數</li>
+              <li class="cities-line">每個<span class="cities"><span class="icon">■</span>負債標記</span>將獲得🌿 -1 分，此分可以負數</li>
             </ul>
-            <li><span class="military"><span class="icon">🞭</span>軍事衝突</span> &mdash; 將戰勝與戰敗的<span class="military"><span class="icon">🞭</span>軍事衝突標記</span>結算，此分可以負數</li>
+            <li><span class="military"><span class="icon">&#x2694;&#xFE0E;</span>軍事衝突</span> &mdash; 將<span class="military"><span class="icon">&#x1F33F;&#xFE0E;</span>戰勝</span>與<span class="military"><span class="icon">⯃</span>戰敗</span>的<span class="military">軍事衝突標記</span>結算，此分可以負數</li>
             <li><span class="civilian"><span class="icon">▮</span>市民建築</span> &mdash; 獲得<span class="civilian"><span class="icon">▮</span>藍色卡牌</span>面值上的🌿分數</li>
             <li><span class="commercial"><span class="icon">●</span>商業建築</span> &mdash; 根據<span class="commercial"><span class="icon">●</span>黃色卡牌</span>和參考表上的描述，獲得🌿分數</li>
             <li><span class="scientific"><span class="icon">▲</span>科學建築</span> &mdash; 計算<span class="scientific"><span class="icon">▲</span>綠色卡牌</span>上的符號數量，根據以下兩個方法計算🌿分數，並累積每個🌿分數</li>
@@ -383,12 +412,12 @@
             </ul>
             <li><span class="guilds"><span class="icon">★</span>公會</span> &mdash; 根據<span class="guilds"><span class="icon">★</span>紫色卡牌</span>和參考表上的描述，獲得🌿分數</li>
             <ul>
-              <li><span class="badge rounded-pill text-bg-info">艦隊</span> 所有<span class="guilds"><span class="icon">★</span>紫色卡牌</span>的得分，限制每張最多🌿 10 分</li>
+              <li class="armada-line">所有<span class="guilds"><span class="icon">★</span>紫色卡牌</span>的得分，限制每張最多🌿 10 分</li>
             </ul>
-            <li><span class="badge rounded-pill text-bg-secondary">城邦</span> <span class="cities"><span class="icon">○</span>城邦</span> &mdash; 根據<span class="cities"><span class="icon">○</span>黑色卡牌</span>和參考表上的描述，獲得🌿分數</li>
-            <li><span class="badge rounded-pill text-bg-warning">領袖</span> <span class="leaders">領袖</span> &mdash; 根據<span class="leaders">白色卡牌</span>和參考表上的描述，獲得🌿分數</li>
-            <li><span class="badge rounded-pill text-bg-info">艦隊</span> <span class="armada"><span class="icon">●</span>海軍衝突</span> &mdash; 將戰勝與戰敗的<span class="armada"><span class="icon">●</span>海軍衝突標記</span>結算，此分可以負數</li>
-            <li><span class="badge rounded-pill text-bg-info">艦隊</span> 獲得造船廠上<span class="civilian">藍色</span>艦隊面值上的🌿分數</li>
+            <li class="cities-line"><span class="cities"><span class="icon">○</span>城邦</span> &mdash; 根據<span class="cities"><span class="icon">○</span>黑色卡牌</span>和參考表上的描述，獲得🌿分數</li>
+            <li class="leaders-line"><span class="leaders">領袖</span> &mdash; 根據<span class="leaders">白色卡牌</span>和參考表上的描述，獲得🌿分數</li>
+            <li class="armada-line"><span class="armada"><span class="icon">&#x2693;&#xFE0E;</span>海軍衝突</span> &mdash; 將<span class="armada"><span class="icon">&#x1F33F;&#xFE0E;</span>戰勝</span>與<span class="armada"><span class="icon">⬟</span>戰敗</span>的<span class="armada">海軍衝突標記</span>結算，此分可以負數</li>
+            <li class="armada-line">獲得造船廠上<span class="civilian">藍色</span>艦隊面值上的🌿分數</li>
             <li>將所有總分結算，多分者勝</li>
             <ul>
               <li>如有同分，留有財產較多者勝</li>
@@ -690,6 +719,82 @@
     background-color: rgb(250 250 250 / 75%);
   }
 
+  .cities-line:before,
+  .cities-section > :is(h3, h4):before,
+  .leaders-line:before,
+  .leaders-section > :is(h3, h4):before,
+  .armada-line:before,
+  .armada-section > :is(h3, h4):before,
+  .edifice-line:before,
+  .edifice-section > :is(h3, h4):before
+  {
+    /* .badge */
+    --bs-badge-padding-x: 0.65em;
+    --bs-badge-padding-y: 0.35em;
+    --bs-badge-font-size: 0.75em;
+    --bs-badge-font-weight: 700;
+    --bs-badge-color: #fff;
+    --bs-badge-border-radius: var(--bs-border-radius);
+    display: inline-block;
+    padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+    font-size: var(--bs-badge-font-size);
+    font-weight: var(--bs-badge-font-weight);
+    line-height: 1;
+    color: var(--bs-badge-color);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--bs-badge-border-radius);
+
+    /* .rounded-pill */
+    border-radius: var(--bs-border-radius-pill);
+
+    /* Extra */
+    box-shadow: 1px 1px 2px -1px #000;
+    vertical-align: 0.25em;
+    margin-right: .25em;
+  }
+
+  .cities-line:before,
+  .cities-section > :is(h3, h4):before
+  {
+    content: "城邦";
+
+    /* .text-bg-secondary */
+    color: #fff;
+    background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,1));
+  }
+
+  .leaders-line:before,
+  .leaders-section > :is(h3, h4):before
+  {
+    content: "領袖";
+
+    /* .text-bg-warning */
+    color: #000;
+    background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,1));
+  }
+
+  .armada-line:before,
+  .armada-section > :is(h3, h4):before
+  {
+    content: "艦隊";
+
+    /* .text-bg-info */
+    color: #000;
+    background-color: RGBA(var(--bs-info-rgb),var(--bs-bg-opacity,1));
+  }
+
+  .edifice-line:before,
+  .edifice-section > :is(h3, h4):before
+  {
+    content: "穹樓";
+
+    /* .text-bg-primary */
+    color: #fff;
+    background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1));
+  }
+
 </style>
 
 <script>
@@ -699,11 +804,46 @@ void (() =>
   {
     const _____start = window.performance.now()
 
+    setupDLCSwitches()
+
     const _____end = window.performance.now()
     console.log("Rendering Full Page Elapsed:", Math.trunc((_____end - _____start) * 100) / 100, "ms")
   }
 
   document.addEventListener("DOMContentLoaded", () => void main())
+
+  const switchAction = event =>
+  {
+    const button = event.target
+    const target = button?.dataset?.target
+    if (!button || !target)
+    {
+      return
+    }
+
+    const elements = document.querySelectorAll(target)
+    for (const element of elements)
+    {
+      if (button.checked)
+      {
+        element.style.display = ""
+      }
+      else
+      {
+        element.style.display = "none"
+      }
+    }
+  }
+
+  const setupDLCSwitches = () =>
+  {
+    const switches = document.getElementsByClassName("dlc-switches")
+
+    for (const _switch of switches)
+    {
+      _switch.addEventListener("change", switchAction)
+    }
+  }
 
 })()
 </script>
