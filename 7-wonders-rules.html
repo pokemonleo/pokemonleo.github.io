@@ -60,24 +60,28 @@
     <div class="container">
       <div class="d-flex flex-wrap gap-4">
         <div class="form-check form-switch">
-          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="cities-switches" data-target=".cities-line, .cities-sublines, .cities-section" checked>
-          <label class="form-check-label" for="cities-switches">城邦擴充</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="main-switch" checked disabled>
+          <label class="form-check-label" for="main-switch">本體</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="leaders-switches" data-target=".leaders-line, .leaders-sublines, .leaders-section" checked>
-          <label class="form-check-label" for="leaders-switches">領袖擴充</label>
+          <input class="form-check-input dlc-switch" type="checkbox" role="switch" id="cities-switch" data-target=".cities-line, .cities-sublines, .cities-section" checked>
+          <label class="form-check-label" for="cities-switch">城邦擴充</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="armada-switches" data-target=".armada-line, .armada-sublines, .armada-section" checked>
-          <label class="form-check-label" for="armada-switches">艦隊擴充</label>
+          <input class="form-check-input dlc-switch" type="checkbox" role="switch" id="leaders-switch" data-target=".leaders-line, .leaders-sublines, .leaders-section" checked>
+          <label class="form-check-label" for="leaders-switch">領袖擴充</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="edifice-switches" data-target=".edifice-line, .edifice-sublines, .edifice-section" checked>
-          <label class="form-check-label" for="edifice-switches">穹樓擴充</label>
+          <input class="form-check-input dlc-switch" type="checkbox" role="switch" id="armada-switch" data-target=".armada-line, .armada-sublines, .armada-section" checked>
+          <label class="form-check-label" for="armada-switch">艦隊擴充</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input dlc-switches-all" type="checkbox" role="switch" id="all-switches" data-target=".dlc-switches" checked>
-          <label class="form-check-label" for="all-switches">所有擴充</label>
+          <input class="form-check-input dlc-switch" type="checkbox" role="switch" id="edifice-switch" data-target=".edifice-line, .edifice-sublines, .edifice-section" checked>
+          <label class="form-check-label" for="edifice-switch">穹樓擴充</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input dlc-switch-all" type="checkbox" role="switch" id="all-switch" data-target=".dlc-switch" checked>
+          <label class="form-check-label" for="all-switch">所有擴充</label>
         </div>
       </div>
     </div>
@@ -939,13 +943,13 @@ void (() =>
 
   const setupDLCSwitches = () =>
   {
-    const switches = document.getElementsByClassName("dlc-switches")
+    const switches = document.getElementsByClassName("dlc-switch")
     for (const _switch of switches)
     {
       _switch.addEventListener("change", switchAction)
     }
 
-    const allSwitches = document.getElementsByClassName("dlc-switches-all")
+    const allSwitches = document.getElementsByClassName("dlc-switch-all")
     for (const _switch of allSwitches)
     {
       _switch.addEventListener("change", allSwitchAction)
@@ -954,7 +958,7 @@ void (() =>
 
   const checkAllSwitches = () =>
   {
-    const allSwitches = document.getElementsByClassName("dlc-switches-all")
+    const allSwitches = document.getElementsByClassName("dlc-switch-all")
     for (const _switch of allSwitches)
     {
       _checkAllSwitch(_switch)
