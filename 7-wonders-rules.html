@@ -75,6 +75,10 @@
           <input class="form-check-input dlc-switches" type="checkbox" role="switch" id="edifice-switches" data-target=".edifice-line, .edifice-sublines, .edifice-section" checked>
           <label class="form-check-label" for="edifice-switches">穹樓擴充</label>
         </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input dlc-switches-all" type="checkbox" role="switch" id="all-switches" data-target=".dlc-switches" checked>
+          <label class="form-check-label" for="all-switches">所有擴充</label>
+        </div>
       </div>
     </div>
   </section>
@@ -878,9 +882,19 @@ void (() =>
 
   const switchAction = event =>
   {
-    const button = event.target
-    const target = button?.dataset?.target
-    if (!button || !target)
+    _switchAction(event?.target)
+    checkAllSwitches()
+  }
+
+  const _switchAction = button =>
+  {
+    if (!button)
+    {
+      return
+    }
+
+    const target = button.dataset?.target
+    if (!target)
     {
       return
     }
@@ -899,13 +913,75 @@ void (() =>
     }
   }
 
+  const allSwitchAction = event =>
+  {
+    const button = event.target
+    const target = button?.dataset?.target
+    if (!button || !target)
+    {
+      return
+    }
+
+    const elements = document.querySelectorAll(target)
+    for (const element of elements)
+    {
+      if (button.checked)
+      {
+        element.checked = true
+      }
+      else
+      {
+        element.checked = false
+      }
+      _switchAction(element)
+    }
+  }
+
   const setupDLCSwitches = () =>
   {
     const switches = document.getElementsByClassName("dlc-switches")
-
     for (const _switch of switches)
     {
       _switch.addEventListener("change", switchAction)
+    }
+
+    const allSwitches = document.getElementsByClassName("dlc-switches-all")
+    for (const _switch of allSwitches)
+    {
+      _switch.addEventListener("change", allSwitchAction)
+    }
+  }
+
+  const checkAllSwitches = () =>
+  {
+    const allSwitches = document.getElementsByClassName("dlc-switches-all")
+    for (const _switch of allSwitches)
+    {
+      _checkAllSwitch(_switch)
+    }
+  }
+
+  const _checkAllSwitch = button =>
+  {
+    if (!button)
+    {
+      return
+    }
+
+    const target = button.dataset?.target
+    if (!target)
+    {
+      return
+    }
+
+    const elements = document.querySelectorAll(target)
+    if (Array.from(elements).every(element => element.checked))
+    {
+      button.checked = true
+    }
+    else if (Array.from(elements).every(element => !element.checked))
+    {
+      button.checked = false
     }
   }
 
