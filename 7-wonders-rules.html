@@ -103,7 +103,29 @@
           </ul>
           <li class="armada-line">將<span class="armada">島嶼卡牌</span>按等級劃分為 3 堆牌庫，分別洗牌</li>
           <li class="edifice-line">將<span class="edifice">穹樓面板</span>按時代劃分為 3 堆，各取隨機 1 張，藍圖面朝上公開，其餘的卡牌除外</li>
-          <li class="edifice-line">根據玩家人數拿取指定數量的參建棋，按時代放在<span class="edifice">穹樓面板</span>的藍圖上面 (3 &mdash; 2 / 4 &mdash; 3 / 5 &mdash; 3 / 6 &mdash; 4 / 7 &mdash; 5)</li>
+          <li class="edifice-line">根據玩家人數拿取指定數量的參建棋（每個時代），置在每個時代的<span class="edifice">穹樓面板</span>的藍圖上面</li>
+          <table class="table table-bordered table-sm mb-0 edifice-sublines" style="width: auto;">
+            <thead>
+              <tr>
+                <th scope="col">玩家人數</th>
+                <th scope="col" style="text-align: center;">3</th>
+                <th scope="col" style="text-align: center;">4</th>
+                <th scope="col" style="text-align: center;">5</th>
+                <th scope="col" style="text-align: center;">6</th>
+                <th scope="col" style="text-align: center;">7</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">參建棋數</th>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">4</td>
+                <td style="text-align: center;">5</td>
+              </tr>
+            </tbody>
+          </table>
         </ul>
         <hr>
         <ul>
@@ -435,7 +457,27 @@
             <li><span class="commercial"><span class="icon">●</span>商業建築</span> &mdash; 根據<span class="commercial"><span class="icon">●</span>黃色卡牌</span>和參考表上的描述，獲得🌿分數</li>
             <li><span class="scientific"><span class="icon">▲</span>科學建築</span> &mdash; 計算<span class="scientific"><span class="icon">▲</span>綠色卡牌</span>上的符號數量，根據以下兩個方法計算🌿分數，並累積每個🌿分數</li>
             <ul>
-              <li>結算每一種記號（石板／指南針／齒輪），每種記號可以獲得該記號數量的平方的🌿分數 (1 —🌿 <span class="score-plus">1</span> / 2 —🌿 <span class="score-plus">4</span> / 3 —🌿 <span class="score-plus">9</span> / 4 —🌿 <span class="score-plus">16</span> / ...)</li>
+              <li>結算每一種記號（石板／指南針／齒輪），每種記號可以獲得該記號數量的平方的🌿分數</li>
+              <table class="table table-bordered table-sm mb-0" style="width: auto;">
+                <thead>
+                  <tr>
+                    <th scope="col">記號數量</th>
+                    <th scope="col" style="text-align: center;">1</th>
+                    <th scope="col" style="text-align: center;">2</th>
+                    <th scope="col" style="text-align: center;">3</th>
+                    <th scope="col" style="text-align: center;">4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">分數 🌿</th>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: center;">4</td>
+                    <td style="text-align: center;">9</td>
+                    <td style="text-align: center;">16</td>
+                  </tr>
+                </tbody>
+              </table>
               <li>三種記號各自計分，在最後累積總分</li>
               <li>每當三種記號有完整 1 組，每有 1 組加算🌿 <span class="score-plus">7</span> 分，在最後累積總分</li>
             </ul>
