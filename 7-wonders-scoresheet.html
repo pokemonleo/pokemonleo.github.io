@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja-JP">
+<html lang="en">
 
 <head>
 
@@ -71,7 +71,7 @@
         <div class="guilds ptitle" title="Guilds: Each Guild is worth a number of victory points depending on the configuration of the player’s city and/or that of the two neighboring cities (see description of the structures)."><span class="icon">★</span><span class="text sr-only">Guilds</span></div>
         <div class="cities ptitle" title="Cities expansion"><span class="icon">○</span><span class="text sr-only">Cities expansion</span></div>
         <div class="leaders ptitle" title="Leaders expansion"><span class="icon">👑 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Leaders expansion</span></div>
-        <div class="armada ptitle" title="Armada expansion"><span class="icon">⬟</span><span class="text sr-only">Armada expansion</span></div>
+        <div class="armada ptitle" title="Naval conflicts"><span class="icon">⬟</span><span class="text sr-only">Naval conflicts</span></div>
         <div class="armada ptitle" title="Armada expansion"><span class="icon">🌊</span><span class="text sr-only">Armada expansion</span></div>
         <div class="total ptitle" title="Total"><span class="icon">Σ</span><span class="text sr-only">Total</span></div>
 
@@ -730,8 +730,8 @@ void (() =>
       },
     })
 
-    const armada1 = createLineObject({
-      title: "Armada expansion",
+    const naval = createLineObject({
+      title: "Naval conflicts",
       "titleClass": "armada",
 
       element: "input",
@@ -745,17 +745,17 @@ void (() =>
       eventListeners: {
         "focus": () =>
         {
-          armada1.input.select()
+          naval.input.select()
         },
         "change input": () =>
         {
-          player.counts.armada1 = parseFloat(armada1.input.value) || 0
+          player.counts.naval = parseFloat(naval.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
     })
 
-    const armada2 = createLineObject({
+    const armada = createLineObject({
       title: "Armada expansion",
       "titleClass": "armada",
 
@@ -770,11 +770,11 @@ void (() =>
       eventListeners: {
         "focus": () =>
         {
-          armada2.input.select()
+          armada.input.select()
         },
         "change input": () =>
         {
-          player.counts.armada2 = parseFloat(armada2.input.value) || 0
+          player.counts.armada = parseFloat(armada.input.value) || 0
           total.input.innerHTML = calculate()
         },
       },
@@ -816,8 +816,8 @@ void (() =>
         guilds.line,
         cities.line,
         leaders.line,
-        armada1.line,
-        armada2.line,
+        naval.line,
+        armada.line,
         total.line,
       ],
     }
@@ -850,8 +850,8 @@ void (() =>
     renderTooltip(guilds.line)
     renderTooltip(cities.line)
     renderTooltip(leaders.line)
-    renderTooltip(armada1.line)
-    renderTooltip(armada2.line)
+    renderTooltip(naval.line)
+    renderTooltip(armada.line)
     renderTooltip(total.line)
   }
 
