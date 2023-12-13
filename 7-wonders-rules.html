@@ -151,7 +151,7 @@
         <ul>
           <li>每位玩家拿取 1 張奇蹟面板（城邦）</li>
           <ul>
-            <li>總共 7 個奇蹟面板</li>
+            <li>總共 7 張奇蹟面板</li>
             <li class="cities-line">追加 2 張奇蹟面板，沒有額外限制，可直接混入</li>
             <li class="leaders-line">追加 2 張奇蹟面板，沒有額外限制，可直接混入</li>
             <li class="edifice-line">追加奇蹟面板【迦太基】沒有額外限制，可直接混入（奇蹟面板【烏爾】只能在啟用穹樓擴充時混入）</li>
@@ -192,16 +192,16 @@
               <li>隊友之間不會共享錢幣和資源</li>
               <li>隊友之間不能互相借錢</li>
               <li>隊友之間不能交換手牌</li>
-              <li>只有當自己城邦中的資源不足以支付，玩家才能向其他玩家（包括對手）購買該資源</li>
+              <li>只有當自己城邦中的資源不足以支付，玩家才能向其他玩家（包括隊友和對手）購買該資源</li>
               <ul>
                 <li>購買隊友的資源必須如常支付錢幣</li>
                 <li>玩家不能購買他不相鄰但隊友相鄰的玩家資源</li>
               </ul>
-              <li>如果成功連鎖，禁止支付或向其他玩家（包括對手）購買資源（成功連鎖的卡牌不能向隊友購買）</li>
+              <li>如果成功連鎖，禁止支付或向其他玩家（包括隊友和對手）購買資源（成功連鎖的卡牌不能向隊友購買）</li>
             </ul>
             <li>組隊遊戲中，當有玩家使用卡牌造成其他玩家的錢幣損失，隊友也要承受該錢幣損失</li>
             <ul>
-              <li class="armada-line">海賊活動、徵收賦稅等錢幣損失也同樣，隊友也要承受該錢幣損失</li>
+              <li class="armada-line">海盜活動、徵收賦稅等錢幣損失也同樣，隊友也要承受該錢幣損失</li>
             </ul>
             <li>隊友之間不會發生<span class="military">軍事衝突</span>，玩家必須要向兩鄰中不是隊友的玩家發生<span class="military">軍事衝突</span></li>
             <li><span class="military">軍事衝突</span>之後每位玩家要拿取 2 倍的<span class="military">軍事衝突標記</span></li>
@@ -210,7 +210,7 @@
               <li>持有外交標記玩家的隊友不會受到外交標記的影響</li>
               <li>一組<span class="military">軍事衝突</span>的兩個玩家都持有外交標記時，衝突雙方都不用拿取<span class="military">軍事衝突標記</span></li>
             </ul>
-            <li class="armada-line">玩家選擇<span class="military"><span class="icon">&#x2694;&#xFE0E;</span>入侵標記</span>的玩家位置時，不會考量是否隊友（根據座位，玩家不會收到來自隊友的<span class="military"><span class="icon">&#x2694;&#xFE0E;</span>入侵標記</span>）</li>
+            <li class="armada-line">玩家選擇<span class="military"><span class="icon">&#x2694;&#xFE0E;</span>入侵標記</span>的玩家位置時，不會考量位置是否隊友（根據座位，玩家不會收到來自隊友的<span class="military"><span class="icon">&#x2694;&#xFE0E;</span>入侵標記</span>）</li>
             <li class="armada-line"><span class="armada">海軍衝突</span>如常進行，無論隊友是否同分</li>
             <li>組隊遊戲中，隊友們的得分會總加，高分者勝</li>
           </ul>
@@ -262,7 +262,11 @@
                 <li style="list-style-type: &quot;(A) &quot;;">沒有費用時，費用免費</li>
                 <li style="list-style-type: &quot;(B) &quot;;">費用為錢幣時，支付錢幣回中央</li>
                 <ul>
-                  <li>這個回合從其他玩家購買得來的的錢幣不能用於該回合的支付</li>
+                  <li>這個回合從其他玩家購買得來的錢幣，以及這個回合的卡牌效果所獲得的錢幣，均不能用於該回合的支付</li>
+                  <ul>
+                    <li class="cities-line">這個回合因任何效果而造成的錢幣損失，會在回合結束前才結算</li>
+                    <li class="armada-line">這個回合因任何效果而造成的錢幣損失，會在回合結束前才結算</li>
+                  </ul>
                 </ul>
                 <li style="list-style-type: &quot;(C) &quot;;">費用為資源時，必須要在自己和兩鄰玩家中擁有對應的資源和數量，每 1 個費用圖示均需要 1 個資源圖示（每回合計算）</li>
                 <ul>
@@ -276,8 +280,12 @@
                     <li>玩家不能購買其他玩家的其他卡牌的資源（包括擴充包所追加的其他卡牌）</li>
                     <li>只有當自己城邦中的資源不足以支付，玩家才能向其他玩家購買該資源（組隊專用規則？）</li>
                   </ul>
-                  <li>這個回合從其他玩家購買得來的的錢幣不能用於該回合的支付</li>
-                  <li>這個回合建造所產生的資源無法用於該回合的支付，其他玩家也不能購買該資源</li>
+                  <li>這個回合建造開始產生的資源無法用於該回合的支付，其他玩家也不能購買該資源</li>
+                  <li>這個回合從其他玩家購買得來的錢幣，以及這個回合的卡牌效果所獲得的錢幣，均不能用於該回合的支付</li>
+                  <ul>
+                    <li class="cities-line">這個回合因任何效果而造成的錢幣損失，會在回合結束前才結算</li>
+                    <li class="armada-line">這個回合因任何效果而造成的錢幣損失，會在回合結束前才結算</li>
+                  </ul>
                 </ul>
                 <li style="list-style-type: &quot;(D) &quot;;">費用有連鎖符號時，滿足條件則費用免費</li>
                 <ul>
@@ -340,7 +348,7 @@
               <li>造成錢幣損失的事件包括...</li>
               <ul>
                 <li>債務</li>
-                <li class="armada-line">海賊活動</li>
+                <li class="armada-line">海盜活動</li>
                 <li class="armada-line">徵收賦稅</li>
               </ul>
             </ul>
