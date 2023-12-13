@@ -100,6 +100,30 @@
           <li>把卡牌按時代劃分為 3 堆牌庫，並把不符合玩家人數的卡牌除外，以背朝上，然後分別洗牌</li>
           <ul>
             <li>第 Ⅲ 時代牌庫中的<span class="guilds"><span class="icon">★</span>紫色卡牌</span>數量為玩家人數 +2 <span class="text-muted-more">（玩家數量 8 人時為 9 張）</span>，把多餘的卡牌隨機除外，以背朝上，然後洗牌</li>
+            <div class="table-responsive">
+              <table class="table table-bordered table-sm table-rule">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text">玩家人數</th>
+                    <th scope="col" class="number">3 人</th>
+                    <th scope="col" class="number">4 人</th>
+                    <th scope="col" class="number">5 人</th>
+                    <th scope="col" class="number">6 人</th>
+                    <th scope="col" class="number">7 人</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="text" scope="row"><span class="guilds"><span class="icon">★</span>紫色卡牌</span>數量</th>
+                    <td class="number">5 張</td>
+                    <td class="number">6 張</td>
+                    <td class="number">7 張</td>
+                    <td class="number">8 張</td>
+                    <td class="number">9 張</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <li class="cities-line">把等同玩家數量<span class="text-muted-more">（玩家數量 8 人時為 7 張）</span>的<span class="cities"><span class="icon">○</span>黑色卡牌</span>（每個時代），混入對應時代的牌庫，然後洗牌（把多餘的卡牌隨機除外，以背朝上）</li>
             <li class="leaders-line">把<span class="leaders">白色卡牌</span>獨立劃為一個牌庫（標準、專家或混合），洗牌</li>
             <ul>
@@ -523,7 +547,7 @@
             <li><span class="commercial"><span class="icon">●</span>商業建築</span> &mdash; 根據<span class="commercial"><span class="icon">●</span>黃色卡牌</span>上的符號和參考表上的描述，獲得🌿分數</li>
             <li><span class="scientific"><span class="icon">▲</span>科技建築</span> &mdash; 計算<span class="scientific"><span class="icon">▲</span>綠色卡牌</span>上的符號數量，根據以下兩個方法計算🌿分數，並累積每個🌿分數</li>
             <ul>
-              <li>結算每一種記號（石板／指南針／齒輪），每種記號可以獲得該記號數量的平方的🌿分數，三種記號各自計分，之後總加</li>
+              <li>結算每一種記號（石板文字／圓規／齒輪），每種記號可以獲得該記號數量的平方的🌿分數，三種記號各自計分，之後總加</li>
               <div class="table-responsive">
                 <table class="table table-bordered table-sm table-rule">
                   <thead>
@@ -744,7 +768,7 @@
   .h3-section .table-rule
   {
     width: auto;
-    margin-bottom: 0;
+    margin-block: .25rem;
   }
 
   .h3-section .table-rule>:not(caption)>*>*
