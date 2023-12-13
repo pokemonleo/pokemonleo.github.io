@@ -64,7 +64,7 @@
           <label class="form-check-label" for="main-switch">本體</label>
         </div>
         <div class="form-check form-switch">
-          <input class="form-check-input dlc-switch" type="checkbox" role="switch" id="cities-switch" data-target=".cities-line, .cities-line + :is(ol, ul, dl, div, .cities-section" checked>
+          <input class="form-check-input dlc-switch" type="checkbox" role="switch" id="cities-switch" data-target=".cities-line, .cities-line + :is(ol, ul, dl, div), .cities-section" checked>
           <label class="form-check-label" for="cities-switch">城邦擴充</label>
         </div>
         <div class="form-check form-switch">
@@ -217,14 +217,14 @@
             <dl>
               <dt style="list-style-type: &quot;1. &quot;; font-weight: bold;">使用（雇用領袖）</dt>
               <dd>支付領袖卡牌的費用，公開<span class="leaders">領袖卡牌</span>，以面朝上置於自己城邦</dd>
-              <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">用於建造奇蹟階梯</dt>
-              <dd>支付奇蹟的建造階梯的費用，以背朝上，把卡牌置於建造階梯插槽，從左至右</dd>
+              <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">建造奇蹟階段</dt>
+              <dd>支付奇蹟的建造階段費用，以背朝上，把卡牌置於建造階段插槽，從左至右</dd>
               <ul>
-                <li class="armada-line">當玩家建造了奇蹟階梯，玩家可以選擇，<strong>再次</strong>支付一次該階梯的費用，加上支付造船廠上對應格子的費用，移動 1 格造船廠上擁有奇蹟圖示的艦隊（詳細請參照主要流程的奇蹟階梯建造部分）</li>
+                <li class="armada-line">當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段費用，加上支付造船廠上對應格子的費用，移動 1 格造船廠上擁有奇蹟圖示的艦隊（詳細請參照主要流程的奇蹟階段建造部分）</li>
                 <ul>
                   <li class="edifice-line">該玩家不能在同一個回合參建穹樓項目</li>
                 </ul>
-                <li class="edifice-line">每個時代只限 1 次，當玩家建造了奇蹟階梯，玩家可以選擇，<strong>再次</strong>支付一次該階梯的費用，加上支付參建項目的費用，從這個時代的穹樓項目拿取 1 個參建棋，置於自己城邦（詳細請參照主要流程的奇蹟階梯建造部分）</li>
+                <li class="edifice-line">每個時代只限 1 次，當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段費用，加上支付參建項目的費用，從這個時代的穹樓項目拿取 1 個參建棋，置於自己城邦（詳細請參照主要流程的奇蹟階段建造部分）</li>
                 <ul>
                   <li class="armada-line">該玩家不能在同一個回合擴建海軍</li>
                 </ul>
@@ -260,7 +260,7 @@
                 </ul>
                 <li style="list-style-type: &quot;(C) &quot;;">費用為資源時，必須要在自己和兩鄰玩家中擁有對應的資源和數量，每 1 個費用圖示均需要 1 個資源圖示（每回合計算）</li>
                 <ul>
-                  <li>玩家自己的資源包括了起始資源、<span class="material"><span class="icon">■</span>棕色資源</span>、<span class="goods"><span class="icon">◆</span>灰色資源</span>、<span class="commercial"><span class="icon">●</span>黃色資源</span>和已建造了的奇蹟階梯資源</li>
+                  <li>玩家自己的資源包括了起始資源、<span class="material"><span class="icon">■</span>棕色資源</span>、<span class="goods"><span class="icon">◆</span>灰色資源</span>、<span class="commercial"><span class="icon">●</span>黃色資源</span>和已建造了的奇蹟階段資源</li>
                   <ul>
                     <li>玩家自己的資源也包括了自己城邦中的其他卡牌（包括擴充包所追加的卡牌）</li>
                   </ul>
@@ -278,8 +278,8 @@
                   <li>如果成功連鎖，禁止支付資源或向其他玩家購買資源（組隊專用規則？）</li>
                 </ul>
               </ul>
-              <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">用於建造奇蹟階梯</dt>
-              <dd>支付奇蹟的建造階梯的費用，以背朝上，把卡牌置於建造階梯插槽，從左至右</dd>
+              <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">建造奇蹟階段</dt>
+              <dd>支付奇蹟的建造階段費用，以背朝上，把卡牌置於建造階段插槽，從左至右</dd>
               <ul>
                 <li>費用支付依照建造建築物同樣的方式處理</li>
               </ul>
@@ -288,13 +288,13 @@
                 <h4>參建穹樓項目</h4>
 
                 <ul>
-                  <li>每個時代只限 1 次，當玩家建造了奇蹟階梯，玩家可以選擇，<strong>再次</strong>支付一次該階梯的費用，加上支付參建項目的費用，從這個時代的穹樓項目拿取 1 個參建棋，置於自己城邦</li>
+                  <li>每個時代只限 1 次，當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段費用，加上支付參建項目的費用，從這個時代的穹樓項目拿取 1 個參建棋，置於自己城邦</li>
                   <ul>
-                    <li class="armada-line">該玩家不能在同一個回合擴建海軍</li>
                     <li>如果這個時代的穹樓項目已經沒有剩下的參建棋，玩家不能參建穹樓項目</li>
                     <li>如果同一個回合有多個玩家同時參建穹樓項目，而參建棋不夠分配，從遊戲盒裡拿取剩下的參建棋，分配給所有參建了而拿不到參建棋的玩家</li>
+                    <li class="armada-line">該玩家不能在同一個回合擴建海軍</li>
                   </ul>
-                  <li>穹樓項目最後的參建棋被拿走時，將視為完工，反轉穹樓面板，完工面朝上，所有擁有該參建棋的玩家即時領取獎勵</li>
+                  <li>穹樓項目最後的參建棋被拿走時，則視穹樓項目為完工，反轉穹樓面板，完工面朝上，所有擁有該參建棋的玩家即時領取獎勵</li>
                 </ul>
               </section>
 
@@ -309,18 +309,18 @@
               <h4>擴建海軍</h4>
 
               <ul>
-                <li>在 1. 建造建築物或 2. 建造奇蹟階梯的之後，玩家可以選擇，繼續擴建海軍</li>
+                <li>當玩家選擇 1. 建造建築物或 2. 建造奇蹟階段，玩家可以在之後選擇繼續擴建海軍</li>
               </ul>
               <dl>
-                <dt style="list-style-type: &quot;1. &quot;; font-weight: bold;">建造</dt>
+                <dt style="list-style-type: &quot;1. &quot;; font-weight: bold;">建造建築物之後</dt>
                 <dd>當玩家建造了<span class="military"><span class="icon">🞭</span>紅色</span>、<span class="commercial"><span class="icon">●</span>黃色</span>、<span class="civilian"><span class="icon">▮</span>藍色</span>或<span class="scientific"><span class="icon">▲</span>綠色</span>卡牌，玩家可以選擇，<strong>再次</strong>支付一次該卡牌的費用，加上支付造船廠上對應格子的費用，移動 1 格造船廠上同樣顏色的艦隊</dd>
                 <ul>
                   <li>從棄牌堆以費用免費的方式建造的卡牌，不能繼續擴建海軍</li>
                 </ul>
-                <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">奇蹟階梯</dt>
-                <dd>當玩家建造了奇蹟階梯，玩家可以選擇，<strong>再次</strong>支付一次該階梯的費用，加上支付造船廠上對應格子的費用，移動 1 格造船廠上擁有奇蹟圖示的艦隊</dd>
+                <dt style="list-style-type: &quot;2. &quot;; font-weight: bold;">建造奇蹟階段之後</dt>
+                <dd>當玩家建造了奇蹟階段，玩家可以選擇，<strong>再次</strong>支付一次該階段費用，加上支付造船廠上對應格子的費用，移動 1 格造船廠上擁有奇蹟圖示的艦隊</dd>
                 <ul>
-                  <li class="edifice-line">當玩家在建造了奇蹟階梯後選擇擴建海軍，該玩家不能在同一個回合參建穹樓項目</li>
+                  <li class="edifice-line">當玩家在建造了奇蹟階段後選擇擴建海軍，該玩家不能在同一個回合參建穹樓項目</li>
                 </ul>
               </dl>
             </section>
@@ -363,7 +363,7 @@
           <h4>未完成項目結算</h4>
 
           <ul>
-            <li>如果這個時代的穹樓項目還有剩下的參建棋沒被拿走，則穹樓項目視為工程失敗，沒有玩家可以領取獎勵</li>
+            <li>如果這個時代的穹樓項目還有剩下的參建棋沒被拿走，則視穹樓項目為工程失敗，沒有玩家可以領取獎勵</li>
             <li>如果玩家沒有參建過穹樓項目（城邦內沒有該項目的參建棋），該玩家必須支付罰鍰，只有在無法支付全部罰鍰時，不支付任何罰鍰，改為拿取 <span class="score-minus">-2</span> 的<span class="cities"><span class="icon">■</span>負債標記</span></li>
           </ul>
         </section>
@@ -497,7 +497,7 @@
           <h4>統計得分</h4>
 
           <ul>
-            <li>奇蹟面板 &mdash; 根據奇蹟面板上成功建造的階梯，獲得面值上的🌿分數</li>
+            <li>奇蹟面板 &mdash; 根據奇蹟面板上成功建造的奇蹟階段，獲得面值上的🌿分數</li>
             <li>財產 &mdash; 每 3 個錢幣面值獲得🌿 <span class="score-plus">1</span> 分，少於 3 個不算分</li>
             <ul>
               <li class="cities-line">每 1 個<span class="cities"><span class="icon">■</span>負債標記</span>面值獲得🌿 <span class="score-minus">-1</span> 分，此分可以負數</li>
@@ -686,11 +686,13 @@
 
   .h4-section h4
   {
+    font-weight: bold;
     border-bottom: 1px solid rgb(0 0 0 / 25%);
   }
 
   .standalone-section h4
   {
+    font-weight: bold;
     border-bottom: 1px solid rgb(0 0 0 / 25%);
   }
 
@@ -960,6 +962,13 @@
     background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,1));
   }
 
+  :is(li, dt, dd).cities-line::marker,
+  .cities-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .cities-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
+  {
+    color: #71717a;
+  }
+
   .leaders-line:before,
   .leaders-section > :is(h3, h4):before
   {
@@ -968,6 +977,13 @@
     /* .text-bg-warning */
     color: #000;
     background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,1));
+  }
+
+  :is(li, dt, dd).leaders-line::marker,
+  .leaders-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .leaders-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
+  {
+    color: #d97706;
   }
 
   .armada-line:before,
@@ -980,6 +996,13 @@
     background-color: RGBA(var(--bs-info-rgb),var(--bs-bg-opacity,1));
   }
 
+  :is(li, dt, dd).armada-line::marker,
+  .armada-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .armada-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
+  {
+    color: #0284c7;
+  }
+
   .edifice-line:before,
   .edifice-section > :is(h3, h4):before
   {
@@ -988,6 +1011,13 @@
     /* .text-bg-primary */
     color: #fff;
     background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1));
+  }
+
+  :is(li, dt, dd).edifice-line::marker,
+  .edifice-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .edifice-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
+  {
+    color: #1d4ed8;
   }
 
   .score-plus
