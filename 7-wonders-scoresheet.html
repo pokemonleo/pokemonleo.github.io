@@ -59,21 +59,21 @@
       <div id="scoresheet">
 
         <div class="pname ptitle" title="Player"><span class="icon">👤 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Player name</span></div>
-        <div class="wonder ptitle" title="Wonder: Earn the victory points from wonder."><span class="icon">⛰️ <i class="fa-solid fa-mountain-sun"></i></span><span class="text sr-only">Wonder</span></div>
-        <div class="treasure ptitle" title="Treasury contents: For every 3 coins, earn 1 victory point."><span class="icon">💰<span style="color: #000;">■</span> <i class="fa-solid fa-circle-dollar-to-slot"></i></span><span class="text sr-only">Treasury contents</span></div>
+        <div class="wonder ptitle" title="Wonder: Earn the points from wonder."><span class="icon">⛰️ <i class="fa-solid fa-mountain-sun"></i></span><span class="text sr-only">Wonder</span></div>
+        <div class="treasure ptitle" title="Treasury contents: For every 3 coins, earn 1 point."><span class="icon">💰<span style="color: #000;">■</span> <i class="fa-solid fa-circle-dollar-to-slot"></i></span><span class="text sr-only">Treasury contents</span></div>
         <div class="military ptitle" title="Military conflicts: Add the Victory and Defeat tokens."><span class="icon">⚔️</span><span class="text sr-only">Military conflicts</span></div>
-        <div class="civilian ptitle" title="Civilian structures: Add the victory points from Yellow cards. Check reference."><span class="icon">▮</span><span class="text sr-only">Civilian structures</span></div>
-        <div class="commercial ptitle" title="Commercial structures: Add the victory points from Blue cards."><span class="icon">●</span><span class="text sr-only">Commercial structures</span></div>
-        <div class="scientific ptitle" title="Scientific structures: For first symbol of green cards score by the number of symbol squared."><span class="icon">▲<sub>Tablet</sub></span><span class="text sr-only">Scientific structures: Tablet</span></div>
-        <div class="scientific ptitle" title="Scientific structures: For second symbol of green cards score by the number of symbol squared."><span class="icon">▲<sub>Compass</sub></span><span class="text sr-only">Scientific structures: Compass</span></div>
-        <div class="scientific ptitle" title="Scientific structures: For third symbol of green cards score by the number of symbol squared."><span class="icon">▲<sub>Gear</sub></span><span class="text sr-only">Scientific structures: Gear</span></div>
-        <div class="scientific ptitle" title="Scientific structures: For full set of symbols of green cards earn 7 victory points."><span class="icon">▲<sub>Set Bonus</sub></span><span class="text sr-only">Scientific structures: Set Bonus</span></div>
-        <div class="guilds ptitle" title="Guilds: Add the victory points from Purple cards. Check reference."><span class="icon">★</span><span class="text sr-only">Guilds</span></div>
-        <div class="cities ptitle" title="Cities expansion: Add the victory points from Black cards. Check reference."><span class="icon">○</span><span class="text sr-only">Cities expansion</span></div>
-        <div class="leaders ptitle" title="Leaders expansion: Add the victory points from White cards. Check reference."><span class="icon">👑 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Leaders expansion</span></div>
+        <div class="civilian ptitle" title="Civilian structures: Add points from Yellow cards. Check reference."><span class="icon">▮</span><span class="text sr-only">Civilian structures</span></div>
+        <div class="commercial ptitle" title="Commercial structures: Add the points from Blue cards."><span class="icon">●</span><span class="text sr-only">Commercial structures</span></div>
+        <div class="scientific ptitle" title="Scientific structures: For first symbol of green cards, earn points by the number of symbol squared."><span class="icon">▲<sub>Tablet</sub></span><span class="text sr-only">Scientific structures: Tablet</span></div>
+        <div class="scientific ptitle" title="Scientific structures: For second symbol of green cards, earn points by the number of symbol squared."><span class="icon">▲<sub>Compass</sub></span><span class="text sr-only">Scientific structures: Compass</span></div>
+        <div class="scientific ptitle" title="Scientific structures: For third symbol of green cards, earn points by the number of symbol squared."><span class="icon">▲<sub>Gear</sub></span><span class="text sr-only">Scientific structures: Gear</span></div>
+        <div class="scientific ptitle" title="Scientific structures: For every set of symbols of green cards, earn 7 points."><span class="icon">▲<sub>Set Bonus</sub></span><span class="text sr-only">Scientific structures: Set Bonus</span></div>
+        <div class="guilds ptitle" title="Guilds: Add points from Purple cards. Check reference."><span class="icon">★</span><span class="text sr-only">Guilds</span></div>
+        <div class="cities ptitle" title="Cities expansion: Add points from Black cards. Check reference."><span class="icon">○</span><span class="text sr-only">Cities expansion</span></div>
+        <div class="leaders ptitle" title="Leaders expansion: Add points from White cards. Check reference."><span class="icon">👑 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Leaders expansion</span></div>
         <div class="armada ptitle" title="Naval conflicts: Add the Victory and Defeat tokens."><span class="icon">⚓</span><span class="text sr-only">Naval conflicts</span></div>
-        <div class="armada ptitle" title="Armada expansion: Add the victory points from Dockeryard."><span class="icon">🌊</span><span class="text sr-only">Armada expansion</span></div>
-        <div class="edifice ptitle" title="Edifice expansion: Add the victory points from Participation Pawns."><span class="icon">🏛️</span><span class="text sr-only">Edifice expansion</span></div>
+        <div class="armada ptitle" title="Armada expansion: Add the points from Dockeryard."><span class="icon">🌊</span><span class="text sr-only">Armada expansion</span></div>
+        <div class="edifice ptitle" title="Edifice expansion: Add points from Participation Pawns."><span class="icon">🏛️</span><span class="text sr-only">Edifice expansion</span></div>
         <div class="total ptitle" title="Total"><span class="icon">Σ</span><span class="text sr-only">Total</span></div>
 
         <!--
@@ -442,7 +442,7 @@ void (() =>
     })
 
     const wonder = createLineObject({
-      title: "Wonder: Earn the victory points from wonder.",
+      title: "Wonder: Earn the points from wonder.",
       "titleClass": "wonder",
 
       element: "input",
@@ -467,7 +467,7 @@ void (() =>
     })
 
     const treasure = createLineObject({
-      title: "Treasury contents: For every 3 coins, earn 1 victory point.",
+      title: "Treasury contents: For every 3 coins, earn 1 point.",
       "titleClass": "treasure",
 
       element: "input",
@@ -517,7 +517,7 @@ void (() =>
     })
 
     const civilian = createLineObject({
-      title: "Civilian structures: Add the victory points from Yellow cards. Check reference.",
+      title: "Civilian structures: Add points from Yellow cards. Check reference.",
       "titleClass": "civilian",
 
       element: "input",
@@ -542,7 +542,7 @@ void (() =>
     })
 
     const commercial = createLineObject({
-      title: "Commercial structures: Add the victory points from Blue cards.",
+      title: "Commercial structures: Add the points from Blue cards.",
       "titleClass": "commercial",
 
       element: "input",
@@ -567,7 +567,7 @@ void (() =>
     })
 
     const scientific1 = createLineObject({
-      title: "Scientific structures: For first symbol of green cards score by the number of symbol squared.",
+      title: "Scientific structures: For first symbol of green cards, earn points by the number of symbol squared.",
       "titleClass": "scientific",
 
       element: "input",
@@ -592,7 +592,7 @@ void (() =>
     })
 
     const scientific2 = createLineObject({
-      title: "Scientific structures: For second symbol of green cards score by the number of symbol squared.",
+      title: "Scientific structures: For second symbol of green cards, earn points by the number of symbol squared.",
       "titleClass": "scientific",
 
       element: "input",
@@ -617,7 +617,7 @@ void (() =>
     })
 
     const scientific3 = createLineObject({
-      title: "Scientific structures: For third symbol of green cards score by the number of symbol squared.",
+      title: "Scientific structures: For third symbol of green cards, earn points by the number of symbol squared.",
       "titleClass": "scientific",
 
       element: "input",
@@ -642,7 +642,7 @@ void (() =>
     })
 
     const scientific_sb = createLineObject({
-      title: "Scientific structures: For full set of symbols of green cards earn 7 victory points.",
+      title: "Scientific structures: For every set of symbols of green cards, earn 7 victory points.",
       "titleClass": "scientific",
 
       element: "input",
@@ -667,7 +667,7 @@ void (() =>
     })
 
     const guilds = createLineObject({
-      title: "Guilds: Add the victory points from Purple cards. Check reference.",
+      title: "Guilds: Add points from Purple cards. Check reference.",
       "titleClass": "guilds",
 
       element: "input",
@@ -692,7 +692,7 @@ void (() =>
     })
 
     const cities = createLineObject({
-      title: "Cities expansion: Add the victory points from Black cards. Check reference.",
+      title: "Cities expansion: Add points from Black cards. Check reference.",
       "titleClass": "cities",
 
       element: "input",
@@ -717,7 +717,7 @@ void (() =>
     })
 
     const leaders = createLineObject({
-      title: "Leaders expansion: Add the victory points from White cards. Check reference.",
+      title: "Leaders expansion: Add points from White cards. Check reference.",
       "titleClass": "leaders",
 
       element: "input",
@@ -767,7 +767,7 @@ void (() =>
     })
 
     const armada = createLineObject({
-      title: "Armada expansion: Add the victory points from Dockeryard.",
+      title: "Armada expansion: Add the points from Dockeryard.",
       "titleClass": "armada",
 
       element: "input",
@@ -792,7 +792,7 @@ void (() =>
     })
 
     const edifice = createLineObject({
-      title: "Edifice expansion: Add the victory points from Participation Pawns.",
+      title: "Edifice expansion: Add points from Participation Pawns.",
       "titleClass": "edifice",
 
       element: "input",
