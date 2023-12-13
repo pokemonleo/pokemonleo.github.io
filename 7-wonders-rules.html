@@ -1009,7 +1009,7 @@
   }
 
   :is(li, dt, dd).cities-line::marker,
-  .cities-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .cities-line + :where(ol, ul, dl, div) :where(li, dt, dd)::marker,
   .cities-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
   {
     color: #71717a;
@@ -1026,7 +1026,7 @@
   }
 
   :is(li, dt, dd).leaders-line::marker,
-  .leaders-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .leaders-line + :where(ol, ul, dl, div) :where(li, dt, dd)::marker,
   .leaders-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
   {
     color: #d97706;
@@ -1043,7 +1043,7 @@
   }
 
   :is(li, dt, dd).armada-line::marker,
-  .armada-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .armada-line + :where(ol, ul, dl, div) :where(li, dt, dd)::marker,
   .armada-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
   {
     color: #0284c7;
@@ -1060,7 +1060,7 @@
   }
 
   :is(li, dt, dd).edifice-line::marker,
-  .edifice-line + :where(ol, ul, dl, div) > :where(li, dt, dd)::marker,
+  .edifice-line + :where(ol, ul, dl, div) :where(li, dt, dd)::marker,
   .edifice-section :where(ol, ul, dl, div) > :where(li, dt, dd)::marker
   {
     color: #1d4ed8;
