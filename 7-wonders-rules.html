@@ -367,13 +367,13 @@
                 <li class="cities-line">如果玩家的錢幣不足以支付因債務效果所造成的損失，每 1 個沒有支付的錢幣面值，玩家需要從中央拿取 1 個<span class="cities"><span class="symbol">■</span>負債標記</span></li>
                 <ul>
                   <li>即使玩家還有多餘的錢幣，對於因債務效果所造成的錢幣損失，玩家如果願意，依然可以選擇拿取等額的<span class="cities"><span class="symbol">■</span>負債標記</span>來取代支付全額或部分錢幣，但是<span class="cities"><span class="symbol">■</span>負債標記</span>會在遊戲結束後另外計分</li>
-                  <li>玩家拿取的<span class="cities"><span class="symbol">■</span>負債標記</span>不會移除，即使玩家有多餘的錢幣，也不能拿來償還已經擁有的債務</li>
+                  <li>玩家拿取的<span class="cities"><span class="symbol">■</span>負債標記</span>不會移除，即使玩家有多餘的錢幣，也不能拿來償還已經拿取的債務</li>
                   <li>只有當玩家因債務效果而造成錢幣損失時，玩家才可以選擇拿取<span class="cities"><span class="symbol">■</span>負債標記</span>（你不能借錢）</li>
                 </ul>
               </ul>
               <li>造成錢幣損失的事件包括...</li>
               <ul>
-                <li class="cities-line">債務效果</li>
+                <li class="cities-line">債務效果（可以<span class="cities"><span class="symbol">■</span>負債標記</span>代替支付錢幣）</li>
                 <li class="armada-line">海盜活動</li>
                 <li class="armada-line">徵收賦稅</li>
               </ul>
@@ -408,7 +408,7 @@
             <li>如果這個時代的宏偉項目還有剩下的<span class="edifice"><span class="symbol"></span>參建棋</span>沒被拿走，則視宏偉項目為工程失敗，沒有玩家可以領取獎勵</li>
             <li>如果玩家沒有參建過宏偉項目（城邦內沒有該項目的<span class="edifice"><span class="symbol"></span>參建棋</span>），該玩家必須支付罰鍰，只有在無法支付全部罰鍰時，不支付任何罰鍰，改為拿取 <span class="score-minus">-2</span> 的<span class="cities"><span class="symbol">■</span>負債標記</span></li>
             <ul>
-              <li>玩家拿取的<span class="cities"><span class="symbol">■</span>負債標記</span>不會移除，即使玩家有多餘的錢幣，也不能拿來償還已經擁有的債務</li>
+              <li>玩家拿取的<span class="cities"><span class="symbol">■</span>負債標記</span>不會移除，即使玩家在之後有足夠資源以支付沒有付清的罰鍰，也不能拿來償還已經拿取的債務</li>
             </ul>
           </ul>
         </section>
@@ -429,7 +429,7 @@
             <ul>
               <li>每次<span class="military">軍事衝突</span>結算必須移除<span class="civilian"><span class="symbol">🐦</span>外交標記</span>，無論該玩家原本有或沒有需要和其他玩家發生<span class="military">軍事衝突</span>，如果自己城邦內擁有超過 1 個<span class="civilian"><span class="symbol">🐦</span>外交標記</span>，每次結算只需要移除 1 個</li>
               <li>除外期間該玩家的兩鄰將會被改視為相鄰，這兩名玩家將會發生<span class="military">軍事衝突</span></li>
-              <li>因此而導致有玩家的兩鄰為另外同一個玩家，只視為一對一的一次<span class="military">軍事衝突</span>（每一組玩家的<span class="military">軍事衝突</span>，一個時代裡只會結算一次）</li>
+              <li>因此而導致有玩家的兩鄰為另外同一個玩家時，這些玩家只會被視為一對一的一次<span class="military">軍事衝突</span>（每一組玩家的<span class="military">軍事衝突</span>，一個時代裡只會結算一次）</li>
               <li class="armada-line">收到<span class="military"><span class="symbol">&#x2694;&#xFE0E;</span>入侵標記</span>的玩家無法以<span class="civilian"><span class="symbol">🐦</span>外交標記</span>來迴避其<span class="military">軍事衝突</span></li>
               <li class="team-line" hidden>持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的玩家無法迴避<span class="military">軍事衝突</span>，必須如常結算</li>
               <ul hidden>
@@ -564,7 +564,6 @@
             <li>財產 &mdash; 每 3 個錢幣面值獲得🌿 <span class="score-plus">1</span> 分，少於 3 個不算分</li>
             <ul>
               <li class="cities-line">每 1 個<span class="cities"><span class="symbol">■</span>負債標記</span>面值獲得🌿 <span class="score-minus">-1</span> 分，此分可以負數</li>
-              <li class="armada-line">每 1 個<span class="cities"><span class="symbol">■</span>負債標記</span>面值獲得🌿 <span class="score-minus">-1</span> 分，此分可以負數</li>
               <li class="edifice-line">每 1 個<span class="cities"><span class="symbol">■</span>負債標記</span>面值獲得🌿 <span class="score-minus">-1</span> 分，此分可以負數</li>
             </ul>
             <li><span class="military"><span class="symbol">&#x2694;&#xFE0E;</span>軍事衝突</span> &mdash; 結算<span class="military"><span class="symbol">&#x1F33F;&#xFE0E;</span>戰勝</span>與<span class="military"><span class="symbol">⯃</span>戰敗</span>的<span class="military">軍事衝突標記</span>，此分可以負數</li>
@@ -587,7 +586,12 @@
                       <th scope="col" class="number">7 個</th>
                       <th scope="col" class="number">8 個</th>
                       <th scope="col" class="number">9 個</th>
-                      <th scope="col" class="number">𝔁 個</th>
+                      <th scope="col" class="number">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+                         <mi>x</mi>
+                        </math>
+                        個
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -602,7 +606,14 @@
                       <td class="number">49</td>
                       <td class="number">64</td>
                       <td class="number">81</td>
-                      <td class="number">𝔁<sup>2</sup></td>
+                      <td class="number">
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+                          <msup>
+                            <mi>x</mi>
+                            <mn>2</mn>
+                          </msup>
+                        </math>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
