@@ -362,20 +362,21 @@
             <li>結算錢幣損失，支付錢幣回中央</li>
             <ul>
               <li>該回合從其他玩家購買或因任何效果取得的錢幣可以用於支付錢幣的損失</li>
-              <li>如果玩家的錢幣不足以支付所有損失，玩家不用支付還沒付清的餘款</li>
+              <li>如果玩家的錢幣不足以支付所有損失，玩家只需要支付可以負擔的部分，還沒付清的餘款不用之後補繳</li>
               <ul>
                 <li class="cities-line">如果玩家的錢幣不足以支付因債務效果所造成的損失，每 1 個沒有支付的錢幣面值，玩家需要從中央拿取 1 個<span class="cities"><span class="symbol">■</span>負債標記</span></li>
                 <ul>
-                  <li>即使玩家還有多餘的錢幣，對於因債務效果所造成的錢幣損失，玩家如果願意，依然可以選擇拿取等額的<span class="cities"><span class="symbol">■</span>負債標記</span>來取代支付全額或部分錢幣，但是<span class="cities"><span class="symbol">■</span>負債標記</span>會在遊戲結束後另外計分</li>
+                  <li>即使玩家還有多餘的錢幣，對於因債務效果所造成的錢幣損失，玩家如果願意，依然可以選擇拿取等值的<span class="cities"><span class="symbol">■</span>負債標記</span>來取代支付全額或部分錢幣，但是<span class="cities"><span class="symbol">■</span>負債標記</span>會在遊戲結束後另外計分</li>
                   <li>玩家拿取的<span class="cities"><span class="symbol">■</span>負債標記</span>不會移除，即使玩家有多餘的錢幣，也不能拿來償還已經拿取的債務</li>
                   <li>只有當玩家因債務效果而造成錢幣損失時，玩家才可以選擇拿取<span class="cities"><span class="symbol">■</span>負債標記</span>（你不能借錢）</li>
                 </ul>
               </ul>
               <li>造成錢幣損失的事件包括...</li>
               <ul>
-                <li class="cities-line">債務效果（可以<span class="cities"><span class="symbol">■</span>負債標記</span>代替支付錢幣）</li>
-                <li class="armada-line">海盜活動</li>
-                <li class="armada-line">徵收賦稅</li>
+                <li class="cities-line">債務效果（可以拿取等值的<span class="cities"><span class="symbol">■</span>負債標記</span>代替支付全額或部分錢幣）</li>
+                <li class="armada-line">海盜活動（不足以支付全額時，只需要支付可以負擔的部分）</li>
+                <li class="armada-line">徵收賦稅（不足以支付全額時，只需要支付可以負擔的部分）</li>
+                <!-- <li class="edifice-line">工程失敗（只有在無法支付全額時，不支付任何罰鍰，改為拿取<span class="cities"><span class="symbol">■</span>負債標記</span>）</li> -->
               </ul>
               <li class="team-line" hidden>因任何效果造成玩家的錢幣損失，無論是不是隊友也要承受該錢幣損失</li>
             </ul>
