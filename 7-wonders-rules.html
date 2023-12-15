@@ -433,15 +433,15 @@
                 <li class="team-line" hidden>玩家選擇<span class="military"><span class="symbol">&#x2694;&#xFE0E;</span>入侵標記</span>的玩家位置時，不會考量位置是否隊友（根據座位，玩家不會收到來自隊友的<span class="military"><span class="symbol">&#x2694;&#xFE0E;</span>入侵標記</span>）</li>
               </ul>
             </ul>
-            <li class="cities-line">如果自己城邦內擁有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>，在本次結算期間將視該玩家已被除外，不和任何玩家發生<span class="military">軍事衝突</span>，結算後移除<span class="civilian"><span class="symbol">🐦</span>外交標記</span></li>
+            <li class="cities-line">如果玩家城邦內擁有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>，在本次結算期間將視該玩家已被除外，不和任何玩家發生<span class="military">軍事衝突</span>，結算後該玩家需要移除<span class="civilian"><span class="symbol">🐦</span>外交標記</span></li>
             <ul>
               <li>每次<span class="military">軍事衝突</span>結算必須移除<span class="civilian"><span class="symbol">🐦</span>外交標記</span>，無論該玩家原本有或沒有需要和其他玩家發生<span class="military">軍事衝突</span>，如果自己城邦內擁有超過 1 個<span class="civilian"><span class="symbol">🐦</span>外交標記</span>，每次結算只需要移除 1 個</li>
               <li>除外期間該玩家原本的兩鄰將會被改視為相鄰，這兩名玩家將會發生<span class="military">軍事衝突</span></li>
               <li>因此而導致有玩家的兩鄰為另外同一個玩家時，這些玩家只會被視為一對一的一次<span class="military">軍事衝突</span>（每一組玩家的<span class="military">軍事衝突</span>，一個時代裡只會結算一次）</li>
-              <li class="armada-line">收到<span class="military"><span class="symbol">&#x2694;&#xFE0E;</span>入侵標記</span>的玩家無法以<span class="civilian"><span class="symbol">🐦</span>外交標記</span>來迴避其<span class="military">軍事衝突</span></li>
-              <li class="team-line" hidden>持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的玩家無法迴避<span class="military">軍事衝突</span>，必須如常結算</li>
+              <li class="armada-line">收到<span class="military"><span class="symbol">&#x2694;&#xFE0E;</span>入侵標記</span>的玩家無法以<span class="civilian"><span class="symbol">🐦</span>外交標記</span>來迴避其<span class="military">軍事衝突</span>（結算後依然要移除<span class="civilian"><span class="symbol">🐦</span>外交標記</span>）</li>
+              <li class="team-line" hidden>持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的玩家無法迴避<span class="military">軍事衝突</span>，必須如常結算（結算後移除<span class="civilian"><span class="symbol">🐦</span>外交標記</span>）</li>
               <ul hidden>
-                <li>玩家不會受到持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的隊友影響，如常結算</li>
+                <li>持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的玩家不會另外影響隊友，該隊友需要如常結算<span class="military">軍事衝突</span></li>
               </ul>
             </ul>
             <li>戰勝者拿取 <span class="score-plus">+1</span> 的<span class="military"><span class="symbol">&#x1F33F;&#xFE0E;</span>軍事衝突標記</span>，戰敗者拿取 <span class="score-minus">-1</span> 的<span class="military"><span class="symbol">⯃</span>軍事衝突標記</span>，平手則不獲得任何<span class="military">軍事衝突標記</span></li>
@@ -449,7 +449,7 @@
               <li class="team-line" hidden><span class="military">軍事衝突</span>之後每位玩家均要拿取 2 倍的<span class="military">軍事衝突標記</span></li>
               <ul hidden>
                 <li>持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的玩家所參加的<span class="military">軍事衝突</span>，該玩家和其對手只需要拿取 1 倍的<span class="military">軍事衝突標記</span>，結算後移除<span class="civilian"><span class="symbol">🐦</span>外交標記</span></li>
-                <li>玩家不會受到持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的隊友影響，如常結算並拿取 2 倍的<span class="military">軍事衝突標記</span></li>
+                <li>持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>的玩家不會另外影響隊友，該隊友將如常結算並拿取 2 倍的<span class="military">軍事衝突標記</span></li>
                 <li>一組<span class="military">軍事衝突</span>的兩個玩家都持有<span class="civilian"><span class="symbol">🐦</span>外交標記</span>時，衝突雙方都不用拿取<span class="military">軍事衝突標記</span></li>
               </ul>
             </ul>
@@ -471,7 +471,7 @@
               <li>同時有最高者時，所有最高者拿取第二高的戰勝標記（獎勵降級），而原本第二高的玩家改拿取第三高的戰勝標記（如果還有）</li>
               <li>同時有第二高者或第三高者時，如獎勵降級導致無法取得戰勝標記時，就不會取得戰勝標記</li>
             </ul>
-            <li class="team-line" hidden>無論隊友是否同分，海軍強度如常計算</li>
+            <li class="team-line" hidden>無論隊友是否同分，海軍強度如常個別計算，不會總加</li>
           </ul>
         </section>
 
