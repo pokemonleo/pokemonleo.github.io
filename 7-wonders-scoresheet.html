@@ -475,11 +475,12 @@
   {
     position: absolute;
     top: 0;
-    left: 200px;
+    left: calc(var(--player-count, 1) * 200px);
     right: 0;
     bottom: 0;
     display: grid;
     place-items: center;
+    overflow: hidden;
   }
 
   #scoresheet > div
@@ -564,6 +565,7 @@ void (() =>
     }
   }
 
+  const playerCount = { counts: 0 }
   const addPlayer = () =>
   {
     const playername = createLineObject({
@@ -1059,6 +1061,13 @@ void (() =>
     parent.append(div)
 
     div.scrollTop = currentScrollTop.scrollTop
+    playerCount.counts++
+
+    const players = document.querySelectorAll(".scoresheet-players")
+    for (const element of players)
+    {
+      element.style.setProperty("--player-count", playerCount.counts)
+    }
 
     renderTooltip(playername.line)
     renderTooltip(wonder.line)
