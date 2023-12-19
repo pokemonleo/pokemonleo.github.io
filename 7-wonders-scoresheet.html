@@ -1025,6 +1025,8 @@ void (() =>
     const parent = document.getElementById("scoresheet")
     parent.append(div)
 
+    div.scrollTop = currentScrollTop.scrollTop
+
     renderTooltip(playername.line)
     renderTooltip(wonder.line)
     renderTooltip(treasure.line)
@@ -1146,6 +1148,7 @@ void (() =>
   }
 
   const allScroller = new Set()
+  const currentScrollTop = { scrollTop: 0 }
   const syncScroll = event =>
   {
     syncAllScroll(event.target.scrollTop)
@@ -1158,6 +1161,7 @@ void (() =>
 
   const syncAllScroll = scrollTop =>
   {
+    currentScrollTop.scrollTop = scrollTop
     for (const element of allScroller)
     {
       element.scrollTop = scrollTop
