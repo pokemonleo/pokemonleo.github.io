@@ -406,7 +406,7 @@
 
   .scoresheet-title
   {
-    max-width: 33%;
+    max-width: 30%;
     width: 200px;
     height: 100%;
   }
@@ -423,6 +423,7 @@
   .ptitle .icon
   {
     font-size: 1.5em;
+    line-height: 1em;
   }
 
   .ptitle .icon sup, .ptitle .icon sub
@@ -437,7 +438,7 @@
 
   .ptitle.total
   {
-    height: clamp(120px, 20vh, 160px);
+    height: clamp(100px, 16vh, 120px);
     max-height: 50%;
     position: sticky;
     bottom: 0px;
@@ -456,6 +457,7 @@
   .ptitle.total .icon
   {
     font-size: 3em;
+    line-height: 1em;
   }
 
   .ptitle.total .text
@@ -465,7 +467,7 @@
 
   .scoresheet-players
   {
-    min-width: 67%;
+    min-width: 70%;
     width: calc(100% - 200px);
     overflow-x: auto;
     position: relative;
@@ -475,7 +477,7 @@
   {
     position: absolute;
     top: 0;
-    left: calc(var(--player-count, 1) * 200px);
+    left: calc(var(--player-count, 1) * 150px);
     right: 0;
     bottom: 0;
     display: grid;
@@ -491,8 +493,8 @@
 
   .scoresheet-player
   {
-    min-width: fit-content;
-    width: 150px;
+    min-width: 150px;
+    width: max-content;
 
     background-color: #fff;
   }
@@ -505,19 +507,19 @@
 
   .scoresheet-player > .total
   {
-    height: clamp(120px, 20vh, 160px);
+    height: clamp(100px, 16vh, 120px);
     max-height: 50%;
     position: sticky;
     bottom: 0px;
     z-index: 2;
 
-    font-size: clamp(32px, 5vw, 4rem);
-    font-size: 5rem;
+    font-size: clamp(24px, 4.5vw, 3.5rem);
+    font-size: 3.5rem;
 
     padding-inline: 16px;
     padding-inline: .5ch;
 
-    width: fit-content;
+    width: max-content;
     min-width: 100%;
   }
 
@@ -1006,7 +1008,7 @@ void (() =>
     })
 
     const total = createLineObject({
-      title: "Total",
+      // title: "Total",
       "titleClass": "total",
 
       element: "span",
