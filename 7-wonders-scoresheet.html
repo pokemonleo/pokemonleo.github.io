@@ -477,7 +477,7 @@
   {
     position: absolute;
     top: 0;
-    left: calc(var(--player-count, 1) * 100px);
+    left: calc(var(--player-count, 1) * 120px);
     right: 0;
     bottom: 0;
     display: grid;
@@ -493,8 +493,8 @@
 
   .scoresheet-player
   {
-    min-width: 100px;
-    width: max-content;
+    min-width: 120px;
+    width: calc(var(--total-width, calc(120px - 32px)) + 32px);
 
     background-color: #fff;
   }
@@ -515,12 +515,18 @@
 
     font-size: clamp(24px, 4.5vw, 3.5rem);
     font-size: 3.5rem;
+    line-height: 0;
 
     padding-inline: 16px;
     padding-inline: .5ch;
 
-    width: max-content;
+    width: fit-content;
     min-width: 100%;
+  }
+
+  .scoresheet-player > .total > .total-input
+  {
+    width: fit-content;
   }
 
   .scoresheet-player + .scoresheet-player > .total
@@ -603,6 +609,7 @@ void (() =>
         {
           player.counts.wonder = parseFloat(wonder.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -628,6 +635,7 @@ void (() =>
         {
           player.counts.treasure = parseFloat(treasure.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -653,6 +661,7 @@ void (() =>
         {
           player.counts.dept = parseFloat(dept.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -678,6 +687,7 @@ void (() =>
         {
           player.counts.military = parseFloat(military.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -703,6 +713,7 @@ void (() =>
         {
           player.counts.civilian = parseFloat(civilian.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -728,6 +739,7 @@ void (() =>
         {
           player.counts.commercial = parseFloat(commercial.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -753,6 +765,7 @@ void (() =>
         {
           player.counts.scientific1 = parseFloat(scientific1.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -778,6 +791,7 @@ void (() =>
         {
           player.counts.scientific2 = parseFloat(scientific2.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -803,6 +817,7 @@ void (() =>
         {
           player.counts.scientific3 = parseFloat(scientific3.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -828,6 +843,7 @@ void (() =>
         {
           player.counts.scientific_sb = parseFloat(scientific_sb.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -853,6 +869,7 @@ void (() =>
         {
           player.counts.guilds = parseFloat(guilds.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -878,6 +895,7 @@ void (() =>
         {
           player.counts.cities = parseFloat(cities.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -903,6 +921,7 @@ void (() =>
         {
           player.counts.leaders = parseFloat(leaders.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -928,6 +947,7 @@ void (() =>
         {
           player.counts.naval = parseFloat(naval.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -953,6 +973,7 @@ void (() =>
         {
           player.counts.armada = parseFloat(armada.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -978,6 +999,7 @@ void (() =>
         {
           player.counts.island = parseFloat(island.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -1003,6 +1025,7 @@ void (() =>
         {
           player.counts.edifice = parseFloat(edifice.input.value) || 0
           total.input.innerHTML = calculate()
+          checkWidth()
         },
       },
     })
@@ -1026,9 +1049,19 @@ void (() =>
       return total || 0
     }
 
+    const playerElement = document.createElement("div")
+    playerElement.classList.add("scoresheet-player")
+
+    const checkWidth = () =>
+    {
+      player.element.style.setProperty("--total-width", player.totalEl.clientWidth + "px")
+    }
+
     const player =
     {
       counts: {},
+      element: playerElement,
+      totalEl: total.input,
       lines: [
         playername.line,
         wonder.line,
@@ -1052,17 +1085,15 @@ void (() =>
       ],
     }
 
-    const div = document.createElement("div")
-    div.classList.add("scoresheet-player")
-    div.append(...player.lines)
+    playerElement.append(...player.lines)
 
-    div.addEventListener("scroll", syncScroll)
-    addToSyncScroll(div)
+    playerElement.addEventListener("scroll", syncScroll)
+    addToSyncScroll(playerElement)
 
     const parent = document.getElementById("scoresheet")
-    parent.append(div)
+    parent.append(playerElement)
 
-    div.scrollTop = currentScrollTop.scrollTop
+    playerElement.scrollTop = currentScrollTop.scrollTop
     playerCount.counts++
 
     const players = document.querySelectorAll(".scoresheet-players")
