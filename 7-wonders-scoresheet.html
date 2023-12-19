@@ -440,6 +440,16 @@
     bottom: 0px;
   }
 
+  .pname
+  {
+    position: sticky;
+    top: 0px;
+    background-color: #fff;
+
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+
   .ptitle.total .icon
   {
     font-size: 3em;
@@ -459,15 +469,14 @@
 
   .scoresheet-player
   {
-    min-width: 150px;
-    width: fit-content;
+    min-width: fit-content;
+    width: 150px;
   }
 
   .scoresheet-player > div
   {
     height: 80px;
     text-align: center;
-    padding-inline: 8px;
   }
 
   .scoresheet-player > .total
@@ -476,6 +485,7 @@
     max-height: 50%;
     position: sticky;
     bottom: 0px;
+    z-index: 2;
 
     font-size: clamp(32px, 5vw, 4rem);
     font-size: 5rem;
