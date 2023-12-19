@@ -494,7 +494,8 @@
   .scoresheet-player
   {
     min-width: 120px;
-    width: calc(var(--total-width, calc(120px - 32px)) + 32px);
+    /* width: calc(var(--total-width, calc(120px - 32px)) + 32px); */
+    width: 120px;
 
     background-color: #fff;
   }
@@ -586,6 +587,12 @@ void (() =>
         type: "text",
         placeholder: "Insert player name",
       },
+      eventListeners: {
+        "change input": () =>
+        {
+          calculate()
+        },
+      },
     })
 
     const wonder = createLineObject({
@@ -608,8 +615,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.wonder = parseFloat(wonder.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -634,8 +643,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.treasure = parseFloat(treasure.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -660,8 +671,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.dept = parseFloat(dept.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -686,8 +699,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.military = parseFloat(military.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -712,8 +727,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.civilian = parseFloat(civilian.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -738,8 +755,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.commercial = parseFloat(commercial.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -764,8 +783,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.scientific1 = parseFloat(scientific1.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -790,8 +811,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.scientific2 = parseFloat(scientific2.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -816,8 +839,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.scientific3 = parseFloat(scientific3.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -842,8 +867,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.scientific_sb = parseFloat(scientific_sb.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -868,8 +895,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.guilds = parseFloat(guilds.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -894,8 +923,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.cities = parseFloat(cities.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -920,8 +951,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.leaders = parseFloat(leaders.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -946,8 +979,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.naval = parseFloat(naval.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -972,8 +1007,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.armada = parseFloat(armada.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -998,8 +1035,10 @@ void (() =>
         "change input": () =>
         {
           player.counts.island = parseFloat(island.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
@@ -1024,14 +1063,16 @@ void (() =>
         "change input": () =>
         {
           player.counts.edifice = parseFloat(edifice.input.value) || 0
-          total.input.innerHTML = calculate()
+          const _total = calculate()
+          total.input.innerHTML = _total
           checkWidth()
+          // reRenderTotal((playername.input.value ? playername.input.value + ": " : "") + _total)
         },
       },
     })
 
     const total = createLineObject({
-      // title: "Total",
+      title: "Total",
       "titleClass": "total",
 
       element: "span",
@@ -1046,6 +1087,7 @@ void (() =>
         total += parseFloat(player.counts[key]) || 0
       }
 
+      reRenderTotal(total || 0)
       return total || 0
     }
 
@@ -1054,7 +1096,13 @@ void (() =>
 
     const checkWidth = () =>
     {
-      player.element.style.setProperty("--total-width", player.totalEl.clientWidth + "px")
+      // player.element.style.setProperty("--total-width", player.totalEl.clientWidth + "px")
+    }
+
+    const reRenderTotal = _total =>
+    {
+      const text = (playername.input.value ? playername.input.value + ": " : "Total: ") + _total
+      reRenderTooltipText(total.line, text)
     }
 
     const player =
@@ -1221,6 +1269,24 @@ void (() =>
 
     new bootstrap.Tooltip(element)
   }
+
+  const reRenderTooltipText = (element, text) =>
+  {
+    if (!window.bootstrap?.Tooltip)
+    {
+      return
+    }
+
+    if (!text)
+    {
+      return
+    }
+
+    const tooltip = bootstrap.Tooltip.getOrCreateInstance(element)
+    tooltip.setContent({ ".tooltip-inner": text })
+    tooltip.update()
+  }
+
 
   const allScroller = new Set()
   const currentScrollTop = { scrollTop: 0 }
