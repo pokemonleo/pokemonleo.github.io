@@ -23,16 +23,16 @@
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <!-- <link rel="preconnect" href="https://cdnjs.cloudflare.com"> -->
-  <link rel="preconnect" href="https://raw.githubusercontent.com">
-  <link rel="preconnect" href="https://rsms.me/">
+  <!-- <link rel="preconnect" href="https://raw.githubusercontent.com"> -->
+  <!-- <link rel="preconnect" href="https://rsms.me/"> -->
   <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
   <!-- <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"> -->
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="preload" as="style" href="https://rsms.me/inter/inter.css" crossorigin="anonymous">
+  <!-- <link rel="preload" as="style" href="https://rsms.me/inter/inter.css" crossorigin="anonymous"> -->
 
   <!-- https://www.jsdelivr.com/package/npm/bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <!-- <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
 
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjUuMSBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMyBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggaWQ9InNldmVuIiBkPSJNMCA2NEMwIDQ2LjMgMTQuMyAzMiAzMiAzMkgyODhjMTEuNSAwIDIyIDYuMSAyNy43IDE2LjFzNS43IDIyLjItLjEgMzIuMWwtMjI0IDM4NGMtOC45IDE1LjMtMjguNSAyMC40LTQzLjggMTEuNXMtMjAuNC0yOC41LTExLjUtNDMuOEwyMzIuMyA5NkgzMkMxNC4zIDk2IDAgODEuNyAwIDY0eiIvPjx1c2UgZmlsbD0iIzAwMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEyLjUlIiBocmVmPSIjc2V2ZW4iLz4KPHVzZSBmaWxsPSIjMDAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMCIgaHJlZj0iI3NldmVuIi8+PC9zdmc+" sizes="any">
 
@@ -40,54 +40,119 @@
 
 </head>
 
-<body>
+<body style="padding-top: 48px; padding-bottom: 38px; height: 100vh; height: 100dvh;">
 
-  <section class="my-4">
-    <div class="container">
-      <header class="py-2">
-        <h1 class="">
-          <div>SCORESHEET | 7 WONDERS</div>
-          <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">Calculate the 7 Wonders score by yourself with a friendly scoresheet.</div>
-        </h1>
-      </header>
-    </div>
-  </section>
-
-  <section class="my-4">
-    <div class="container">
-
-      <div id="scoresheet">
-
-        <div class="pname ptitle" title="Player"><span class="icon">👤 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Player name</span></div>
-        <div class="wonder ptitle" title="Wonder: Earn the points from wonder."><span class="icon">⛰️ <i class="fa-solid fa-mountain-sun"></i></span><span class="text sr-only">Wonder</span></div>
-        <div class="treasure ptitle" title="Treasure: For every 3 coins, earn 1 point."><span class="icon">💰 <i class="fa-solid fa-circle-dollar-to-slot"></i></span><span class="text sr-only">Treasure</span></div>
-        <div class="cities ptitle" title="Dept: For every debt, earn -1 point."><span class="icon"><span style="color: #000;">■</span> <i class="fa-solid fa-circle-dollar-to-slot"></i></span><span class="text sr-only">Dept</span></div>
-        <div class="military ptitle" title="Military Conflicts: Add the Victory and Defeat tokens."><span class="icon">⚔️</span><span class="text sr-only">Military Conflicts</span></div>
-        <div class="civilian ptitle" title="Civil Buildings: Add the points from Blue cards."><span class="icon">▮</span><span class="text sr-only">Civil Buildings</span></div>
-        <div class="commercial ptitle" title="Commercial Buildings: Add points from Yellow cards. Check reference."><span class="icon">●</span><span class="text sr-only">Commercial Buildings</span></div>
-        <div class="scientific ptitle" title="Science Buildings: For first symbol of green cards, earn points by the number of symbol squared."><span class="icon">▲<sub>Tablet</sub></span><span class="text sr-only">Science Buildings: Tablet</span></div>
-        <div class="scientific ptitle" title="Science Buildings: For second symbol of green cards, earn points by the number of symbol squared."><span class="icon">▲<sub>Compass</sub></span><span class="text sr-only">Science Buildings: Compass</span></div>
-        <div class="scientific ptitle" title="Science Buildings: For third symbol of green cards, earn points by the number of symbol squared."><span class="icon">▲<sub>Gear</sub></span><span class="text sr-only">Science Buildings: Gear</span></div>
-        <div class="scientific ptitle" title="Science Buildings: For every set of symbols of green cards, earn 7 points."><span class="icon">▲<sub>Set Bonus</sub></span><span class="text sr-only">Science Buildings: Set Bonus</span></div>
-        <div class="guilds ptitle" title="Guilds: Add points from Purple cards. Check reference."><span class="icon">★</span><span class="text sr-only">Guilds</span></div>
-        <div class="cities ptitle" title="Cities expansion: Add points from Black cards. Check reference."><span class="icon">○</span><span class="text sr-only">Cities expansion</span></div>
-        <div class="leaders ptitle" title="Leaders expansion: Add points from White cards. Check reference."><span class="icon">👑 <i class="fa-solid fa-user"></i></span><span class="text sr-only">Leaders expansion</span></div>
-        <div class="armada ptitle" title="Naval Conflicts: Add the Victory and Defeat tokens."><span class="icon">⚓</span><span class="text sr-only">Naval conflicts</span></div>
-        <div class="armada ptitle" title="Armada expansion: Add the points from Shipyard."><span class="icon">🌊</span><span class="text sr-only">Armada expansion</span></div>
-        <div class="armada ptitle" title="Armada expansion: Add the points from Islands."><span class="icon">🌊</span><span class="text sr-only">Armada expansion</span></div>
-        <div class="edifice ptitle" title="Edifice expansion: Add points from Participation Pawns."><span class="icon">🏛️</span><span class="text sr-only">Edifice expansion</span></div>
-        <div class="total ptitle" title="Total"><span class="icon">Σ</span><span class="text sr-only">Total</span></div>
-
-        <div class="pname ptitle" id="add-before-this"><button id="add-player-button" class="btn btn-success btn-lg" type="button">Add player</button></div>
-
+  <section class="">
+    <nav class="navbar fixed-top bg-body-tertiary shadow border-bottom align-items-center" style="height: 48px; overflow-y: hidden;">
+      <div class="container-fluid flex-nowrap">
+        <header class="">
+          <h1 class="h3 mb-0">
+            <div>
+              SCORESHEET
+              <span class="visually-hidden"> | </span>
+              <span class="text-secondary" style="--bs-text-opacity: .75; font-size: 16px; white-space: nowrap; font-weight: normal;">7 WONDERS</span>
+            </div>
+            <div class="visually-hidden text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">Calculate the 7 Wonders score by yourself with a friendly scoresheet.</div>
+            <!-- <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">Calculate the 7 Wonders score by yourself with a friendly scoresheet.</div> -->
+          </h1>
+        </header>
+        <div>
+          <button class="btn btn-success btn-sm add-player-button" type="button">Add player</button>
+        </div>
       </div>
+    </nav>
+  </section>
 
+  <section class="" style="height: 100%;">
+    <div class="d-flex flex-nowrap" style="height: 100%;">
+      <div class="scoresheet-title">
+        <div class="pname ptitle" title="Player">
+          <span class="icon">👤</span>
+          <span class="text">Player name</span>
+        </div>
+        <div class="wonder ptitle" title="Wonder: Earn the points from wonder.">
+          <span class="icon">⛰️</span>
+          <span class="text">Wonder</span>
+        </div>
+        <div class="treasure ptitle" title="Treasure: For every 3 coins, earn 1 point.">
+          <span class="icon">💰</span>
+          <span class="text">Treasure</span>
+        </div>
+        <div class="cities ptitle" title="Dept: For every debt, earn -1 point.">
+          <span class="icon"><span style="color: #000;">■</span></span>
+          <span class="text">Dept</span>
+        </div>
+        <div class="military ptitle" title="Military Conflicts: Add the Victory and Defeat tokens.">
+          <span class="icon">⚔️</span>
+          <span class="text">Military Conflicts</span>
+        </div>
+        <div class="civilian ptitle" title="Civil Buildings: Add the points from Blue cards.">
+          <span class="icon">▮</span>
+          <span class="text">Civil Buildings</span>
+        </div>
+        <div class="commercial ptitle" title="Commercial Buildings: Add points from Yellow cards. Check reference.">
+          <span class="icon">●</span>
+          <span class="text">Commercial Buildings</span>
+        </div>
+        <div class="scientific ptitle" title="Science Buildings: For first symbol of green cards, earn points by the number of symbol squared.">
+          <span class="icon">▲<sub>Tablet</sub></span>
+          <span class="text">Science Buildings: Tablet</span>
+        </div>
+        <div class="scientific ptitle" title="Science Buildings: For second symbol of green cards, earn points by the number of symbol squared.">
+          <span class="icon">▲<sub>Compass</sub></span>
+          <span class="text">Science Buildings: Compass</span>
+        </div>
+        <div class="scientific ptitle" title="Science Buildings: For third symbol of green cards, earn points by the number of symbol squared.">
+          <span class="icon">▲<sub>Gear</sub></span>
+          <span class="text">Science Buildings: Gear</span>
+        </div>
+        <div class="scientific ptitle" title="Science Buildings: For every set of symbols of green cards, earn 7 points.">
+          <span class="icon">▲<sub>Set Bonus</sub></span>
+          <span class="text">Science Buildings: Set Bonus</span>
+        </div>
+        <div class="guilds ptitle" title="Guilds: Add points from Purple cards. Check reference.">
+          <span class="icon">★</span>
+          <span class="text">Guilds</span>
+        </div>
+        <div class="cities ptitle" title="Cities expansion: Add points from Black cards. Check reference.">
+          <span class="icon">○</span>
+          <span class="text">Cities expansion</span>
+        </div>
+        <div class="leaders ptitle" title="Leaders expansion: Add points from White cards. Check reference.">
+          <span class="icon">👑</span>
+          <span class="text">Leaders expansion</span>
+        </div>
+        <div class="armada ptitle" title="Naval Conflicts: Add the Victory and Defeat tokens.">
+          <span class="icon">⚓</span>
+          <span class="text">Naval conflicts</span>
+        </div>
+        <div class="armada ptitle" title="Armada expansion: Add the points from Shipyard.">
+          <span class="icon">🌊</span>
+          <span class="text">Armada expansion</span>
+        </div>
+        <div class="armada ptitle" title="Armada expansion: Add the points from Islands.">
+          <span class="icon">🌊</span>
+          <span class="text">Armada expansion</span>
+        </div>
+        <div class="edifice ptitle" title="Edifice expansion: Add points from Participation Pawns.">
+          <span class="icon">🏛️</span>
+          <span class="text">Edifice expansion</span>
+        </div>
+        <div class="total ptitle" title="Total">
+          <span class="icon">Σ</span>
+          <span class="text">Total</span>
+        </div>
+      </div>
+      <div class="scoresheet-players">
+        <div class="d-flex flex-nowrap" id="scoresheet" style="height: 100%;">
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="my-4">
-    <div class="container">
-      <footer class="py-2">
+  <section class="fixed-bottom">
+    <div class="container border-top" style="height: 38px; overflow-y: hidden;">
+      <footer class="py-2" style="background-color: #fff;">
         <div class="d-flex justify-content-center align-items-center">
           <div class="small">
             © 2024 <span class="text-secondary small" style="--bs-text-opacity: .5;">(Applies to Codes Only)</span>
@@ -142,26 +207,6 @@
     word-break: break-word;
     overflow-wrap: break-word;
     /* word-wrap: break-word; */
-  }
-
-  #scoresheet
-  {
-    display: grid;
-    grid-template-columns: minmax(90px, auto);
-    grid-template-rows: repeat(19, minmax(0, 1fr));
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    grid-auto-flow: column;
-
-    font-size: clamp(16px, 3vw, 2rem);
-    font-size: 2rem;
-
-    overflow-x: auto;
-  }
-
-  #scoresheet > div
-  {
-    min-width: 90px;
   }
 
   .pname
@@ -232,55 +277,19 @@
 
   .total
   {
-    font-size: clamp(32px, 5vw, 4rem);
-    font-size: 5rem;
     font-weight: bold;
     display: grid;
     place-items: center;
+    background-color: #fff;
+
+    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
 
-  #scoresheet .ptitle
-  {
-    /* width: 180px; */
-    padding: 0 8px;
-    display: grid;
-    place-items: center left;
-  }
-
-  #add-before-this
-  {
-    place-items: center;
-  }
-
-  #scoresheet .ptitle:not(.total)
+  .scoresheet-title .ptitle:not(.total),
+  .scoresheet-span .ptitle:not(.total)
   {
     border-bottom: clamp(2px, .25vw, 4px) solid rgb(0 0 0 / 10%);
     border-bottom: 3px solid rgb(0 0 0 / 10%);
-  }
-
-  .ptitle .icon
-  {
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-
-  .ptitle .icon sup, .ptitle .icon sub
-  {
-    font-size: .375em;
-  }
-
-  .ptitle .text
-  {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
   }
 
   #scoresheet input
@@ -392,6 +401,97 @@
     pointer-events: none;
   }
 
+  .scoresheet-title
+  {
+    max-width: 33%;
+    width: 200px;
+    height: 100%;
+  }
+
+  .ptitle
+  {
+    height: 80px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding-inline: 4px;
+  }
+
+  .ptitle .icon
+  {
+    font-size: 1.5em;
+  }
+
+  .ptitle .text
+  {
+    font-size: .875em;
+  }
+
+  .ptitle.total
+  {
+    height: clamp(120px, 20vh, 160px);
+    max-height: 50%;
+    position: sticky;
+    bottom: 0px;
+  }
+
+  .ptitle.total .icon
+  {
+    font-size: 3em;
+  }
+
+  .ptitle.total .text
+  {
+    font-size: 1.25em;
+  }
+
+  .scoresheet-players
+  {
+    min-width: 67%;
+    width: calc(100% - 200px);
+    overflow-x: auto;
+  }
+
+  .scoresheet-player
+  {
+    min-width: 150px;
+    width: fit-content;
+  }
+
+  .scoresheet-player > div
+  {
+    height: 80px;
+    text-align: center;
+    padding-inline: 8px;
+  }
+
+  .scoresheet-player > .total
+  {
+    height: clamp(120px, 20vh, 160px);
+    max-height: 50%;
+    position: sticky;
+    bottom: 0px;
+
+    font-size: clamp(32px, 5vw, 4rem);
+    font-size: 5rem;
+
+    padding-inline: 16px;
+    padding-inline: .5ch;
+
+    width: fit-content;
+    min-width: 100%;
+  }
+
+  .scoresheet-player + .scoresheet-player > .total
+  {
+    border-left: 1px solid #aaa;
+  }
+
+  .scoresheet-title, .scoresheet-player
+  {
+    overflow-x: hidden;
+  }
+
 </style>
 
 <script>
@@ -401,6 +501,12 @@ void (() =>
   {
     const _____start = window.performance.now()
 
+    const divs = document.querySelectorAll(".scoresheet-title")
+    for (const element of divs)
+    {
+      element.addEventListener("scroll", syncScroll)
+      addToSyncScroll(element)
+    }
     readyAddPlayerButton()
     addPlayer()
     renderPTitleTooltips()
@@ -413,8 +519,11 @@ void (() =>
 
   const readyAddPlayerButton = () =>
   {
-    const button = document.getElementById("add-player-button")
-    button.addEventListener("click", addPlayer)
+    const buttons = document.querySelectorAll(".add-player-button")
+    for (const button of buttons)
+    {
+      button.addEventListener("click", addPlayer)
+    }
   }
 
   const addPlayer = () =>
@@ -901,20 +1010,15 @@ void (() =>
       ],
     }
 
-    const before = document.getElementById("add-before-this")
+    const div = document.createElement("div")
+    div.classList.add("scoresheet-player")
+    div.append(...player.lines)
 
-    if (before)
-    {
-      for (const line of player.lines)
-      {
-        before.parentNode.insertBefore(line, before)
-      }
-    }
-    else
-    {
-      const parent = document.getElementById("scoresheet")
-      parent.append(...player.lines)
-    }
+    div.addEventListener("scroll", syncScroll)
+    addToSyncScroll(div)
+
+    const parent = document.getElementById("scoresheet")
+    parent.append(div)
 
     renderTooltip(playername.line)
     renderTooltip(wonder.line)
@@ -1034,6 +1138,25 @@ void (() =>
     }
 
     new bootstrap.Tooltip(element)
+  }
+
+  const allScroller = new Set()
+  const syncScroll = event =>
+  {
+    syncAllScroll(event.target.scrollTop)
+  }
+
+  const addToSyncScroll = element =>
+  {
+    allScroller.add(element)
+  }
+
+  const syncAllScroll = scrollTop =>
+  {
+    for (const element of allScroller)
+    {
+      element.scrollTop = scrollTop
+    }
   }
 
 })()
