@@ -173,11 +173,11 @@
         const region = getParamsFromURL.searchParams.get("r")
         const automaticallyRedirect = getParamsFromURL.searchParams.get("a")
 
-        const webLink = generateWorldLink(worldId, instanceType, instanceOwner, region)
+        const webURL = generateWorldLink(worldId, instanceType, instanceOwner, region)
 
         if (!!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect !== "off" && automaticallyRedirect !== "false")
         {
-            location.href = weblink
+            location.href = webURL.toString()
         }
     }
 
