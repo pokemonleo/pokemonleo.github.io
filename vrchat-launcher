@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+  <h1>VRChat Links</h1>
+  
+  <ul>
+    <li>Launch Game Link: <span id="gamelink"></span></li>
+    <li>Web Link: <span id="weblink"></li>
+  </ul>
+  
+</body>
+<script>
+// https://vrchatapi.github.io/tutorials/instances/
+// https://thegreatpug.com/vrchat-link-generator/
+
+(() =>
+{
+
+    const generateWorldLink = (worldId, _instanceType = "friend+", instanceOwner) =>
+    {
+        console.log("GENERATING LINK")
+        console.log("===============")
+
+        if (!worldId)
+        {
+            throw new Error("No worldId")
+        }
+
+        if (_instanceType)
+        {
+            throw new Error("No instanceType")
+        }
+
+        if (instanceOwner)
+        {
+            throw new Error("No instanceOwner")
+        }
+
+        const instanceType = 
+            _instanceType === "friend+" ? "hidden" :
+            _instanceType === "friend" ? "friends" :
+            _instanceType === "invite+" ? "private" :
+            _instanceType === "invite" ? "private" :
+            "public"
+        const canRequestInvite = _instanceType === "invite+" // Invite+ - true / other - false
+
+        "public"
+        "friends" // Friend+
+        "hidden" // Friend Only
+        "private" // Invite+ / Invite Only
+
+        const instanceNumber = randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5 
+
+        const region = "jp" // "us" / "use" / "eu" / "jp"
+
+        console.log("worldID = " + worldId)
+        console.log("instanceOwner = " + instanceOwner) // Group ID if creating for Group Instance or Group+ Instance
+        console.log("instanceType  = " + instanceType)
+        console.log("instanceNumber  = " + instanceNumber)
+        
+        const gameLink = "vrchat://launch"
+        // const gameLink = "vrchat://launch?id="
+        // const webLink = "https://vrchat.com/home/launch?worldId="
+        const gameParams = new URLSearchParams()
+        const webURL = new URL("https://vrchat.com/home/launch")
+
+        // gameParams
+        // webURL.searchParams
+
+        // vrchat://launch?id=wrld_97fda4a1-f820-4f09-a88c-2d2a95b668f7:42~private(inviteurl_27e48f0e-1048-4232-9297-9d40b6dd8bc1)~nonce(A8B916551CE6C31A1D71AE89B6D76BEE5EDC0925245305SB2395A466D3B62E40)
+        // vrchat://launch?id=wrld_6caf5200-70e1-46c2-b043-e3c4abe69e0f:3950~public(1J91IX00TGUBoUEmYq2yZE65UFWWGo)~nonce(vVHvCW0bwnLBGEcMqxjs36wq4YUnQV)            
+        // https://vrchat.net/home/launch?  worldId=wrld_6caf5200-70e1-46c2-b043-e3c4abe69e0f   &instanceId=42~private  (96714c33-87e6-4b98-9b58-fecc42031e91)
+            
+        //Add on worldID and Instance Number
+            
+        let instanceId = ""
+
+        //Public links dont seem to allow owners any more?
+        if (instanceType === "public")
+        {
+            instanceId = instanceNumber
+        }
+        else
+        {
+            instanceId = instanceNumber + "~" + instanceType + "(" + instanceOwner + ")"
+        }
+
+        //If the instance is invite+ we need to add in "~canRequestInvite()"
+        if (canRequestInvite === true) 
+        {            
+            instanceId += "~canRequestInvite"
+        }
+        
+        instanceId += "~region(" + region + ")"
+
+        if (instanceType !== "public")
+        {
+            instanceId += "~nonce(" + nonce() + ")"
+        }
+
+        gameParams.set("id", worldId + ":" + instanceId)
+        webURL.searchParams.set("worldId", worldId)
+        webURL.searchParams.set("instanceId", instanceId)
+
+        //Output Final Link
+        console.log("Launch Game Link", gameLink + "?" + gameParams.toString())
+        console.log("Web Link", webURL.toString())
+
+        const gameLinkElement = document.createElement("a")
+        gameLinkElement.href = gameLink + "?" + gameParams.toString()
+
+        const gameLinkWrapper = document.getElementById("gamelink")
+        gameLinkWrapper.innerHTML = ""
+        gameLinkWrapper.append(gameLinkElement)
+
+        const webLinkElement = document.createElement("a")
+        webLinkElement.href = webURL.toString()
+
+        const webLinkWrapper = document.getElementById("weblink")
+        webLinkWrapper.innerHTML = ""
+        webLinkWrapper.append(webLinkElement)
+                        
+        //Get System's fancy new short URL link
+        // loadXMLDoc(weblink + "/shortName")
+        // console.log(weblink + "/shortName")            
+
+        return webURL.toString()
+
+    }
+
+    // Generate a Random enough instance ID
+    const randomWholeNum = () => Math.floor(Math.random() * 6969)
+    const randomInstanceNumber = (type) => 
+    {
+        const length = 5 
+
+        let result = ""
+        const characters = type === "number-only" ? "0123456789" : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"        
+        let counter = 0
+        for (let i = 0; i < length; i++)        
+        {
+            result += characters.charAt(Math.floor(Math.random() * characters.length))            
+        }
+        return result
+    }
+
+    //Generate random enough nonce
+    const nonce = () =>
+    {    
+
+        const temp_url = URL.createObjectURL(new Blob())
+        const uuid = temp_url.toString()
+        URL.revokeObjectURL(temp_url)
+        return uuid.split(/[:\/]/g).pop().toLowerCase() // remove prefixes
+
+    }
+
+    const main = () =>
+    {
+        const getParamsFromURL = new URL(location)
+        const worldId = getParamsFromURL.searchParams.get("w") 
+        const instanceType = getParamsFromURL.searchParams.get("t") 
+        const instanceOwner = getParamsFromURL.searchParams.get("i")
+        const automaticallyRedirect = getParamsFromURL.searchParams.get("r")
+
+        const webLink = generateWorldLink(worldId, instanceType, instanceOwner)
+
+        if (!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect === "off" && automaticallyRedirect !== "false")
+        {
+            location.href = weblink
+        }
+    }
+
+    main()
+
+})()
+</script>
+</html>
