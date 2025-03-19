@@ -20,7 +20,7 @@
 (() =>
 {
 
-    const generateWorldLink = (worldId, _instanceType = "friend+", instanceOwner) =>
+    const generateWorldLink = (worldId, _instanceType = "friend+", instanceOwner, region) =>
     {
         console.log("GENERATING LINK")
         console.log("===============")
@@ -41,12 +41,12 @@
         }
 
         const instanceType = 
-            _instanceType === "friend+" ? "hidden" :
+            _instanceType === "friend+" || _instanceType === "friend-plus" ? "hidden" :
             _instanceType === "friend" ? "friends" :
-            _instanceType === "invite+" ? "private" :
+            _instanceType === "invite+" || _instanceType === "invite-plus" ? "private" :
             _instanceType === "invite" ? "private" :
             "public"
-        const canRequestInvite = _instanceType === "invite+" // Invite+ - true / other - false
+        const canRequestInvite = _instanceType === "invite+" || _instanceType === "invite-plus" // Invite+ - true / other - false
 
         "public"
         "friends" // Friend+
@@ -55,7 +55,7 @@
 
         const instanceNumber = randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5 
 
-        const region = "jp" // "us" / "use" / "eu" / "jp"
+        // const region = "jp" // "us" / "use" / "eu" / "jp"
 
         console.log("worldID = " + worldId)
         console.log("instanceOwner = " + instanceOwner) // Group ID if creating for Group Instance or Group+ Instance
@@ -95,7 +95,10 @@
             instanceId += "~canRequestInvite"
         }
         
-        instanceId += "~region(" + region + ")"
+        if (region)
+        {
+            instanceId += "~region(" + region + ")"            
+        }
 
         if (instanceType !== "public")
         {
@@ -164,10 +167,10 @@
         const getParamsFromURL = new URL(location)
         const worldId = getParamsFromURL.searchParams.get("w") 
         const instanceType = getParamsFromURL.searchParams.get("t") 
-        const instanceOwner = getParamsFromURL.searchParams.get("i")
-        const automaticallyRedirect = getParamsFromURL.searchParams.get("r")
+        const region = getParamsFromURL.searchParams.get("r")
+        const automaticallyRedirect = getParamsFromURL.searchParams.get("a")
 
-        const webLink = generateWorldLink(worldId, instanceType, instanceOwner)
+        const webLink = generateWorldLink(worldId, instanceType, instanceOwner, region)
 
         if (!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect === "off" && automaticallyRedirect !== "false")
         {
