@@ -115,6 +115,7 @@
 
         const gameLinkElement = document.createElement("a")
         gameLinkElement.href = gameLink + "?" + gameParams.toString()
+        gameLinkElement.textContent = gameLink + "?" + gameParams.toString()
 
         const gameLinkWrapper = document.getElementById("gamelink")
         gameLinkWrapper.innerHTML = ""
@@ -122,6 +123,7 @@
 
         const webLinkElement = document.createElement("a")
         webLinkElement.href = webURL.toString()
+        webLinkElement.textContent = webURL.toString()
 
         const webLinkWrapper = document.getElementById("weblink")
         webLinkWrapper.innerHTML = ""
