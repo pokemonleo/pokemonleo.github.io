@@ -175,7 +175,7 @@
 
         const webLink = generateWorldLink(worldId, instanceType, instanceOwner, region)
 
-        if (!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect === "off" && automaticallyRedirect !== "false")
+        if (!!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect !== "off" && automaticallyRedirect !== "false")
         {
             location.href = weblink
         }
