@@ -167,6 +167,7 @@
         const getParamsFromURL = new URL(location)
         const worldId = getParamsFromURL.searchParams.get("w") 
         const instanceType = getParamsFromURL.searchParams.get("t") 
+        const instanceOwner = getParamsFromURL.searchParams.get("i")
         const region = getParamsFromURL.searchParams.get("r")
         const automaticallyRedirect = getParamsFromURL.searchParams.get("a")
 
