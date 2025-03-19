@@ -30,12 +30,12 @@
             throw new Error("No worldId")
         }
 
-        if (_instanceType)
+        if (!_instanceType)
         {
             throw new Error("No instanceType")
         }
 
-        if (instanceOwner)
+        if (!instanceOwner)
         {
             throw new Error("No instanceOwner")
         }
