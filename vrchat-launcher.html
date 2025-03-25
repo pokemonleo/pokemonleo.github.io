@@ -9,10 +9,14 @@
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noreferrer, noopener">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" crossorigin="anonymous">
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" crossorigin="anonymous">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjUuMSBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMyBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggaWQ9InNldmVuIiBkPSJNMCA2NEMwIDQ2LjMgMTQuMyAzMiAzMiAzMkgyODhjMTEuNSAwIDIyIDYuMSAyNy43IDE2LjFzNS43IDIyLjItLjEgMzIuMWwtMjI0IDM4NGMtOC45IDE1LjMtMjguNSAyMC40LTQzLjggMTEuNXMtMjAuNC0yOC41LTExLjUtNDMuOEwyMzIuMyA5NkgzMkMxNC4zIDk2IDAgODEuNyAwIDY0eiIvPjx1c2UgZmlsbD0iIzAwMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEyLjUlIiBocmVmPSIjc2V2ZW4iLz4KPHVzZSBmaWxsPSIjMDAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMCIgaHJlZj0iI3NldmVuIi8+PC9zdmc+" sizes="any"> -->
 
@@ -36,13 +40,30 @@ html, body
 
 <body>
 
-<h1>VRChat Links</h1>
-<h3 class="display-4">Buttons</h3>
-<div class="d-flex flex-col md-flex-row justify-content-start align-items-stretch gap-2 my-2">
-  <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button">Launch Game</a>
-  <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button">Launch Web</a>
-  <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button">Info Link</a>
-</div>
+<section class="my-4">
+  <div class="container">
+    <header class="py-2">
+      <h1 class>
+        <div>VRChat Links</div>
+        <!--
+        <div class="visually-hidden"> | </div>
+        <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">7 WONDERS</div>
+        -->
+      </h1>
+    </header>  
+  </div>
+</section>
+
+<section class="my-4">
+  <div class="container">
+    <h3 class="display-4 my-2">Buttons</h3>
+    <div class="d-flex flex-column flex-sm-row justify-content-start align-items-stretch gap-2 my-2">
+      <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
+      <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
+      <a href="#" class="btn btn-info disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info Link</a>
+    </div>
+  </div>
+</section>
 
 <!--
 <ul>
@@ -55,6 +76,7 @@ html, body
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 // https://vrchatapi.github.io/tutorials/instances/
 // https://thegreatpug.com/vrchat-link-generator/
@@ -74,17 +96,23 @@ html, body
 
         if (!worldId)
         {
-            throw new Error("No worldId")
+            // throw new Error("No worldId")
+            console.error("No worldId")
+            return
         }
 
         if (!_instanceType)
         {
-            throw new Error("No instanceType")
+            // throw new Error("No instanceType")
+            console.error("No instanceType")
+            return
         }
 
         if (!instanceOwner)
         {
-            throw new Error("No instanceOwner")
+            // throw new Error("No instanceOwner")
+            console.error("No instanceOwner")
+            return
         }
 
         if (worldId.match(/\/info$/))
