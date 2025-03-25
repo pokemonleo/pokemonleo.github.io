@@ -41,7 +41,7 @@ html, body
 
 .debug-info
 {
-  margin-top: -12px;
+  /* margin-top: -12px; */
 }
 
 .debug-info-title, .debug-info-text
@@ -53,6 +53,7 @@ html, body
 .debug-info-text
 {
   font-family: monospace, monospace;  
+  text-overflow: ellipsis
 }
 
 </style>
@@ -77,40 +78,40 @@ html, body
   <div class="container">
     <h3 class="display-6 my-2">Buttons</h3>
     <div class="d-flex flex-column flex-sm-row justify-content-start align-items-stretch gap-2 my-2">
-      <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
-      <a href="#" class="btn btn-outline-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
-      <a href="#" class="btn btn-info disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info Link</a>
+      <a href="#" class="btn btn-primary shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
+      <a href="#" class="btn btn-outline-primary shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
+      <a href="#" class="btn btn-info shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info Link</a>
     </div>
     <div class="mt-4 mb-2">
-      <form>
+      <form class="border p-2 pb-0 shadow-sm">
         <div class="row debug-info">
-          <label for="worldid-input" class="col-sm-3 col-form-label debug-info-title">World ID</label>
+          <label for="worldid-input" class="col-sm-3 col-form-label debug-info-title py-0">World ID</label>
           <div class="col-sm-9">
-            <input type="text" id="worldid-input" readonly class="form-control-plaintext debug-info-text">
+            <input type="text" id="worldid-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="instancetype-input" class="col-sm-3 col-form-label debug-info-title">Instance Type</label>
+          <label for="instancetype-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Type</label>
           <div class="col-sm-9">
-            <input type="text" id="instancetype-input" readonly class="form-control-plaintext debug-info-text">
+            <input type="text" id="instancetype-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="instanceid-input" class="col-sm-3 col-form-label debug-info-title">Instance Owner</label>
+          <label for="instanceid-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Owner</label>
           <div class="col-sm-9">
-            <input type="text" id="instanceid-input" readonly class="form-control-plaintext debug-info-text">
+            <input type="text" id="instanceid-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="region-input" class="col-sm-3 col-form-label debug-info-title">Region</label>
+          <label for="region-input" class="col-sm-3 col-form-label debug-info-title py-0">Region</label>
           <div class="col-sm-9">
-            <input type="text" id="region-input" readonly class="form-control-plaintext debug-info-text">
+            <input type="text" id="region-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title">NONCE</label>
+          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title py-0">NONCE</label>
           <div class="col-sm-9">
-            <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text">
+            <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
       </form>
@@ -259,6 +260,9 @@ html, body
           if (worldidInput)
           {
             worldidInput.value = worldId
+
+            worldidInput.selectionStart = 0
+            worldidInput.selectionEnd = worldidInput.value.length
           }
           const instancetypeInput = document.getElementById("instancetype-input")
           if (instancetypeInput)
@@ -270,23 +274,35 @@ html, body
               _instanceType === "invite" ? "invite" :
               "public"
             instancetypeInput.value = __instanceType
+
+            instancetypeInput.selectionStart = 0
+            instancetypeInput.selectionEnd = instancetypeInput.value.length
           }
           const instanceidInput = document.getElementById("instanceid-input")
           if (instanceidInput)
           {
             instanceidInput.value = instanceOwner
+
+            instanceidInput.selectionStart = 0
+            instanceidInput.selectionEnd = instanceidInput.value.length
           }
           
           const regionInput = document.getElementById("region-input")
           if (regionInput)
           {
             regionInput.value = region ? region : "us"
+
+            regionInput.selectionStart = 0
+            regionInput.selectionEnd = regionInput.value.length
           }
 
           const nonceInput = document.getElementById("nonce-input")
           if (nonceInput)
           {
             nonceInput.value = tempNonce
+
+            nonceInput.selectionStart = 0
+            nonceInput.selectionEnd = nonceInput.value.length
           }
 
           const gameLinkWrapper = document.getElementById("gamelink")
