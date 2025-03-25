@@ -11,7 +11,8 @@
   
   <ul>
     <li>Launch Game Link: <span id="gamelink"></span></li>
-    <li>Web Link: <span id="weblink"></li>
+    <li>Web Launch Link: <span id="weblink"></li>
+    <li>Web Info Link: <span id="infolink"></li>
   </ul>
   
 </body>
@@ -79,6 +80,7 @@
         // const webLink = "https://vrchat.com/home/launch?worldId="
         const gameParams = new URLSearchParams()
         const webURL = new URL("https://vrchat.com/home/launch")
+        const infoURL = new URL("https://vrchat.com/home/world/")      
 
         // gameParams
         // webURL.searchParams
@@ -120,6 +122,7 @@
         gameParams.set("id", worldId + ":" + instanceId)
         webURL.searchParams.set("worldId", worldId)
         webURL.searchParams.set("instanceId", instanceId)
+        infoURL.pathname = infoURL.pathname.replace(/\/$/, "") + "/" + worldId
 
         //Output Final Link
         console.log("Launch Game Link", gameLink + "?" + gameParams.toString())
@@ -140,6 +143,14 @@
         const webLinkWrapper = document.getElementById("weblink")
         webLinkWrapper.innerHTML = ""
         webLinkWrapper.append(webLinkElement)
+
+        const infoLinkElement = document.createElement("a")
+        infoLinkElement.href = infoURL.toString()
+        infoLinkElement.textContent = infoURL.toString()
+
+        const infoLinkWrapper = document.getElementById("infolink")
+        infoLinkWrapper.innerHTML = ""
+        infoLinkWrapper.append(infoLinkElement)
                         
         //Get System's fancy new short URL link
         // loadXMLDoc(weblink + "/shortName")
