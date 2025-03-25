@@ -39,9 +39,14 @@ html, body
   /* word-wrap: break-word; */
 }
 
+.debug-info
+{
+  margin-top: -12px;
+}
+
 .debug-info-title, .debug-info-text
 {
-  font-size: .875em;
+  font-size: .75em;
   color: #6c757d;
 }
 
@@ -73,38 +78,38 @@ html, body
     <h3 class="display-6 my-2">Buttons</h3>
     <div class="d-flex flex-column flex-sm-row justify-content-start align-items-stretch gap-2 my-2">
       <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
-      <a href="#" class="btn btn-primary-outline disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
+      <a href="#" class="btn btn-outline-primary disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
       <a href="#" class="btn btn-info disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info Link</a>
     </div>
-    <div class="my-2">
+    <div class="mt-4 mb-2">
       <form>
-        <div class="row mb-3">
-          <label for="worldid-input" class="col-sm-2 col-form-label debug-info-title">World ID</label>
-          <div class="col-sm-10">
+        <div class="row debug-info">
+          <label for="worldid-input" class="col-sm-3 col-form-label debug-info-title">World ID</label>
+          <div class="col-sm-9">
             <input type="text" id="worldid-input" readonly class="form-control-plaintext debug-info-text">
           </div>
         </div>        
-        <div class="row mb-3">
-          <label for="instancetype-input" class="col-sm-2 col-form-label debug-info-title">Instance Type</label>
-          <div class="col-sm-10">
+        <div class="row debug-info">
+          <label for="instancetype-input" class="col-sm-3 col-form-label debug-info-title">Instance Type</label>
+          <div class="col-sm-9">
             <input type="text" id="instancetype-input" readonly class="form-control-plaintext debug-info-text">
           </div>
         </div>        
-        <div class="row mb-3">
-          <label for="instanceid-input" class="col-sm-2 col-form-label debug-info-title">Instance Owner</label>
-          <div class="col-sm-10">
+        <div class="row debug-info">
+          <label for="instanceid-input" class="col-sm-3 col-form-label debug-info-title">Instance Owner</label>
+          <div class="col-sm-9">
             <input type="text" id="instanceid-input" readonly class="form-control-plaintext debug-info-text">
           </div>
         </div>        
-        <div class="row mb-3">
-          <label for="region-input" class="col-sm-2 col-form-label debug-info-title">Region</label>
-          <div class="col-sm-10">
+        <div class="row debug-info">
+          <label for="region-input" class="col-sm-3 col-form-label debug-info-title">Region</label>
+          <div class="col-sm-9">
             <input type="text" id="region-input" readonly class="form-control-plaintext debug-info-text">
           </div>
         </div>        
-        <div class="row mb-3">
-          <label for="nonce-input" class="col-sm-2 col-form-label debug-info-title">NONCE</label>
-          <div class="col-sm-10">
+        <div class="row debug-info">
+          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title">NONCE</label>
+          <div class="col-sm-9">
             <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text">
           </div>
         </div>        
@@ -190,28 +195,6 @@ html, body
         console.log("instanceType  = " + instanceType)
         console.log("instanceNumber  = " + instanceNumber)
 
-        const worldidInput = document.getElementById("worldid-input")
-        if (worldidInput)
-        {
-          worldidInput.value = worldId
-        }
-        const instancetypeInput = document.getElementById("instancetype-input")
-        if (instancetypeInput)
-        {
-          const __instanceType = 
-            _instanceType === "friend+" || _instanceType === "friend-plus" || _instanceType === "friends+" || _instanceType === "friends-plus" ? "friends+" :
-            _instanceType === "friend" || _instanceType === "friends" ? "friends" :
-            _instanceType === "invite+" || _instanceType === "invite-plus" ? "invite+" :
-            _instanceType === "invite" ? "invite" :
-            "public"
-          instancetypeInput.value = __instanceType
-        }
-        const instanceidInput = document.getElementById("instanceid-input")
-        if (instanceidInput)
-        {
-          instanceidInput.value = instanceOwner
-        }
-        
         const gameLink = "vrchat://launch"
         // const gameLink = "vrchat://launch?id="
         // const webLink = "https://vrchat.com/home/launch?worldId="
@@ -251,22 +234,10 @@ html, body
             instanceId += "~region(" + region + ")"            
         }
 
-        const regionInput = document.getElementById("region-input")
-        if (regionInput)
-        {
-          regionInput.value = region ? region : "us"
-        }
-
         const tempNonce = nonce()
         if (instanceType !== "public")
         {
             instanceId += "~nonce(" + tempNonce + ")"
-        }
-
-        const nonceInput = document.getElementById("nonce-input")
-        if (nonceInput)
-        {
-          nonceInput.value = tempNonce
         }
 
         gameParams.set("id", worldId + ":" + instanceId)
@@ -278,69 +249,116 @@ html, body
         console.log("Launch Game Link", gameLink + "?" + gameParams.toString())
         console.log("Web Link", webURL.toString())
 
-        const gameLinkWrapper = document.getElementById("gamelink")
-        if (gameLinkWrapper)
-        {
-          const gameLinkElement = document.createElement("a")
-          gameLinkElement.href = gameLink + "?" + gameParams.toString()
-          gameLinkElement.textContent = gameLink + "?" + gameParams.toString()
-
-          gameLinkWrapper.innerHTML = ""
-          gameLinkWrapper.append(gameLinkElement)
-        }
-
-        const gameButton = document.getElementById("game-button")
-        if (gameButton)
-        {
-          gameButton.href = gameLink + "?" + gameParams.toString()
-          gameButton.tabIndex = ""
-          gameButton.ariaDisabled = false        
-          gameButton.classList.remove("disabled")
-        }
-
-        const webLinkWrapper = document.getElementById("weblink")
-        if (webLinkWrapper)
-        {
-          const webLinkElement = document.createElement("a")
-          webLinkElement.href = webURL.toString()
-          webLinkElement.textContent = webURL.toString()
-
-          webLinkWrapper.innerHTML = ""
-          webLinkWrapper.append(webLinkElement)
-        }
-
-        const webButton = document.getElementById("web-button")
-        if (webButton)
-        {
-          webButton.href = webURL.toString()
-          webButton.tabIndex = ""
-          webButton.ariaDisabled = false        
-          webButton.classList.remove("disabled")
-        }
-
-        const infoLinkWrapper = document.getElementById("infolink")
-        if (infoLinkWrapper)
-        {
-          const infoLinkElement = document.createElement("a")
-          infoLinkElement.href = infoURL.toString()
-          infoLinkElement.textContent = infoURL.toString()
-
-          infoLinkWrapper.innerHTML = ""
-          infoLinkWrapper.append(infoLinkElement)
-        }
-                        
-        const infoButton = document.getElementById("info-button")
-        if (infoButton)
-        {
-          infoButton.href = infoURL.toString()
-          infoButton.tabIndex = ""
-          infoButton.ariaDisabled = false        
-          infoButton.classList.remove("disabled")
-        }
-
         //Get System's fancy new short URL link
         // loadXMLDoc(weblink + "/shortName")
         // console.log(weblink + "/shortName")            
+        
+        document.addEventListener("DOMContentLoaded", () => 
+        {          
+          const worldidInput = document.getElementById("worldid-input")
+          if (worldidInput)
+          {
+            worldidInput.value = worldId
+          }
+          const instancetypeInput = document.getElementById("instancetype-input")
+          if (instancetypeInput)
+          {
+            const __instanceType = 
+              _instanceType === "friend+" || _instanceType === "friend-plus" || _instanceType === "friends+" || _instanceType === "friends-plus" ? "friends+" :
+              _instanceType === "friend" || _instanceType === "friends" ? "friends" :
+              _instanceType === "invite+" || _instanceType === "invite-plus" ? "invite+" :
+              _instanceType === "invite" ? "invite" :
+              "public"
+            instancetypeInput.value = __instanceType
+          }
+          const instanceidInput = document.getElementById("instanceid-input")
+          if (instanceidInput)
+          {
+            instanceidInput.value = instanceOwner
+          }
+          
+          const regionInput = document.getElementById("region-input")
+          if (regionInput)
+          {
+            regionInput.value = region ? region : "us"
+          }
+
+          const nonceInput = document.getElementById("nonce-input")
+          if (nonceInput)
+          {
+            nonceInput.value = tempNonce
+          }
+
+          const gameLinkWrapper = document.getElementById("gamelink")
+          if (gameLinkWrapper)
+          {
+            const gameLinkElement = document.createElement("a")
+            gameLinkElement.href = gameLink + "?" + gameParams.toString()
+            gameLinkElement.textContent = gameLink + "?" + gameParams.toString()
+
+            gameLinkWrapper.innerHTML = ""
+            gameLinkWrapper.append(gameLinkElement)
+          }
+
+          const gameButton = document.getElementById("game-button")
+          if (gameButton)
+          {
+            gameButton.href = gameLink + "?" + gameParams.toString()
+            gameButton.tabIndex = ""
+            gameButton.ariaDisabled = false        
+            gameButton.classList.remove("disabled")
+          }
+
+          const webLinkWrapper = document.getElementById("weblink")
+          if (webLinkWrapper)
+          {
+            const webLinkElement = document.createElement("a")
+            webLinkElement.href = webURL.toString()
+            webLinkElement.textContent = webURL.toString()
+
+            webLinkWrapper.innerHTML = ""
+            webLinkWrapper.append(webLinkElement)
+          }
+
+          const webButton = document.getElementById("web-button")
+          if (webButton)
+          {
+            webButton.href = webURL.toString()
+            webButton.tabIndex = ""
+            webButton.ariaDisabled = false        
+            webButton.classList.remove("disabled")
+          }
+
+          const infoLinkWrapper = document.getElementById("infolink")
+          if (infoLinkWrapper)
+          {
+            const infoLinkElement = document.createElement("a")
+            infoLinkElement.href = infoURL.toString()
+            infoLinkElement.textContent = infoURL.toString()
+
+            infoLinkWrapper.innerHTML = ""
+            infoLinkWrapper.append(infoLinkElement)
+          }
+                          
+          const infoButton = document.getElementById("info-button")
+          if (infoButton)
+          {
+            infoButton.href = infoURL.toString()
+            infoButton.tabIndex = ""
+            infoButton.ariaDisabled = false        
+            infoButton.classList.remove("disabled")
+          }
+
+          for (const _input of document.querySelectorAll(".debug-info-text"))
+          {
+            _input.addEventListener("blur", () =>
+            {
+              _input.selectionStart = 0
+              _input.selectionEnd = _input.value.length
+            })
+          }
+
+        })
 
         return webURL.toString()
 
@@ -387,7 +405,7 @@ html, body
         if (!!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect !== "off" && automaticallyRedirect !== "false")
         {
             location.href = webURL.toString()
-        }
+        }        
     }
 
     main()
