@@ -2,6 +2,8 @@
 <html>
 <head>
 
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noreferrer, noopener">
+
 </head>
 <body>
 
@@ -25,6 +27,11 @@
         console.log("GENERATING LINK")
         console.log("===============")
 
+        worldId = worldId.trim()
+        _instanceType = _instanceType.trim()
+        instanceOwner = instanceOwner.trim()
+        region = region.trim()
+
         if (!worldId)
         {
             throw new Error("No worldId")
@@ -38,6 +45,11 @@
         if (!instanceOwner)
         {
             throw new Error("No instanceOwner")
+        }
+
+        if (worldId.match(/\/info$/))
+        {
+          worldId = worldId.replace(/\/info$/, "")
         }
 
         const instanceType = 
@@ -171,7 +183,7 @@
         const instanceType = getParamsFromURL.searchParams.get("t") 
         const instanceOwner = getParamsFromURL.searchParams.get("i")
         const region = getParamsFromURL.searchParams.get("r")
-        const automaticallyRedirect = getParamsFromURL.searchParams.get("a")
+        const automaticallyRedirect = getParamsFromURL.searchParams.get("a").trim()
 
         const webURL = generateWorldLink(worldId, instanceType, instanceOwner, region)
 
