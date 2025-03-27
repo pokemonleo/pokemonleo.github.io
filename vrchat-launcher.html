@@ -144,7 +144,7 @@ html, body
 (() =>
 {
 
-    const generateWorldLink = (worldId, _instanceNumber, _instanceType = "friend+", instanceOwner, region) =>
+    const generateWorldLink = (worldId, _instanceNumber, _instanceType = "friend+", instanceOwner, region, reusedNonce) =>
     {
         console.log("GENERATING LINK")
         console.log("===============")
@@ -258,7 +258,7 @@ html, body
             instanceId += "~region(" + region + ")"            
         }
 
-        const tempNonce = nonce()
+        const tempNonce = reusedNonce ? reusedNonce : nonce()
         if (instanceType !== "public")
         {
             instanceId += "~nonce(" + tempNonce + ")"
@@ -443,9 +443,10 @@ html, body
         const instanceType = getParamsFromURL.searchParams.get("t") 
         const instanceOwner = getParamsFromURL.searchParams.get("i")
         const region = getParamsFromURL.searchParams.get("r")
+        const reusedNonce = getParamsFromURL.searchParams.get("x")
         const automaticallyRedirect = getParamsFromURL.searchParams.get("a").trim()
 
-        const webURL = generateWorldLink(worldId, instanceNumber, instanceType, instanceOwner, region)
+        const webURL = generateWorldLink(worldId, instanceNumber, instanceType, instanceOwner, region, reusedNonce)
 
         if (!!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect !== "off" && automaticallyRedirect !== "false")
         {
