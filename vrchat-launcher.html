@@ -91,6 +91,12 @@ html, body
           </div>
         </div>        
         <div class="row debug-info">
+          <label for="instancenumber-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Number</label>
+          <div class="col-sm-9">
+            <input type="text" id="instancenumber-input" readonly class="form-control-plaintext debug-info-text py-0">
+          </div>
+        </div>        
+        <div class="row debug-info">
           <label for="instancetype-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Type</label>
           <div class="col-sm-9">
             <input type="text" id="instancetype-input" readonly class="form-control-plaintext debug-info-text py-0">
@@ -276,6 +282,11 @@ html, body
 
             worldidInput.selectionStart = 0
             worldidInput.selectionEnd = worldidInput.value.length
+          }          
+          const instancenumberInput = document.getElementById("instancenumber-input")
+          if (instancenumberInput)
+          {
+            instancenumberInput.value = instanceNumber
           }
           const instancetypeInput = document.getElementById("instancetype-input")
           if (instancetypeInput)
