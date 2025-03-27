@@ -92,9 +92,10 @@ html, body
         </div>        
         <div class="row debug-info">
           <label for="instancenumber-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Number</label>
-          <div class="col-sm-9">
+          <div class="col-sm-6">
             <input type="text" id="instancenumber-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
+          <div id="instancenumber-text" class="col-sm-3 form-text fst-italic"></div>
         </div>        
         <div class="row debug-info">
           <label for="instancetype-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Type</label>
@@ -115,10 +116,11 @@ html, body
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title py-0"><em>NONCE</em></label>
-          <div class="col-sm-9">
+          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title py-0 fst-italic">NONCE</label>
+          <div class="col-sm-6">
             <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
+          <div id="nonce-text" class="col-sm-3 form-text fst-italic"></div>
         </div>        
       </form>
     </div>
@@ -291,6 +293,11 @@ html, body
           if (instancenumberInput)
           {
             instancenumberInput.value = instanceNumber
+            const instancenumberText = document.getElementById("instancenumber-text")
+            if (instancenumberText)
+            {
+              instancenumberText.innerHTML = _instanceNumber === instanceNumber ? "(Specified)" : ""                                          
+            }
           }
           const instancetypeInput = document.getElementById("instancetype-input")
           if (instancetypeInput)
@@ -328,6 +335,12 @@ html, body
           if (nonceInput)
           {
             nonceInput.value = tempNonce
+            const nonceText = document.getElementById("nonce-text")
+            if (nonceText)
+            {
+              nonceText.innerHTML = reusedNonce === tempNonce ? "(Reused)" : ""                            
+                                          
+            }                          
 
             nonceInput.selectionStart = 0
             nonceInput.selectionEnd = nonceInput.value.length
