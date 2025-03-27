@@ -144,12 +144,13 @@ html, body
 (() =>
 {
 
-    const generateWorldLink = (worldId, _instanceType = "friend+", instanceOwner, region) =>
+    const generateWorldLink = (worldId, _instanceNumber, _instanceType = "friend+", instanceOwner, region) =>
     {
         console.log("GENERATING LINK")
         console.log("===============")
 
         worldId = worldId.trim()
+        _instanceNumber = _instanceNumber.trim()
         _instanceType = _instanceType.trim()
         instanceOwner = instanceOwner.trim()
         region = region.trim()
@@ -193,7 +194,10 @@ html, body
         "hidden" // Friend Only
         "private" // Invite+ / Invite Only
 
-        const instanceNumber = randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5 
+        const instanceNumber = 
+          !_instanceNumber || _instanceNumber === 0 || _instanceNumber === "0" || _instanceNumber.match(/[^A-Za-z0-9]/) ? 
+          randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5 
+          : _instanceNumber
 
         // const region = "jp" // "us" / "use" / "eu" / "jp"
 
@@ -435,12 +439,13 @@ html, body
     {
         const getParamsFromURL = new URL(location)
         const worldId = getParamsFromURL.searchParams.get("w") 
+        const instanceNumber = getParamsFromURL.searchParams.get("n")
         const instanceType = getParamsFromURL.searchParams.get("t") 
         const instanceOwner = getParamsFromURL.searchParams.get("i")
         const region = getParamsFromURL.searchParams.get("r")
         const automaticallyRedirect = getParamsFromURL.searchParams.get("a").trim()
 
-        const webURL = generateWorldLink(worldId, instanceType, instanceOwner, region)
+        const webURL = generateWorldLink(worldId, instanceNumber, instanceType, instanceOwner, region)
 
         if (!!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect !== "off" && automaticallyRedirect !== "false")
         {
