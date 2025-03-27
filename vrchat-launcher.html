@@ -44,7 +44,7 @@ html, body
   /* margin-top: -12px; */
 }
 
-.debug-info-title, .debug-info-text, .debug-info-extra
+.debug-info-title, .debug-info-text
 {
   font-size: .75em;
   color: #6c757d;  
@@ -85,42 +85,40 @@ html, body
     <div class="mt-5 mb-2">
       <form class="border p-2 shadow-sm">
         <div class="row debug-info">
-          <label for="worldid-input" class="col-sm-3 col-form-label debug-info-title py-0">World ID</label>
-          <div class="col-sm-9">
+          <label for="worldid-input" class="col-sm-4 col-form-label debug-info-title py-0">World ID</label>
+          <div class="col-sm-8">
             <input type="text" id="worldid-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="instancenumber-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Number</label>
-          <div class="col-sm-6">
+          <label for="instancenumber-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Number <span id="instancenumber-text" class="fst-italic"></span></label>
+          <div class="col-sm-8">
             <input type="text" id="instancenumber-input" readonly class="form-control-plaintext debug-info-text py-0">            
-          </div>          
-          <div id="instancenumber-text" class="col-sm-3 form-text debug-info-extra fst-italic"></div>
+          </div>                    
         </div>        
         <div class="row debug-info">
-          <label for="instancetype-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Type</label>
-          <div class="col-sm-9">
+          <label for="instancetype-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Type</label>
+          <div class="col-sm-8">
             <input type="text" id="instancetype-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="instanceid-input" class="col-sm-3 col-form-label debug-info-title py-0">Instance Owner</label>
-          <div class="col-sm-9">
+          <label for="instanceid-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Owner</label>
+          <div class="col-sm-8">
             <input type="text" id="instanceid-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="region-input" class="col-sm-3 col-form-label debug-info-title py-0">Region</label>
-          <div class="col-sm-9">
+          <label for="region-input" class="col-sm-4 col-form-label debug-info-title py-0">Region</label>
+          <div class="col-sm-8">
             <input type="text" id="region-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title py-0 fst-italic">NONCE</label>
-          <div class="col-sm-6">
+          <label for="nonce-input" class="col-sm-4 col-form-label debug-info-title py-0 fst-italic">NONCE <span id="nonce-text" class="fst-italic"></span></label>
+          <div class="col-sm-8">
             <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text py-0">            
-          </div>          
-          <div id="nonce-text" class="col-sm-3 form-text debug-info-extra fst-italic"></div>
+          </div>                    
         </div>        
       </form>
     </div>
