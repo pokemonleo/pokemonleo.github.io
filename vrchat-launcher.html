@@ -109,7 +109,7 @@ html, body
           </div>
         </div>        
         <div class="row debug-info">
-          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title py-0"><em>NONCEM</em></label>
+          <label for="nonce-input" class="col-sm-3 col-form-label debug-info-title py-0"><em>NONCE</em></label>
           <div class="col-sm-9">
             <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
@@ -200,6 +200,19 @@ html, body
         // const gameLink = "vrchat://launch?id="
         // const webLink = "https://vrchat.com/home/launch?worldId="
         const gameParams = new URLSearchParams()
+        gameParams.toString = function() 
+        {
+          string = ""
+          this.forEach((value, id) => 
+          {
+            if (string)
+            {
+              string += "&"
+            }
+            string += id + "=" + value
+          })
+          return string
+        }
         const webURL = new URL("https://vrchat.com/home/launch")
         const infoURL = new URL("https://vrchat.com/home/world/")      
 
