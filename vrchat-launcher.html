@@ -47,12 +47,12 @@ html, body
 .debug-info-title, .debug-info-text
 {
   font-size: .75em;
-  color: #6c757d;  
+  color: #6c757d;
 }
 
 .debug-info-text
 {
-  font-family: monospace, monospace;  
+  font-family: monospace, monospace;
   text-overflow: ellipsis
 }
 
@@ -70,7 +70,7 @@ html, body
         <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">7 WONDERS</div>
         -->
       </h1>
-    </header>  
+    </header>
   </div>
 </section>
 
@@ -89,37 +89,37 @@ html, body
           <div class="col-sm-8">
             <input type="text" id="worldid-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
-        </div>        
+        </div>
         <div class="row debug-info">
           <label for="instancenumber-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Number <span id="instancenumber-text" class="text-body fst-italic"></span></label>
           <div class="col-sm-8">
-            <input type="text" id="instancenumber-input" readonly class="form-control-plaintext debug-info-text py-0">            
-          </div>                    
-        </div>        
+            <input type="text" id="instancenumber-input" readonly class="form-control-plaintext debug-info-text py-0">
+          </div>
+        </div>
         <div class="row debug-info">
           <label for="instancetype-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Type</label>
           <div class="col-sm-8">
             <input type="text" id="instancetype-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
-        </div>        
+        </div>
         <div class="row debug-info">
           <label for="instanceid-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Owner</label>
           <div class="col-sm-8">
             <input type="text" id="instanceid-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
-        </div>        
+        </div>
         <div class="row debug-info">
           <label for="region-input" class="col-sm-4 col-form-label debug-info-title py-0">Region</label>
           <div class="col-sm-8">
             <input type="text" id="region-input" readonly class="form-control-plaintext debug-info-text py-0">
           </div>
-        </div>        
+        </div>
         <div class="row debug-info">
           <label for="nonce-input" class="col-sm-4 col-form-label debug-info-title py-0"><span class="fst-italic">NONCE</span> <span id="nonce-text" class="text-body fst-italic"></span></label>
           <div class="col-sm-8">
-            <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text py-0">            
-          </div>                    
-        </div>        
+            <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text py-0">
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -132,7 +132,7 @@ html, body
   <li>Web Info Link: <span id="infolink"></li>
 </ul>
 -->
-  
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
@@ -181,7 +181,7 @@ html, body
           worldId = worldId.replace(/\/info$/, "")
         }
 
-        const instanceType = 
+        const instanceType =
             _instanceType === "friend+" || _instanceType === "friend-plus" || _instanceType === "friends+" || _instanceType === "friends-plus" ? "hidden" :
             _instanceType === "friend" || _instanceType === "friends" ? "friends" :
             _instanceType === "invite+" || _instanceType === "invite-plus" ? "private" :
@@ -194,9 +194,9 @@ html, body
         "hidden" // Friend Only
         "private" // Invite+ / Invite Only
 
-        const instanceNumber = 
-          !_instanceNumber || _instanceNumber === 0 || _instanceNumber === "0" || _instanceNumber.match(/[^A-Za-z0-9]/) ? 
-          randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5 
+        const instanceNumber =
+          !_instanceNumber || _instanceNumber === 0 || _instanceNumber === "0" || _instanceNumber.match(/[^A-Za-z0-9]/) ?
+          randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5
           : _instanceNumber
 
         // const region = "jp" // "us" / "use" / "eu" / "jp"
@@ -210,10 +210,10 @@ html, body
         // const gameLink = "vrchat://launch?id="
         // const webLink = "https://vrchat.com/home/launch?worldId="
         const gameParams = new URLSearchParams()
-        gameParams.toString = function() 
+        gameParams.toString = function()
         {
           string = ""
-          this.forEach((value, id) => 
+          this.forEach((value, id) =>
           {
             if (string)
             {
@@ -224,17 +224,17 @@ html, body
           return string
         }
         const webURL = new URL("https://vrchat.com/home/launch")
-        const infoURL = new URL("https://vrchat.com/home/world/")      
+        const infoURL = new URL("https://vrchat.com/home/world/")
 
         // gameParams
         // webURL.searchParams
 
         // vrchat://launch?id=wrld_97fda4a1-f820-4f09-a88c-2d2a95b668f7:42~private(inviteurl_27e48f0e-1048-4232-9297-9d40b6dd8bc1)~nonce(A8B916551CE6C31A1D71AE89B6D76BEE5EDC0925245305SB2395A466D3B62E40)
-        // vrchat://launch?id=wrld_6caf5200-70e1-46c2-b043-e3c4abe69e0f:3950~public(1J91IX00TGUBoUEmYq2yZE65UFWWGo)~nonce(vVHvCW0bwnLBGEcMqxjs36wq4YUnQV)            
+        // vrchat://launch?id=wrld_6caf5200-70e1-46c2-b043-e3c4abe69e0f:3950~public(1J91IX00TGUBoUEmYq2yZE65UFWWGo)~nonce(vVHvCW0bwnLBGEcMqxjs36wq4YUnQV)
         // https://vrchat.net/home/launch?  worldId=wrld_6caf5200-70e1-46c2-b043-e3c4abe69e0f   &instanceId=42~private  (96714c33-87e6-4b98-9b58-fecc42031e91)
-            
+
         //Add on worldID and Instance Number
-            
+
         let instanceId = ""
 
         //Public links dont seem to allow owners any more?
@@ -248,14 +248,14 @@ html, body
         }
 
         //If the instance is invite+ we need to add in "~canRequestInvite()"
-        if (canRequestInvite === true) 
-        {            
+        if (canRequestInvite === true)
+        {
             instanceId += "~canRequestInvite"
         }
-        
+
         if (region)
         {
-            instanceId += "~region(" + region + ")"            
+            instanceId += "~region(" + region + ")"
         }
 
         const tempNonce = reusedNonce ? reusedNonce : nonce()
@@ -275,10 +275,10 @@ html, body
 
         //Get System's fancy new short URL link
         // loadXMLDoc(weblink + "/shortName")
-        // console.log(weblink + "/shortName")            
-        
-        document.addEventListener("DOMContentLoaded", () => 
-        {          
+        // console.log(weblink + "/shortName")
+
+        document.addEventListener("DOMContentLoaded", () =>
+        {
           const worldidInput = document.getElementById("worldid-input")
           if (worldidInput)
           {
@@ -286,7 +286,7 @@ html, body
 
             worldidInput.selectionStart = 0
             worldidInput.selectionEnd = worldidInput.value.length
-          }          
+          }
           const instancenumberInput = document.getElementById("instancenumber-input")
           if (instancenumberInput)
           {
@@ -294,13 +294,13 @@ html, body
             const instancenumberText = document.getElementById("instancenumber-text")
             if (instancenumberText)
             {
-              instancenumberText.innerHTML = _instanceNumber === instanceNumber ? "(Specified)" : ""                                          
+              instancenumberText.innerHTML = _instanceNumber === instanceNumber ? "(Specified)" : ""
             }
           }
           const instancetypeInput = document.getElementById("instancetype-input")
           if (instancetypeInput)
           {
-            const __instanceType = 
+            const __instanceType =
               _instanceType === "friend+" || _instanceType === "friend-plus" || _instanceType === "friends+" || _instanceType === "friends-plus" ? "friends+" :
               _instanceType === "friend" || _instanceType === "friends" ? "friends" :
               _instanceType === "invite+" || _instanceType === "invite-plus" ? "invite+" :
@@ -319,7 +319,7 @@ html, body
             instanceidInput.selectionStart = 0
             instanceidInput.selectionEnd = instanceidInput.value.length
           }
-          
+
           const regionInput = document.getElementById("region-input")
           if (regionInput)
           {
@@ -336,9 +336,9 @@ html, body
             const nonceText = document.getElementById("nonce-text")
             if (nonceText)
             {
-              nonceText.innerHTML = reusedNonce === tempNonce ? "(Reused)" : ""                            
-                                          
-            }                          
+              nonceText.innerHTML = reusedNonce === tempNonce ? "(Reused)" : ""
+
+            }
 
             nonceInput.selectionStart = 0
             nonceInput.selectionEnd = nonceInput.value.length
@@ -360,7 +360,7 @@ html, body
           {
             gameButton.href = gameLink + "?" + gameParams.toString()
             gameButton.tabIndex = ""
-            gameButton.ariaDisabled = false        
+            gameButton.ariaDisabled = false
             gameButton.classList.remove("disabled")
           }
 
@@ -380,7 +380,7 @@ html, body
           {
             webButton.href = webURL.toString()
             webButton.tabIndex = ""
-            webButton.ariaDisabled = false        
+            webButton.ariaDisabled = false
             webButton.classList.remove("disabled")
           }
 
@@ -394,13 +394,13 @@ html, body
             infoLinkWrapper.innerHTML = ""
             infoLinkWrapper.append(infoLinkElement)
           }
-                          
+
           const infoButton = document.getElementById("info-button")
           if (infoButton)
           {
             infoButton.href = infoURL.toString()
             infoButton.tabIndex = ""
-            infoButton.ariaDisabled = false        
+            infoButton.ariaDisabled = false
             infoButton.classList.remove("disabled")
           }
 
@@ -421,23 +421,23 @@ html, body
 
     // Generate a Random enough instance ID
     const randomWholeNum = () => Math.floor(Math.random() * 6969)
-    const randomInstanceNumber = (type) => 
+    const randomInstanceNumber = (type) =>
     {
-        const length = 5 
+        const length = 5
 
         let result = ""
-        const characters = type === "number-only" ? "0123456789" : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"        
+        const characters = type === "number-only" ? "0123456789" : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
         let counter = 0
-        for (let i = 0; i < length; i++)        
+        for (let i = 0; i < length; i++)
         {
-            result += characters.charAt(Math.floor(Math.random() * characters.length))            
+            result += characters.charAt(Math.floor(Math.random() * characters.length))
         }
         return result
     }
 
     //Generate random enough nonce
     const nonce = () =>
-    {    
+    {
 
         const temp_url = URL.createObjectURL(new Blob())
         const uuid = temp_url.toString()
@@ -446,23 +446,354 @@ html, body
 
     }
 
+    const getDataFromUrl = url =>
+    {
+      const _url = new URL(url)
+      const data = {}
+
+      if (_url.hostname === "vrchat.com" || _url.hostname === "www.vrchat.com")
+      {
+        if (data.matches = _url.pathname.match(/^\/home\/world\/(wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})/))
+        {
+          data.worldId = data.matches[1]
+          return data
+        }
+
+        if (_url.pathname.match(/^\/home\/launch/))
+        {
+          data.worldId = _url.searchParams.get("worldId")
+
+          const instanceId = _url.searchParams.get("instanceId")
+          const instanceData = instanceId.split("~")
+
+          const _parsedData = []
+          let _parsedId = 0
+          let _dataId = 0
+          while (_dataId < instanceData.length)
+          {
+            switch (_parsedId)
+            {
+            case 0:
+              _parsedData[_parsedId] = instanceData[_dataId]
+              _dataId++
+              break;
+            case 1:
+              if (data.matches = instanceData[_dataId].match(/^(private|public|hidden|friends)\((.+?)\)/))
+              {
+                _parsedData[_parsedId] = {
+                  type: data.matches[1],
+                  owner: data.matches[2],
+                }
+                _dataId++
+              }
+              else
+              {
+                _parsedData[_parsedId] = { type: "public" },
+              }
+              break;
+            case 2:
+              if (instanceData[_dataId] === "canRequestInvite")
+              {
+                _parsedData[_parsedId] = true
+                _dataId++
+              }
+              break;
+            case 3:
+              if (data.matches = instanceData[_dataId].match(/^region\((.+?)\)/))
+              {
+                _parsedData[_parsedId] = data.matches[1]
+                _dataId++
+              }
+              break;
+            case 4:
+              if (data.matches = instanceData[_dataId].match(/^nonce\((.+?)\)/))
+              {
+                _parsedData[_parsedId] = data.matches[1]
+                _dataId++
+              }
+              break;
+            }
+
+            instanceData[_dataId]
+
+            _parsedId++
+          }
+
+          data.instanceNumber = _parsedData[0]
+          data.instanceType =
+            _parsedData[1].type === "hidden" ? "friend+" :
+            _parsedData[1].type === "friends" ? "friend" :
+            _parsedData[1].type === "private" && _parsedData[2] ? "invite+" :
+            _parsedData[1].type === "private" ? "invite" :
+            "public"
+          if (_parsedData[1].owner)
+          {
+            data.instanceOwner = _parsedData[1].owner
+          }
+          if (_parsedData[3])
+          {
+            data.region = _parsedData[3]
+          }
+          if (_parsedData[4])
+          {
+            data.reusedNonce  = _parsedData[4]
+          }
+
+          return data
+        }
+      }
+
+      if (_url.hostname === "pokemonleo.github.io")
+      {
+        if (_url.pathname.match(/^\/vrchat-launcher\.html/))
+        {
+          const __w = _url.searchParams.get("w")
+          if (__w)
+          {
+            data.worldId = __w
+          }
+          const __n = _url.searchParams.get("n")
+          if (__n)
+          {
+            data.instanceNumber = __n
+          }
+          const __t = _url.searchParams.get("t")
+          if (__t)
+          {
+            data.instanceType = __t
+          }
+          const __i = _url.searchParams.get("i")
+          if (__i)
+          {
+            data.instanceOwner = __i
+          }
+          const __r = _url.searchParams.get("r")
+          if (__r)
+          {
+            data.region = __r
+          }
+          const __x = _url.searchParams.get("x")
+          if (__x)
+          {
+            data.reusedNonce = __x
+          }
+
+          return data
+        }
+      }
+    }
+
+    const getWorldById = async (worldId, authCookie) =>
+    {
+      if (!worldId)
+      {
+        console.error("No World ID for Fetching")
+        return
+      }
+
+      if (!worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        console.error("World ID Wrong Format for Fetching")
+        return
+      }
+
+      console.log("Fetching World By ID: " + worldId)
+      return await __getDataById("https://api.vrchat.cloud/api/1/worlds/" + worldId)
+    }
+
+    const getUserById = async (userId, authCookie) =>
+    {
+      if (!userId)
+      {
+        console.error("No User ID for Fetching")
+        return
+      }
+
+      if (!userId.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        console.error("User ID Wrong Format for Fetching")
+        return
+      }
+
+      if (!authCookie)
+      {
+        console.error("No Auth Cookie to Get User")
+        return
+      }
+
+      console.log("Fetching User By ID: " + userId)
+      return await __getDataById("https://api.vrchat.cloud/api/1/users/" + userId)
+    }
+
+    const getGroupById = async (groupId, authCookie) =>
+    {
+      if (!groupId)
+      {
+        console.error("No Group ID for Fetching")
+        return
+      }
+
+      if (!groupId.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        console.error("Group ID Wrong Format for Fetching")
+        return
+      }
+
+      if (!authCookie)
+      {
+        console.error("No Auth Cookie to Get Group")
+        return
+      }
+
+      console.log("Fetching Group By ID: " + groupId)
+      return await __getDataById("https://api.vrchat.cloud/api/1/groups/" + groupId)
+    }
+
+    const __getDataById = async (url) =>
+    {
+      const response = await fetch(url)
+      if (!response.ok)
+      {
+        return
+      }
+
+      try
+      {
+        const data = await response.json()
+        return data
+      }
+      catch (error)
+      {
+        console.error("Fetching Error")
+        console.log("Fetching URL: " + url)
+        console.log(error)
+      }
+    }
+
     const main = () =>
     {
         const getParamsFromURL = new URL(location)
-        const worldId = getParamsFromURL.searchParams.get("w") 
-        const instanceNumber = getParamsFromURL.searchParams.get("n")
-        const instanceType = getParamsFromURL.searchParams.get("t") 
-        const instanceOwner = getParamsFromURL.searchParams.get("i")
-        const region = getParamsFromURL.searchParams.get("r")
-        const reusedNonce = getParamsFromURL.searchParams.get("x")
-        const automaticallyRedirect = getParamsFromURL.searchParams.get("a").trim()
+        const data = {
+          worldId,
+          instanceNumber,
+          instanceType,
+          instanceOwner,
+          region,
+          reusedNonce,
+        }
+
+        const parsingURL = getParamsFromURL.searchParams.get("p")
+
+        if (parsingURL)
+        {
+          const {
+            worldId,
+            instanceNumber,
+            instanceType,
+            instanceOwner,
+            region,
+            reusedNonce,
+          } = getDataFromUrl(parsingURL)
+
+          if (worldId)
+          {
+            data.worldId = worldId
+          }
+          if (instanceNumber)
+          {
+            data.instanceNumber = instanceNumber
+          }
+          if (instanceType)
+          {
+            data.instanceType = instanceType
+          }
+          if (instanceOwner)
+          {
+            data.instanceOwner = instanceOwner
+          }
+          if (region)
+          {
+            data.region = region
+          }
+          if (reusedNonce)
+          {
+            data.reusedNonce = reusedNonce
+          }
+        }
+
+        if (!data.worldId)
+        {
+          const __worldId = getParamsFromURL.searchParams.get("w")
+          data.worldId = __worldId
+        }
+        if (!data.instanceNumber)
+        {
+          const __instanceNumber = getParamsFromURL.searchParams.get("n")
+          data.instanceNumber = __instanceNumber
+        }
+        if (!data.instanceType)
+        {
+          const __instanceType = getParamsFromURL.searchParams.get("t")
+          data.instanceType = __instanceType
+        }
+        if (!data.instanceOwner)
+        {
+          const __instanceOwner = getParamsFromURL.searchParams.get("i")
+          data.instanceOwner = __instanceOwner
+        }
+        if (!data.region)
+        {
+          const __region = getParamsFromURL.searchParams.get("r")
+          data.region = __region
+        }
+        if (!data.reusedNonce)
+        {
+          const __reusedNonce = getParamsFromURL.searchParams.get("x")
+          data.reusedNonce = __reusedNonce
+        }
+        const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a").trim()
 
         const webURL = generateWorldLink(worldId, instanceNumber, instanceType, instanceOwner, region, reusedNonce)
 
-        if (!!automaticallyRedirect && automaticallyRedirect !== "" && automaticallyRedirect !== "0" && automaticallyRedirect !== "off" && automaticallyRedirect !== "false")
+        if (!isVoid(isAutomaticallyRedirect))
         {
             location.href = webURL.toString()
-        }        
+        }
+    }
+
+    const isVoid = obj =>
+    {
+      if (!obj)
+      {
+        return true
+      }
+
+      if (obj === "")
+      {
+        return true
+      }
+
+      if (obj === "0")
+      {
+        return true
+      }
+
+      if (obj === 0)
+      {
+        return true
+      }
+
+      if (obj === "off")
+      {
+        return true
+      }
+
+      if (obj === "false")
+      {
+        return true
+      }
+
+      return false
     }
 
     main()
