@@ -194,7 +194,10 @@ html, body
             -->
           </div>
           <div class="tab-pane fade" id="nav-text" role="tabpanel" aria-labelledby="nav-text-tab" tabindex="0">
-            <textarea id="text-chip-textarea"></textarea>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Text Chip for Copy" id="text-chip-textarea" style="height: 100px"></textarea>
+              <label for="text-chip-textarea">Text Chip for Copy</label>
+            </div>
           </div>
         </div>
       </form>
@@ -254,8 +257,18 @@ html, body
 
       set nonce(uuid)
       {
-        this._nonce = uuid
-        this.isNonceReused = true
+        if (uuid)
+        {
+          this._nonce = uuid
+          this.isNonceReused = true
+          delete this.isNonceGenerated
+        }
+        else
+        {
+          delete this._nonce
+          delete this.isNonceReused
+          delete this.isNonceGenerated
+        }
       },
 
       get nonce()
@@ -264,6 +277,7 @@ html, body
         {
           this._nonce = generateNonce()
           this.isNonceGenerated = true
+          delete this.isNonceReused
         }
 
         return this._nonce
@@ -291,8 +305,18 @@ html, body
 
       set instanceNumber(number)
       {
-        this._instanceNumber = number
-        this.isInstanceNumberSpecified = true
+        if (number)
+        {
+          this._instanceNumber = number
+          this.isInstanceNumberSpecified = true
+          delete this._isInstanceNumberGenerated
+        }
+        else
+        {
+          delete this._instanceNumber
+          delete this.isInstanceNumberSpecified
+          delete this._isInstanceNumberGenerated
+        }
       },
 
       get instanceNumber()
@@ -301,6 +325,7 @@ html, body
         {
           this._instanceNumber = randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5
           this._isInstanceNumberGenerated = true
+          delete this.isInstanceNumberSpecified
         }
 
         return this._instanceNumber
@@ -514,18 +539,21 @@ html, body
         // loadXMLDoc(weblink + "/shortName")
         // console.log(weblink + "/shortName")
 
-        document.addEventListener("DOMContentLoaded", () =>
-        {
+        // document.addEventListener("DOMContentLoaded", () =>
+        // {
 
-          setFormInput()
-          updateLink()
-          initializeDebugFormBlurSelection()
-        })
+        //   setFormInput()
+        //   updateLink()
+        // })
 
         // return instance.webURL.toString()
 
     }
 
+    const setDebugInput = () =>
+    {
+
+    }
     const setFormInput = () =>
     {
 
@@ -640,7 +668,7 @@ html, body
 
     }
 
-    const initializeDebugFormBlurSelection = () =>
+    const initializeForms = () =>
     {
 
       for (const _input of document.querySelectorAll(".debug-info-text"))
@@ -651,6 +679,138 @@ html, body
           _input.selectionEnd = _input.value.length
         })
       }
+
+      const worldidInput = document.getElementById("worldid-input")
+      worldidInput.addEventListener("change", () =>
+      {
+
+        let worldId = worldidInput.value
+        worldId = worldId.trim()
+        if (worldId.match(/\/info$/))
+        {
+          worldId = worldId.replace(/\/info$/, "")
+        }
+
+        if (!worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+        {
+          return
+        }
+
+        instance.worldId = worldId
+        world.worldId = worldId
+        updateLink()
+        updateWorld()
+        setDebugInput()
+
+      })
+      const instancenumberInput = document.getElementById("instancenumber-input")
+      instancenumberInput.addEventListener("change", () =>
+      {
+
+        let instanceNumber = instancenumberInput.value
+        instanceNumber = instanceNumber.trim()
+        if (instanceNumber.match(/[^A-Za-z0-9]/))
+        {
+          return
+        }
+
+        instance.instanceNumber = instanceNumber
+        updateLink()
+        updateWorld()
+        setDebugInput()
+
+        if (!instanceNumber)
+        {
+          instancenumberInput.value = instance.instanceNumber
+        }
+
+      })
+      const instancetypeInput = document.getElementById("instancetype-input")
+      instancetypeInput.addEventListener("change", () =>
+      {
+
+        const options = Array.from(instancetypeInput.options).map(option => option.value)
+        const instanceType = options[instancetypeInput.selectedIndex]
+
+        if ([
+          "friend+", "friend-plus", "friends+", "friends-plus",
+          "friend", "friends", "invite+", "invite-plus",
+          "invite", "public",
+        ].indexOf(instanceType) < 0)
+        {
+          return
+        }
+
+        instance.instanceType = instanceType
+        updateLink()
+        updateWorld()
+        setDebugInput()
+
+      })
+      const instanceidInput = document.getElementById("instanceid-input")
+      instanceidInput.addEventListener("change", () =>
+      {
+
+        let instanceOwner = instanceidInput.value
+        instanceOwner = instanceOwner.trim()
+        if (instanceOwner !== ""
+            &&
+            !instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/)
+            &&
+            !instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+        {
+          return
+        }
+
+        instance.instanceOwner = instanceOwner
+        updateLink()
+        updateWorld()
+        setDebugInput()
+
+      })
+      const regionInput = document.getElementById("region-input")
+      regionInput.addEventListener("change", () =>
+      {
+
+        const options = Array.from(regionInput.options).map(option => option.value)
+        const region = options[regionInput.selectedIndex]
+
+        if ([
+          "usw", "use", "eu", "jp",
+        ].indexOf(region) < 0)
+        {
+          return
+        }
+
+        instance.region = region
+        updateLink()
+        updateWorld()
+        setDebugInput()
+
+      })
+      const nonceInput = document.getElementById("nonce-input")
+      nonceInput.addEventListener("change", () =>
+      {
+
+        let nonce = nonceInput.value
+        nonce = nonce.trim()
+        if (nonce !== "" && !nonce.match(/^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+        {
+          return
+        }
+
+        instance.nonce = nonce
+        updateLink()
+        updateWorld()
+        setDebugInput()
+
+        if (!nonce)
+        {
+          nonceInput.value = instance.nonce
+        }
+
+      })
+
 
     }
 
@@ -716,6 +876,11 @@ html, body
         infoButton.ariaDisabled = false
         infoButton.classList.remove("disabled")
       }
+
+    }
+
+    const updateWorld = () =>
+    {
 
     }
 
@@ -1061,6 +1226,15 @@ html, body
           history.pushState(null, undefined, instance.thisURL)
           location.href = instance.webURL
         }
+
+        document.addEventListener("DOMContentLoaded", () =>
+        {
+          updateLink()
+          setDebugInput()
+          setFormInput()
+          initializeForms()
+        })
+
     }
 
     const isVoid = obj =>
@@ -1089,7 +1263,6 @@ html, body
       {
         return true
       }
-
 
       if (obj === "off")
       {
