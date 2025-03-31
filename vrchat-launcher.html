@@ -83,41 +83,118 @@ html, body
       <a href="#" class="btn btn-info shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info Link</a>
     </div>
     <div class="mt-5 mb-2">
-      <form class="border p-2 shadow-sm">
-        <div class="row debug-info">
-          <label for="worldid-input" class="col-sm-4 col-form-label debug-info-title py-0">World ID</label>
-          <div class="col-sm-8">
-            <input type="text" id="worldid-input" readonly class="form-control-plaintext debug-info-text py-0">
+      <form class="border shadow-sm">
+        <nav>
+          <div class="nav nav-tabs px-2 pt-2" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true">Debug</button>
+            <button class="nav-link" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false">Manual Input</button>
+            <button class="nav-link" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false">World Data</button>
+            <button class="nav-link" id="nav-text-tab" data-bs-toggle="tab" data-bs-target="#nav-text" type="button" role="tab" aria-controls="nav-text" aria-selected="false">Text Chip</button>
           </div>
-        </div>
-        <div class="row debug-info">
-          <label for="instancenumber-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Number <span id="instancenumber-text" class="text-body fst-italic"></span></label>
-          <div class="col-sm-8">
-            <input type="text" id="instancenumber-input" readonly class="form-control-plaintext debug-info-text py-0">
+        </nav>
+        <div class="tab-content m-2" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-debug" role="tabpanel" aria-labelledby="nav-debug-tab" tabindex="0">
+            <div class="row debug-info">
+              <label for="worldid-box" class="col-sm-4 col-form-label debug-info-title py-0">World ID</label>
+              <div class="col-sm-8">
+                <input type="text" id="worldid-box" readonly class="form-control-plaintext debug-info-text py-0">
+              </div>
+            </div>
+            <div class="row debug-info">
+              <label for="instancenumber-box" class="col-sm-4 col-form-label debug-info-title py-0">Instance Number <span id="instancenumber-text" class="text-body fst-italic"></span></label>
+              <div class="col-sm-8">
+                <input type="text" id="instancenumber-box" readonly class="form-control-plaintext debug-info-text py-0">
+              </div>
+            </div>
+            <div class="row debug-info">
+              <label for="instancetype-box" class="col-sm-4 col-form-label debug-info-title py-0">Instance Type</label>
+              <div class="col-sm-8">
+                <input type="text" id="instancetype-box" readonly class="form-control-plaintext debug-info-text py-0">
+              </div>
+            </div>
+            <div class="row debug-info">
+              <label for="instanceid-box" class="col-sm-4 col-form-label debug-info-title py-0">Instance Owner</label>
+              <div class="col-sm-8">
+                <input type="text" id="instanceid-box" readonly class="form-control-plaintext debug-info-text py-0">
+              </div>
+            </div>
+            <div class="row debug-info">
+              <label for="region-box" class="col-sm-4 col-form-label debug-info-title py-0">Region</label>
+              <div class="col-sm-8">
+                <input type="text" id="region-box" readonly class="form-control-plaintext debug-info-text py-0">
+              </div>
+            </div>
+            <div class="row debug-info">
+              <label for="nonce-box" class="col-sm-4 col-form-label debug-info-title py-0"><span class="fst-italic">NONCE</span> <span id="nonce-text" class="text-body fst-italic"></span></label>
+              <div class="col-sm-8">
+                <input type="text" id="nonce-box" readonly class="form-control-plaintext debug-info-text py-0">
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row debug-info">
-          <label for="instancetype-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Type</label>
-          <div class="col-sm-8">
-            <input type="text" id="instancetype-input" readonly class="form-control-plaintext debug-info-text py-0">
+          <div class="tab-pane fade" id="nav-manual" role="tabpanel" aria-labelledby="nav-manual-tab" tabindex="0">
+            <div class="row mb-2 manual-input">
+              <label for="worldid-input" class="col-sm-4 col-form-label manual-input-title py-0">World ID</label>
+              <div class="col-sm-8">
+                <input type="text" id="worldid-input" class="form-control manual-input-text py-0">
+              </div>
+            </div>
+            <div class="row mb-2 manual-input">
+              <label for="instancenumber-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Number <span id="instancenumber-text" class="text-body fst-italic"></span></label>
+              <div class="col-sm-8">
+                <input type="text" id="instancenumber-input" class="form-control manual-input-text py-0">
+              </div>
+            </div>
+            <div class="row mb-2 manual-input">
+              <label for="instancetype-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Type</label>
+              <div class="col-sm-8">
+                <select class="form-select" id="instancetype-input" class="form-control manual-input-text py-0" aria-label="Select Instance Type">
+                  <option value="public">Public</option>
+                  <option value="friend+">Friend+</option>
+                  <option value="friend">Friend</option>
+                  <option value="invite+">Invite+</option>
+                  <option value="invite">Invite</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2 manual-input">
+              <label for="instanceid-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Owner</label>
+              <div class="col-sm-8">
+                <input type="text" id="instanceid-input" class="form-control manual-input-text py-0">
+              </div>
+            </div>
+            <div class="row mb-2 manual-input">
+              <label for="region-input" class="col-sm-4 col-form-label manual-input-title py-0">Region</label>
+              <div class="col-sm-8">
+                <select class="form-select" id="region-input" class="form-control manual-input-text py-0" aria-label="Select Region">
+                  <option value="us">United State West</option>
+                  <option value="use">United State East</option>
+                  <option value="eu">Europe</option>
+                  <option value="jp">Japan</option>
+                </select>
+              </div>
+            </div>
+            <div class="row manual-input">
+              <label for="nonce-input" class="col-sm-4 col-form-label manual-input-title py-0"><span class="fst-italic">NONCE</span> <span id="nonce-text" class="text-body fst-italic"></span></label>
+              <div class="col-sm-8">
+                <input type="text" id="nonce-input" class="form-control manual-input-text py-0">
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row debug-info">
-          <label for="instanceid-input" class="col-sm-4 col-form-label debug-info-title py-0">Instance Owner</label>
-          <div class="col-sm-8">
-            <input type="text" id="instanceid-input" readonly class="form-control-plaintext debug-info-text py-0">
+          <div class="tab-pane fade" id="nav-world" role="tabpanel" aria-labelledby="nav-world-tab" tabindex="0">
+            Under Construction
+            <!--
+            data.id
+            data.name
+            data.description
+            data.authorName / data.authorId
+            data.recommendedCapacity / data.capacity
+            "https://vrchat.com/home/user/" + data.authorId
+            data.imageUrl
+            data.thumbnailImageUrl
+            -->
           </div>
-        </div>
-        <div class="row debug-info">
-          <label for="region-input" class="col-sm-4 col-form-label debug-info-title py-0">Region</label>
-          <div class="col-sm-8">
-            <input type="text" id="region-input" readonly class="form-control-plaintext debug-info-text py-0">
-          </div>
-        </div>
-        <div class="row debug-info">
-          <label for="nonce-input" class="col-sm-4 col-form-label debug-info-title py-0"><span class="fst-italic">NONCE</span> <span id="nonce-text" class="text-body fst-italic"></span></label>
-          <div class="col-sm-8">
-            <input type="text" id="nonce-input" readonly class="form-control-plaintext debug-info-text py-0">
+          <div class="tab-pane fade" id="nav-text" role="tabpanel" aria-labelledby="nav-text-tab" tabindex="0">
+            <textarea id="text-chip-textarea"></textarea>
           </div>
         </div>
       </form>
@@ -135,6 +212,7 @@ html, body
 
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <script>
@@ -144,71 +222,95 @@ html, body
 (() =>
 {
 
-    const generateWorldLink = (worldId, _instanceNumber, _instanceType = "friend+", instanceOwner, region, reusedNonce) =>
+    const instance =
     {
-        console.log("GENERATING LINK")
-        console.log("===============")
+      set instanceType(type)
+      {
+        this._instanceType = type
+      },
 
-        worldId = worldId.trim()
-        _instanceNumber = _instanceNumber.trim()
-        _instanceType = _instanceType.trim()
-        instanceOwner = instanceOwner.trim()
-        region = region.trim()
-
-        if (!worldId)
-        {
-            // throw new Error("No worldId")
-            console.error("No worldId")
-            return
-        }
-
-        if (!_instanceType)
-        {
-            // throw new Error("No instanceType")
-            console.error("No instanceType")
-            return
-        }
-
-        if (!instanceOwner)
-        {
-            // throw new Error("No instanceOwner")
-            console.error("No instanceOwner")
-            return
-        }
-
-        if (worldId.match(/\/info$/))
-        {
-          worldId = worldId.replace(/\/info$/, "")
-        }
-
-        const instanceType =
-            _instanceType === "friend+" || _instanceType === "friend-plus" || _instanceType === "friends+" || _instanceType === "friends-plus" ? "hidden" :
-            _instanceType === "friend" || _instanceType === "friends" ? "friends" :
-            _instanceType === "invite+" || _instanceType === "invite-plus" ? "private" :
-            _instanceType === "invite" ? "private" :
+      get instanceType()
+      {
+          return this._instanceType === "friend+" || this._instanceType === "friend-plus" || this._instanceType === "friends+" || this._instanceType === "friends-plus" ? "friend+" :
+            this._instanceType === "friend" || this._instanceType === "friends" ? "friend" :
+            this._instanceType === "invite+" || this._instanceType === "invite-plus" ? "invite+" :
+            this._instanceType === "invite" ? "invite" :
             "public"
-        const canRequestInvite = _instanceType === "invite+" || _instanceType === "invite-plus" // Invite+ - true / other - false
+      },
 
-        "public"
-        "friends" // Friend+
-        "hidden" // Friend Only
-        "private" // Invite+ / Invite Only
+      get instanceAPIType()
+      {
+          return this._instanceType === "friend+" || this._instanceType === "friend-plus" || this._instanceType === "friends+" || this._instanceType === "friends-plus" ? "hidden" :
+            this._instanceType === "friend" || this._instanceType === "friends" ? "friends" :
+            this._instanceType === "invite+" || this._instanceType === "invite-plus" ? "private" :
+            this._instanceType === "invite" ? "private" :
+            "public"
+      },
 
-        const instanceNumber =
-          !_instanceNumber || _instanceNumber === 0 || _instanceNumber === "0" || _instanceNumber.match(/[^A-Za-z0-9]/) ?
-          randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5
-          : _instanceNumber
+      get canRequestInvite()
+      {
+        return this._instanceType === "invite+" || this._instanceType === "invite-plus"
+      },
 
-        // const region = "jp" // "us" / "use" / "eu" / "jp"
+      set nonce(uuid)
+      {
+        this._nonce = uuid
+        this.isNonceReused = true
+      },
 
-        console.log("worldID = " + worldId)
-        console.log("instanceOwner = " + instanceOwner) // Group ID if creating for Group Instance or Group+ Instance
-        console.log("instanceType  = " + instanceType)
-        console.log("instanceNumber  = " + instanceNumber)
+      get nonce()
+      {
+        if (!this._nonce)
+        {
+          this._nonce = generateNonce()
+          this.isNonceGenerated = true
+        }
 
-        const gameLink = "vrchat://launch"
-        // const gameLink = "vrchat://launch?id="
-        // const webLink = "https://vrchat.com/home/launch?worldId="
+        return this._nonce
+      },
+
+      set instanceOwner(owner)
+      {
+        this._instanceOwner = owner
+        Cookies.set("instanceOwner", owner, { expires: 30, path: "", })
+      },
+
+      get instanceOwner()
+      {
+        if (!this._instanceOwner)
+        {
+          const owner = Cookies.get("instanceOwner")
+          if (owner)
+          {
+            this._instanceOwner = owner
+          }
+        }
+
+        return this._instanceOwner
+      },
+
+      set instanceNumber(number)
+      {
+        this._instanceNumber = number
+        this.isInstanceNumberSpecified = true
+      },
+
+      get instanceNumber()
+      {
+        if (!this._instanceNumber || this._instanceNumber === 0 || this._instanceNumber === "0" || this._instanceNumber.match(/[^A-Za-z0-9]/))
+        {
+          this._instanceNumber = randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5
+          this._isInstanceNumberGenerated = true
+        }
+
+        return this._instanceNumber
+      },
+
+      __gameLink: "vrchat://launch",
+      // __gameLink: "vrchat://launch?id=",
+      // __webLink: "https://vrchat.com/home/launch?worldId=",
+      __gameParams: (() =>
+      {
         const gameParams = new URLSearchParams()
         gameParams.toString = function()
         {
@@ -223,55 +325,190 @@ html, body
           })
           return string
         }
-        const webURL = new URL("https://vrchat.com/home/launch")
-        const infoURL = new URL("https://vrchat.com/home/world/")
+        return gameParams
+      })(),
 
-        // gameParams
-        // webURL.searchParams
+      __webURL: new URL("https://vrchat.com/home/launch"),
+      __infoURL: new URL("https://vrchat.com/home/world/"),
+      __homeURL: new URL("https://vrchat.com/home"),
 
-        // vrchat://launch?id=wrld_97fda4a1-f820-4f09-a88c-2d2a95b668f7:42~private(inviteurl_27e48f0e-1048-4232-9297-9d40b6dd8bc1)~nonce(A8B916551CE6C31A1D71AE89B6D76BEE5EDC0925245305SB2395A466D3B62E40)
-        // vrchat://launch?id=wrld_6caf5200-70e1-46c2-b043-e3c4abe69e0f:3950~public(1J91IX00TGUBoUEmYq2yZE65UFWWGo)~nonce(vVHvCW0bwnLBGEcMqxjs36wq4YUnQV)
-        // https://vrchat.net/home/launch?  worldId=wrld_6caf5200-70e1-46c2-b043-e3c4abe69e0f   &instanceId=42~private  (96714c33-87e6-4b98-9b58-fecc42031e91)
-
-        //Add on worldID and Instance Number
+      get instanceId()
+      {
+        if (!this.instanceOwner && this.instanceAPIType !== "public")
+        {
+            // throw new Error("No instanceOwner")
+            console.error("No instanceOwner for non-public instance")
+            return ""
+        }
 
         let instanceId = ""
 
-        //Public links dont seem to allow owners any more?
-        if (instanceType === "public")
+        // Public links dont seem to allow owners any more?
+        if (this.instanceAPIType === "public")
         {
-            instanceId = instanceNumber
+            instanceId = this.instanceNumber
         }
         else
         {
-            instanceId = instanceNumber + "~" + instanceType + "(" + instanceOwner + ")"
+            instanceId = this.instanceNumber + "~" + this.instanceAPIType + "(" + this.instanceOwner + ")"
         }
 
         //If the instance is invite+ we need to add in "~canRequestInvite()"
-        if (canRequestInvite === true)
+        if (this.canRequestInvite === true)
         {
             instanceId += "~canRequestInvite"
         }
 
-        if (region)
+        if (this.region)
         {
-            instanceId += "~region(" + region + ")"
+            instanceId += "~region(" + this.region + ")"
         }
 
-        const tempNonce = reusedNonce ? reusedNonce : nonce()
-        if (instanceType !== "public")
+        if (this.instanceAPIType !== "public")
         {
-            instanceId += "~nonce(" + tempNonce + ")"
+            instanceId += "~nonce(" + this.nonce + ")"
         }
 
-        gameParams.set("id", worldId + ":" + instanceId)
-        webURL.searchParams.set("worldId", worldId)
-        webURL.searchParams.set("instanceId", instanceId)
-        infoURL.pathname = infoURL.pathname.replace(/\/$/, "") + "/" + worldId
+        return instanceId
+      },
+
+      get gameLink()
+      {
+        if (this.worldId)
+        {
+          this.__gameParams.set("id", this.worldId + ":" + this.instanceId)
+          return this.__gameLink + "?" + this.__gameParams.toString()
+        }
+        else
+        {
+          return this.__gameLink
+        }
+      },
+
+      get webURL()
+      {
+        if (this.worldId)
+        {
+          this.__webURL.searchParams.set("worldId", this.worldId)
+          this.__webURL.searchParams.set("instanceId", this.instanceId)
+          return this.__webURL.toString()
+        }
+        else
+        {
+          return this.__homeURL.toString()
+        }
+      },
+
+      get infoURL()
+      {
+        if (this.worldId)
+        {
+          return this.__infoURL.pathname.replace(/\/$/, "") + "/" + this.worldId
+        }
+        else
+        {
+          return this.__homeURL.toString()
+        }
+      },
+
+      get thisURL()
+      {
+        const _u = new URL(location)
+        _u.searchParams.set("w", this.worldId)
+        _u.searchParams.set("n", this.instanceNumber)
+        if (this._instanceType)
+        {
+          _u.searchParams.set("t", this._instanceType)
+        }
+        if (this.instanceOwner)
+        {
+          _u.searchParams.set("i", this.instanceOwner)
+        }
+        if (this.region)
+        {
+          _u.searchParams.set("r", this.region)
+        }
+        if (this.nonce)
+        {
+          _u.searchParams.set("x", this.nonce)
+        }
+
+        return _u.toString()
+      }
+    }
+
+    const world =
+    {
+
+    }
+
+    const generateWorldLink = data =>
+    {
+        console.log("GENERATING LINK")
+        console.log("===============")
+
+        if (data.worldId && data.worldId.trim)
+        {
+          instance.worldId = data.worldId.trim()
+          if (instance.worldId.match(/\/info$/))
+          {
+            instance.worldId = instance.worldId.replace(/\/info$/, "")
+          }
+        }
+        if (data.instanceNumber && data.instanceNumber.trim)
+        {
+          instance.instanceNumber = data.instanceNumber.trim()
+        }
+        if (data.instanceType && data.instanceType.trim)
+        {
+          instance.instanceType = data.instanceType.trim()
+        }
+        if (data.instanceOwner && data.instanceOwner.trim)
+        {
+          instance.instanceOwner = data.instanceOwner.trim()
+        }
+        if (data.region && data.region.trim)
+        {
+          instance.region = data.region.trim()
+        }
+
+        if (!instance.worldId)
+        {
+            // throw new Error("No worldId")
+            console.error("No worldId")
+            return
+        }
+
+        // if (!_instanceType)
+        // {
+        //     // throw new Error("No instanceType")
+        //     console.error("No instanceType")
+        //     return
+        // }
+
+        console.log(instance)
+        if (!instance.instanceOwner && instance.instanceAPIType !== "public")
+        {
+            // throw new Error("No instanceOwner")
+            console.error("No instanceOwner for non-public instance")
+            return
+        }
+
+        "public"
+        "friends" // Friend+
+        "hidden" // Friend Only
+        "private" // Invite+ / Invite Only
+
+        // const region = "jp" // "us" / "use" / "eu" / "jp"
+
+        console.log("worldID = " + instance.worldId)
+        console.log("instanceOwner = " + instance.instanceOwner) // Group ID if creating for Group Instance or Group+ Instance
+        console.log("instanceType  = " + instance.instanceAPIType)
+        console.log("instanceNumber  = " + instance.instanceNumber)
 
         //Output Final Link
-        console.log("Launch Game Link", gameLink + "?" + gameParams.toString())
-        console.log("Web Link", webURL.toString())
+        console.log("Launch Game Link", instance.gameLink)
+        console.log("Web Link", instance.webURL)
 
         //Get System's fancy new short URL link
         // loadXMLDoc(weblink + "/shortName")
@@ -279,143 +516,206 @@ html, body
 
         document.addEventListener("DOMContentLoaded", () =>
         {
-          const worldidInput = document.getElementById("worldid-input")
-          if (worldidInput)
-          {
-            worldidInput.value = worldId
 
-            worldidInput.selectionStart = 0
-            worldidInput.selectionEnd = worldidInput.value.length
-          }
-          const instancenumberInput = document.getElementById("instancenumber-input")
-          if (instancenumberInput)
-          {
-            instancenumberInput.value = instanceNumber
-            const instancenumberText = document.getElementById("instancenumber-text")
-            if (instancenumberText)
-            {
-              instancenumberText.innerHTML = _instanceNumber === instanceNumber ? "(Specified)" : ""
-            }
-          }
-          const instancetypeInput = document.getElementById("instancetype-input")
-          if (instancetypeInput)
-          {
-            const __instanceType =
-              _instanceType === "friend+" || _instanceType === "friend-plus" || _instanceType === "friends+" || _instanceType === "friends-plus" ? "friends+" :
-              _instanceType === "friend" || _instanceType === "friends" ? "friends" :
-              _instanceType === "invite+" || _instanceType === "invite-plus" ? "invite+" :
-              _instanceType === "invite" ? "invite" :
-              "public"
-            instancetypeInput.value = __instanceType
-
-            instancetypeInput.selectionStart = 0
-            instancetypeInput.selectionEnd = instancetypeInput.value.length
-          }
-          const instanceidInput = document.getElementById("instanceid-input")
-          if (instanceidInput)
-          {
-            instanceidInput.value = instanceOwner
-
-            instanceidInput.selectionStart = 0
-            instanceidInput.selectionEnd = instanceidInput.value.length
-          }
-
-          const regionInput = document.getElementById("region-input")
-          if (regionInput)
-          {
-            regionInput.value = region ? region : "us"
-
-            regionInput.selectionStart = 0
-            regionInput.selectionEnd = regionInput.value.length
-          }
-
-          const nonceInput = document.getElementById("nonce-input")
-          if (nonceInput)
-          {
-            nonceInput.value = tempNonce
-            const nonceText = document.getElementById("nonce-text")
-            if (nonceText)
-            {
-              nonceText.innerHTML = reusedNonce === tempNonce ? "(Reused)" : ""
-
-            }
-
-            nonceInput.selectionStart = 0
-            nonceInput.selectionEnd = nonceInput.value.length
-          }
-
-          const gameLinkWrapper = document.getElementById("gamelink")
-          if (gameLinkWrapper)
-          {
-            const gameLinkElement = document.createElement("a")
-            gameLinkElement.href = gameLink + "?" + gameParams.toString()
-            gameLinkElement.textContent = gameLink + "?" + gameParams.toString()
-
-            gameLinkWrapper.innerHTML = ""
-            gameLinkWrapper.append(gameLinkElement)
-          }
-
-          const gameButton = document.getElementById("game-button")
-          if (gameButton)
-          {
-            gameButton.href = gameLink + "?" + gameParams.toString()
-            gameButton.tabIndex = ""
-            gameButton.ariaDisabled = false
-            gameButton.classList.remove("disabled")
-          }
-
-          const webLinkWrapper = document.getElementById("weblink")
-          if (webLinkWrapper)
-          {
-            const webLinkElement = document.createElement("a")
-            webLinkElement.href = webURL.toString()
-            webLinkElement.textContent = webURL.toString()
-
-            webLinkWrapper.innerHTML = ""
-            webLinkWrapper.append(webLinkElement)
-          }
-
-          const webButton = document.getElementById("web-button")
-          if (webButton)
-          {
-            webButton.href = webURL.toString()
-            webButton.tabIndex = ""
-            webButton.ariaDisabled = false
-            webButton.classList.remove("disabled")
-          }
-
-          const infoLinkWrapper = document.getElementById("infolink")
-          if (infoLinkWrapper)
-          {
-            const infoLinkElement = document.createElement("a")
-            infoLinkElement.href = infoURL.toString()
-            infoLinkElement.textContent = infoURL.toString()
-
-            infoLinkWrapper.innerHTML = ""
-            infoLinkWrapper.append(infoLinkElement)
-          }
-
-          const infoButton = document.getElementById("info-button")
-          if (infoButton)
-          {
-            infoButton.href = infoURL.toString()
-            infoButton.tabIndex = ""
-            infoButton.ariaDisabled = false
-            infoButton.classList.remove("disabled")
-          }
-
-          for (const _input of document.querySelectorAll(".debug-info-text"))
-          {
-            _input.addEventListener("blur", () =>
-            {
-              _input.selectionStart = 0
-              _input.selectionEnd = _input.value.length
-            })
-          }
-
+          setFormInput()
+          updateLink()
+          initializeDebugFormBlurSelection()
         })
 
-        return webURL.toString()
+        // return instance.webURL.toString()
+
+    }
+
+    const setFormInput = () =>
+    {
+
+      const worldidBox = document.getElementById("worldid-box")
+      if (worldidBox)
+      {
+        worldidBox.value = instance.worldId
+
+        worldidBox.selectionStart = 0
+        worldidBox.selectionEnd = worldidBox.value.length
+      }
+      const worldidInput = document.getElementById("worldid-input")
+      if (worldidInput)
+      {
+        worldidInput.value = instance.worldId
+
+        worldidInput.selectionStart = 0
+        worldidInput.selectionEnd = worldidInput.value.length
+      }
+
+      const instancenumberBox = document.getElementById("instancenumber-box")
+      if (instancenumberBox)
+      {
+        instancenumberBox.value = instance.instanceNumber
+        const instancenumberText = document.getElementById("instancenumber-text")
+        if (instancenumberText)
+        {
+          instancenumberText.innerHTML = this.isInstanceNumberSpecified ? "(Specified)" : ""
+        }
+      }
+      const instancenumberInput = document.getElementById("instancenumber-input")
+      if (instancenumberInput)
+      {
+        instancenumberInput.value = instance.instanceNumber
+      }
+
+      const instancetypeBox = document.getElementById("instancetype-box")
+      if (instancetypeBox)
+      {
+        instancetypeBox.value = instance.instanceAPIType
+
+        instancetypeBox.selectionStart = 0
+        instancetypeBox.selectionEnd = instancetypeBox.value.length
+      }
+      const instancetypeInput = document.getElementById("instancetype-input")
+      if (instancetypeInput)
+      {
+        const options = Array.from(instancetypeInput.options).map(option => option.value)
+        instancetypeInput.selectedIndex = options.indexOf(instance.instanceType)
+
+        // instancetypeInput.selectionStart = 0
+        // instancetypeInput.selectionEnd = instancetypeInput.value.length
+      }
+
+      const instanceidBox = document.getElementById("instanceid-box")
+      if (instanceidBox)
+      {
+        instanceidBox.value = instance.instanceOwner || ""
+
+        instanceidBox.selectionStart = 0
+        instanceidBox.selectionEnd = instanceidBox.value.length
+      }
+      const instanceidInput = document.getElementById("instanceid-input")
+      if (instanceidInput)
+      {
+        instanceidInput.value = instance.instanceOwner || ""
+
+        instanceidInput.selectionStart = 0
+        instanceidInput.selectionEnd = instanceidInput.value.length
+      }
+
+      const regionBox = document.getElementById("region-box")
+      if (regionBox)
+      {
+        regionBox.value = instance.region || "us"
+
+        regionBox.selectionStart = 0
+        regionBox.selectionEnd = regionBox.value.length
+      }
+      const regionInput = document.getElementById("region-input")
+      if (regionInput)
+      {
+        const options = Array.from(regionInput.options).map(option => option.value)
+        regionInput.selectedIndex = options.indexOf(instance.region || "us")
+
+        // regionInput.selectionStart = 0
+        // regionInput.selectionEnd = regionInput.value.length
+      }
+
+      const nonceBox = document.getElementById("nonce-box")
+      if (nonceBox)
+      {
+        nonceBox.value = instance.nonce
+        const nonceText = document.getElementById("nonce-text")
+        if (nonceText)
+        {
+          nonceText.innerHTML = instance.isNonceReused ? "(Reused)" : ""
+
+        }
+
+        nonceBox.selectionStart = 0
+        nonceBox.selectionEnd = nonceBox.value.length
+      }
+      const nonceInput = document.getElementById("nonce-input")
+      if (nonceInput)
+      {
+        nonceInput.value = instance.nonce
+
+        nonceInput.selectionStart = 0
+        nonceInput.selectionEnd = nonceInput.value.length
+      }
+
+    }
+
+    const initializeDebugFormBlurSelection = () =>
+    {
+
+      for (const _input of document.querySelectorAll(".debug-info-text"))
+      {
+        _input.addEventListener("blur", () =>
+        {
+          _input.selectionStart = 0
+          _input.selectionEnd = _input.value.length
+        })
+      }
+
+    }
+
+    const updateLink = () =>
+    {
+
+      const gameLinkWrapper = document.getElementById("gamelink")
+      if (gameLinkWrapper)
+      {
+        const gameLinkElement = document.createElement("a")
+        gameLinkElement.href = instance.gameLink
+        gameLinkElement.textContent = instance.gameLink
+
+        gameLinkWrapper.innerHTML = ""
+        gameLinkWrapper.append(gameLinkElement)
+      }
+
+      const gameButton = document.getElementById("game-button")
+      if (gameButton)
+      {
+        gameButton.href = instance.gameLink
+        gameButton.tabIndex = ""
+        gameButton.ariaDisabled = false
+        gameButton.classList.remove("disabled")
+      }
+
+      const webLinkWrapper = document.getElementById("weblink")
+      if (webLinkWrapper)
+      {
+        const webLinkElement = document.createElement("a")
+        webLinkElement.href = instance.webURL
+        webLinkElement.textContent = instance.webURL
+
+        webLinkWrapper.innerHTML = ""
+        webLinkWrapper.append(webLinkElement)
+      }
+
+      const webButton = document.getElementById("web-button")
+      if (webButton)
+      {
+        webButton.href = instance.webURL
+        webButton.tabIndex = ""
+        webButton.ariaDisabled = false
+        webButton.classList.remove("disabled")
+      }
+
+      const infoLinkWrapper = document.getElementById("infolink")
+      if (infoLinkWrapper)
+      {
+        const infoLinkElement = document.createElement("a")
+        infoLinkElement.href = instance.infoURL
+        infoLinkElement.textContent = instance.infoURL
+
+        infoLinkWrapper.innerHTML = ""
+        infoLinkWrapper.append(infoLinkElement)
+      }
+
+      const infoButton = document.getElementById("info-button")
+      if (infoButton)
+      {
+        infoButton.href = instance.infoURL
+        infoButton.tabIndex = ""
+        infoButton.ariaDisabled = false
+        infoButton.classList.remove("disabled")
+      }
 
     }
 
@@ -436,7 +736,7 @@ html, body
     }
 
     //Generate random enough nonce
-    const nonce = () =>
+    const generateNonce = () =>
     {
 
         const temp_url = URL.createObjectURL(new Blob())
@@ -480,7 +780,8 @@ html, body
             case 1:
               if (data.matches = instanceData[_dataId].match(/^(private|public|hidden|friends)\((.+?)\)/))
               {
-                _parsedData[_parsedId] = {
+                _parsedData[_parsedId] =
+                {
                   type: data.matches[1],
                   owner: data.matches[2],
                 }
@@ -488,7 +789,7 @@ html, body
               }
               else
               {
-                _parsedData[_parsedId] = { type: "public" },
+                _parsedData[_parsedId] = { type: "public" }
               }
               break;
             case 2:
@@ -514,7 +815,7 @@ html, body
               break;
             }
 
-            instanceData[_dataId]
+            // instanceData[_dataId]
 
             _parsedId++
           }
@@ -536,7 +837,7 @@ html, body
           }
           if (_parsedData[4])
           {
-            data.reusedNonce  = _parsedData[4]
+            data.nonce  = _parsedData[4]
           }
 
           return data
@@ -575,7 +876,7 @@ html, body
           const __x = _url.searchParams.get("x")
           if (__x)
           {
-            data.reusedNonce = __x
+            data.nonce = __x
           }
 
           return data
@@ -674,12 +975,12 @@ html, body
     {
         const getParamsFromURL = new URL(location)
         const data = {
-          worldId,
-          instanceNumber,
-          instanceType,
-          instanceOwner,
-          region,
-          reusedNonce,
+          // worldId,
+          // instanceNumber,
+          // instanceType,
+          // instanceOwner,
+          // region,
+          // nonce,
         }
 
         const parsingURL = getParamsFromURL.searchParams.get("p")
@@ -692,7 +993,7 @@ html, body
             instanceType,
             instanceOwner,
             region,
-            reusedNonce,
+            nonce,
           } = getDataFromUrl(parsingURL)
 
           if (worldId)
@@ -715,9 +1016,9 @@ html, body
           {
             data.region = region
           }
-          if (reusedNonce)
+          if (nonce)
           {
-            data.reusedNonce = reusedNonce
+            data.nonce = nonce
           }
         }
 
@@ -746,18 +1047,19 @@ html, body
           const __region = getParamsFromURL.searchParams.get("r")
           data.region = __region
         }
-        if (!data.reusedNonce)
+        if (!data.nonce)
         {
-          const __reusedNonce = getParamsFromURL.searchParams.get("x")
-          data.reusedNonce = __reusedNonce
+          const __nonce = getParamsFromURL.searchParams.get("x")
+          data.nonce = __nonce
         }
-        const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a").trim()
 
-        const webURL = generateWorldLink(worldId, instanceNumber, instanceType, instanceOwner, region, reusedNonce)
+        generateWorldLink(data)
 
-        if (!isVoid(isAutomaticallyRedirect))
+        const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a")
+        if (instance.webURL && !isVoid(isAutomaticallyRedirect))
         {
-            location.href = webURL.toString()
+          history.replaceState(null, undefined, instance.thisURL)
+          location.href = instance.webURL
         }
     }
 
@@ -766,6 +1068,16 @@ html, body
       if (!obj)
       {
         return true
+      }
+
+      if (obj === 0)
+      {
+        return true
+      }
+
+      if (obj.trim)
+      {
+        obj.trim()
       }
 
       if (obj === "")
@@ -778,10 +1090,6 @@ html, body
         return true
       }
 
-      if (obj === 0)
-      {
-        return true
-      }
 
       if (obj === "off")
       {
