@@ -1058,7 +1058,7 @@ html, body
         const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a")
         if (instance.webURL && !isVoid(isAutomaticallyRedirect))
         {
-          history.replaceState(null, undefined, instance.thisURL)
+          history.pushState(null, undefined, instance.thisURL)
           location.href = instance.webURL
         }
     }
