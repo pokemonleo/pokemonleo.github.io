@@ -115,6 +115,11 @@ html, body
   user-select: none;
 }
 
+.capacity-tooltip .tooltip-inner
+{
+  text-align: start;
+}
+
 </style>
 
 <body>
@@ -195,11 +200,11 @@ html, body
         <input type="hidden" id="this-link-input">
         <input type="hidden" id="this-public-input">
         <nav>
-          <div class="nav nav-tabs px-2 pt-2" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true"><i class="fa-solid fa-cookie-bite"></i> Debug</button>
-            <button class="nav-link" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-pencil"></i> Manual Input</button>
-            <button class="nav-link" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World Chip</button>
-            <button class="nav-link" id="nav-text-tab" data-bs-toggle="tab" data-bs-target="#nav-text" type="button" role="tab" aria-controls="nav-text" aria-selected="false"><i class="fa-solid fa-clipboard"></i> Text Chip</button>
+          <div class="nav nav-tabs px-2 pt-2 flex-nowrap overflow-x-auto overflow-y-hidden" id="nav-tab" role="tablist">
+            <button class="nav-link text-nowrap active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true"><i class="fa-solid fa-cookie-bite"></i> Debug</button>
+            <button class="nav-link text-nowrap" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-pencil"></i> Manual Input</button>
+            <button class="nav-link text-nowrap" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World Chip</button>
+            <button class="nav-link text-nowrap" id="nav-text-tab" data-bs-toggle="tab" data-bs-target="#nav-text" type="button" role="tab" aria-controls="nav-text" aria-selected="false"><i class="fa-solid fa-clipboard"></i> Text Chip</button>
           </div>
         </nav>
         <div class="tab-content m-2" id="nav-tabContent">
@@ -1009,6 +1014,18 @@ html, body
       div.classList.add("alert", "alert-light", "mt-2", "mb-0", "p-2", "shadow-sm")
       return div
     })(),
+    __worldChipCapacityMaximumTooltipElement: (() =>
+    {
+      const span = document.createElement("span")
+      span.textContent = 0
+      return span
+    })(),
+    __worldChipCapacityRecommendedTooltipElement: (() =>
+    {
+      const span = document.createElement("span")
+      span.textContent = 0
+      return span
+    })(),
     __worldChipCapacityMaximumElement: (() =>
     {
       const span = document.createElement("span")
@@ -1035,6 +1052,11 @@ html, body
       const i = document.createElement("i")
       i.classList.add("fa-solid", "fa-users-rectangle", "fa-fw", "text-muted")
       return i
+    })(),
+    __worldChipCapacityTooltipElement: (() =>
+    {
+      const span = document.createElement("span")
+      return span
     })(),
     __worldChipCapacityElement: (() =>
     {
@@ -1120,6 +1142,20 @@ html, body
       this.__worldChipCapacityElement.append(this.__worldChipCapacityRecommendedElement)
       this.__worldChipCapacityElement.append(this.__worldChipCapacityDividerElement)
       this.__worldChipCapacityElement.append(this.__worldChipCapacityMaximumElement)
+
+      this.__worldChipCapacityTooltipElement.append("Recommended: ")
+      this.__worldChipCapacityTooltipElement.append(this.__worldChipCapacityRecommendedTooltipElement)
+      this.__worldChipCapacityTooltipElement.append(document.createElement("br"))
+      this.__worldChipCapacityTooltipElement.append("Maximum: ")
+      this.__worldChipCapacityTooltipElement.append(this.__worldChipCapacityMaximumTooltipElement)
+
+      this.__worldChipCapacityTooltip = new bootstrap.Tooltip(this.__worldChipCapacityElement,
+      {
+        title: this.__worldChipCapacityTooltipElement,
+        html: true,
+        customClass: "capacity-tooltip",
+      })
+
       if (window.FontAwesome)
       {
         const icon = FontAwesome.icon({ prefix: "fas", iconName: "circle-user" })
@@ -1205,6 +1241,8 @@ html, body
       }
       this.__worldChipCapacityRecommendedElement.textContent = this.recommendedCapacity || 0
       this.__worldChipCapacityMaximumElement.textContent = this.maximumCapacity || 0
+      this.__worldChipCapacityRecommendedTooltipElement.textContent = this.recommendedCapacity || 0
+      this.__worldChipCapacityMaximumTooltipElement.textContent = this.maximumCapacity || 0
       if (this.description)
       {
         this.__worldChipDescriptionElement.textContent = this.description
