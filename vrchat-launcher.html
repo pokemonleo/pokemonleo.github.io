@@ -279,6 +279,51 @@ html, body
 
   const instance =
   {
+    set instance(_instance)
+    {
+
+      const {
+        __worldId,
+        __instanceNumber,
+        __isInstanceNumberSpecified,
+        __isInstanceNumberGenerated,
+        __instanceType,
+        __instanceOwner,
+        __region,
+        __nonce,
+        __isNonceReused,
+        __isNonceGenerated,
+      } = _instance
+
+      this.worldId = __worldId
+      this._instanceNumber = __instanceNumber
+      this._isInstanceNumberSpecified = __isInstanceNumberSpecified
+      this._isInstanceNumberGenerated = __isInstanceNumberGenerated
+      this._instanceType = __instanceType
+      this._instanceOwner = __instanceOwner
+      this._region = __region
+      this._nonce = __nonce
+      this._isNonceReused = __isNonceReused
+      this._isNonceGenerated = __isNonceGenerated
+
+    },
+
+    get instance()
+    {
+      return {
+        worldId: this.worldId,
+        instanceNumber: this._instanceNumber,
+        isInstanceNumberSpecified: this._isInstanceNumberSpecified,
+        isInstanceNumberGenerated: this._isInstanceNumberGenerated,
+        instanceType: this._instanceType,
+        instanceOwner: this._instanceOwner,
+        region: this._region,
+        nonce: this._nonce,
+        isNonceReused: this._isNonceReused,
+        isNonceGenerated: this._isNonceGenerated,
+      }
+    },
+
     set instanceType(type)
     {
       this._instanceType = type
@@ -1197,7 +1242,7 @@ html, body
       infoButton.classList.remove("disabled")
     }
 
-    history.pushState(instance, undefined, instance.thisURL)
+    history.pushState(instance.instance, undefined, instance.thisURL)
     // history.pushState({ ... instance }, undefined, instance.thisURL)
 
   }
@@ -1713,8 +1758,11 @@ html, body
 
       addEventListener("popstate", (event) =>
       {
+        console.log("onpopstate")
         console.log(event)
         console.log(event.state)
+
+        instance.instance = event.state
       })
 
   }
