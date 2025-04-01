@@ -2187,7 +2187,8 @@ html, body
       }
     }
 
-    if (_url.hostname === "pokemonleo.github.io")
+    const _current = new URL(location)
+    if (_current.origin + _current.pathname === _url.origin + _url.pathname || _url.hostname === "pokemonleo.github.io")
     {
       if (_url.pathname.match(/^\/vrchat-launcher\.html/))
       {
