@@ -129,7 +129,23 @@ html, body
               <i class="fa-solid fa-circle-info"></i> Information
             </button>
           </li>
-          <!-- <li><hr class="dropdown-divider"></li> -->
+          <li><hr class="dropdown-divider"></li>
+          <li><div class="dropdown-header">Other Links</div></li>
+          <li>
+            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-users-viewfinder"></i> Launch Public
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-gear"></i> Launcher Current
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-users-gear"></i> Launcher Public
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -1188,8 +1204,8 @@ html, body
 
       if (!instance.worldId)
       {
-          // throw new Error("No worldId")
-          console.error("No worldId")
+          // throw new Error("No World Id")
+          console.error("No World Id")
           return
       }
 
@@ -1245,7 +1261,7 @@ html, body
     const worldidBox = document.getElementById("worldid-box")
     if (worldidBox)
     {
-      worldidBox.value = instance.worldId
+      worldidBox.value = instance.worldId || ""
 
       worldidBox.selectionStart = 0
       worldidBox.selectionEnd = worldidBox.value.length
@@ -1317,7 +1333,7 @@ html, body
     const worldidInput = document.getElementById("worldid-input")
     if (worldidInput)
     {
-      worldidInput.value = instance.worldId
+      worldidInput.value = instance.worldId || ""
 
       worldidInput.selectionStart = 0
       worldidInput.selectionEnd = worldidInput.value.length
@@ -1949,7 +1965,7 @@ html, body
     {
       thisUrlAuto.searchParams.delete("i")
     }
-    textChip.value = "### [" + world.title + "](" + instance.infoURL + ")" + "\n" + world.description + "\n" + ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "** Instance](" + thisUrlAuto.toString() + ") --- :gear: [*Details*](" + thisUrl.toString() + ") --- :information_source: [*Info*](" + instance.infoURL + ")"
+    textChip.value = "### [" + world.title + "](" + instance.infoURL + ")" + "\n" + world.description + "\n" + ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "**](" + thisUrlAuto.toString() + ") --- :gear: [*Details*](" + thisUrl.toString() + ") --- :information_source: [*Info*](" + instance.infoURL + ")"
   }
 
   // Generate a Random enough instance ID
