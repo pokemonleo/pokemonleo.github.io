@@ -56,6 +56,27 @@ html, body
   text-overflow: ellipsis
 }
 
+#world-thumbnail, #world-preview-youtube
+{
+}
+
+#world-thumbnail > a,
+#world-thumbnail > a > img,
+#world-preview-youtube > iframe
+{
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 576px)
+{
+  #world-thumbnail, #world-preview-youtube
+  {
+    max-width: 250px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
 </style>
 
 <body>
@@ -86,10 +107,10 @@ html, body
       <form class="border shadow-sm">
         <nav>
           <div class="nav nav-tabs px-2 pt-2" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true">Debug</button>
-            <button class="nav-link" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false">Manual Input</button>
-            <button class="nav-link" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false">World Data</button>
-            <button class="nav-link" id="nav-text-tab" data-bs-toggle="tab" data-bs-target="#nav-text" type="button" role="tab" aria-controls="nav-text" aria-selected="false">Text Chip</button>
+            <button class="nav-link active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true"><i class="fa-solid fa-cookie-bite"></i> Debug</button>
+            <button class="nav-link" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-pencil"></i> Manual Input</button>
+            <button class="nav-link" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World Data</button>
+            <button class="nav-link" id="nav-text-tab" data-bs-toggle="tab" data-bs-target="#nav-text" type="button" role="tab" aria-controls="nav-text" aria-selected="false"><i class="fa-solid fa-clipboard"></i> Text Chip</button>
           </div>
         </nav>
         <div class="tab-content m-2" id="nav-tabContent">
@@ -147,12 +168,16 @@ html, body
             <div class="row mb-2 manual-input">
               <label for="instancetype-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Type</label>
               <div class="col-sm-8">
-                <select class="form-select" id="instancetype-input" class="form-control manual-input-text py-0" aria-label="Select Instance Type">
+                <select class="form-select form-select-sm" id="instancetype-input" class="form-control manual-input-text py-0" aria-label="Select Instance Type">
                   <option value="public">Public</option>
                   <option value="friend+">Friend+</option>
                   <option value="friend">Friend</option>
                   <option value="invite+">Invite+</option>
                   <option value="invite">Invite</option>
+                  <option value="group-public">Group Public</option>
+                  <option value="group+">Group+</option>
+                  <option value="group">Group</option>
+
                 </select>
               </div>
             </div>
@@ -165,7 +190,7 @@ html, body
             <div class="row mb-2 manual-input">
               <label for="region-input" class="col-sm-4 col-form-label manual-input-title py-0">Region</label>
               <div class="col-sm-8">
-                <select class="form-select" id="region-input" class="form-control manual-input-text py-0" aria-label="Select Region">
+                <select class="form-select form-select-sm" id="region-input" class="form-control manual-input-text py-0" aria-label="Select Region">
                   <option value="us">United State West</option>
                   <option value="use">United State East</option>
                   <option value="eu">Europe</option>
@@ -181,16 +206,43 @@ html, body
             </div>
           </div>
           <div class="tab-pane fade" id="nav-world" role="tabpanel" aria-labelledby="nav-world-tab" tabindex="0">
-            Under Construction
+            <div class="d-sm-flex">
+              <div class="flex-sm-shrink-0">
+                <div id="world-thumbnail">
+                  <a href="#" target="_blank" class="d-block"><img src="https://picsum.photos/800/600" class="img-fluid rounded shadow-sm" alt=""></a>
+                </div>
+                <div id="world-preview-youtube">
+                  <iframe class="rounded shadow-sm" width="560" height="315" src="https://www.youtube-nocookie.com/embed/5lPb8JaNdZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="flex-sm-grow-1 mt-2 mt-sm-0 ms-sm-2">
+                <div class="h5 border-bottom pb-2" id="world-name">Under Construction</div>
+                <div class="d-flex flex-column flex-md-row">
+                  <div>
+                    <i class="fa-solid fa-circle-user fa-fw text-muted"></i>
+                    <span id="world-author">Author Name</span>
+                  </div>
+                  <div class="ms-md-4">
+                    <i class="fa-solid fa-users-rectangle fa-fw text-muted"></i>
+                    <span id="world-capacity">8 / 16</span>
+                  </div>
+                </div>
+                <div class="alert alert-light mt-2 mb-0 p-2 shadow-sm" id="world-description">
+                  World Description
+                </div>
+              </div>
+            </div>
             <!--
             data.id
             data.name
             data.description
             data.authorName / data.authorId
-            data.recommendedCapacity / data.capacity
             "https://vrchat.com/home/user/" + data.authorId
+            data.recommendedCapacity / data.capacity
             data.imageUrl
             data.thumbnailImageUrl
+            data.previewYoutubeId
+            "https://www.youtube-nocookie.com/embed/" + data.previewYoutubeId
             -->
           </div>
           <div class="tab-pane fade" id="nav-text" role="tabpanel" aria-labelledby="nav-text-tab" tabindex="0">
@@ -225,389 +277,613 @@ html, body
 (() =>
 {
 
-    const instance =
+  const instance =
+  {
+    set instanceType(type)
     {
-      set instanceType(type)
-      {
-        this._instanceType = type
-      },
+      this._instanceType = type
+    },
 
-      get instanceType()
-      {
-          return this._instanceType === "friend+" || this._instanceType === "friend-plus" || this._instanceType === "friends+" || this._instanceType === "friends-plus" ? "friend+" :
-            this._instanceType === "friend" || this._instanceType === "friends" ? "friend" :
-            this._instanceType === "invite+" || this._instanceType === "invite-plus" ? "invite+" :
-            this._instanceType === "invite" ? "invite" :
-            "public"
-      },
+    set defaultInstanceType(type)
+    {
+      Cookies.set("defaultInstanceType", type, { expires: 365, path: "", })
+    },
 
-      get instanceAPIType()
-      {
-          return this._instanceType === "friend+" || this._instanceType === "friend-plus" || this._instanceType === "friends+" || this._instanceType === "friends-plus" ? "hidden" :
-            this._instanceType === "friend" || this._instanceType === "friends" ? "friends" :
-            this._instanceType === "invite+" || this._instanceType === "invite-plus" ? "private" :
-            this._instanceType === "invite" ? "private" :
-            "public"
-      },
+    get defaultInstanceType()
+    {
+      return Cookies.get("defaultInstanceType")
+    },
 
-      get canRequestInvite()
+    get instanceType()
+    {
+      if (this._instanceType)
       {
-        return this._instanceType === "invite+" || this._instanceType === "invite-plus"
-      },
+        return getReadableTypeByInstanceInput(this._instanceType)
+      }
 
-      set nonce(uuid)
+      if (this._instanceOwner)
       {
-        if (uuid)
+        if (this.defaultInstanceType)
         {
-          this._nonce = uuid
-          this.isNonceReused = true
-          delete this.isNonceGenerated
+          return getReadableTypeByInstanceInput(this.defaultInstanceType)
         }
-        else
-        {
-          delete this._nonce
-          delete this.isNonceReused
-          delete this.isNonceGenerated
-        }
-      },
+      }
 
-      get nonce()
+      return "public"
+    },
+
+    get instanceAPIType()
+    {
+      if (this._instanceType)
       {
-        if (!this._nonce)
-        {
-          this._nonce = generateNonce()
-          this.isNonceGenerated = true
-          delete this.isNonceReused
-        }
+        return getAPITypeByInstanceInput(this._instanceType)
+      }
 
-        return this._nonce
-      },
-
-      set instanceOwner(owner)
+      if (this._instanceOwner)
       {
-        this._instanceOwner = owner
-        Cookies.set("instanceOwner", owner, { expires: 30, path: "", })
-      },
+        if (this.defaultInstanceType)
+        {
+          return getAPITypeByInstanceInput(this.defaultInstanceType)
+        }
+      }
 
-      get instanceOwner()
+      return "public"
+    },
+
+    get canRequestInvite()
+    {
+      return this._instanceType === "invite+" || this._instanceType === "invite-plus"
+    },
+
+    get groupAccessType()
+    {
+      if (this._instanceType === "group-public")
       {
-        if (!this._instanceOwner)
-        {
-          const owner = Cookies.get("instanceOwner")
-          if (owner)
-          {
-            this._instanceOwner = owner
-          }
-        }
+        return "public"
+      }
 
-        return this._instanceOwner
-      },
-
-      set instanceNumber(number)
+      if (this._instanceType === "group+" || this._instanceType === "group-plus")
       {
-        if (number)
-        {
-          this._instanceNumber = number
-          this.isInstanceNumberSpecified = true
-          delete this._isInstanceNumberGenerated
-        }
-        else
-        {
-          delete this._instanceNumber
-          delete this.isInstanceNumberSpecified
-          delete this._isInstanceNumberGenerated
-        }
-      },
+        return "plus"
+      }
 
-      get instanceNumber()
+      if (this._instanceType === "group" || this._instanceType === "group-only" || this._instanceType === "group-member" || this._instanceType === "group-member-only" || this._instanceType === "group-members" || this._instanceType === "group-members-only")
       {
-        if (!this._instanceNumber || this._instanceNumber === 0 || this._instanceNumber === "0" || this._instanceNumber.match(/[^A-Za-z0-9]/))
-        {
-          this._instanceNumber = randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5
-          this._isInstanceNumberGenerated = true
-          delete this.isInstanceNumberSpecified
-        }
+        return "members"
+      }
 
-        return this._instanceNumber
-      },
+      return
+    },
 
-      __gameLink: "vrchat://launch",
-      // __gameLink: "vrchat://launch?id=",
-      // __webLink: "https://vrchat.com/home/launch?worldId=",
-      __gameParams: (() =>
+    set nonce(uuid)
+    {
+      if (uuid)
       {
-        const gameParams = new URLSearchParams()
-        gameParams.toString = function()
-        {
-          string = ""
-          this.forEach((value, id) =>
-          {
-            if (string)
-            {
-              string += "&"
-            }
-            string += id + "=" + value
-          })
-          return string
-        }
-        return gameParams
-      })(),
-
-      __webURL: new URL("https://vrchat.com/home/launch"),
-      __infoURL: new URL("https://vrchat.com/home/world/"),
-      __homeURL: new URL("https://vrchat.com/home"),
-
-      get instanceId()
+        this._nonce = uuid
+        this._isNonceReused = true
+        delete this._isNonceGenerated
+      }
+      else
       {
-        if (!this.instanceOwner && this.instanceAPIType !== "public")
+        delete this._nonce
+        delete this._isNonceReused
+        delete this._isNonceGenerated
+      }
+    },
+
+    get nonce()
+    {
+      if (!this._nonce)
+      {
+        this._nonce = generateNonce()
+        this._isNonceGenerated = true
+        delete this._isNonceReused
+      }
+
+      return this._nonce
+    },
+
+    set region(_region)
+    {
+      this._region = _region
+      if (_region)
+      {
+        if (!this.defaultRegion)
         {
-            // throw new Error("No instanceOwner")
-            console.error("No instanceOwner for non-public instance")
-            return ""
+          this.defaultRegion = _region
         }
+      }
+    },
 
-        let instanceId = ""
+    set defaultRegion(owner)
+    {
+      Cookies.set("defaultRegion", _region, { expires: 365, path: "", })
+    },
 
-        // Public links dont seem to allow owners any more?
+    get defaultRegion()
+    {
+      return Cookies.get("defaultRegion")
+    },
+
+    get region()
+    {
+      if (!this._region)
+      {
+        if (this.defaultRegion)
+        {
+          this._region = this.defaultRegion
+        }
+      }
+
+      return this._region || "us"
+    },
+
+    set instanceOwner(owner)
+    {
+      this._instanceOwner = owner
+      if (owner)
+      {
+        if (!this.defaultInstanceOwner)
+        {
+          this.defaultInstanceOwner = owner
+        }
+      }
+    },
+
+    set defaultInstanceOwner(owner)
+    {
+      if (this.instanceAPIType === "group" && owner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        Cookies.set("defaultGroupInstanceOwner", owner, { expires: 365, path: "", })
+        return
+      }
+      if (this.instanceAPIType !== "group" && this.instanceAPIType !== "public" && owner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        Cookies.set("defaultUserInstanceOwner", owner, { expires: 365, path: "", })
+        return
+      }
+
+      // Cookies.set("defaultInstanceOwner", owner, { expires: 365, path: "", })
+    },
+
+    get defaultInstanceOwner()
+    {
+      if (this.instanceAPIType === "group")
+      {
+        return Cookies.get("defaultGroupInstanceOwner")
+      }
+
+      if (this.instanceAPIType !== "group" && this.instanceAPIType !== "public")
+      {
+        return Cookies.get("defaultUserInstanceOwner")
+      }
+
+      // return Cookies.get("defaultInstanceOwner")
+    },
+
+    get instanceOwner()
+    {
+      if (!this._instanceOwner && this.instanceAPIType !== "public")
+      {
+        if (this.defaultInstanceOwner)
+        {
+          this._instanceOwner = this.defaultInstanceOwner
+        }
+      }
+
+      return this._instanceOwner
+    },
+
+    set instanceNumber(number)
+    {
+      if (number)
+      {
+        this._instanceNumber = number
+        this._isInstanceNumberSpecified = true
+        delete this._isInstanceNumberGenerated
+      }
+      else
+      {
+        delete this._instanceNumber
+        delete this._isInstanceNumberSpecified
+        delete this._isInstanceNumberGenerated
+      }
+    },
+
+    get instanceNumber()
+    {
+      if (!this._instanceNumber || this._instanceNumber === 0 || this._instanceNumber === "0" || this._instanceNumber.match(/[^A-Za-z0-9]/))
+      {
         if (this.instanceAPIType === "public")
         {
-            instanceId = this.instanceNumber
-        }
-        else
-        {
-            instanceId = this.instanceNumber + "~" + this.instanceAPIType + "(" + this.instanceOwner + ")"
+          delete this._isInstanceNumberGenerated
+          delete this._isInstanceNumberSpecified
+          return ""
         }
 
-        //If the instance is invite+ we need to add in "~canRequestInvite()"
-        if (this.canRequestInvite === true)
-        {
-            instanceId += "~canRequestInvite"
-        }
-
-        if (this.region)
-        {
-            instanceId += "~region(" + this.region + ")"
-        }
-
-        if (this.instanceAPIType !== "public")
-        {
-            instanceId += "~nonce(" + this.nonce + ")"
-        }
-
-        return instanceId
-      },
-
-      get gameLink()
-      {
-        if (this.worldId)
-        {
-          this.__gameParams.set("id", this.worldId + ":" + this.instanceId)
-          return this.__gameLink + "?" + this.__gameParams.toString()
-        }
-        else
-        {
-          return this.__gameLink
-        }
-      },
-
-      get webURL()
-      {
-        if (this.worldId)
-        {
-          this.__webURL.searchParams.set("worldId", this.worldId)
-          this.__webURL.searchParams.set("instanceId", this.instanceId)
-          return this.__webURL.toString()
-        }
-        else
-        {
-          return this.__homeURL.toString()
-        }
-      },
-
-      get infoURL()
-      {
-        if (this.worldId)
-        {
-          return this.__infoURL.pathname.replace(/\/$/, "") + "/" + this.worldId
-        }
-        else
-        {
-          return this.__homeURL.toString()
-        }
-      },
-
-      get thisURL()
-      {
-        const _u = new URL(location)
-        _u.searchParams.set("w", this.worldId)
-        _u.searchParams.set("n", this.instanceNumber)
-        if (this._instanceType)
-        {
-          _u.searchParams.set("t", this._instanceType)
-        }
-        if (this.instanceOwner)
-        {
-          _u.searchParams.set("i", this.instanceOwner)
-        }
-        if (this.region)
-        {
-          _u.searchParams.set("r", this.region)
-        }
-        if (this.nonce)
-        {
-          _u.searchParams.set("x", this.nonce)
-        }
-
-        return _u.toString()
+        this._instanceNumber = randomInstanceNumber("number-only") // Random String from "A-Za-z0-9" with Length of 5
+        this._isInstanceNumberGenerated = true
+        delete this._isInstanceNumberSpecified
       }
-    }
 
-    const world =
+      return this._instanceNumber
+    },
+
+    __gameLink: "vrchat://launch",
+    // __gameLink: "vrchat://launch?id=",
+    // __webLink: "https://vrchat.com/home/launch?worldId=",
+    __gameParams: (() =>
     {
-
-    }
-
-    const generateWorldLink = data =>
-    {
-        console.log("GENERATING LINK")
-        console.log("===============")
-
-        if (data.worldId && data.worldId.trim)
+      const gameParams = new URLSearchParams()
+      gameParams.toString = function()
+      {
+        string = ""
+        this.forEach((value, id) =>
         {
-          instance.worldId = data.worldId.trim()
-          if (instance.worldId.match(/\/info$/))
+          if (string)
           {
-            instance.worldId = instance.worldId.replace(/\/info$/, "")
+            string += "&"
           }
-        }
-        if (data.instanceNumber && data.instanceNumber.trim)
+          string += id + "=" + value
+        })
+        return string
+      }
+      return gameParams
+    })(),
+
+    __webURL: new URL("https://vrchat.com/home/launch"),
+    __infoURL: new URL("https://vrchat.com/home/world/"),
+    __homeURL: new URL("https://vrchat.com/home"),
+
+    get instanceId()
+    {
+      if (!this.instanceOwner && this.instanceAPIType !== "public")
+      {
+        // throw new Error("No instanceOwner")
+        console.error("No instanceOwner for non-public instance")
+        return ""
+      }
+
+      if (this.instanceAPIType === "group" && !this.instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        console.error("Instance Owner Must Be Valid Group ID for Group Instance")
+        return
+      }
+
+      if (this.instanceAPIType !== "group" && this.instanceAPIType !== "public" && !this.instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        console.error("Instance Owner Must Be Valid User ID for Non-Group Instance")
+        return
+      }
+
+      let instanceId = ""
+
+      // Public links dont seem to allow owners any more?
+      if (this.instanceAPIType === "public")
+      {
+        instanceId = this.instanceNumber
+      }
+      else
+      {
+        instanceId = this.instanceNumber + "~" + this.instanceAPIType + "(" + this.instanceOwner + ")"
+      }
+
+      //If the instance is invite+ we need to add in "~canRequestInvite()"
+      if (this.canRequestInvite === true)
+      {
+        instanceId += "~canRequestInvite"
+      }
+
+      if (this.groupAccessType)
+      {
+        instanceId += "~groupAccessType(" + this.groupAccessType + ")"
+      }
+
+      if (this.region)
+      {
+        instanceId += "~region(" + this.region + ")"
+      }
+
+      if (this.instanceAPIType !== "public")
+      {
+        instanceId += "~nonce(" + this.nonce + ")"
+      }
+
+      return instanceId
+    },
+
+    get gameLink()
+    {
+      if (this.worldId)
+      {
+        this.__gameParams.set("id", this.worldId + ":" + this.instanceId)
+        return this.__gameLink + "?" + this.__gameParams.toString()
+      }
+      else
+      {
+        return this.__gameLink
+      }
+    },
+
+    get webURL()
+    {
+      if (this.worldId)
+      {
+        this.__webURL.searchParams.set("worldId", this.worldId)
+        this.__webURL.searchParams.set("instanceId", this.instanceId)
+        return this.__webURL.toString()
+      }
+      else
+      {
+        return this.__homeURL.toString()
+      }
+    },
+
+    get infoURL()
+    {
+      if (this.worldId)
+      {
+        return this.__infoURL.origin + this.__infoURL.pathname.replace(/\/$/, "") + "/" + this.worldId
+      }
+      else
+      {
+        return this.__homeURL.toString()
+      }
+    },
+
+    get thisURL()
+    {
+      const _u = new URL(location)
+      const params = _u.searchParams
+
+      for (key of params.keys())
+      {
+        params.delete(key)
+      }
+
+      params.set("w", this.worldId)
+      params.set("n", this.instanceNumber)
+      if (this.instanceType)
+      {
+        params.set("t", this.instanceType)
+      }
+      if (this.instanceOwner)
+      {
+        params.set("i", this.instanceOwner)
+      }
+      if (this.region)
+      {
+        params.set("r", this.region)
+      }
+      if (this.nonce)
+      {
+        params.set("x", this.nonce)
+      }
+
+      return _u.toString()
+    }
+  }
+
+  const world =
+  {
+    get id()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.id
+    },
+
+    get name()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.name
+    },
+
+    get title()
+    {
+      return this.name
+    },
+
+    get description()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.description
+    },
+
+    get authorName()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.authorName
+    },
+
+    get authorId()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.authorId
+    },
+
+    get authorUrl()
+    {
+      if (!this.authorId)
+      {
+        return "https://vrchat.com/home"
+      }
+      return "https://vrchat.com/home/user/" + this.authorId
+    },
+
+    get recommendedCapacity()
+    {
+      if (!this.data)
+      {
+        return 0
+      }
+      return this.data.recommendedCapacity
+    },
+
+    get maximumCapacity()
+    {
+      if (!this.data)
+      {
+        return 0
+      }
+      return this.data.capacity
+    },
+
+    get capacity()
+    {
+      return this.recommendedCapacity + "/" + this.maximumCapacity
+    },
+
+    get imageUrl()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.imageUrl
+    },
+
+    get thumbnailImageUrl()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.thumbnailImageUrl
+    },
+  }
+
+  const generateWorldLink = data =>
+  {
+      console.log("GENERATING LINK")
+      console.log("===============")
+
+      if (data.worldId && data.worldId.trim)
+      {
+        instance.worldId = data.worldId.trim()
+        if (instance.worldId.match(/\/info$/))
         {
-          instance.instanceNumber = data.instanceNumber.trim()
+          instance.worldId = instance.worldId.replace(/\/info$/, "")
         }
-        if (data.instanceType && data.instanceType.trim)
-        {
-          instance.instanceType = data.instanceType.trim()
-        }
-        if (data.instanceOwner && data.instanceOwner.trim)
-        {
-          instance.instanceOwner = data.instanceOwner.trim()
-        }
-        if (data.region && data.region.trim)
-        {
-          instance.region = data.region.trim()
-        }
+      }
+      if (data.instanceNumber && data.instanceNumber.trim)
+      {
+        instance.instanceNumber = data.instanceNumber.trim()
+      }
+      if (data.instanceType && data.instanceType.trim)
+      {
+        instance.instanceType = data.instanceType.trim()
+      }
+      if (data.instanceOwner && data.instanceOwner.trim)
+      {
+        instance.instanceOwner = data.instanceOwner.trim()
+      }
+      if (data.region && data.region.trim)
+      {
+        instance.region = data.region.trim()
+      }
 
-        if (!instance.worldId)
-        {
-            // throw new Error("No worldId")
-            console.error("No worldId")
-            return
-        }
+      if (!instance.worldId)
+      {
+          // throw new Error("No worldId")
+          console.error("No worldId")
+          return
+      }
 
-        // if (!_instanceType)
-        // {
-        //     // throw new Error("No instanceType")
-        //     console.error("No instanceType")
-        //     return
-        // }
+      // if (!_instanceType)
+      // {
+      //     // throw new Error("No instanceType")
+      //     console.error("No instanceType")
+      //     return
+      // }
 
-        console.log(instance)
-        if (!instance.instanceOwner && instance.instanceAPIType !== "public")
-        {
-            // throw new Error("No instanceOwner")
-            console.error("No instanceOwner for non-public instance")
-            return
-        }
+      console.log(instance)
+      // if (!instance.instanceOwner && instance.instanceAPIType !== "public")
+      // {
+      //     // throw new Error("No instanceOwner")
+      //     console.error("No instanceOwner for non-public instance")
+      //     return
+      // }
 
-        "public"
-        "friends" // Friend+
-        "hidden" // Friend Only
-        "private" // Invite+ / Invite Only
+      "public"
+      "friends" // Friend+
+      "hidden" // Friend Only
+      "private" // Invite+ / Invite Only
 
-        // const region = "jp" // "us" / "use" / "eu" / "jp"
+      // const region = "jp" // "us" / "use" / "eu" / "jp"
 
-        console.log("worldID = " + instance.worldId)
-        console.log("instanceOwner = " + instance.instanceOwner) // Group ID if creating for Group Instance or Group+ Instance
-        console.log("instanceType  = " + instance.instanceAPIType)
-        console.log("instanceNumber  = " + instance.instanceNumber)
+      console.log("worldID = " + instance.worldId)
+      console.log("instanceOwner = " + instance.instanceOwner) // Group ID if creating for Group Instance or Group+ Instance
+      console.log("instanceType  = " + instance.instanceAPIType)
+      console.log("instanceNumber  = " + instance.instanceNumber)
 
-        //Output Final Link
-        console.log("Launch Game Link", instance.gameLink)
-        console.log("Web Link", instance.webURL)
+      //Output Final Link
+      console.log("Launch Game Link", instance.gameLink)
+      console.log("Web Link", instance.webURL)
 
-        //Get System's fancy new short URL link
-        // loadXMLDoc(weblink + "/shortName")
-        // console.log(weblink + "/shortName")
+      //Get System's fancy new short URL link
+      // loadXMLDoc(weblink + "/shortName")
+      // console.log(weblink + "/shortName")
 
-        // document.addEventListener("DOMContentLoaded", () =>
-        // {
+      // document.addEventListener("DOMContentLoaded", () =>
+      // {
 
-        //   setFormInput()
-        //   updateLink()
-        // })
+      //   setFormInput()
+      //   updateLink()
+      // })
 
-        // return instance.webURL.toString()
+      // return instance.webURL.toString()
 
+  }
+
+  const setDebugInput = () =>
+  {
+
+    const worldidBox = document.getElementById("worldid-box")
+    if (worldidBox)
+    {
+      worldidBox.value = instance.worldId
+
+      worldidBox.selectionStart = 0
+      worldidBox.selectionEnd = worldidBox.value.length
     }
 
-    const setDebugInput = () =>
+    const instancenumberBox = document.getElementById("instancenumber-box")
+    if (instancenumberBox)
     {
-
+      instancenumberBox.value = instance.instanceNumber
+      const instancenumberText = document.getElementById("instancenumber-text")
+      if (instancenumberText)
+      {
+        instancenumberText.innerHTML = this._isInstanceNumberSpecified ? "(Specified)" : ""
+      }
     }
-    const setFormInput = () =>
+
+    const instancetypeBox = document.getElementById("instancetype-box")
+    if (instancetypeBox)
     {
+      instancetypeBox.value = instance.instanceAPIType
 
-      const worldidBox = document.getElementById("worldid-box")
-      if (worldidBox)
-      {
-        worldidBox.value = instance.worldId
+      instancetypeBox.selectionStart = 0
+      instancetypeBox.selectionEnd = instancetypeBox.value.length
+    }
 
-        worldidBox.selectionStart = 0
-        worldidBox.selectionEnd = worldidBox.value.length
-      }
-      const worldidInput = document.getElementById("worldid-input")
-      if (worldidInput)
-      {
-        worldidInput.value = instance.worldId
-
-        worldidInput.selectionStart = 0
-        worldidInput.selectionEnd = worldidInput.value.length
-      }
-
-      const instancenumberBox = document.getElementById("instancenumber-box")
-      if (instancenumberBox)
-      {
-        instancenumberBox.value = instance.instanceNumber
-        const instancenumberText = document.getElementById("instancenumber-text")
-        if (instancenumberText)
-        {
-          instancenumberText.innerHTML = this.isInstanceNumberSpecified ? "(Specified)" : ""
-        }
-      }
-      const instancenumberInput = document.getElementById("instancenumber-input")
-      if (instancenumberInput)
-      {
-        instancenumberInput.value = instance.instanceNumber
-      }
-
-      const instancetypeBox = document.getElementById("instancetype-box")
-      if (instancetypeBox)
-      {
-        instancetypeBox.value = instance.instanceAPIType
-
-        instancetypeBox.selectionStart = 0
-        instancetypeBox.selectionEnd = instancetypeBox.value.length
-      }
-      const instancetypeInput = document.getElementById("instancetype-input")
-      if (instancetypeInput)
-      {
-        const options = Array.from(instancetypeInput.options).map(option => option.value)
-        instancetypeInput.selectedIndex = options.indexOf(instance.instanceType)
-
-        // instancetypeInput.selectionStart = 0
-        // instancetypeInput.selectionEnd = instancetypeInput.value.length
-      }
-
+    if (instance.instanceAPIType !== "public")
+    {
       const instanceidBox = document.getElementById("instanceid-box")
       if (instanceidBox)
       {
@@ -616,6 +892,66 @@ html, body
         instanceidBox.selectionStart = 0
         instanceidBox.selectionEnd = instanceidBox.value.length
       }
+    }
+
+    const regionBox = document.getElementById("region-box")
+    if (regionBox)
+    {
+      regionBox.value = instance.region || "us"
+
+      regionBox.selectionStart = 0
+      regionBox.selectionEnd = regionBox.value.length
+    }
+
+    if (instance.instanceAPIType !== "public")
+    {
+      const nonceBox = document.getElementById("nonce-box")
+      if (nonceBox)
+      {
+        nonceBox.value = instance.nonce
+        const nonceText = document.getElementById("nonce-text")
+        if (nonceText)
+        {
+          nonceText.innerHTML = instance._isNonceReused ? "(Reused)" : ""
+
+        }
+
+        nonceBox.selectionStart = 0
+        nonceBox.selectionEnd = nonceBox.value.length
+      }
+    }
+
+  }
+  const setFormInput = () =>
+  {
+
+    const worldidInput = document.getElementById("worldid-input")
+    if (worldidInput)
+    {
+      worldidInput.value = instance.worldId
+
+      worldidInput.selectionStart = 0
+      worldidInput.selectionEnd = worldidInput.value.length
+    }
+
+    const instancenumberInput = document.getElementById("instancenumber-input")
+    if (instancenumberInput)
+    {
+      instancenumberInput.value = instance.instanceNumber
+    }
+
+    const instancetypeInput = document.getElementById("instancetype-input")
+    if (instancetypeInput)
+    {
+      const options = Array.from(instancetypeInput.options).map(option => option.value)
+      instancetypeInput.selectedIndex = options.indexOf(instance.instanceType)
+
+      // instancetypeInput.selectionStart = 0
+      // instancetypeInput.selectionEnd = instancetypeInput.value.length
+    }
+
+    if (instance.instanceAPIType !== "public")
+    {
       const instanceidInput = document.getElementById("instanceid-input")
       if (instanceidInput)
       {
@@ -624,39 +960,20 @@ html, body
         instanceidInput.selectionStart = 0
         instanceidInput.selectionEnd = instanceidInput.value.length
       }
+    }
 
-      const regionBox = document.getElementById("region-box")
-      if (regionBox)
-      {
-        regionBox.value = instance.region || "us"
+    const regionInput = document.getElementById("region-input")
+    if (regionInput)
+    {
+      const options = Array.from(regionInput.options).map(option => option.value)
+      regionInput.selectedIndex = options.indexOf(instance.region || "us")
 
-        regionBox.selectionStart = 0
-        regionBox.selectionEnd = regionBox.value.length
-      }
-      const regionInput = document.getElementById("region-input")
-      if (regionInput)
-      {
-        const options = Array.from(regionInput.options).map(option => option.value)
-        regionInput.selectedIndex = options.indexOf(instance.region || "us")
+      // regionInput.selectionStart = 0
+      // regionInput.selectionEnd = regionInput.value.length
+    }
 
-        // regionInput.selectionStart = 0
-        // regionInput.selectionEnd = regionInput.value.length
-      }
-
-      const nonceBox = document.getElementById("nonce-box")
-      if (nonceBox)
-      {
-        nonceBox.value = instance.nonce
-        const nonceText = document.getElementById("nonce-text")
-        if (nonceText)
-        {
-          nonceText.innerHTML = instance.isNonceReused ? "(Reused)" : ""
-
-        }
-
-        nonceBox.selectionStart = 0
-        nonceBox.selectionEnd = nonceBox.value.length
-      }
+    if (instance.instanceAPIType !== "public")
+    {
       const nonceInput = document.getElementById("nonce-input")
       if (nonceInput)
       {
@@ -665,619 +982,784 @@ html, body
         nonceInput.selectionStart = 0
         nonceInput.selectionEnd = nonceInput.value.length
       }
-
     }
 
-    const initializeForms = () =>
+  }
+
+  const initializeForms = () =>
+  {
+
+    for (const _input of document.querySelectorAll(".debug-info-text"))
     {
-
-      for (const _input of document.querySelectorAll(".debug-info-text"))
+      _input.addEventListener("blur", () =>
       {
-        _input.addEventListener("blur", () =>
-        {
-          _input.selectionStart = 0
-          _input.selectionEnd = _input.value.length
-        })
-      }
-
-      const worldidInput = document.getElementById("worldid-input")
-      worldidInput.addEventListener("change", () =>
-      {
-
-        let worldId = worldidInput.value
-        worldId = worldId.trim()
-        if (worldId.match(/\/info$/))
-        {
-          worldId = worldId.replace(/\/info$/, "")
-        }
-
-        if (!worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-        {
-          return
-        }
-
-        instance.worldId = worldId
-        world.worldId = worldId
-        updateLink()
-        updateWorld()
-        setDebugInput()
-
+        _input.selectionStart = 0
+        _input.selectionEnd = _input.value.length
       })
-      const instancenumberInput = document.getElementById("instancenumber-input")
-      instancenumberInput.addEventListener("change", () =>
-      {
-
-        let instanceNumber = instancenumberInput.value
-        instanceNumber = instanceNumber.trim()
-        if (instanceNumber.match(/[^A-Za-z0-9]/))
-        {
-          return
-        }
-
-        instance.instanceNumber = instanceNumber
-        updateLink()
-        updateWorld()
-        setDebugInput()
-
-        if (!instanceNumber)
-        {
-          instancenumberInput.value = instance.instanceNumber
-        }
-
-      })
-      const instancetypeInput = document.getElementById("instancetype-input")
-      instancetypeInput.addEventListener("change", () =>
-      {
-
-        const options = Array.from(instancetypeInput.options).map(option => option.value)
-        const instanceType = options[instancetypeInput.selectedIndex]
-
-        if ([
-          "friend+", "friend-plus", "friends+", "friends-plus",
-          "friend", "friends", "invite+", "invite-plus",
-          "invite", "public",
-        ].indexOf(instanceType) < 0)
-        {
-          return
-        }
-
-        instance.instanceType = instanceType
-        updateLink()
-        updateWorld()
-        setDebugInput()
-
-      })
-      const instanceidInput = document.getElementById("instanceid-input")
-      instanceidInput.addEventListener("change", () =>
-      {
-
-        let instanceOwner = instanceidInput.value
-        instanceOwner = instanceOwner.trim()
-        if (instanceOwner !== ""
-            &&
-            !instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/)
-            &&
-            !instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-        {
-          return
-        }
-
-        instance.instanceOwner = instanceOwner
-        updateLink()
-        updateWorld()
-        setDebugInput()
-
-      })
-      const regionInput = document.getElementById("region-input")
-      regionInput.addEventListener("change", () =>
-      {
-
-        const options = Array.from(regionInput.options).map(option => option.value)
-        const region = options[regionInput.selectedIndex]
-
-        if ([
-          "usw", "use", "eu", "jp",
-        ].indexOf(region) < 0)
-        {
-          return
-        }
-
-        instance.region = region
-        updateLink()
-        updateWorld()
-        setDebugInput()
-
-      })
-      const nonceInput = document.getElementById("nonce-input")
-      nonceInput.addEventListener("change", () =>
-      {
-
-        let nonce = nonceInput.value
-        nonce = nonce.trim()
-        if (nonce !== "" && !nonce.match(/^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-        {
-          return
-        }
-
-        instance.nonce = nonce
-        updateLink()
-        updateWorld()
-        setDebugInput()
-
-        if (!nonce)
-        {
-          nonceInput.value = instance.nonce
-        }
-
-      })
-
-
     }
 
-    const updateLink = () =>
+    const worldidInput = document.getElementById("worldid-input")
+    worldidInput.addEventListener("change", () =>
     {
 
-      const gameLinkWrapper = document.getElementById("gamelink")
-      if (gameLinkWrapper)
+      let worldId = worldidInput.value
+      worldId = worldId.trim()
+      if (worldId.match(/\/info$/))
       {
-        const gameLinkElement = document.createElement("a")
-        gameLinkElement.href = instance.gameLink
-        gameLinkElement.textContent = instance.gameLink
-
-        gameLinkWrapper.innerHTML = ""
-        gameLinkWrapper.append(gameLinkElement)
-      }
-
-      const gameButton = document.getElementById("game-button")
-      if (gameButton)
-      {
-        gameButton.href = instance.gameLink
-        gameButton.tabIndex = ""
-        gameButton.ariaDisabled = false
-        gameButton.classList.remove("disabled")
-      }
-
-      const webLinkWrapper = document.getElementById("weblink")
-      if (webLinkWrapper)
-      {
-        const webLinkElement = document.createElement("a")
-        webLinkElement.href = instance.webURL
-        webLinkElement.textContent = instance.webURL
-
-        webLinkWrapper.innerHTML = ""
-        webLinkWrapper.append(webLinkElement)
-      }
-
-      const webButton = document.getElementById("web-button")
-      if (webButton)
-      {
-        webButton.href = instance.webURL
-        webButton.tabIndex = ""
-        webButton.ariaDisabled = false
-        webButton.classList.remove("disabled")
-      }
-
-      const infoLinkWrapper = document.getElementById("infolink")
-      if (infoLinkWrapper)
-      {
-        const infoLinkElement = document.createElement("a")
-        infoLinkElement.href = instance.infoURL
-        infoLinkElement.textContent = instance.infoURL
-
-        infoLinkWrapper.innerHTML = ""
-        infoLinkWrapper.append(infoLinkElement)
-      }
-
-      const infoButton = document.getElementById("info-button")
-      if (infoButton)
-      {
-        infoButton.href = instance.infoURL
-        infoButton.tabIndex = ""
-        infoButton.ariaDisabled = false
-        infoButton.classList.remove("disabled")
-      }
-
-    }
-
-    const updateWorld = () =>
-    {
-
-    }
-
-    // Generate a Random enough instance ID
-    const randomWholeNum = () => Math.floor(Math.random() * 6969)
-    const randomInstanceNumber = (type) =>
-    {
-        const length = 5
-
-        let result = ""
-        const characters = type === "number-only" ? "0123456789" : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-        let counter = 0
-        for (let i = 0; i < length; i++)
-        {
-            result += characters.charAt(Math.floor(Math.random() * characters.length))
-        }
-        return result
-    }
-
-    //Generate random enough nonce
-    const generateNonce = () =>
-    {
-
-        const temp_url = URL.createObjectURL(new Blob())
-        const uuid = temp_url.toString()
-        URL.revokeObjectURL(temp_url)
-        return uuid.split(/[:\/]/g).pop().toLowerCase() // remove prefixes
-
-    }
-
-    const getDataFromUrl = url =>
-    {
-      const _url = new URL(url)
-      const data = {}
-
-      if (_url.hostname === "vrchat.com" || _url.hostname === "www.vrchat.com")
-      {
-        if (data.matches = _url.pathname.match(/^\/home\/world\/(wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})/))
-        {
-          data.worldId = data.matches[1]
-          return data
-        }
-
-        if (_url.pathname.match(/^\/home\/launch/))
-        {
-          data.worldId = _url.searchParams.get("worldId")
-
-          const instanceId = _url.searchParams.get("instanceId")
-          const instanceData = instanceId.split("~")
-
-          const _parsedData = []
-          let _parsedId = 0
-          let _dataId = 0
-          while (_dataId < instanceData.length)
-          {
-            switch (_parsedId)
-            {
-            case 0:
-              _parsedData[_parsedId] = instanceData[_dataId]
-              _dataId++
-              break;
-            case 1:
-              if (data.matches = instanceData[_dataId].match(/^(private|public|hidden|friends)\((.+?)\)/))
-              {
-                _parsedData[_parsedId] =
-                {
-                  type: data.matches[1],
-                  owner: data.matches[2],
-                }
-                _dataId++
-              }
-              else
-              {
-                _parsedData[_parsedId] = { type: "public" }
-              }
-              break;
-            case 2:
-              if (instanceData[_dataId] === "canRequestInvite")
-              {
-                _parsedData[_parsedId] = true
-                _dataId++
-              }
-              break;
-            case 3:
-              if (data.matches = instanceData[_dataId].match(/^region\((.+?)\)/))
-              {
-                _parsedData[_parsedId] = data.matches[1]
-                _dataId++
-              }
-              break;
-            case 4:
-              if (data.matches = instanceData[_dataId].match(/^nonce\((.+?)\)/))
-              {
-                _parsedData[_parsedId] = data.matches[1]
-                _dataId++
-              }
-              break;
-            }
-
-            // instanceData[_dataId]
-
-            _parsedId++
-          }
-
-          data.instanceNumber = _parsedData[0]
-          data.instanceType =
-            _parsedData[1].type === "hidden" ? "friend+" :
-            _parsedData[1].type === "friends" ? "friend" :
-            _parsedData[1].type === "private" && _parsedData[2] ? "invite+" :
-            _parsedData[1].type === "private" ? "invite" :
-            "public"
-          if (_parsedData[1].owner)
-          {
-            data.instanceOwner = _parsedData[1].owner
-          }
-          if (_parsedData[3])
-          {
-            data.region = _parsedData[3]
-          }
-          if (_parsedData[4])
-          {
-            data.nonce  = _parsedData[4]
-          }
-
-          return data
-        }
-      }
-
-      if (_url.hostname === "pokemonleo.github.io")
-      {
-        if (_url.pathname.match(/^\/vrchat-launcher\.html/))
-        {
-          const __w = _url.searchParams.get("w")
-          if (__w)
-          {
-            data.worldId = __w
-          }
-          const __n = _url.searchParams.get("n")
-          if (__n)
-          {
-            data.instanceNumber = __n
-          }
-          const __t = _url.searchParams.get("t")
-          if (__t)
-          {
-            data.instanceType = __t
-          }
-          const __i = _url.searchParams.get("i")
-          if (__i)
-          {
-            data.instanceOwner = __i
-          }
-          const __r = _url.searchParams.get("r")
-          if (__r)
-          {
-            data.region = __r
-          }
-          const __x = _url.searchParams.get("x")
-          if (__x)
-          {
-            data.nonce = __x
-          }
-
-          return data
-        }
-      }
-    }
-
-    const getWorldById = async (worldId, authCookie) =>
-    {
-      if (!worldId)
-      {
-        console.error("No World ID for Fetching")
-        return
+        worldId = worldId.replace(/\/info$/, "")
       }
 
       if (!worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
       {
-        console.error("World ID Wrong Format for Fetching")
         return
       }
 
-      console.log("Fetching World By ID: " + worldId)
-      return await __getDataById("https://api.vrchat.cloud/api/1/worlds/" + worldId)
+      instance.worldId = worldId
+      world.worldId = worldId
+      updateLink()
+      updateWorld()
+      setDebugInput()
+
+    })
+    const instancenumberInput = document.getElementById("instancenumber-input")
+    instancenumberInput.addEventListener("change", () =>
+    {
+
+      let instanceNumber = instancenumberInput.value
+      instanceNumber = instanceNumber.trim()
+      if (instanceNumber.match(/[^A-Za-z0-9]/))
+      {
+        return
+      }
+
+      instance.instanceNumber = instanceNumber
+      updateLink()
+      setDebugInput()
+
+      if (!instanceNumber)
+      {
+        instancenumberInput.value = instance.instanceNumber
+      }
+
+    })
+    const instancetypeInput = document.getElementById("instancetype-input")
+    instancetypeInput.addEventListener("change", () =>
+    {
+
+      const options = Array.from(instancetypeInput.options).map(option => option.value)
+      const instanceType = options[instancetypeInput.selectedIndex]
+
+      if ([
+        "friend+", "friend-plus", "friends+", "friends-plus",
+        "friend", "friends", "friend-only", "friends-only",
+        "invite+", "invite-plus", "invite", "invite-only",
+        "group-public", "group+", "group-plus",
+        "group", "group-only", "group-member",
+        "group-member-only", "group-members", "group-members-only",
+        "public",
+      ].indexOf(instanceType) < 0)
+      {
+        return
+      }
+
+      instance.instanceType = instanceType
+      instance.defaultInstanceType = instanceType
+      updateLink()
+      setDebugInput()
+
+    })
+    const instanceidInput = document.getElementById("instanceid-input")
+    instanceidInput.addEventListener("change", () =>
+    {
+
+      let instanceOwner = instanceidInput.value
+      instanceOwner = instanceOwner.trim()
+      if (instanceOwner !== ""
+          &&
+          !instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/)
+          &&
+          !instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        return
+      }
+
+      instance.instanceOwner = instanceOwner
+      instance.defaultInstanceOwner = instanceOwner
+      updateLink()
+      setDebugInput()
+
+    })
+    const regionInput = document.getElementById("region-input")
+    regionInput.addEventListener("change", () =>
+    {
+
+      const options = Array.from(regionInput.options).map(option => option.value)
+      const region = options[regionInput.selectedIndex]
+
+      if ([
+        "usw", "use", "eu", "jp",
+      ].indexOf(region) < 0)
+      {
+        return
+      }
+
+      instance.region = region
+      instance.defaultRegion = region
+      updateLink()
+      setDebugInput()
+
+    })
+    const nonceInput = document.getElementById("nonce-input")
+    nonceInput.addEventListener("change", () =>
+    {
+
+      let nonce = nonceInput.value
+      nonce = nonce.trim()
+      if (nonce !== "" && !nonce.match(/^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        return
+      }
+
+      instance.nonce = nonce
+      updateLink()
+      setDebugInput()
+
+      if (!nonce)
+      {
+        nonceInput.value = instance.nonce
+      }
+
+    })
+
+
+  }
+
+  const updateLink = () =>
+  {
+
+    const gameLinkWrapper = document.getElementById("gamelink")
+    if (gameLinkWrapper)
+    {
+      const gameLinkElement = document.createElement("a")
+      gameLinkElement.href = instance.gameLink
+      gameLinkElement.textContent = instance.gameLink
+
+      gameLinkWrapper.innerHTML = ""
+      gameLinkWrapper.append(gameLinkElement)
     }
 
-    const getUserById = async (userId, authCookie) =>
+    const gameButton = document.getElementById("game-button")
+    if (gameButton)
     {
-      if (!userId)
-      {
-        console.error("No User ID for Fetching")
-        return
-      }
-
-      if (!userId.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-      {
-        console.error("User ID Wrong Format for Fetching")
-        return
-      }
-
-      if (!authCookie)
-      {
-        console.error("No Auth Cookie to Get User")
-        return
-      }
-
-      console.log("Fetching User By ID: " + userId)
-      return await __getDataById("https://api.vrchat.cloud/api/1/users/" + userId)
+      gameButton.href = instance.gameLink
+      gameButton.tabIndex = ""
+      gameButton.ariaDisabled = false
+      gameButton.classList.remove("disabled")
     }
 
-    const getGroupById = async (groupId, authCookie) =>
+    const webLinkWrapper = document.getElementById("weblink")
+    if (webLinkWrapper)
     {
-      if (!groupId)
-      {
-        console.error("No Group ID for Fetching")
-        return
-      }
+      const webLinkElement = document.createElement("a")
+      webLinkElement.href = instance.webURL
+      webLinkElement.textContent = instance.webURL
 
-      if (!groupId.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-      {
-        console.error("Group ID Wrong Format for Fetching")
-        return
-      }
-
-      if (!authCookie)
-      {
-        console.error("No Auth Cookie to Get Group")
-        return
-      }
-
-      console.log("Fetching Group By ID: " + groupId)
-      return await __getDataById("https://api.vrchat.cloud/api/1/groups/" + groupId)
+      webLinkWrapper.innerHTML = ""
+      webLinkWrapper.append(webLinkElement)
     }
 
-    const __getDataById = async (url) =>
+    const webButton = document.getElementById("web-button")
+    if (webButton)
     {
-      const response = await fetch(url)
-      if (!response.ok)
-      {
-        return
-      }
+      webButton.href = instance.webURL
+      webButton.tabIndex = ""
+      webButton.ariaDisabled = false
+      webButton.classList.remove("disabled")
+    }
 
-      try
+    const infoLinkWrapper = document.getElementById("infolink")
+    if (infoLinkWrapper)
+    {
+      const infoLinkElement = document.createElement("a")
+      infoLinkElement.href = instance.infoURL
+      infoLinkElement.textContent = instance.infoURL
+
+      infoLinkWrapper.innerHTML = ""
+      infoLinkWrapper.append(infoLinkElement)
+    }
+
+    const infoButton = document.getElementById("info-button")
+    if (infoButton)
+    {
+      infoButton.href = instance.infoURL
+      infoButton.tabIndex = ""
+      infoButton.ariaDisabled = false
+      infoButton.classList.remove("disabled")
+    }
+
+    history.pushState(instance, undefined, instance.thisURL)
+    // history.pushState({ ... instance }, undefined, instance.thisURL)
+
+  }
+
+  const updateWorld = async () =>
+  {
+    updateWorldData()
+
+    if (!world.worldId)
+    {
+      return
+    }
+
+    if (!world.worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+    {
+      return
+    }
+
+    const data = await getWorldById(world.worldId)
+    world.data = data
+
+    console.log(world)
+
+    updateWorldData()
+  }
+
+  const updateWorldData = () =>
+  {
+    // Update World Data Tab Information
+
+    const textChip = document.getElementById("text-chip-textarea")
+    const thisUrl = new URL(instance.thisURL)
+    thisUrl.searchParams.delete("x")
+    thisUrl.searchParams.delete("n")
+    if (instance.instanceType === "public")
+    {
+      thisUrl.searchParams.delete("i")
+    }
+    textChip.value = "### " + "TITLE" + "\n" + instance.infoURL + "\n" + thisUrl.toString()
+  }
+
+  // Generate a Random enough instance ID
+  const randomWholeNum = () => Math.floor(Math.random() * 6969)
+  const randomInstanceNumber = (type) =>
+  {
+      const length = 5
+
+      let result = ""
+      const characters = type === "number-only" ? "0123456789" : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+      let counter = 0
+      for (let i = 0; i < length; i++)
       {
-        const data = await response.json()
+          result += characters.charAt(Math.floor(Math.random() * characters.length))
+      }
+      return result
+  }
+
+  //Generate random enough nonce
+  const generateNonce = () =>
+  {
+
+      const temp_url = URL.createObjectURL(new Blob())
+      const uuid = temp_url.toString()
+      URL.revokeObjectURL(temp_url)
+      return uuid.split(/[:\/]/g).pop().toLowerCase() // remove prefixes
+
+  }
+
+  const getDataFromUrl = url =>
+  {
+    const _url = new URL(url)
+    const data = {}
+
+    if (_url.hostname === "vrchat.com" || _url.hostname === "www.vrchat.com")
+    {
+      if (data.matches = _url.pathname.match(/^\/home\/world\/(wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})/))
+      {
+        data.worldId = data.matches[1]
         return data
       }
-      catch (error)
+
+      if (_url.pathname.match(/^\/home\/launch/))
       {
-        console.error("Fetching Error")
-        console.log("Fetching URL: " + url)
-        console.log(error)
+        data.worldId = _url.searchParams.get("worldId")
+
+        const instanceId = _url.searchParams.get("instanceId")
+        const instanceData = instanceId.split("~")
+
+        const _parsedData = []
+        let _parsedId = 0
+        let _dataId = 0
+        while (_dataId < instanceData.length)
+        {
+          switch (_parsedId)
+          {
+          case 0:
+            _parsedData[_parsedId] = instanceData[_dataId]
+            _dataId++
+            break;
+          case 1:
+            if (data.matches = instanceData[_dataId].match(/^(private|public|hidden|friends|group)\((.+?)\)/))
+            {
+              _parsedData[_parsedId] =
+              {
+                type: data.matches[1],
+                owner: data.matches[2],
+              }
+              _dataId++
+            }
+            else
+            {
+              _parsedData[_parsedId] = { type: "public" }
+            }
+            break;
+          case 2:
+            if (instanceData[_dataId] === "canRequestInvite")
+            {
+              _parsedData[_parsedId] = true
+              _dataId++
+            }
+            break;
+          case 3:
+            if (data.matches = instanceData[_dataId].match(/^groupAccessType\((public|plus|members)\)/))
+            {
+              _parsedData[_parsedId] = data.matches[1]
+              _dataId++
+            }
+            break;
+          case 4:
+            if (data.matches = instanceData[_dataId].match(/^region\((.+?)\)/))
+            {
+              _parsedData[_parsedId] = data.matches[1]
+              _dataId++
+            }
+            break;
+          case 5:
+            if (data.matches = instanceData[_dataId].match(/^nonce\((.+?)\)/))
+            {
+              _parsedData[_parsedId] = data.matches[1]
+              _dataId++
+            }
+            break;
+          }
+
+          // instanceData[_dataId]
+
+          _parsedId++
+        }
+
+        data.instanceNumber = _parsedData[0]
+        data.instanceType =
+          _parsedData[1].type === "hidden" ? "friend+" :
+          _parsedData[1].type === "friends" ? "friend" :
+          _parsedData[1].type === "private" && _parsedData[2] ? "invite+" :
+          _parsedData[1].type === "private" ? "invite" :
+          _parsedData[1].type === "group" && _parsedData[3] === "public" ? "group-public" :
+          _parsedData[1].type === "group" && _parsedData[3] === "plus" ? "group-plus" :
+          _parsedData[1].type === "group" ? "group" :
+          "public"
+        if (_parsedData[1].owner)
+        {
+          data.instanceOwner = _parsedData[1].owner
+        }
+        if (_parsedData[4])
+        {
+          data.region = _parsedData[4]
+        }
+        if (_parsedData[5])
+        {
+          data.nonce  = _parsedData[5]
+        }
+
+        return data
       }
     }
 
-    const main = () =>
+    if (_url.hostname === "pokemonleo.github.io")
     {
-        const getParamsFromURL = new URL(location)
-        const data = {
-          // worldId,
-          // instanceNumber,
-          // instanceType,
-          // instanceOwner,
-          // region,
-          // nonce,
+      if (_url.pathname.match(/^\/vrchat-launcher\.html/))
+      {
+        const __w = _url.searchParams.get("w")
+        if (__w)
+        {
+          data.worldId = __w
+        }
+        const __n = _url.searchParams.get("n")
+        if (__n)
+        {
+          data.instanceNumber = __n
+        }
+        const __t = _url.searchParams.get("t")
+        if (__t)
+        {
+          data.instanceType = __t
+        }
+        const __i = _url.searchParams.get("i")
+        if (__i)
+        {
+          data.instanceOwner = __i
+        }
+        const __r = _url.searchParams.get("r")
+        if (__r)
+        {
+          data.region = __r
+        }
+        const __x = _url.searchParams.get("x")
+        if (__x)
+        {
+          data.nonce = __x
         }
 
-        const parsingURL = getParamsFromURL.searchParams.get("p")
+        return data
+      }
+    }
+  }
 
-        if (parsingURL)
+  const getWorldById = async (worldId, authCookie) =>
+  {
+    if (!worldId)
+    {
+      console.error("No World ID for Fetching")
+      return
+    }
+
+    if (!worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+    {
+      console.error("World ID Wrong Format for Fetching")
+      return
+    }
+
+    console.log("Fetching World By ID: " + worldId)
+    return await __getDataById("https://api.vrchat.cloud/api/1/worlds/" + worldId)
+  }
+
+  const getUserById = async (userId, authCookie) =>
+  {
+    if (!userId)
+    {
+      console.error("No User ID for Fetching")
+      return
+    }
+
+    if (!userId.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+    {
+      console.error("User ID Wrong Format for Fetching")
+      return
+    }
+
+    if (!authCookie)
+    {
+      console.error("No Auth Cookie to Get User")
+      return
+    }
+
+    console.log("Fetching User By ID: " + userId)
+    return await __getDataById("https://api.vrchat.cloud/api/1/users/" + userId)
+  }
+
+  const getGroupById = async (groupId, authCookie) =>
+  {
+    if (!groupId)
+    {
+      console.error("No Group ID for Fetching")
+      return
+    }
+
+    if (!groupId.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+    {
+      console.error("Group ID Wrong Format for Fetching")
+      return
+    }
+
+    if (!authCookie)
+    {
+      console.error("No Auth Cookie to Get Group")
+      return
+    }
+
+    console.log("Fetching Group By ID: " + groupId)
+    return await __getDataById("https://api.vrchat.cloud/api/1/groups/" + groupId)
+  }
+
+  const getReadableTypeByInstanceInput = type =>
+  {
+    if (type === "friend+" || type === "friend-plus" || type === "friends+" || type === "friends-plus")
+    {
+      return "friend+"
+    }
+
+    if (type === "friend" || type === "friends" || type === "friend-only" || type === "friends-only")
+    {
+      return "friend"
+    }
+
+    if (type === "invite+" || type === "invite-plus")
+    {
+      return "invite+"
+    }
+
+    if (type === "invite" || type === "invite-only")
+    {
+      return "invite"
+    }
+
+    if (type === "group-public")
+    {
+      return "group-public"
+    }
+
+    if (type === "group+" || type === "group-plus")
+    {
+      return "group+"
+    }
+
+    if (type === "group" || type === "group-only" || type === "group-member" || type === "group-member-only" || type === "group-members" || type === "group-members-only")
+    {
+      return "group"
+    }
+
+    return "public"
+  }
+
+  const getAPITypeByInstanceInput = type =>
+  {
+    if (type === "friend+" || type === "friend-plus" || type === "friends+" || type === "friends-plus")
+    {
+      return "hidden"
+    }
+
+    if (type === "friend" || type === "friends" || type === "friend-only" || type === "friends-only")
+    {
+      return "friends"
+    }
+
+    if (type === "invite+" || type === "invite-plus")
+    {
+      return "private"
+    }
+
+    if (type === "invite" || type === "invite-only")
+    {
+      return "private"
+    }
+
+    if (type === "group-public")
+    {
+      return "group"
+    }
+
+    if (type === "group+" || type === "group-plus")
+    {
+      return "group"
+    }
+
+    if (type === "group" || type === "group-only" || type === "group-member" || type === "group-member-only" || type === "group-members" || type === "group-members-only")
+    {
+      return "group"
+    }
+
+    return "public"
+  }
+
+  const __getDataById = async (url) =>
+  {
+    const _u = new URL(location)
+    if (!_u.origin.match(/^https?:\/\//))
+    {
+      console.warn("Fetching from Non-HTTP/HTTPS Origin is not Allowed on VRChat API")
+      return
+    }
+
+    const response = await fetch(url)
+    if (!response.ok)
+    {
+      return
+    }
+
+    try
+    {
+      const data = await response.json()
+      return data
+    }
+    catch (error)
+    {
+      console.error("Fetching Error")
+      console.log("Fetching URL: " + url)
+      console.log(error)
+    }
+  }
+
+  const main = () =>
+  {
+      const getParamsFromURL = new URL(location)
+      const data = {
+        // worldId,
+        // instanceNumber,
+        // instanceType,
+        // instanceOwner,
+        // region,
+        // nonce,
+      }
+
+      const parsingURL = getParamsFromURL.searchParams.get("p")
+
+      if (parsingURL)
+      {
+        const {
+          worldId,
+          instanceNumber,
+          instanceType,
+          instanceOwner,
+          region,
+          nonce,
+        } = getDataFromUrl(parsingURL)
+
+        if (worldId)
         {
-          const {
-            worldId,
-            instanceNumber,
-            instanceType,
-            instanceOwner,
-            region,
-            nonce,
-          } = getDataFromUrl(parsingURL)
-
-          if (worldId)
-          {
-            data.worldId = worldId
-          }
-          if (instanceNumber)
-          {
-            data.instanceNumber = instanceNumber
-          }
-          if (instanceType)
-          {
-            data.instanceType = instanceType
-          }
-          if (instanceOwner)
-          {
-            data.instanceOwner = instanceOwner
-          }
-          if (region)
-          {
-            data.region = region
-          }
-          if (nonce)
-          {
-            data.nonce = nonce
-          }
+          data.worldId = worldId
         }
-
-        if (!data.worldId)
+        if (instanceNumber)
         {
-          const __worldId = getParamsFromURL.searchParams.get("w")
+          data.instanceNumber = instanceNumber
+        }
+        if (instanceType)
+        {
+          data.instanceType = instanceType
+        }
+        if (instanceOwner)
+        {
+          data.instanceOwner = instanceOwner
+        }
+        if (region)
+        {
+          data.region = region
+        }
+        if (nonce)
+        {
+          data.nonce = nonce
+        }
+      }
+
+      if (!data.worldId)
+      {
+        const __worldId = getParamsFromURL.searchParams.get("w")
+        if (__worldId)
+        {
           data.worldId = __worldId
         }
-        if (!data.instanceNumber)
+      }
+      if (!data.instanceNumber)
+      {
+        const __instanceNumber = getParamsFromURL.searchParams.get("n")
+        if (__instanceNumber)
         {
-          const __instanceNumber = getParamsFromURL.searchParams.get("n")
           data.instanceNumber = __instanceNumber
         }
-        if (!data.instanceType)
+      }
+      if (!data.instanceType)
+      {
+        const __instanceType = getParamsFromURL.searchParams.get("t")
+        if (__instanceType)
         {
-          const __instanceType = getParamsFromURL.searchParams.get("t")
           data.instanceType = __instanceType
         }
-        if (!data.instanceOwner)
+      }
+      if (!data.instanceOwner)
+      {
+        const __instanceOwner = getParamsFromURL.searchParams.get("i")
+        if (__instanceOwner)
         {
-          const __instanceOwner = getParamsFromURL.searchParams.get("i")
           data.instanceOwner = __instanceOwner
         }
-        if (!data.region)
+      }
+      if (!data.region)
+      {
+        const __region = getParamsFromURL.searchParams.get("r")
+        if (__region)
         {
-          const __region = getParamsFromURL.searchParams.get("r")
           data.region = __region
         }
-        if (!data.nonce)
+      }
+      if (!data.nonce)
+      {
+        const __nonce = getParamsFromURL.searchParams.get("x")
+        if (__nonce)
         {
-          const __nonce = getParamsFromURL.searchParams.get("x")
           data.nonce = __nonce
         }
+      }
 
-        generateWorldLink(data)
+      generateWorldLink(data)
 
-        const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a")
-        if (instance.webURL && !isVoid(isAutomaticallyRedirect))
-        {
-          history.pushState(null, undefined, instance.thisURL)
-          location.href = instance.webURL
-        }
+      if (instance.worldId)
+      {
+        world.worldId = instance.worldId
+      }
 
-        document.addEventListener("DOMContentLoaded", () =>
-        {
-          updateLink()
-          setDebugInput()
-          setFormInput()
-          initializeForms()
-        })
+      const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a")
+      if (instance.webURL && !isVoid(isAutomaticallyRedirect))
+      {
+        history.pushState(null, undefined, instance.thisURL)
+        location.href = instance.webURL
+      }
 
-    }
+      document.addEventListener("DOMContentLoaded", () =>
+      {
+        updateLink()
+        setDebugInput()
+        setFormInput()
+        initializeForms()
+        updateWorld()
+      })
 
-    const isVoid = obj =>
+      addEventListener("popstate", (event) =>
+      {
+        console.log(event)
+        console.log(event.state)
+      })
+
+  }
+
+  const isVoid = obj =>
+  {
+    if (!obj)
     {
-      if (!obj)
-      {
-        return true
-      }
-
-      if (obj === 0)
-      {
-        return true
-      }
-
-      if (obj.trim)
-      {
-        obj.trim()
-      }
-
-      if (obj === "")
-      {
-        return true
-      }
-
-      if (obj === "0")
-      {
-        return true
-      }
-
-      if (obj === "off")
-      {
-        return true
-      }
-
-      if (obj === "false")
-      {
-        return true
-      }
-
-      return false
+      return true
     }
 
-    main()
+    if (obj === 0)
+    {
+      return true
+    }
+
+    if (obj.trim)
+    {
+      obj.trim()
+    }
+
+    if (obj === "")
+    {
+      return true
+    }
+
+    if (obj === "0")
+    {
+      return true
+    }
+
+    if (obj === "off")
+    {
+      return true
+    }
+
+    if (obj === "false")
+    {
+      return true
+    }
+
+    return false
+  }
+
+  main()
 
 })()
 </script>
