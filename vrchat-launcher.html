@@ -56,13 +56,13 @@ html, body
   text-overflow: ellipsis
 }
 
-#world-thumbnail, #world-preview-youtube
+.world-thumbnail, .world-preview-youtube
 {
 }
 
-#world-thumbnail > a,
-#world-thumbnail > a > img,
-#world-preview-youtube > iframe
+.world-thumbnail > a,
+.world-thumbnail > a > img,
+.world-preview-youtube > iframe
 {
   width: 100%;
   height: 100%;
@@ -70,7 +70,13 @@ html, body
 
 @media (min-width: 576px)
 {
-  #world-thumbnail, #world-preview-youtube
+  .world-thumbnail
+  {
+    max-width: 250px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .world-preview-youtube
   {
     max-width: 250px;
     aspect-ratio: 16 / 9;
@@ -206,6 +212,7 @@ html, body
             </div>
           </div>
           <div class="tab-pane fade" id="nav-world" role="tabpanel" aria-labelledby="nav-world-tab" tabindex="0">
+            <!--
             <div class="d-sm-flex">
               <div class="flex-sm-shrink-0">
                 <div id="world-thumbnail">
@@ -232,6 +239,7 @@ html, body
                 </div>
               </div>
             </div>
+            -->
             <!--
             data.id
             data.name
@@ -247,7 +255,7 @@ html, body
           </div>
           <div class="tab-pane fade" id="nav-text" role="tabpanel" aria-labelledby="nav-text-tab" tabindex="0">
             <div class="form-floating">
-              <textarea class="form-control" placeholder="Text Chip for Copy" id="text-chip-textarea" style="height: 100px"></textarea>
+              <textarea class="form-control" placeholder="Text Chip for Copy" id="text-chip-textarea" style="height: 300px"></textarea>
               <label for="text-chip-textarea">Text Chip for Copy</label>
             </div>
           </div>
@@ -339,7 +347,7 @@ html, body
       return Cookies.get("defaultInstanceType")
     },
 
-    get instanceType()
+    get instanceReadableType()
     {
       if (this._instanceType)
       {
@@ -351,6 +359,24 @@ html, body
         if (this.defaultInstanceType)
         {
           return getReadableTypeByInstanceInput(this.defaultInstanceType)
+        }
+      }
+
+      return "Public"
+    },
+
+    get instanceType()
+    {
+      if (this._instanceType)
+      {
+        return getNormalizedTypeByInstanceInput(this._instanceType)
+      }
+
+      if (this._instanceOwner)
+      {
+        if (this.defaultInstanceType)
+        {
+          return getNormalizedTypeByInstanceInput(this.defaultInstanceType)
         }
       }
 
@@ -810,6 +836,287 @@ html, body
       }
       return this.data.thumbnailImageUrl
     },
+
+    get previewYoutubeId()
+    {
+      if (!this.data)
+      {
+        return
+      }
+      return this.data.previewYoutubeId
+    },
+
+    __thumbnailImageThumbnailElement: (() =>
+    {
+      const img = document.createElement("img")
+      img.classList.add("img-fluid", "rounded", "shadow-sm")
+      img.src = "https://www.dummyimage.com/300x200/bbb/444.png&text=Fetching..."
+      img.alt = "Fetching..."
+      return img
+    })(),
+    __thumbnailLinkElement: (() =>
+    {
+      const a = document.createElement("a")
+      a.classList.add("d-block")
+      a.target = "_blank"
+      a.href = "#"
+      return a
+    })(),
+    __thumbnailImageElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("world-thumbnail")
+      return div
+    })(),
+    get thumbnailImage()
+    {
+      this.__thumbnailLinkElement.href = this.imageUrl || "#"
+      this.__thumbnailImageThumbnailElement.src = this.thumbnailImageUrl || "https://www.dummyimage.com/300x200/bbb/444.png&text=No thumbnail"
+      this.__thumbnailImageThumbnailElement.alt = this.thumbnailImageUrl ? "Thumbnail of " + this.title : "No thumbnail for " + this.title
+      return this.__thumbnailImageElement
+    },
+
+    __frameYoutubeElement: (() =>
+    {
+      const iframe = document.createElement("iframe")
+      iframe.classList.add("rounded", "shadow-sm")
+      iframe.width = 560
+      iframe.height = 315
+      iframe.src = ""
+      iframe.title = "YouTube video player"
+      iframe.frameBorder = 0
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      iframe.referrerPolicy = "strict-origin-when-cross-origin"
+      iframe.allowFullscreen = true
+      return iframe
+    })(),
+    __thumbnailYoutubeElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("world-preview-youtube")
+      return div
+    })(),
+    get thumbnailYoutube()
+    {
+      this.__frameYoutubeElement.src = this.previewYoutubeId ? "https://www.youtube-nocookie.com/embed/" + this.previewYoutubeId : ""
+      return this.__thumbnailYoutubeElement
+    },
+
+    __worldChipDescriptionElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("alert", "alert-light", "mt-2", "mb-0", "p-2", "shadow-sm")
+      return div
+    })(),
+    __worldChipCapacityMaximumElement: (() =>
+    {
+      const span = document.createElement("span")
+      span.classList.add("ms-2")
+      span.textContent = 0
+      return span
+    })(),
+    __worldChipCapacityDividerElement: (() =>
+    {
+      const span = document.createElement("span")
+      span.classList.add("ms-2")
+      span.textContent = "/"
+      return span
+    })(),
+    __worldChipCapacityRecommendedElement: (() =>
+    {
+      const span = document.createElement("span")
+      span.classList.add("ms-2")
+      span.textContent = 0
+      return span
+    })(),
+    __worldChipCapacityIconElement: (() =>
+    {
+      const i = document.createElement("i")
+      i.classList.add("fa-solid", "fa-users-rectangle", "fa-fw", "text-muted")
+      return i
+    })(),
+    __worldChipCapacityElement: (() =>
+    {
+      const div = document.createElement("div")
+      return div
+    })(),
+    __worldChipAuthorLinkElement: (() =>
+    {
+      const a = document.createElement("a")
+      a.classList.add("ms-2")
+      a.href = "#"
+      a.target = "_blank"
+      return a
+    })(),
+    __worldChipAuthorIconElement: (() =>
+    {
+      const i = document.createElement("i")
+      i.classList.add("fa-solid", "fa-circle-user", "fa-fw", "text-muted")
+      return i
+    })(),
+    __worldChipAuthorElement: (() =>
+    {
+      const div = document.createElement("div")
+      return div
+    })(),
+    __worldChipBaseElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("d-flex", "flex-column", "flex-md-row")
+      return div
+    })(),
+    __worldChipTitleLinkElement: (() =>
+    {
+      const a = document.createElement("a")
+      a.href = "#"
+      return a
+    })(),
+    __worldChipTitleElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("h5", "border-bottom", "pb-2")
+      return div
+    })(),
+    __worldChipInfoElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("flex-sm-grow-1", "mt-2", "mt-sm-0", "ms-sm-2")
+      return div
+    })(),
+    __worldChipThumbnailElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("flex-sm-shrink-0")
+      return div
+    })(),
+    __worldChipElement: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("d-sm-flex")
+      return div
+    })(),
+
+    __initialized: false,
+    initializeWorldChip: function()
+    {
+      this.__thumbnailLinkElement.append(this.__thumbnailImageThumbnailElement)
+      this.__thumbnailImageElement.append(this.__thumbnailLinkElement)
+      this.__thumbnailYoutubeElement.append(this.__frameYoutubeElement)
+      if (window.FontAwesome)
+      {
+        const icon = FontAwesome.icon({ prefix: "fas", iconName: "users-rectangle" })
+        for (const node of icon.node)
+        {
+          node.classList.add("fa-fw", "text-muted")
+          this.__worldChipCapacityElement.append(node)
+        }
+      }
+      else
+      {
+        this.__worldChipCapacityElement.append(this.__worldChipCapacityIconElement)
+      }
+      this.__worldChipCapacityElement.append(this.__worldChipCapacityRecommendedElement)
+      this.__worldChipCapacityElement.append(this.__worldChipCapacityDividerElement)
+      this.__worldChipCapacityElement.append(this.__worldChipCapacityMaximumElement)
+      if (window.FontAwesome)
+      {
+        const icon = FontAwesome.icon({ prefix: "fas", iconName: "circle-user" })
+        for (const node of icon.node)
+        {
+          node.classList.add("fa-fw", "text-muted")
+          this.__worldChipAuthorElement.append(node)
+        }
+      }
+      else
+      {
+        this.__worldChipAuthorElement.append(this.__worldChipAuthorIconElement)
+      }
+      this.__worldChipAuthorElement.append(this.__worldChipAuthorLinkElement)
+      this.__worldChipBaseElement.append(this.__worldChipAuthorElement)
+      this.__worldChipBaseElement.append(this.__worldChipCapacityElement)
+      this.__worldChipInfoElement.append(this.__worldChipTitleElement)
+      this.__worldChipInfoElement.append(this.__worldChipBaseElement)
+      this.__worldChipInfoElement.append(this.__worldChipDescriptionElement)
+      this.__worldChipTitleElement.append(this.__worldChipTitleLinkElement)
+      this.__worldChipElement.append(this.__worldChipThumbnailElement)
+      this.__worldChipElement.append(this.__worldChipInfoElement)
+    },
+
+    get worldChip()
+    {
+      if (!this.__initialized)
+      {
+        this.initializeWorldChip()
+        this.__initialized = true
+      }
+
+      if (this.previewYoutubeId)
+      {
+        this.thumbnailImage.remove()
+        this.__worldChipThumbnailElement.append(this.thumbnailYoutube)
+      }
+      else
+      {
+        this.thumbnailYoutube.remove()
+        this.__worldChipThumbnailElement.append(this.thumbnailImage)
+      }
+      if (this.title)
+      {
+        this.__worldChipTitleLinkElement.textContent = this.title
+        this.__worldChipTitleLinkElement.href = instance.infoURL
+        this.__worldChipDescriptionElement.classList.remove("fst-italic")
+      }
+      else
+      {
+        this.__worldChipTitleLinkElement.textContent = "(No title)"
+        this.__worldChipTitleLinkElement.href = instance.__homeURL.toString()
+        this.__worldChipDescriptionElement.classList.add("fst-italic")
+      }
+      if (this.authorName)
+      {
+        this.__worldChipAuthorLinkElement.textContent = this.authorName
+        if (this.authorId)
+        {
+          this.__worldChipAuthorLinkElement.href = this.authorUrl
+        }
+        else
+        {
+          this.__worldChipAuthorLinkElement.href = "#"
+        }
+        this.__worldChipAuthorElement.classList.remove("d-none")
+        this.__worldChipCapacityElement.classList.add("ms-md-4")
+      }
+      else
+      {
+        this.__worldChipAuthorLinkElement.textContent = "N/A"
+        this.__worldChipAuthorLinkElement.href = "#"
+        this.__worldChipAuthorElement.classList.add("d-none")
+        this.__worldChipCapacityElement.classList.remove("ms-md-4")
+      }
+      if (this.recommendedCapacity || this.maximumCapacity)
+      {
+        this.__worldChipCapacityElement.classList.remove("d-none")
+      }
+      else
+      {
+        this.__worldChipCapacityElement.classList.add("d-none")
+      }
+      this.__worldChipCapacityRecommendedElement.textContent = this.recommendedCapacity || 0
+      this.__worldChipCapacityMaximumElement.textContent = this.maximumCapacity || 0
+      if (this.description)
+      {
+        this.__worldChipDescriptionElement.textContent = this.description
+        this.__worldChipDescriptionElement.classList.remove("d-none")
+      }
+      else
+      {
+        this.__worldChipDescriptionElement.textContent = ""
+        this.__worldChipDescriptionElement.classList.add("d-none")
+      }
+
+      return this.__worldChipElement
+    },
+
   }
 
   const generateWorldLink = data =>
@@ -1249,7 +1556,7 @@ html, body
 
   const updateWorld = async () =>
   {
-    updateWorldData()
+    // updateWorldChip()
 
     if (!world.worldId)
     {
@@ -1266,11 +1573,19 @@ html, body
 
     console.log(world)
 
-    updateWorldData()
+    updateWorldChip()
   }
 
-  const updateWorldData = () =>
+  const updateWorldChip = () =>
   {
+    if (!world.data)
+    {
+      return
+    }
+
+    const worldChip = document.getElementById("nav-world")
+    worldChip.append(world.worldChip)
+
     // Update World Data Tab Information
 
     const textChip = document.getElementById("text-chip-textarea")
@@ -1281,7 +1596,7 @@ html, body
     {
       thisUrl.searchParams.delete("i")
     }
-    textChip.value = "### " + "TITLE" + "\n" + instance.infoURL + "\n" + thisUrl.toString()
+    textChip.value = "### [" + world.title + "](" + instance.infoURL + ")" + "\n" + world.description + "\n" + "[Launch " + instance.instanceReadableType + " Instance](" + thisUrl.toString() + ")"
   }
 
   // Generate a Random enough instance ID
@@ -1529,6 +1844,46 @@ html, body
   {
     if (type === "friend+" || type === "friend-plus" || type === "friends+" || type === "friends-plus")
     {
+      return "Friends+"
+    }
+
+    if (type === "friend" || type === "friends" || type === "friend-only" || type === "friends-only")
+    {
+      return "Friends"
+    }
+
+    if (type === "invite+" || type === "invite-plus")
+    {
+      return "Invite+"
+    }
+
+    if (type === "invite" || type === "invite-only")
+    {
+      return "Invite"
+    }
+
+    if (type === "group-public")
+    {
+      return "Group Public"
+    }
+
+    if (type === "group+" || type === "group-plus")
+    {
+      return "Group+"
+    }
+
+    if (type === "group" || type === "group-only" || type === "group-member" || type === "group-member-only" || type === "group-members" || type === "group-members-only")
+    {
+      return "Group"
+    }
+
+    return "Public"
+  }
+
+  const getNormalizedTypeByInstanceInput = type =>
+  {
+    if (type === "friend+" || type === "friend-plus" || type === "friends+" || type === "friends-plus")
+    {
       return "friend+"
     }
 
@@ -1614,14 +1969,18 @@ html, body
     //   return
     // }
 
-    const response = await fetch(url, { mode: "no-cors", })
-    if (!response.ok)
-    {
-      return
-    }
+    // https://github.com/pphosting/cors-proxies-list
+    const proxy = new URL("https://api.allorigins.win/raw")
+    proxy.searchParams.set("url", url)
 
     try
     {
+      const response = await fetch(proxy)
+      if (!response.ok)
+      {
+        return
+      }
+
       const data = await response.json()
       return data
     }
