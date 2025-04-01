@@ -2448,7 +2448,8 @@ html, body
       if (instance.webURL && !isVoid(isAutomaticallyRedirect))
       {
         history.pushState(null, undefined, instance.thisURL)
-        location.href = instance.webURL
+        // location.href = instance.webURL
+        location.assign(instance.webURL)
       }
 
       document.addEventListener("DOMContentLoaded", () =>
