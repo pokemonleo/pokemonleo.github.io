@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="utf-8">
-<title>VRCHAT LAUNCHER LINKS</title>
+<title>VRChat Launching Links</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noreferrer, noopener">
 
@@ -101,6 +101,20 @@ html, body
   --bs-tooltip-bg: var(--bs-danger-bg-subtle);
 }
 
+#background-image
+{
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: .2;
+  pointer-events: none;
+  user-select: none;
+}
+
 </style>
 
 <body>
@@ -109,7 +123,7 @@ html, body
   <div class="container">
     <header class="py-2">
       <h1 class="display-3">
-        <div>VRChat Links</div>
+        <div>VRChat Launching Links</div>
         <!--
         <div class="visually-hidden"> | </div>
         <div class="text-secondary" style="--bs-text-opacity: .75; font-size: 60%;">7 WONDERS</div>
@@ -121,7 +135,10 @@ html, body
 
 <section class="my-4">
   <div class="container">
-    <h3 class="display-6 my-2">Buttons</h3>
+    <h3 class="display-6 my-2">
+      <div>Buttons</div>
+      <div class="text-secondary" style="font-size: .6em;" id="launching-info">of Launching...</div>
+    </h3>
     <div class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-start align-items-stretch gap-2 my-2">
       <a href="#" class="btn btn-primary btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
       <a href="#" class="btn btn-outline-primary btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
@@ -170,7 +187,7 @@ html, body
       </div>
     </div>
     <div class="mt-5 mb-2">
-      <form class="border shadow-sm">
+      <form class="border shadow-sm bg-white" style="--bs-bg-opacity: .8;">
         <input type="hidden" id="game-link-input">
         <input type="hidden" id="web-link-input">
         <input type="hidden" id="info-link-input">
@@ -348,6 +365,8 @@ html, body
   <li>Web Info Link: <span id="infolink"></li>
 </ul>
 -->
+
+<div id="background-image"></div>
 
 </body>
 
@@ -1905,7 +1924,7 @@ html, body
         console.log(resetTooltip)
       }
 
-      updateWorldChip()
+      updateTextChip()
 
       show('<i class="fa-solid fa-check"></i> Resetted')
     })
@@ -2003,13 +2022,23 @@ html, body
   {
     // updateWorldChip()
 
+    await getWorldDataFromAPIByWorldId()
+
+    updateWorldChip()
+    updateTextChip()
+  }
+
+  const getWorldDataFromAPIByWorldId = async () =>
+  {
     if (!world.worldId)
     {
+      delete world.data
       return
     }
 
     if (!world.worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
     {
+      delete world.data
       return
     }
 
@@ -2017,23 +2046,57 @@ html, body
     world.data = data
 
     console.log(world)
-
-    updateWorldChip()
   }
 
   const updateWorldChip = () =>
   {
-    if (!world.data)
-    {
-      return
-    }
+    // if (!world.data)
+    // {
+    //   return
+    // }
 
     const worldChip = document.getElementById("nav-world")
     worldChip.append(world.worldChip)
 
-    // Update World Data Tab Information
+    const launchingInfo = document.getElementById("launching-info")
+    launchingInfo.textContent = ""
+    if (!world.data)
+    {
+      launchingInfo.append("of Launching...")
+    }
+    else
+    {
+      launchingInfo.append("of Launching ")
+      const strong = document.createElement("strong")
+      strong.textContent = world.title
+      launchingInfo.append(strong)
+      launchingInfo.append(" / ")
+      const small = document.createElement("small")
+      small.textContent = world.authorName
+      launchingInfo.append(small)
+    }
 
+    const bg = document.getElementById("background-image")
+    if (!world.imageUrl)
+    {
+      bg.style.backgroundImage = "none"
+    }
+    else
+    {
+      bg.style.backgroundImage = "url(" + world.imageUrl + ")"
+    }
+  }
+
+  const updateTextChip = () =>
+  {
     const textChip = document.getElementById("text-chip-textarea")
+
+    if (!world.data)
+    {
+      textChip.value = ""
+      return
+    }
+
     const thisUrl = new URL(instance.thisURL)
     thisUrl.searchParams.delete("x")
     thisUrl.searchParams.delete("n")
@@ -2049,7 +2112,13 @@ html, body
     {
       thisUrlAuto.searchParams.delete("i")
     }
-    textChip.value = "### [" + world.title + "](" + instance.infoURL + ")" + "\n" + world.description + "\n" + ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "**](" + thisUrlAuto.toString() + ") --- :gear: [*Details*](" + thisUrl.toString() + ") --- :information_source: [*Info*](" + instance.infoURL + ")"
+    textChip.value =
+      "### [" + world.title + "](" + instance.infoURL + ")" + "\n" +
+      world.description + "\n" +
+      ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "**](" + thisUrlAuto.toString() + ")" + " --- " +
+      ":gear: [*Details*](" + thisUrl.toString() + ")" + " --- " +
+      ":information_source: [*Info*](" + instance.infoURL + ")"
+
   }
 
   // Generate a Random enough instance ID
