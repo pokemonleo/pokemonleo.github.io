@@ -104,18 +104,45 @@ html, body
 <section class="my-4">
   <div class="container">
     <h3 class="display-6 my-2">Buttons</h3>
-    <div class="d-flex flex-column flex-sm-row justify-content-start align-items-stretch gap-2 my-2">
-      <a href="#" class="btn btn-primary shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
-      <a href="#" class="btn btn-outline-primary shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
-      <a href="#" class="btn btn-info shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info Link</a>
+    <div class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-start align-items-stretch gap-2 my-2">
+      <a href="#" class="btn btn-primary btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
+      <a href="#" class="btn btn-outline-primary btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
+      <a href="#" class="btn btn-info btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info</a>
+      <div class="btn-group" id="copy-button-group">
+        <button type="button" class="btn btn-outline-success btn-lg shadow-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+        <ul class="dropdown-menu">
+          <li><div class="dropdown-header">Click to Copy Link from...</div></li>
+          <li>
+            <button type="button" class="dropdown-item py-2 copy-button text-primary" data-copy-target="#game-link-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-window-maximize"></i> Launch Game
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item py-2 copy-button text-primary" style="--bs-text-opacity: 0.8;" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-globe"></i> Launch Web
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item py-2 copy-button text-info" data-copy-target="#info-link-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-circle-info"></i> Information
+            </button>
+          </li>
+          <!-- <li><hr class="dropdown-divider"></li> -->
+        </ul>
+      </div>
     </div>
     <div class="mt-5 mb-2">
       <form class="border shadow-sm">
+        <input type="hidden" id="game-link-input">
+        <input type="hidden" id="web-link-input">
+        <input type="hidden" id="info-link-input">
         <nav>
           <div class="nav nav-tabs px-2 pt-2" id="nav-tab" role="tablist">
             <button class="nav-link active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true"><i class="fa-solid fa-cookie-bite"></i> Debug</button>
             <button class="nav-link" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-pencil"></i> Manual Input</button>
-            <button class="nav-link" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World Data</button>
+            <button class="nav-link" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World Chip</button>
             <button class="nav-link" id="nav-text-tab" data-bs-toggle="tab" data-bs-target="#nav-text" type="button" role="tab" aria-controls="nav-text" aria-selected="false"><i class="fa-solid fa-clipboard"></i> Text Chip</button>
           </div>
         </nav>
@@ -159,6 +186,12 @@ html, body
             </div>
           </div>
           <div class="tab-pane fade" id="nav-manual" role="tabpanel" aria-labelledby="nav-manual-tab" tabindex="0">
+            <div class="row mb-2 manual-input">
+              <label for="parser-input" class="col-sm-4 col-form-label manual-input-title py-0">URL Parser</label>
+              <div class="col-sm-8">
+                <input type="text" id="parser-input" class="form-control manual-input-text py-0">
+              </div>
+            </div>
             <div class="row mb-2 manual-input">
               <label for="worldid-input" class="col-sm-4 col-form-label manual-input-title py-0">World ID</label>
               <div class="col-sm-8">
@@ -254,9 +287,12 @@ html, body
             -->
           </div>
           <div class="tab-pane fade" id="nav-text" role="tabpanel" aria-labelledby="nav-text-tab" tabindex="0">
-            <div class="form-floating">
+            <div class="form-floating shadow-sm">
               <textarea class="form-control" placeholder="Text Chip for Copy" id="text-chip-textarea" style="height: 300px"></textarea>
               <label for="text-chip-textarea">Text Chip for Copy</label>
+            </div>
+            <div class="mt-2 text-end">
+              <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" data-copy-target="#text-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
           </div>
         </div>
@@ -943,7 +979,7 @@ html, body
     __worldChipAuthorLinkElement: (() =>
     {
       const a = document.createElement("a")
-      a.classList.add("ms-2")
+      a.classList.add("ms-2", "text-decoration-none")
       a.href = "#"
       a.target = "_blank"
       return a
@@ -969,6 +1005,7 @@ html, body
     {
       const a = document.createElement("a")
       a.href = "#"
+      a.classList.add("text-decoration-none")
       return a
     })(),
     __worldChipTitleElement: (() =>
@@ -1338,6 +1375,254 @@ html, body
 
   }
 
+  const _parserInputProcess = url =>
+  {
+    const {
+      worldId,
+      instanceNumber,
+      instanceType,
+      instanceOwner,
+      region,
+      nonce,
+    } = getDataFromUrl(url)
+
+    let anyUpdated = false
+
+    if (worldId)
+    {
+      if (instance.worldId !== worldId)
+      {
+        instance.worldId = worldId
+        world.worldId = worldId
+        const worldidInput = document.getElementById("worldid-input")
+        if (worldidInput)
+        {
+          worldidInput.value = worldId
+        }
+        anyUpdated = true
+      }
+    }
+    if (instanceNumber)
+    {
+      if (instance._instanceNumber !== instanceNumber)
+      {
+        instance.instanceNumber = instanceNumber
+        const instancenumberInput = document.getElementById("instancenumber-input")
+        if (instancenumberInput)
+        {
+          instancenumberInput.value = instanceNumber
+        }
+        anyUpdated = true
+      }
+    }
+    if (instanceType)
+    {
+      if (instance._instanceType !== instanceType)
+      {
+        instance.instanceType = instanceType
+
+        const instancetypeInput = document.getElementById("instancetype-input")
+        if (instancetypeInput)
+        {
+          const options = Array.from(instancetypeInput.options).map(option => option.value)
+          instancetypeInput.selectedIndex = options.indexOf(instanceType)
+        }
+        anyUpdated = true
+      }
+    }
+    if (instanceOwner)
+    {
+      if (instance._instanceOwner !== instanceOwner)
+      {
+        instance.instanceOwner = instanceOwner
+        const instanceidInput = document.getElementById("instanceid-input")
+        if (instanceidInput)
+        {
+          instanceidInput.value = instanceOwner
+        }
+        anyUpdated = true
+      }
+    }
+    if (region)
+    {
+      if (instance._region !== region)
+      {
+        instance.region = region
+
+        const regionInput = document.getElementById("region-input")
+        if (regionInput)
+        {
+          const options = Array.from(regionInput.options).map(option => option.value)
+          regionInput.selectedIndex = options.indexOf(region)
+        }
+        anyUpdated = true
+      }
+    }
+    if (nonce)
+    {
+      if (instance._nonce !== nonce)
+      {
+        instance.nonce = nonce
+        const nonceInput = document.getElementById("nonce-input")
+        if (nonceInput)
+        {
+          nonceInput.value = nonce
+        }
+        anyUpdated = true
+      }
+    }
+
+    if (anyUpdated)
+    {
+      updateLink()
+      setFormInput()
+      setDebugInput()
+      if (worldId)
+      {
+        updateWorld()
+      }
+    }
+  }
+  const _worldidInputProcess = worldId =>
+  {
+    worldId = worldId.trim()
+    if (worldId.match(/\/info$/))
+    {
+      worldId = worldId.replace(/\/info$/, "")
+    }
+
+    if (!worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+    {
+      return
+    }
+
+    if (instance.worldId === worldId)
+    {
+      return
+    }
+
+    instance.worldId = worldId
+    world.worldId = worldId
+    updateLink()
+    updateWorld()
+    setDebugInput()
+  }
+  const _instancenumberInputProcess = instanceNumber =>
+  {
+    instanceNumber = instanceNumber.trim()
+    if (instanceNumber.match(/[^A-Za-z0-9]/))
+    {
+      return
+    }
+
+    if (instance._instanceNumber === instanceNumber)
+    {
+      return
+    }
+
+    instance.instanceNumber = instanceNumber
+    updateLink()
+    setDebugInput()
+
+    if (!instanceNumber)
+    {
+      instancenumberInput.value = instance.instanceNumber
+    }
+  }
+  const _instancetypeInputProcess = selectedIndex =>
+  {
+    const options = Array.from(instancetypeInput.options).map(option => option.value)
+    const instanceType = options[selectedIndex]
+
+    if ([
+      "friend+", "friend-plus", "friends+", "friends-plus",
+      "friend", "friends", "friend-only", "friends-only",
+      "invite+", "invite-plus", "invite", "invite-only",
+      "group-public", "group+", "group-plus",
+      "group", "group-only", "group-member",
+      "group-member-only", "group-members", "group-members-only",
+      "public",
+    ].indexOf(instanceType) < 0)
+    {
+      return
+    }
+
+    if (instance._instanceType === instanceType)
+    {
+      return
+    }
+
+    instance.instanceType = instanceType
+    instance.defaultInstanceType = instanceType
+    updateLink()
+    setDebugInput()
+  }
+  const _instanceidInputProcess = instanceOwner =>
+  {
+    instanceOwner = instanceOwner.trim()
+    if (instanceOwner !== ""
+        &&
+        !instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/)
+        &&
+        !instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+    {
+      return
+    }
+
+    if (instance._instanceOwner === instanceOwner)
+    {
+      return
+    }
+
+    instance.instanceOwner = instanceOwner
+    instance.defaultInstanceOwner = instanceOwner
+    updateLink()
+    setDebugInput()
+  }
+  const _regionInputProcess = selectedIndex =>
+  {
+    const options = Array.from(regionInput.options).map(option => option.value)
+    const region = options[selectedIndex]
+
+    if ([
+      "usw", "use", "eu", "jp",
+    ].indexOf(region) < 0)
+    {
+      return
+    }
+
+    if (instance._region === region)
+    {
+      return
+    }
+
+    instance.region = region
+    instance.defaultRegion = region
+    updateLink()
+    setDebugInput()
+  }
+  const _nonceInputProcess = nonce =>
+  {
+    nonce = nonce.trim()
+    if (nonce !== "" && !nonce.match(/^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+    {
+      return
+    }
+
+    if (instance._nonce === nonce)
+    {
+      return
+    }
+
+    instance.nonce = nonce
+    updateLink()
+    setDebugInput()
+
+    if (!nonce)
+    {
+      nonceInput.value = instance.nonce
+    }
+  }
   const initializeForms = () =>
   {
 
@@ -1350,141 +1635,183 @@ html, body
       })
     }
 
+    const parserInput = document.getElementById("parser-input")
+    if (parserInput)
+    {
+      parserInput.addEventListener("change", () => void _parserInputProcess(parserInput.value) )
+      parserInput.addEventListener("paste", (event) => void _parserInputProcess(event.clipboardData.getData("text")) )
+    }
+
     const worldidInput = document.getElementById("worldid-input")
-    worldidInput.addEventListener("change", () =>
+    if (worldidInput)
     {
-
-      let worldId = worldidInput.value
-      worldId = worldId.trim()
-      if (worldId.match(/\/info$/))
-      {
-        worldId = worldId.replace(/\/info$/, "")
-      }
-
-      if (!worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-      {
-        return
-      }
-
-      instance.worldId = worldId
-      world.worldId = worldId
-      updateLink()
-      updateWorld()
-      setDebugInput()
-
-    })
+      worldidInput.addEventListener("change", () => void _worldidInputProcess(worldidInput.value) )
+      worldidInput.addEventListener("paste", (event) => void _worldidInputProcess(event.clipboardData.getData("text")) )
+    }
     const instancenumberInput = document.getElementById("instancenumber-input")
-    instancenumberInput.addEventListener("change", () =>
+    if (instancenumberInput)
     {
-
-      let instanceNumber = instancenumberInput.value
-      instanceNumber = instanceNumber.trim()
-      if (instanceNumber.match(/[^A-Za-z0-9]/))
-      {
-        return
-      }
-
-      instance.instanceNumber = instanceNumber
-      updateLink()
-      setDebugInput()
-
-      if (!instanceNumber)
-      {
-        instancenumberInput.value = instance.instanceNumber
-      }
-
-    })
+      instancenumberInput.addEventListener("change", () => void _instancenumberInputProcess(instancenumberInput.value) )
+      instancenumberInput.addEventListener("paste", (event) => void _instancenumberInputProcess(event.clipboardData.getData("text")) )
+    }
     const instancetypeInput = document.getElementById("instancetype-input")
-    instancetypeInput.addEventListener("change", () =>
+    if (instancetypeInput)
     {
-
-      const options = Array.from(instancetypeInput.options).map(option => option.value)
-      const instanceType = options[instancetypeInput.selectedIndex]
-
-      if ([
-        "friend+", "friend-plus", "friends+", "friends-plus",
-        "friend", "friends", "friend-only", "friends-only",
-        "invite+", "invite-plus", "invite", "invite-only",
-        "group-public", "group+", "group-plus",
-        "group", "group-only", "group-member",
-        "group-member-only", "group-members", "group-members-only",
-        "public",
-      ].indexOf(instanceType) < 0)
-      {
-        return
-      }
-
-      instance.instanceType = instanceType
-      instance.defaultInstanceType = instanceType
-      updateLink()
-      setDebugInput()
-
-    })
+      instancetypeInput.addEventListener("change", () => void _instancetypeInputProcess(instancetypeInput.selectedIndex) )
+    }
     const instanceidInput = document.getElementById("instanceid-input")
-    instanceidInput.addEventListener("change", () =>
+    if (instanceidInput)
     {
-
-      let instanceOwner = instanceidInput.value
-      instanceOwner = instanceOwner.trim()
-      if (instanceOwner !== ""
-          &&
-          !instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/)
-          &&
-          !instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-      {
-        return
-      }
-
-      instance.instanceOwner = instanceOwner
-      instance.defaultInstanceOwner = instanceOwner
-      updateLink()
-      setDebugInput()
-
-    })
+      instanceidInput.addEventListener("change", () => void _instanceidInputProcess(instanceidInput.value) )
+      instanceidInput.addEventListener("paste", (event) => void _instanceidInputProcess(event.clipboardData.getData("text")) )
+    }
     const regionInput = document.getElementById("region-input")
-    regionInput.addEventListener("change", () =>
+    if (regionInput)
     {
-
-      const options = Array.from(regionInput.options).map(option => option.value)
-      const region = options[regionInput.selectedIndex]
-
-      if ([
-        "usw", "use", "eu", "jp",
-      ].indexOf(region) < 0)
-      {
-        return
-      }
-
-      instance.region = region
-      instance.defaultRegion = region
-      updateLink()
-      setDebugInput()
-
-    })
+      regionInput.addEventListener("change", () => void _regionInputProcess(regionInput.selectedIndex) )
+    }
     const nonceInput = document.getElementById("nonce-input")
-    nonceInput.addEventListener("change", () =>
+    if (nonceInput)
     {
-
-      let nonce = nonceInput.value
-      nonce = nonce.trim()
-      if (nonce !== "" && !nonce.match(/^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
-      {
-        return
-      }
-
-      instance.nonce = nonce
-      updateLink()
-      setDebugInput()
-
-      if (!nonce)
-      {
-        nonceInput.value = instance.nonce
-      }
-
-    })
-
+      nonceInput.addEventListener("change", () => void _nonceInputProcess(nonceInput.value) )
+      nonceInput.addEventListener("paste", (event) => void _nonceInputProcess(event.clipboardData.getData("text")) )
+    }
 
   }
+
+  const initializeCopyButtons = () =>
+  {
+    for (const _button of document.querySelectorAll(".copy-button"))
+    {
+      _button.addEventListener("click", (event) =>
+      {
+        event.preventDefault()
+
+        const copyTooltip =
+        {
+          button: _button,
+          // copyTarget: undefined,
+          // tooltipTarget: undefined,
+          // tooltipTimer: undefined,
+        }
+
+        const copyTargetSelector = _button.dataset.copyTarget
+        if (!copyTargetSelector)
+        {
+          return
+        }
+
+        copyTooltip.copyTarget = document.querySelector(copyTargetSelector)
+        if (!copyTooltip.copyTarget)
+        {
+          return
+        }
+
+        const tooltipTargetSelector = _button.dataset.tooltipTarget
+        // console.log(_button)
+        // console.log(tooltipTargetSelector)
+        if (tooltipTargetSelector)
+        {
+          copyTooltip.tooltipTarget = document.querySelector(tooltipTargetSelector)
+        }
+        // console.log(copyTooltip.tooltipTarget)
+        if (!copyTooltip.tooltipTarget)
+        {
+          copyTooltip.tooltipTarget = copyTooltip.button
+        }
+        // console.log(copyTooltip.tooltipTarget)
+
+        copyTooltip.tooltip = bootstrap.Tooltip.getInstance(copyTooltip.tooltipTarget)
+        console.log(copyTooltip.tooltip)
+        if (!copyTooltip.tooltip)
+        {
+          copyTooltip.tooltip = new bootstrap.Tooltip(copyTooltip.tooltipTarget,
+          {
+            title: "Copied",
+            trigger: "manual",
+            html: true,
+          })
+          console.log(copyTooltip.tooltip)
+
+          // copyTooltip.tooltipTarget.addEventListener("show.bs.tooltip", () =>
+          // {
+          //   console.log("Start Showing Tooltip")
+          //   console.log(copyTooltip)
+          //   copyTooltip.isTooltipShown = true
+          // })
+
+          // copyTooltip.tooltipTarget.addEventListener("hide.bs.tooltip", () =>
+          // {
+          //   console.log("Start Hiding Tooltip")
+          //   console.log(copyTooltip)
+          //   copyTooltip.isTooltipShown = false
+          // })
+
+          // copyTooltip.tooltipTarget.addEventListener("shown.bs.tooltip", () =>
+          // {
+          //   console.log("Tooltip Shown")
+          // })
+
+          // copyTooltip.tooltipTarget.addEventListener("hidden.bs.tooltip", () =>
+          // {
+          //   console.log("Tooltip Hidden")
+          // })
+        }
+
+        copyTooltip.show = async (displayHTML) =>
+        {
+          if (copyTooltip.tooltip._isShown())
+          {
+            clearTimeout(copyTooltip.tooltip.timer)
+            copyTooltip.tooltip.hide()
+            await sleep(200)
+          }
+
+          copyTooltip.tooltip.setContent({ ".tooltip-inner": displayHTML, })
+          // console.log(copyTooltip.tooltip.setContent)
+          // console.log("copyTooltip.isTooltipShown:", copyTooltip.isTooltipShown)
+          if (!copyTooltip.tooltip._isShown())
+          {
+            if (!copyTooltip.isEnabled)
+            {
+              copyTooltip.tooltip.enable()
+            }
+            copyTooltip.tooltip.show()
+          }
+          // copyTooltip.tooltip.disable()
+          copyTooltip.tooltip.timer = setTimeout(() =>
+          {
+            copyTooltip.tooltip.hide()
+          }, 3000)
+          console.log(copyTooltip.tooltip)
+        }
+
+        const text = copyTooltip.copyTarget.value
+        if (!text)
+        {
+          // display no contents to copy
+          copyTooltip.show('<i class="fa-solid fa-clipboard-question fa-fw"></i> No Contents')
+          return
+        }
+
+        copyTextToClipboard(text).then(result =>
+        {
+          if (result)
+          {
+            // display copy success
+            copyTooltip.show('<i class="fa-solid fa-clipboard-check fa-fw"></i> Copied')
+          }
+          else
+          {
+            // display copy error
+            copyTooltip.show('<i class="fa-solid fa-circle-exclamation fa-fw"></i> Error')
+          }
+        })
+      })
+    }
+  }
+
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
   const updateLink = () =>
   {
@@ -1509,6 +1836,12 @@ html, body
       gameButton.classList.remove("disabled")
     }
 
+    const gameLinkInput = document.getElementById("game-link-input")
+    if (gameLinkInput)
+    {
+      gameLinkInput.value = instance.gameLink
+    }
+
     const webLinkWrapper = document.getElementById("weblink")
     if (webLinkWrapper)
     {
@@ -1529,6 +1862,12 @@ html, body
       webButton.classList.remove("disabled")
     }
 
+    const webLinkInput = document.getElementById("web-link-input")
+    if (webLinkInput)
+    {
+      webLinkInput.value = instance.webURL
+    }
+
     const infoLinkWrapper = document.getElementById("infolink")
     if (infoLinkWrapper)
     {
@@ -1547,6 +1886,12 @@ html, body
       infoButton.tabIndex = ""
       infoButton.ariaDisabled = false
       infoButton.classList.remove("disabled")
+    }
+
+    const infoLinkInput = document.getElementById("info-link-input")
+    if (infoLinkInput)
+    {
+      infoLinkInput.value = instance.infoURL
     }
 
     history.pushState(instance.instance, undefined, instance.thisURL)
@@ -2112,18 +2457,77 @@ html, body
         setDebugInput()
         setFormInput()
         initializeForms()
+        initializeCopyButtons()
         updateWorld()
       })
 
       addEventListener("popstate", (event) =>
       {
-        console.log("onpopstate")
-        console.log(event)
-        console.log(event.state)
+        // console.log("onpopstate")
+        // console.log(event)
+        // console.log(event.state)
 
+        const oldWorldId = instance.worldId
         instance.instance = event.state
+
+        updateLink()
+        setDebugInput()
+        setFormInput()
+        if (oldWorldId !== instance.worldId)
+        {
+          updateWorld()
+        }
       })
 
+  }
+
+  const fallbackCopyTextToClipboard = text =>
+  {
+    const textArea = document.createElement("textarea")
+    textArea.value = text
+
+    // Avoid scrolling to bottom
+    textArea.style.top = "0"
+    textArea.style.left = "0"
+    textArea.style.position = "fixed"
+
+    document.body.appendChild(textArea)
+    textArea.focus()
+    textArea.select()
+
+    try
+    {
+      const successful = document.execCommand('copy')
+      const msg = successful ? 'successful' : 'unsuccessful'
+      console.log("Fallback: Copying text command was " + msg)
+      document.body.removeChild(textArea)
+      return true
+    }
+    catch (err)
+    {
+      console.error("Fallback: Oops, unable to copy", err)
+      document.body.removeChild(textArea)
+      return false
+    }
+  }
+  const copyTextToClipboard = async (text) =>
+  {
+    if (!navigator.clipboard)
+    {
+      return fallbackCopyTextToClipboard(text)
+    }
+
+    try
+    {
+      await navigator.clipboard.writeText(text)
+      console.log("Async: Copying to clipboard was successful!")
+      return true
+    }
+    catch (error)
+    {
+      console.error("Async: Could not copy text: ", error)
+      return false
+    }
   }
 
   const isVoid = obj =>
