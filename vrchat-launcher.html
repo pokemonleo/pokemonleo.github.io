@@ -1941,7 +1941,15 @@ html, body
     {
       thisUrl.searchParams.delete("i")
     }
-    textChip.value = "### [" + world.title + "](" + instance.infoURL + ")" + "\n" + world.description + "\n" + "[Launch " + instance.instanceReadableType + " Instance](" + thisUrl.toString() + ")"
+    const thisUrlAuto = new URL(instance.thisURL)
+    thisUrlAuto.searchParams.set("a", "true")
+    thisUrlAuto.searchParams.delete("x")
+    thisUrlAuto.searchParams.delete("n")
+    if (instance.instanceType === "public")
+    {
+      thisUrlAuto.searchParams.delete("i")
+    }
+    textChip.value = "### [" + world.title + "](" + instance.infoURL + ")" + "\n" + world.description + "\n" + "[Launch " + instance.instanceReadableType + " Instance](" + thisUrlAuto.toString() + ") [(*Details*)](" + thisUrl.toString() + ")"
   }
 
   // Generate a Random enough instance ID
