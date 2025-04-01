@@ -2457,7 +2457,7 @@ html, body
       {
         setTimeout(() =>
         {
-          history.pushState(null, undefined, instance.thisURL)
+          history.replaceState(instance.instance, undefined, instance.thisURL)
           location.href = instance.webURL
           // location.assign(instance.webURL)
         }, 0)
@@ -2481,6 +2481,11 @@ html, body
 
         const oldWorldId = instance.worldId
         instance.instance = event.state
+
+        if (!event.state)
+        {
+          return
+        }
 
         updateLink()
         setDebugInput()
