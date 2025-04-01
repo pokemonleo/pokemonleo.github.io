@@ -2447,11 +2447,11 @@ html, body
       const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a")
       if (instance.webURL && !isVoid(isAutomaticallyRedirect))
       {
-        history.pushState(null, undefined, instance.thisURL)
         setTimeout(() =>
         {
-          // location.href = instance.webURL
-          location.assign(instance.webURL)
+          history.pushState(null, undefined, instance.thisURL)
+          location.href = instance.webURL
+          // location.assign(instance.webURL)
         }, 0)
       }
 
