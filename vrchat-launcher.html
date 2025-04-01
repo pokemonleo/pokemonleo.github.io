@@ -331,7 +331,7 @@ html, body
               <label for="text-chip-textarea">Text Chip for Copy</label>
             </div>
             <div class="mt-2 d-flex justify-content-end gap-2">
-              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm reset-button" data-reset-target="#text-chip-textarea"><i class="fa-solid fa-rotate"></i> Reset</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" id="reset-textchip-button"><i class="fa-solid fa-rotate"></i> Reset</button>
               <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" data-copy-target="#text-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
           </div>
@@ -1821,7 +1821,7 @@ html, body
           // console.log("copyTooltip.isTooltipShown:", copyTooltip.isTooltipShown)
           if (!copyTooltip.tooltip._isShown())
           {
-            if (!copyTooltip.isEnabled)
+            if (!copyTooltip.tooltip.isEnabled)
             {
               copyTooltip.tooltip.enable()
             }
@@ -1859,85 +1859,56 @@ html, body
       })
     }
 
-    for (const _button of document.querySelectorAll(".reset-button"))
+    const resetButton = document.getElementById("reset-textchip-button")
+    resetButton.addEventListener("click", (event) =>
     {
-      _button.addEventListener("click", (event) =>
+      event.preventDefault()
+
+      let resetTooltip = bootstrap.Tooltip.getInstance(resetButton)
+      console.log(resetTooltip)
+      if (!resetTooltip)
       {
-        event.preventDefault()
-
-        const resetTooltip =
+        resetTooltip = new bootstrap.Tooltip(resetButton,
         {
-          button: _button,
+          title: "Resetted",
+          trigger: "manual",
+          html: true,
+        })
+        console.log(resetTooltip)
+      }
+
+      const show = async (displayHTML) =>
+      {
+        if (resetTooltip._isShown())
+        {
+          clearTimeout(resetTooltip.timer)
+          resetTooltip.hide()
+          await sleep(200)
         }
 
-        const resetTargetSelector = _button.dataset.resetTarget
-        if (!resetTargetSelector)
+        resetTooltip.setContent(
         {
-          return
-        }
-
-        resetTooltip.resetTarget = document.querySelector(resetTargetSelector)
-        if (!resetTooltip.resetTarget)
+          ".tooltip-inner": displayHTML,
+        })
+        if (!resetTooltip._isShown())
         {
-          return
-        }
-
-        const tooltipTargetSelector = _button.dataset.tooltipTarget
-        if (tooltipTargetSelector)
-        {
-          resetTooltip.tooltipTarget = document.querySelector(tooltipTargetSelector)
-        }
-        if (!resetTooltip.tooltipTarget)
-        {
-          resetTooltip.tooltipTarget = resetTooltip.button
-        }
-
-        resetTooltip.tooltip = bootstrap.Tooltip.getInstance(resetTooltip.tooltipTarget)
-        console.log(resetTooltip.tooltip)
-        if (!resetTooltip.tooltip)
-        {
-          resetTooltip.tooltip = new bootstrap.Tooltip(resetTooltip.tooltipTarget,
+          if (!resetTooltip.isEnabled)
           {
-            title: "Resetted",
-            trigger: "manual",
-            html: true,
-          })
-          console.log(resetTooltip.tooltip)
-        }
-
-        resetTooltip.show = async (displayHTML) =>
-        {
-          if (resetTooltip.tooltip._isShown())
-          {
-            clearTimeout(resetTooltip.tooltip.timer)
-            resetTooltip.tooltip.hide()
-            await sleep(200)
+            resetTooltip.enable()
           }
-
-          resetTooltip.tooltip.setContent(
-          {
-            ".tooltip-inner": displayHTML,
-          })
-          if (!resetTooltip.tooltip._isShown())
-          {
-            if (!resetTooltip.isEnabled)
-            {
-              resetTooltip.tooltip.enable()
-            }
-            resetTooltip.tooltip.show()
-          }
-          resetTooltip.tooltip.timer = setTimeout(() =>
-          {
-            resetTooltip.tooltip.hide()
-          }, 3000)
-          console.log(resetTooltip.tooltip)
+          resetTooltip.show()
         }
+        resetTooltip.timer = setTimeout(() =>
+        {
+          resetTooltip.hide()
+        }, 3000)
+        console.log(resetTooltip)
+      }
 
-        updateWorldChip()
+      updateWorldChip()
 
-        resetTooltip.show('<i class="fa-solid fa-check"></i> Resetted')
-      })
-    }
+      show('<i class="fa-solid fa-check"></i> Resetted')
+    })
   }
 
   const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
