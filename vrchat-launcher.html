@@ -83,6 +83,24 @@ html, body
   }
 }
 
+.tooltip:has(.no-contents)
+{
+  --bs-tooltip-color: var(--bs-warning-text-emphasis);
+  --bs-tooltip-bg: var(--bs-warning);
+}
+
+.tooltip:has(.copied)
+{
+  --bs-tooltip-color: var(--bs-success-text-emphasis);
+  --bs-tooltip-bg: var(--bs-success-bg-subtle);
+}
+
+.tooltip:has(.error)
+{
+  --bs-tooltip-color: var(--bs-danger-text-emphasis);
+  --bs-tooltip-bg: var(--bs-danger-bg-subtle);
+}
+
 </style>
 
 <body>
@@ -116,36 +134,38 @@ html, body
           <li><div class="dropdown-header">Click to Copy Link from...</div></li>
           <li>
             <button type="button" class="dropdown-item py-2 copy-button text-primary" data-copy-target="#game-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-solid fa-window-maximize"></i> Launch Game
+              <i class="fa-solid fa-window-maximize fa-fw"></i> Launch Game
             </button>
           </li>
           <li>
             <button type="button" class="dropdown-item py-2 copy-button text-primary" style="--bs-text-opacity: 0.8;" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-solid fa-globe"></i> Launch Web
+              <i class="fa-solid fa-globe fa-fw"></i> Launch Web
             </button>
           </li>
           <li>
             <button type="button" class="dropdown-item py-2 copy-button text-info" data-copy-target="#info-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-solid fa-circle-info"></i> Information
+              <i class="fa-solid fa-circle-info fa-fw"></i> Information
             </button>
           </li>
+          <!--
           <li><hr class="dropdown-divider"></li>
           <li><div class="dropdown-header">Other Links</div></li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-solid fa-users-viewfinder"></i> Launch Public
+            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#launch-public-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-users-viewfinder fa-fw"></i> Launch Public
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-solid fa-gear"></i> Launcher Current
+            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-gear fa-fw"></i> Current Page
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-solid fa-users-gear"></i> Launcher Public
+            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#this-public-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-solid fa-users-gear fa-fw"></i> Publicize Current
             </button>
           </li>
+          -->
         </ul>
       </div>
     </div>
@@ -154,6 +174,9 @@ html, body
         <input type="hidden" id="game-link-input">
         <input type="hidden" id="web-link-input">
         <input type="hidden" id="info-link-input">
+        <input type="hidden" id="launch-public-input">
+        <input type="hidden" id="this-link-input">
+        <input type="hidden" id="this-public-input">
         <nav>
           <div class="nav nav-tabs px-2 pt-2" id="nav-tab" role="tablist">
             <button class="nav-link active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true"><i class="fa-solid fa-cookie-bite"></i> Debug</button>
@@ -307,7 +330,8 @@ html, body
               <textarea class="form-control" placeholder="Text Chip for Copy" id="text-chip-textarea" style="height: 300px"></textarea>
               <label for="text-chip-textarea">Text Chip for Copy</label>
             </div>
-            <div class="mt-2 text-end">
+            <div class="mt-2 d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm reset-button" data-reset-target="#text-chip-textarea"><i class="fa-solid fa-rotate"></i> Reset</button>
               <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" data-copy-target="#text-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
           </div>
@@ -764,8 +788,14 @@ html, body
         params.delete(key)
       }
 
-      params.set("w", this.worldId)
-      params.set("n", this.instanceNumber)
+      if (this.worldId)
+      {
+        params.set("w", this.worldId)
+      }
+      if (this.instanceNumber)
+      {
+        params.set("n", this.instanceNumber)
+      }
       if (this.instanceType)
       {
         params.set("t", this.instanceType)
@@ -1783,7 +1813,10 @@ html, body
             await sleep(200)
           }
 
-          copyTooltip.tooltip.setContent({ ".tooltip-inner": displayHTML, })
+          copyTooltip.tooltip.setContent(
+          {
+            ".tooltip-inner": displayHTML,
+          })
           // console.log(copyTooltip.tooltip.setContent)
           // console.log("copyTooltip.isTooltipShown:", copyTooltip.isTooltipShown)
           if (!copyTooltip.tooltip._isShown())
@@ -1806,7 +1839,7 @@ html, body
         if (!text)
         {
           // display no contents to copy
-          copyTooltip.show('<i class="fa-solid fa-clipboard-question fa-fw"></i> No Contents')
+          copyTooltip.show('<i class="fa-solid fa-clipboard-question"></i> No Contents, Skipped<span class="no-contents"></span>')
           return
         }
 
@@ -1815,14 +1848,94 @@ html, body
           if (result)
           {
             // display copy success
-            copyTooltip.show('<i class="fa-solid fa-clipboard-check fa-fw"></i> Copied')
+            copyTooltip.show('<i class="fa-solid fa-clipboard-check"></i> Copied<span class="copied"></span>')
           }
           else
           {
             // display copy error
-            copyTooltip.show('<i class="fa-solid fa-circle-exclamation fa-fw"></i> Error')
+            copyTooltip.show('<i class="fa-solid fa-circle-exclamation"></i> Error<span class="error"></span>')
           }
         })
+      })
+    }
+
+    for (const _button of document.querySelectorAll(".reset-button"))
+    {
+      _button.addEventListener("click", (event) =>
+      {
+        event.preventDefault()
+
+        const resetTooltip =
+        {
+          button: _button,
+        }
+
+        const resetTargetSelector = _button.dataset.resetTarget
+        if (!resetTargetSelector)
+        {
+          return
+        }
+
+        resetTooltip.resetTarget = document.querySelector(resetTargetSelector)
+        if (!resetTooltip.resetTarget)
+        {
+          return
+        }
+
+        const tooltipTargetSelector = _button.dataset.tooltipTarget
+        if (tooltipTargetSelector)
+        {
+          resetTooltip.tooltipTarget = document.querySelector(tooltipTargetSelector)
+        }
+        if (!resetTooltip.tooltipTarget)
+        {
+          resetTooltip.tooltipTarget = resetTooltip.button
+        }
+
+        resetTooltip.tooltip = bootstrap.Tooltip.getInstance(resetTooltip.tooltipTarget)
+        console.log(resetTooltip.tooltip)
+        if (!resetTooltip.tooltip)
+        {
+          resetTooltip.tooltip = new bootstrap.Tooltip(resetTooltip.tooltipTarget,
+          {
+            title: "Resetted",
+            trigger: "manual",
+            html: true,
+          })
+          console.log(resetTooltip.tooltip)
+        }
+
+        resetTooltip.show = async (displayHTML) =>
+        {
+          if (resetTooltip.tooltip._isShown())
+          {
+            clearTimeout(resetTooltip.tooltip.timer)
+            resetTooltip.tooltip.hide()
+            await sleep(200)
+          }
+
+          resetTooltip.tooltip.setContent(
+          {
+            ".tooltip-inner": displayHTML,
+          })
+          if (!resetTooltip.tooltip._isShown())
+          {
+            if (!resetTooltip.isEnabled)
+            {
+              resetTooltip.tooltip.enable()
+            }
+            resetTooltip.tooltip.show()
+          }
+          resetTooltip.tooltip.timer = setTimeout(() =>
+          {
+            resetTooltip.tooltip.hide()
+          }, 3000)
+          console.log(resetTooltip.tooltip)
+        }
+
+        updateWorldChip()
+
+        resetTooltip.show('<i class="fa-solid fa-check"></i> Resetted')
       })
     }
   }
