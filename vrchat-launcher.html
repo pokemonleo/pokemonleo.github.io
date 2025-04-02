@@ -1880,9 +1880,6 @@ html, body
       regenerateNonce()
     }
 
-    updateLink()
-    setDebugInput()
-
     const instancenumberInput = document.getElementById("instancenumber-input")
     if (instancenumberInput)
     {
@@ -1896,8 +1893,6 @@ html, body
 
     instance.nonce = ""
     instance.nonce + ""
-    updateLink()
-    setDebugInput()
     const nonceInput = document.getElementById("nonce-input")
     if (nonceInput)
     {
@@ -2170,6 +2165,8 @@ html, body
       {
         // regenerate Instance Number once
         regenerateInstaceNumber()
+        updateLink()
+        setDebugInput()
       },
     })
 
@@ -2182,6 +2179,8 @@ html, body
       {
         // regenerate NONCE once
         regenerateNonce()
+        updateLink()
+        setDebugInput()
       },
     })
   }
