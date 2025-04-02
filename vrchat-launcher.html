@@ -63,8 +63,8 @@ html, body
     <div class="text-muted small fw-light my-2">These buttons do <strong>NOT</strong> open links on new tabs.</div>
     <div class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-start align-items-stretch gap-2 my-2">
       <a href="#" class="btn btn-primary btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
-      <a href="#" class="btn btn-outline-primary btn-lg shadow-sm disabled" style="--bs-btn-bg: #fff;" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
-      <a href="#" class="btn btn-info btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button"><i class="fa-solid fa-circle-info"></i> Info</a>
+      <a href="#" class="btn btn-outline-primary btn-lg shadow-sm disabled" style="--bs-btn-bg: #fff;" tabindex="-1" role="button" aria-disabled="true" id="web-button" referrerpolicy="no-referrer" rel="nofollow noreferrer noopener"><i class="fa-solid fa-globe"></i> Launch Web</a>
+      <a href="#" class="btn btn-info btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="info-button" referrerpolicy="no-referrer" rel="nofollow noreferrer noopener"><i class="fa-solid fa-circle-info"></i> Info</a>
       <div class="btn-group" id="copy-button-group">
         <button type="button" class="btn btn-outline-success btn-lg shadow-sm dropdown-toggle" style="--bs-btn-bg: #fff;" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-copy"></i> Copy
@@ -310,8 +310,8 @@ html, body
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <script>
 // https://vrchatapi.github.io/tutorials/instances/
@@ -899,6 +899,7 @@ html, body
       img.width = 800
       img.height = 600
       img.loading = "lazy"
+      img.referrerPolicy = "no-referrer"
       return img
     })(),
     __thumbnailLinkElement: (() =>
@@ -907,6 +908,8 @@ html, body
       a.classList.add("d-block")
       a.target = "_blank"
       a.href = "#"
+      a.referrerPolicy = "no-referrer"
+      a.relList.add("nofollow", "noreferrer", "noopener")
       return a
     })(),
     __thumbnailImageElement: (() =>
@@ -1010,6 +1013,8 @@ html, body
       a.classList.add("ms-2", "text-decoration-none")
       a.href = "#"
       a.target = "_blank"
+      a.referrerPolicy = "no-referrer"
+      a.relList.add("nofollow", "noreferrer", "noopener")
       return a
     })(),
     __worldChipAuthorIconElement: (() =>
@@ -1035,6 +1040,8 @@ html, body
       a.href = "#"
       a.classList.add("text-decoration-none")
       a.target = "_blank"
+      a.referrerPolicy = "no-referrer"
+      a.relList.add("nofollow", "noreferrer", "noopener")
       return a
     })(),
     __worldChipTitleElement: (() =>
@@ -1202,7 +1209,7 @@ html, body
           this.__worldChipDescriptionElement.innerHTML = this.description
             .replaceAll("<", "&lt;")
             .replaceAll(">", "&gt;")
-            .replace(urlRegex, url => '<a href="' + url + '" target="_blank">' + url + "</a>")
+            .replace(urlRegex, url => '<a href="' + url + '" target="_blank" referrerpolicy="no-referrer" rel="nofollow noreferrer noopener">' + url + "</a>")
         }
         else
         {
@@ -2505,6 +2512,7 @@ html, body
       backgroundImage.width = 800
       backgroundImage.height = 600
       backgroundImage.loading = "lazy"
+      backgroundImage.referrerPolicy = "no-referrer"
       bg.append(backgroundImage)
     }
   }
@@ -3236,7 +3244,7 @@ html, body
 })()
 </script>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 
@@ -3318,6 +3326,7 @@ html, body
 
 #background-image > img
 {
+  object-position: center;
   object-fit: cover;
   width: 100%;
   height: 100%;
