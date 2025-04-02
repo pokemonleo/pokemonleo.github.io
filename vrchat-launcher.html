@@ -546,6 +546,28 @@ html, body
       return "United States East"
     },
 
+    // Emoji is not allowed in the text of Embed Link in Discord
+    get readableRegionDiscord()
+    {
+      switch (this.region)
+      {
+      case "use":
+        return ":flag_us:/E"
+        break
+      case "usw":
+        return ":flag_us:/W"
+        break
+      case "eu":
+        return ":flag_eu:"
+        break
+      case "jp":
+        return ":flag_jp:"
+        break
+      }
+
+      return ":flag_us:/E"
+    },
+
     get readableRegionShort()
     {
       switch (this.region)
@@ -2654,12 +2676,12 @@ html, body
     //   thisURLAuto.searchParams.delete("i")
     // }
     textChip.value =
-      // "### [" + world.title + "](" + instance.infoURL + ")" + "\n" +
-      "### " + world.title + "\n" +
+      "### [" + world.title + "](<" + instance.infoURL + ">)" + "\n" +
+      // "### " + world.title + "\n" +
       world.description + "\n" +
-      ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "** (" + instance.readableRegionShort + ")](" + instance.webURL + ")" + " --- " +
-      ":gear: [*Details*](" + thisURL.toString() + ")" + " --- " +
-      ":information_source: [*Info*](" + instance.infoURL + ")"
+      instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + instance.webURL + ">)" + " --- " +
+      ":information_source: [*Details*](" + thisURL.toString() + ")" + " --- " +
+      ":globe_with_meridians: [*Info*](" + instance.infoURL + ")"
 
   }
 
