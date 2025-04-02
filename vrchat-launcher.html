@@ -39,87 +39,6 @@ html, body
   /* word-wrap: break-word; */
 }
 
-.debug-info
-{
-  /* margin-top: -12px; */
-}
-
-.debug-info-title, .debug-info-text
-{
-  font-size: .75em;
-  color: #6c757d;
-}
-
-.debug-info-text
-{
-  font-family: monospace, monospace;
-  text-overflow: ellipsis
-}
-
-.world-thumbnail, .world-preview-youtube
-{
-}
-
-.world-thumbnail > a,
-.world-thumbnail > a > img,
-.world-preview-youtube > iframe
-{
-  width: 100%;
-  height: 100%;
-}
-
-@media (min-width: 576px)
-{
-  .world-thumbnail
-  {
-    max-width: 250px;
-    aspect-ratio: 4 / 3;
-  }
-
-  .world-preview-youtube
-  {
-    max-width: 250px;
-    aspect-ratio: 16 / 9;
-  }
-}
-
-.tooltip:has(.no-contents)
-{
-  --bs-tooltip-color: var(--bs-warning-text-emphasis);
-  --bs-tooltip-bg: var(--bs-warning);
-}
-
-.tooltip:has(.copied)
-{
-  --bs-tooltip-color: var(--bs-success-text-emphasis);
-  --bs-tooltip-bg: var(--bs-success-bg-subtle);
-}
-
-.tooltip:has(.error)
-{
-  --bs-tooltip-color: var(--bs-danger-text-emphasis);
-  --bs-tooltip-bg: var(--bs-danger-bg-subtle);
-}
-
-#background-image
-{
-  background-attachment: fixed;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: .2;
-  pointer-events: none;
-  user-select: none;
-}
-
-.capacity-tooltip .tooltip-inner
-{
-  text-align: start;
-}
-
 </style>
 
 <body>
@@ -140,11 +59,11 @@ html, body
 
 <section class="my-4">
   <div class="container">
-    <h3 class="display-6 my-2">
-      <div>Buttons</div>
-      <div class="text-secondary" style="font-size: .6em;" id="launching-info">of Launching...</div>
+    <h3 class="display-6 my-2" id="launching-title">
+      <div class="visually-hidden">Buttons of</div>
+      <div class="text-secondary" style="font-size: .6em;" id="launching-info">Launching...</div>
     </h3>
-    <div class="text-muted small my-2">These buttons do <strong>NOT</strong> open links on new tabs.</div>
+    <div class="text-muted small fw-light my-2">These buttons do <strong>NOT</strong> open links on new tabs.</div>
     <div class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-start align-items-stretch gap-2 my-2">
       <a href="#" class="btn btn-primary btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
       <a href="#" class="btn btn-outline-primary btn-lg shadow-sm disabled" style="--bs-btn-bg: #fff;" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
@@ -156,17 +75,17 @@ html, body
         <ul class="dropdown-menu">
           <li><div class="dropdown-header">Copy Link of...</div></li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-primary" data-copy-target="#game-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-primary);" data-copy-target="#game-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-window-maximize fa-fw"></i> Launch Game
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-primary" style="--bs-text-opacity: 0.8;" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity)); --bs-text-opacity: 0.8;" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-globe fa-fw"></i> Launch Web
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-info" data-copy-target="#info-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-info);" data-copy-target="#info-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-circle-info fa-fw"></i> Information
             </button>
           </li>
@@ -174,19 +93,19 @@ html, body
           <li><hr class="dropdown-divider"></li>
           <li><div class="dropdown-header">Other Links</div></li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#launch-public-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary);" data-copy-target="#launch-public-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-users-viewfinder fa-fw"></i> Launch Public
             </button>
           </li>
           -->
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary);" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-gear fa-fw"></i> Current Page
             </button>
           </li>
           <!--
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#this-public-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary);" data-copy-target="#this-public-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-users-gear fa-fw"></i> Publicize Current
             </button>
           </li>
@@ -1140,7 +1059,7 @@ html, body
       return div
     })(),
 
-    __initialized: false,
+    __initializedWorldChip: false,
     initializeWorldChip: function()
     {
       this.__thumbnailLinkElement.append(this.__thumbnailImageThumbnailElement)
@@ -1202,10 +1121,10 @@ html, body
 
     get worldChip()
     {
-      if (!this.__initialized)
+      if (!this.__initializedWorldChip)
       {
         this.initializeWorldChip()
-        this.__initialized = true
+        this.__initializedWorldChip = true
       }
 
       if (this.previewYoutubeId)
@@ -1295,6 +1214,147 @@ html, body
       }
 
       return this.__worldChipElement
+    },
+
+    __launchingTitleNoWorldId: (() =>
+    {
+      const div = document.createElement("div")
+      div.append("Buttons")
+      return div
+    })(),
+    __launchingTitleNoWorld: (() =>
+    {
+      const div = document.createElement("div")
+
+      const hidden = document.createElement("span")
+      hidden.classList.add("visually-hidden")
+      hidden.append("Buttons of ")
+      div.append(hidden)
+
+      const launcher = document.createElement("span")
+      launcher.classList.add("text-secondary")
+      launcher.style.fontSize = ".6em"
+      launcher.append("Launching ")
+      div.append(launcher)
+
+      return div
+    })(),
+    __launchingTitle: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("text-secondary")
+      div.style.fontSize = ".6em"
+      return div
+    })(),
+    __launchingTitleFirstLine: (() =>
+    {
+      const div = document.createElement("div")
+      return div
+    })(),
+    __launchingTitleFirstLinePrefixPart1: (() =>
+    {
+      const hidden = document.createElement("span")
+      hidden.classList.add("visually-hidden")
+      hidden.append("Buttons of ")
+      return hidden
+    })(),
+    __launchingTitleFirstLinePrefixPart2: (() =>
+    {
+      const prefix = document.createElement("span")
+      prefix.append("Launching ")
+      return prefix
+    })(),
+    __launchingTitleFirstLineSuffix: (() =>
+    {
+      const suffix = document.createElement("span")
+      suffix.append(" of ")
+      return suffix
+    })(),
+    __launchingTitleSecondLine: (() =>
+    {
+      const div = document.createElement("div")
+      div.style.fontSize = "1.1em"
+      return div
+    })(),
+    __launchingTitleSecondLineAuthor: (() =>
+    {
+      const span = document.createElement("span")
+      span.append(" by ")
+      span.classList.add("small")
+      return span
+    })(),
+    __launchingTitleInstanceElement: (() =>
+    {
+      const span = document.createElement("span")
+      span.classList.add("fw-bold")
+      span.style.fontSize = "1.15em"
+      return span
+    })(),
+    __launchingTitleNameElement: (() =>
+    {
+      const span = document.createElement("span")
+      span.classList.add("fw-bold")
+      return span
+    })(),
+    __launchingTitleAuthorNameElement: (() =>
+    {
+      const span = document.createElement("span")
+      return span
+    })(),
+
+    __initializedLaunchingChip: false,
+    initializeLaunchingChip: function()
+    {
+      this.__launchingTitleNoWorld.append(this.__launchingTitleInstanceElement)
+
+      this.__launchingTitleFirstLine.append(this.__launchingTitleFirstLinePrefixPart1)
+      this.__launchingTitleFirstLine.append(this.__launchingTitleFirstLinePrefixPart2)
+      this.__launchingTitleSecondLineAuthor.append(this.__launchingTitleAuthorNameElement)
+
+      this.__launchingTitle.append(this.__launchingTitleFirstLine)
+      this.__launchingTitle.append(this.__launchingTitleSecondLine)
+
+      const launchingTitle = document.getElementById("launching-title")
+      launchingTitle.textContent = ""
+    },
+    get launchingChip()
+    {
+      if (!this.__initializedLaunchingChip)
+      {
+        this.initializeLaunchingChip()
+        this.__initializedLaunchingChip = true
+      }
+
+      this.__launchingTitleNoWorldId.remove()
+      this.__launchingTitleNoWorld.remove()
+      this.__launchingTitle.remove()
+
+      if (instance.instanceReadableType)
+      {
+        this.__launchingTitleInstanceElement.textContent = instance.instanceReadableType
+      }
+
+      if (!this.data)
+      {
+        if (!instance.worldId)
+        {
+          return this.__launchingTitleNoWorldId
+        }
+
+        this.__launchingTitleNoWorld.append(this.__launchingTitleInstanceElement)
+        return this.__launchingTitleNoWorld
+      }
+
+      this.__launchingTitleNameElement.textContent = this.title
+      this.__launchingTitleAuthorNameElement.textContent = this.authorName
+
+      this.__launchingTitleFirstLine.append(this.__launchingTitleInstanceElement)
+      this.__launchingTitleFirstLine.append(this.__launchingTitleFirstLineSuffix)
+
+      this.__launchingTitleSecondLine.append(this.__launchingTitleNameElement)
+      this.__launchingTitleSecondLine.append(this.__launchingTitleSecondLineAuthor)
+
+      return this.__launchingTitle
     },
 
   }
@@ -2370,6 +2430,22 @@ html, body
     console.log(world)
   }
 
+  // const launchingTitleNoWorldId = (() =>
+  // {
+  //   const div = document.createElement("div")
+  //   div.append("Buttons")
+  //   return div
+  // })()
+  // const launchingTitleNoWorld = (() =>
+  // {
+  //   const div = document.createElement("div")
+  //   div.append("Buttons")
+  //   return div
+  // })()
+  // const launchingTitle = (() =>
+  // {
+
+  // })()
   const updateWorldChip = () =>
   {
     // if (!world.data)
@@ -2380,23 +2456,30 @@ html, body
     const worldChip = document.getElementById("nav-world")
     worldChip.append(world.worldChip)
 
-    const launchingInfo = document.getElementById("launching-info")
-    launchingInfo.textContent = ""
-    if (!world.data)
-    {
-      launchingInfo.append("of Launching...")
-    }
-    else
-    {
-      launchingInfo.append("of Launching ")
-      const strong = document.createElement("strong")
-      strong.textContent = world.title
-      launchingInfo.append(strong)
-      launchingInfo.append(" / ")
-      const small = document.createElement("small")
-      small.textContent = world.authorName
-      launchingInfo.append(small)
-    }
+    const launchingTitle = document.getElementById("launching-title")
+    launchingTitle.append(world.launchingChip)
+
+    // const launchingInfo = document.getElementById("launching-info")
+    // launchingInfo.textContent = ""
+    // if (!world.data)
+    // {
+    //   launchingInfo.append("of Launching...")
+    // }
+    // else
+    // {
+    //   launchingInfo.append("of Launching ")
+    //   const strong2 = document.createElement("strong")
+    //   strong2.textContent = instance.instanceReadableType
+    //   launchingInfo.append(strong2)
+    //   launchingInfo.append(" of ")
+    //   const strong = document.createElement("strong")
+    //   strong.textContent = world.title
+    //   launchingInfo.append(strong)
+    //   launchingInfo.append(" / ")
+    //   const small = document.createElement("small")
+    //   small.textContent = world.authorName
+    //   launchingInfo.append(small)
+    // }
 
     const bg = document.getElementById("background-image")
     if (!world.imageUrl)
@@ -2470,111 +2553,129 @@ html, body
 
   }
 
+  const parsingInstanceId = instanceId =>
+  {
+    let matches
+    const instanceData = instanceId.split("~")
+
+    const _parsedData = []
+    let _parsedId = 0
+    let _dataId = 0
+    while (_dataId < instanceData.length)
+    {
+      switch (_parsedId)
+      {
+      case 0:
+        _parsedData[_parsedId] = instanceData[_dataId]
+        _dataId++
+        break;
+      case 1:
+        if (matches = instanceData[_dataId].match(/^(private|public|hidden|friends|group)\((.+?)\)/))
+        {
+          _parsedData[_parsedId] =
+          {
+            type: matches[1],
+            owner: matches[2],
+          }
+          _dataId++
+        }
+        else
+        {
+          _parsedData[_parsedId] = { type: "public" }
+        }
+        break;
+      case 2:
+        if (instanceData[_dataId] === "canRequestInvite")
+        {
+          _parsedData[_parsedId] = true
+          _dataId++
+        }
+        break;
+      case 3:
+        if (matches = instanceData[_dataId].match(/^groupAccessType\((public|plus|members)\)/))
+        {
+          _parsedData[_parsedId] = matches[1]
+          _dataId++
+        }
+        break;
+      case 4:
+        if (matches = instanceData[_dataId].match(/^region\((.+?)\)/))
+        {
+          _parsedData[_parsedId] = matches[1]
+          _dataId++
+        }
+        break;
+      case 5:
+        if (matches = instanceData[_dataId].match(/^nonce\((.+?)\)/))
+        {
+          _parsedData[_parsedId] = matches[1]
+          _dataId++
+        }
+        break;
+      }
+
+      // instanceData[_dataId]
+
+      _parsedId++
+    }
+
+    const data = {}
+    data.instanceNumber = _parsedData[0]
+    data.instanceType =
+      _parsedData[1].type === "hidden" ? "friend+" :
+      _parsedData[1].type === "friends" ? "friend" :
+      _parsedData[1].type === "private" && _parsedData[2] ? "invite+" :
+      _parsedData[1].type === "private" ? "invite" :
+      _parsedData[1].type === "group" && _parsedData[3] === "public" ? "group-public" :
+      _parsedData[1].type === "group" && _parsedData[3] === "plus" ? "group-plus" :
+      _parsedData[1].type === "group" ? "group" :
+      "public"
+    if (_parsedData[1].owner)
+    {
+      data.instanceOwner = _parsedData[1].owner
+    }
+    if (_parsedData[4])
+    {
+      data.region = _parsedData[4]
+    }
+    if (_parsedData[5])
+    {
+      data.nonce  = _parsedData[5]
+    }
+
+    return data
+  }
   const getDataFromUrl = url =>
   {
     const _url = new URL(url)
-    const data = {}
+
+    if (_url.protocol === "vrchat:" && _url.pathname === "//launch")
+    {
+      const id = _url.searchParams.get("id")
+      const [ worldId, instanceId, ..._unused ] = id.split(":")
+      return {
+        worldId,
+        ...parsingInstanceId(instanceId),
+      }
+    }
 
     if (_url.hostname === "vrchat.com" || _url.hostname === "www.vrchat.com")
     {
-      if (data.matches = _url.pathname.match(/^\/home\/world\/(wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})/))
+      let matches
+      if (matches = _url.pathname.match(/^\/home\/world\/(wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})/))
       {
-        data.worldId = data.matches[1]
-        return data
+        const worldId = matches[1]
+        return { worldId, }
       }
 
       if (_url.pathname.match(/^\/home\/launch/))
       {
-        data.worldId = _url.searchParams.get("worldId")
-
+        const worldId = _url.searchParams.get("worldId")
         const instanceId = _url.searchParams.get("instanceId")
-        const instanceData = instanceId.split("~")
-
-        const _parsedData = []
-        let _parsedId = 0
-        let _dataId = 0
-        while (_dataId < instanceData.length)
-        {
-          switch (_parsedId)
-          {
-          case 0:
-            _parsedData[_parsedId] = instanceData[_dataId]
-            _dataId++
-            break;
-          case 1:
-            if (data.matches = instanceData[_dataId].match(/^(private|public|hidden|friends|group)\((.+?)\)/))
-            {
-              _parsedData[_parsedId] =
-              {
-                type: data.matches[1],
-                owner: data.matches[2],
-              }
-              _dataId++
-            }
-            else
-            {
-              _parsedData[_parsedId] = { type: "public" }
-            }
-            break;
-          case 2:
-            if (instanceData[_dataId] === "canRequestInvite")
-            {
-              _parsedData[_parsedId] = true
-              _dataId++
-            }
-            break;
-          case 3:
-            if (data.matches = instanceData[_dataId].match(/^groupAccessType\((public|plus|members)\)/))
-            {
-              _parsedData[_parsedId] = data.matches[1]
-              _dataId++
-            }
-            break;
-          case 4:
-            if (data.matches = instanceData[_dataId].match(/^region\((.+?)\)/))
-            {
-              _parsedData[_parsedId] = data.matches[1]
-              _dataId++
-            }
-            break;
-          case 5:
-            if (data.matches = instanceData[_dataId].match(/^nonce\((.+?)\)/))
-            {
-              _parsedData[_parsedId] = data.matches[1]
-              _dataId++
-            }
-            break;
-          }
-
-          // instanceData[_dataId]
-
-          _parsedId++
+        return {
+          worldId,
+          ...parsingInstanceId(instanceId)
         }
-
-        data.instanceNumber = _parsedData[0]
-        data.instanceType =
-          _parsedData[1].type === "hidden" ? "friend+" :
-          _parsedData[1].type === "friends" ? "friend" :
-          _parsedData[1].type === "private" && _parsedData[2] ? "invite+" :
-          _parsedData[1].type === "private" ? "invite" :
-          _parsedData[1].type === "group" && _parsedData[3] === "public" ? "group-public" :
-          _parsedData[1].type === "group" && _parsedData[3] === "plus" ? "group-plus" :
-          _parsedData[1].type === "group" ? "group" :
-          "public"
-        if (_parsedData[1].owner)
-        {
-          data.instanceOwner = _parsedData[1].owner
-        }
-        if (_parsedData[4])
-        {
-          data.region = _parsedData[4]
-        }
-        if (_parsedData[5])
-        {
-          data.nonce  = _parsedData[5]
-        }
-
-        return data
       }
     }
 
@@ -3117,5 +3218,120 @@ html, body
 
 })()
 </script>
+
+<style>
+
+.debug-info
+{
+  /* margin-top: -12px; */
+}
+
+.debug-info-title, .debug-info-text
+{
+  font-size: .75em;
+  color: #6c757d;
+}
+
+.debug-info-text
+{
+  font-family: monospace, monospace;
+  text-overflow: ellipsis
+}
+
+.world-thumbnail, .world-preview-youtube
+{
+}
+
+.world-thumbnail > a,
+.world-thumbnail > a > img,
+.world-preview-youtube > iframe
+{
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 576px)
+{
+  .world-thumbnail
+  {
+    max-width: 250px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .world-preview-youtube
+  {
+    max-width: 250px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.tooltip:has(.no-contents)
+{
+  --bs-tooltip-color: var(--bs-warning-text-emphasis);
+  --bs-tooltip-bg: var(--bs-warning);
+}
+
+.tooltip:has(.copied)
+{
+  --bs-tooltip-color: var(--bs-success-text-emphasis);
+  --bs-tooltip-bg: var(--bs-success-bg-subtle);
+}
+
+.tooltip:has(.error)
+{
+  --bs-tooltip-color: var(--bs-danger-text-emphasis);
+  --bs-tooltip-bg: var(--bs-danger-bg-subtle);
+}
+
+#background-image
+{
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: .2;
+  pointer-events: none;
+  user-select: none;
+}
+
+.capacity-tooltip .tooltip-inner
+{
+  text-align: start;
+}
+
+.btn-primary
+{
+  --bs-btn-hover-bg: #0648c5;
+  --bs-btn-hover-border-color: #0631b3;
+  --bs-btn-active-bg: #0631b3;
+  --bs-btn-active-border-color: #0a53be;
+}
+
+.btn-outline-primary
+{
+  /* --bs-btn-hover-bg: #0648c5; */
+  /* --bs-btn-hover-border-color: #0631b3; */
+  --bs-btn-active-bg: #0631b3;
+  --bs-btn-active-border-color: #0a53be;
+}
+
+.btn-outline-success
+{
+  --bs-btn-active-bg: #0e5333;
+  --bs-btn-active-border-color: #0e5333;
+}
+
+.btn-info
+{
+  --bs-btn-hover-bg: #298fcd;
+  --bs-btn-hover-border-color: #127b72;
+  --bs-btn-active-bg: #127b72;
+  --bs-btn-active-border-color: #14708d;
+}
+
+</style>
 
 </html>
