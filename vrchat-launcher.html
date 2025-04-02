@@ -1420,16 +1420,16 @@ html, body
       {
       case "use":
       case "usw":
-        this.__launchingTitleFirstLineFlag.classList.remove("fis-eu", "fis-jp")
-        this.__launchingTitleFirstLineFlag.classList.add("fis-us")
+        this.__launchingTitleFirstLineFlag.classList.remove("fi-eu", "fi-jp")
+        this.__launchingTitleFirstLineFlag.classList.add("fi-us")
         break;
       case "eu":
-        this.__launchingTitleFirstLineFlag.classList.remove("fis-us", "fis-jp")
-        this.__launchingTitleFirstLineFlag.classList.add("fis-eu")
+        this.__launchingTitleFirstLineFlag.classList.remove("fi-us", "fi-jp")
+        this.__launchingTitleFirstLineFlag.classList.add("fi-eu")
         break;
       case "jp":
-        this.__launchingTitleFirstLineFlag.classList.remove("fis-us", "fis-eu")
-        this.__launchingTitleFirstLineFlag.classList.add("fis-jp")
+        this.__launchingTitleFirstLineFlag.classList.remove("fi-us", "fi-eu")
+        this.__launchingTitleFirstLineFlag.classList.add("fi-jp")
         break;
       }
       this.__launchingTitleFirstLineFlag.title = instance.readableRegionLong
