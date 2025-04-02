@@ -144,6 +144,7 @@ html, body
       <div>Buttons</div>
       <div class="text-secondary" style="font-size: .6em;" id="launching-info">of Launching...</div>
     </h3>
+    <div class="text-muted small my-2">These buttons do <strong>NOT</strong> open links on new tabs.</div>
     <div class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-start align-items-stretch gap-2 my-2">
       <a href="#" class="btn btn-primary btn-lg shadow-sm disabled" tabindex="-1" role="button" aria-disabled="true" id="game-button"><i class="fa-solid fa-window-maximize"></i> Launch Game</a>
       <a href="#" class="btn btn-outline-primary btn-lg shadow-sm disabled" style="--bs-btn-bg: #fff;" tabindex="-1" role="button" aria-disabled="true" id="web-button"><i class="fa-solid fa-globe"></i> Launch Web</a>
@@ -153,7 +154,7 @@ html, body
           <i class="fa-solid fa-copy"></i> Copy
         </button>
         <ul class="dropdown-menu">
-          <li><div class="dropdown-header">Click to Copy Link from...</div></li>
+          <li><div class="dropdown-header">Copy Link of...</div></li>
           <li>
             <button type="button" class="dropdown-item py-2 copy-button text-primary" data-copy-target="#game-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-window-maximize fa-fw"></i> Launch Game
@@ -177,11 +178,13 @@ html, body
               <i class="fa-solid fa-users-viewfinder fa-fw"></i> Launch Public
             </button>
           </li>
+          -->
           <li>
             <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-gear fa-fw"></i> Current Page
             </button>
           </li>
+          <!--
           <li>
             <button type="button" class="dropdown-item py-2 copy-button text-secondary" data-copy-target="#this-public-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-users-gear fa-fw"></i> Publicize Current
@@ -192,7 +195,7 @@ html, body
       </div>
     </div>
     <div class="mt-5 mb-2">
-      <form class="border shadow-sm bg-white" style="--bs-bg-opacity: .8;">
+      <form class="border shadow-lg bg-white" style="--bs-bg-opacity: .8;">
         <input type="hidden" id="game-link-input">
         <input type="hidden" id="web-link-input">
         <input type="hidden" id="info-link-input">
@@ -247,28 +250,38 @@ html, body
             </div>
           </div>
           <div class="tab-pane fade" id="nav-manual" role="tabpanel" aria-labelledby="nav-manual-tab" tabindex="0">
-            <div class="row mb-2 manual-input">
+            <div class="row mb-2 manual-input align-items-center">
               <label for="parser-input" class="col-sm-4 col-form-label manual-input-title py-0">URL Parser</label>
               <div class="col-sm-8">
-                <input type="text" id="parser-input" class="form-control manual-input-text py-0">
+                <div class="input-group input-group-lg">
+                  <input type="text" id="parser-input" class="form-control form-control-lg manual-input-text py-0" placeholder="" aria-label="Paste Text to Parser" aria-describedby="parser-paste-button">
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#parser-input" type="button" id="parser-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                </div>
               </div>
             </div>
-            <div class="row mb-2 manual-input">
+            <div class="row mb-2 manual-input align-items-center">
               <label for="worldid-input" class="col-sm-4 col-form-label manual-input-title py-0">World ID</label>
               <div class="col-sm-8">
-                <input type="text" id="worldid-input" class="form-control manual-input-text py-0">
+                <div class="input-group input-group-lg">
+                  <input type="text" id="worldid-input" class="form-control form-control-lg manual-input-text py-0" placeholder="" aria-label="Paste Text to World ID" aria-describedby="worldid-paste-button">
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#worldid-input" type="button" id="worldid-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                </div>
               </div>
             </div>
-            <div class="row mb-2 manual-input">
+            <div class="row mb-2 manual-input align-items-center">
               <label for="instancenumber-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Number <span id="instancenumber-text" class="text-body fst-italic"></span></label>
               <div class="col-sm-8">
-                <input type="text" id="instancenumber-input" class="form-control manual-input-text py-0">
+                <div class="input-group input-group-lg">
+                  <input type="text" id="instancenumber-input" class="form-control form-control-lg manual-input-text py-0" placeholder="" aria-label="Paste Text to Instance Number" aria-describedby="instancenumber-paste-button">
+                  <button class="btn btn-outline-success" type="button" id="instancenumber-regenerate-button"><i class="fa-solid fa-rotate"></i> <span class="d-none d-md-inline">Regenerate</span></button>
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#instancenumber-input" type="button" id="instancenumber-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                </div>
               </div>
             </div>
-            <div class="row mb-2 manual-input">
+            <div class="row mb-2 manual-input align-items-center">
               <label for="instancetype-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Type</label>
               <div class="col-sm-8">
-                <select class="form-select form-select-sm" id="instancetype-input" class="form-control manual-input-text py-0" aria-label="Select Instance Type">
+                <select class="form-select form-select-lg" id="instancetype-input" class="form-control form-control-lg manual-input-text py-0" aria-label="Select Instance Type">
                   <option value="public">Public</option>
                   <option value="friend+">Friend+</option>
                   <option value="friend">Friend</option>
@@ -277,20 +290,22 @@ html, body
                   <option value="group-public">Group Public</option>
                   <option value="group+">Group+</option>
                   <option value="group">Group</option>
-
                 </select>
               </div>
             </div>
-            <div class="row mb-2 manual-input">
+            <div class="row mb-2 manual-input align-items-center">
               <label for="instanceid-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Owner</label>
               <div class="col-sm-8">
-                <input type="text" id="instanceid-input" class="form-control manual-input-text py-0">
+                <div class="input-group input-group-lg">
+                  <input type="text" id="instanceid-input" class="form-control form-control-lg manual-input-text py-0" placeholder="" aria-label="Paste Text to Instance Owner" aria-describedby="instanceid-paste-button">
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#instanceid-input" type="button" id="instanceid-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                </div>
               </div>
             </div>
-            <div class="row mb-2 manual-input">
+            <div class="row mb-2 manual-input align-items-center">
               <label for="region-input" class="col-sm-4 col-form-label manual-input-title py-0">Region</label>
               <div class="col-sm-8">
-                <select class="form-select form-select-sm" id="region-input" class="form-control manual-input-text py-0" aria-label="Select Region">
+                <select class="form-select form-select-lg" id="region-input" class="form-control form-control-lg manual-input-text py-0" aria-label="Select Region">
                   <option value="us">United State West</option>
                   <option value="use">United State East</option>
                   <option value="eu">Europe</option>
@@ -298,10 +313,14 @@ html, body
                 </select>
               </div>
             </div>
-            <div class="row manual-input">
+            <div class="row manual-input align-items-center">
               <label for="nonce-input" class="col-sm-4 col-form-label manual-input-title py-0"><span class="fst-italic">NONCE</span> <span id="nonce-text" class="text-body fst-italic"></span></label>
               <div class="col-sm-8">
-                <input type="text" id="nonce-input" class="form-control manual-input-text py-0">
+                <div class="input-group input-group-lg">
+                  <input type="text" id="nonce-input" class="form-control form-control-lg manual-input-text py-0" placeholder="" aria-label="Paste Text to NONCE" aria-describedby="nonce-paste-button">
+                  <button class="btn btn-outline-success" type="button" id="nonce-regenerate-button"><i class="fa-solid fa-rotate"></i> <span class="d-none d-md-inline">Regenerate</span></button>
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#nonce-input" type="button" id="nonce-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                </div>
               </div>
             </div>
           </div>
@@ -353,7 +372,7 @@ html, body
               <label for="text-chip-textarea">Text Chip for Copy</label>
             </div>
             <div class="mt-2 d-flex justify-content-end gap-2">
-              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-textchip-button"><i class="fa-solid fa-rotate"></i> Reset</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-textchip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
               <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#text-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
           </div>
@@ -858,7 +877,7 @@ html, body
       {
         return
       }
-      return this.data.name
+      return sanitizeVRChatText(this.data.name)
     },
 
     get title()
@@ -872,7 +891,7 @@ html, body
       {
         return
       }
-      return this.data.description
+      return sanitizeVRChatText(this.data.description)
     },
 
     get authorName()
@@ -1093,6 +1112,7 @@ html, body
       const a = document.createElement("a")
       a.href = "#"
       a.classList.add("text-decoration-none")
+      a.target = "_blank"
       return a
     })(),
     __worldChipTitleElement: (() =>
@@ -1234,6 +1254,16 @@ html, body
       if (this.recommendedCapacity || this.maximumCapacity)
       {
         this.__worldChipCapacityElement.classList.remove("d-none")
+        if (this.recommendedCapacity === this.maximumCapacity)
+        {
+          this.__worldChipCapacityMaximumElement.classList.add("d-none")
+          this.__worldChipCapacityDividerElement.classList.add("d-none")
+        }
+        else
+        {
+          this.__worldChipCapacityMaximumElement.classList.remove("d-none")
+          this.__worldChipCapacityDividerElement.classList.remove("d-none")
+        }
       }
       else
       {
@@ -1245,7 +1275,17 @@ html, body
       this.__worldChipCapacityMaximumTooltipElement.textContent = this.maximumCapacity || 0
       if (this.description)
       {
-        this.__worldChipDescriptionElement.textContent = this.description
+        if (this.description.match(urlRegex))
+        {
+          this.__worldChipDescriptionElement.innerHTML = this.description
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replace(urlRegex, url => '<a href="' + url + '" target="_blank">' + url + "</a>")
+        }
+        else
+        {
+          this.__worldChipDescriptionElement.textContent = this.description
+        }
         this.__worldChipDescriptionElement.classList.remove("d-none")
       }
       else
@@ -1258,6 +1298,8 @@ html, body
     },
 
   }
+
+  const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
 
   const generateWorldLink = data =>
   {
@@ -1575,6 +1617,15 @@ html, body
       }
     }
 
+    if (!nonce && anyUpdated)
+    {
+      // If current nonce isGenerated, regenerate NONCE once
+      if (instance._isNonceGenerated)
+      {
+        regenerateNonce()
+      }
+    }
+
     if (anyUpdated)
     {
       updateLink()
@@ -1606,6 +1657,13 @@ html, body
 
     instance.worldId = worldId
     world.worldId = worldId
+
+    // If current nonce isGenerated, regenerate NONCE once
+    if (instance._isNonceGenerated)
+    {
+      regenerateNonce()
+    }
+
     updateLink()
     updateWorld()
     setDebugInput()
@@ -1624,6 +1682,13 @@ html, body
     }
 
     instance.instanceNumber = instanceNumber
+
+    // If current nonce isGenerated, regenerate NONCE once
+    if (instance._isNonceGenerated)
+    {
+      regenerateNonce()
+    }
+
     updateLink()
     setDebugInput()
 
@@ -1632,10 +1697,10 @@ html, body
       instancenumberInput.value = instance.instanceNumber
     }
   }
-  const _instancetypeInputProcess = selectedIndex =>
+  const _instancetypeInputProcess = instancetypeInput =>
   {
     const options = Array.from(instancetypeInput.options).map(option => option.value)
-    const instanceType = options[selectedIndex]
+    const instanceType = options[instancetypeInput.selectedIndex]
 
     if ([
       "friend+", "friend-plus", "friends+", "friends-plus",
@@ -1657,6 +1722,13 @@ html, body
 
     instance.instanceType = instanceType
     instance.defaultInstanceType = instanceType
+
+    // If current nonce isGenerated, regenerate NONCE once
+    if (instance._isNonceGenerated)
+    {
+      regenerateNonce()
+    }
+
     updateLink()
     setDebugInput()
   }
@@ -1679,13 +1751,20 @@ html, body
 
     instance.instanceOwner = instanceOwner
     instance.defaultInstanceOwner = instanceOwner
+
+    // If current nonce isGenerated, regenerate NONCE once
+    if (instance._isNonceGenerated)
+    {
+      regenerateNonce()
+    }
+
     updateLink()
     setDebugInput()
   }
-  const _regionInputProcess = selectedIndex =>
+  const _regionInputProcess = regionInput =>
   {
     const options = Array.from(regionInput.options).map(option => option.value)
-    const region = options[selectedIndex]
+    const region = options[regionInput.selectedIndex]
 
     if ([
       "usw", "use", "eu", "jp",
@@ -1701,6 +1780,13 @@ html, body
 
     instance.region = region
     instance.defaultRegion = region
+
+    // If current nonce isGenerated, regenerate NONCE once
+    if (instance._isNonceGenerated)
+    {
+      regenerateNonce()
+    }
+
     updateLink()
     setDebugInput()
   }
@@ -1760,7 +1846,7 @@ html, body
     const instancetypeInput = document.getElementById("instancetype-input")
     if (instancetypeInput)
     {
-      instancetypeInput.addEventListener("change", () => void _instancetypeInputProcess(instancetypeInput.selectedIndex) )
+      instancetypeInput.addEventListener("change", () => void _instancetypeInputProcess(instancetypeInput) )
     }
     const instanceidInput = document.getElementById("instanceid-input")
     if (instanceidInput)
@@ -1771,7 +1857,7 @@ html, body
     const regionInput = document.getElementById("region-input")
     if (regionInput)
     {
-      regionInput.addEventListener("change", () => void _regionInputProcess(regionInput.selectedIndex) )
+      regionInput.addEventListener("change", () => void _regionInputProcess(regionInput) )
     }
     const nonceInput = document.getElementById("nonce-input")
     if (nonceInput)
@@ -1782,8 +1868,48 @@ html, body
 
   }
 
+  const regenerateInstaceNumber = () =>
+  {
+
+    instance.instanceNumber = ""
+    instance.instanceNumber + ""
+
+    // If current nonce isGenerated, regenerate NONCE once
+    if (instance._isNonceGenerated)
+    {
+      regenerateNonce()
+    }
+
+    updateLink()
+    setDebugInput()
+
+    const instancenumberInput = document.getElementById("instancenumber-input")
+    if (instancenumberInput)
+    {
+      instancenumberInput.value = instance.instanceNumber
+    }
+
+  }
+
+  const regenerateNonce = () =>
+  {
+
+    instance.nonce = ""
+    instance.nonce + ""
+    updateLink()
+    setDebugInput()
+    const nonceInput = document.getElementById("nonce-input")
+    if (nonceInput)
+    {
+      nonceInput.value = instance.nonce
+    }
+
+  }
+
   const initializeCopyButtons = () =>
   {
+    // await waitingBootstrap()
+
     for (const _button of document.querySelectorAll(".copy-button"))
     {
       _button.addEventListener("click", (event) =>
@@ -1915,57 +2041,210 @@ html, body
         })
       })
     }
+  }
 
-    const resetButton = document.getElementById("reset-textchip-button")
-    resetButton.addEventListener("click", (event) =>
+  const initializePasteButtons = () =>
+  {
+    if (!navigator.clipboard)
     {
-      event.preventDefault()
+      return
+    }
 
-      let resetTooltip = bootstrap.Tooltip.getInstance(resetButton)
-      console.log(resetTooltip)
-      if (!resetTooltip)
-      {
-        resetTooltip = new bootstrap.Tooltip(resetButton,
-        {
-          title: "Resetted",
-          trigger: "manual",
-          html: true,
-        })
-        console.log(resetTooltip)
-      }
+    // await waitingBootstrap()
 
-      const show = async (displayHTML) =>
+    for (const _button of document.querySelectorAll(".paste-button"))
+    {
+      _button.tabIndex = ""
+      _button.ariaDisabled = false
+      _button.classList.remove("disabled")
+
+      _button.addEventListener("click", async (event) =>
       {
-        if (resetTooltip._isShown())
+        event.preventDefault()
+
+        const pasteTooltip =
         {
-          clearTimeout(resetTooltip.timer)
-          resetTooltip.hide()
-          await sleep(200)
+          button: _button,
         }
 
-        resetTooltip.setContent(
+        const pasteTargetSelector = _button.dataset.pasteTarget
+        if (!pasteTargetSelector)
         {
-          ".tooltip-inner": displayHTML,
-        })
-        if (!resetTooltip._isShown())
+          return
+        }
+
+        pasteTooltip.pasteTarget = document.querySelector(pasteTargetSelector)
+        if (!pasteTooltip.pasteTarget)
         {
-          if (!resetTooltip.isEnabled)
+          return
+        }
+
+        const tooltipTargetSelector = _button.dataset.tooltipTarget
+        if (tooltipTargetSelector)
+        {
+          pasteTooltip.tooltipTarget = document.querySelector(tooltipTargetSelector)
+        }
+        if (!pasteTooltip.tooltipTarget)
+        {
+          pasteTooltip.tooltipTarget = pasteTooltip.button
+        }
+
+        pasteTooltip.tooltip = bootstrap.Tooltip.getInstance(pasteTooltip.tooltipTarget)
+        console.log(pasteTooltip.tooltip)
+        if (!pasteTooltip.tooltip)
+        {
+          pasteTooltip.tooltip = new bootstrap.Tooltip(pasteTooltip.tooltipTarget,
           {
-            resetTooltip.enable()
-          }
-          resetTooltip.show()
+            title: "Pasted",
+            trigger: "manual",
+            html: true,
+          })
+          console.log(pasteTooltip.tooltip)
         }
-        resetTooltip.timer = setTimeout(() =>
+
+        pasteTooltip.show = async (displayHTML) =>
         {
-          resetTooltip.hide()
-        }, 3000)
-        console.log(resetTooltip)
-      }
+          if (pasteTooltip.tooltip._isShown())
+          {
+            clearTimeout(pasteTooltip.tooltip.timer)
+            pasteTooltip.tooltip.hide()
+            await sleep(200)
+          }
 
-      updateTextChip()
+          pasteTooltip.tooltip.setContent(
+          {
+            ".tooltip-inner": displayHTML,
+          })
+          if (!pasteTooltip.tooltip._isShown())
+          {
+            if (!pasteTooltip.tooltip.isEnabled)
+            {
+              pasteTooltip.tooltip.enable()
+            }
+            pasteTooltip.tooltip.show()
+          }
+          pasteTooltip.tooltip.timer = setTimeout(() =>
+          {
+            pasteTooltip.tooltip.hide()
+          }, 3000)
+          console.log(pasteTooltip.tooltip)
+        }
 
-      show('<i class="fa-solid fa-check"></i> Resetted')
+        const text = await navigator.clipboard.readText()
+        if (!text)
+        {
+          // display no contents to paste
+          pasteTooltip.show('<i class="fa-solid fa-clipboard-question"></i> No Contents, Skipped<span class="no-contents"></span>')
+          return
+        }
+
+        pasteTooltip.pasteTarget.value = text
+        const _event = new Event("change")
+        pasteTooltip.pasteTarget.dispatchEvent(_event)
+
+        // display paste success
+        pasteTooltip.show('<i class="fa-solid fa-clipboard-check"></i> Pasted<span class="copied"></span>')
+      })
+    }
+  }
+
+  const initializeFunctionButtons = () =>
+  {
+    __initializeFunctionButtons(
+    {
+      selector: "#reset-textchip-button",
+      title: "Resetted",
+      clickedTitle: '<i class="fa-solid fa-check"></i> Resetted',
+      callback: () =>
+      {
+        updateTextChip()
+      },
     })
+
+    __initializeFunctionButtons(
+    {
+      selector: "#instancenumber-regenerate-button",
+      title: "Regenerated",
+      clickedTitle: '<i class="fa-solid fa-rotate"></i> Regenerated',
+      callback: () =>
+      {
+        // regenerate Instance Number once
+        regenerateInstaceNumber()
+      },
+    })
+
+    __initializeFunctionButtons(
+    {
+      selector: "#nonce-regenerate-button",
+      title: "Regenerated",
+      clickedTitle: '<i class="fa-solid fa-rotate"></i> Regenerated',
+      callback: () =>
+      {
+        // regenerate NONCE once
+        regenerateNonce()
+      },
+    })
+  }
+
+  const __initializeFunctionButtons = ({ selector, title, clickedTitle, callback, }) =>
+  {
+    // await waitingBootstrap()
+
+    for (const _button of document.querySelectorAll(selector))
+    {
+      _button.addEventListener("click", (event) =>
+      {
+        event.preventDefault()
+
+        let tooltip = bootstrap.Tooltip.getInstance(_button)
+        console.log(tooltip)
+        if (!tooltip)
+        {
+          tooltip = new bootstrap.Tooltip(_button,
+          {
+            title: title,
+            trigger: "manual",
+            html: true,
+          })
+          console.log(tooltip)
+        }
+
+        const show = async (displayHTML) =>
+        {
+          if (tooltip._isShown())
+          {
+            clearTimeout(tooltip.timer)
+            tooltip.hide()
+            await sleep(200)
+          }
+
+          tooltip.setContent(
+          {
+            ".tooltip-inner": displayHTML,
+          })
+          if (!tooltip._isShown())
+          {
+            if (!tooltip.isEnabled)
+            {
+              tooltip.enable()
+            }
+            tooltip.show()
+          }
+          tooltip.timer = setTimeout(() =>
+          {
+            tooltip.hide()
+          }, 3000)
+          console.log(tooltip)
+        }
+
+        if (callback)
+        {
+          callback()
+        }
+
+        show(clickedTitle)
+      })
+    }
   }
 
   const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
@@ -2049,6 +2328,12 @@ html, body
     if (infoLinkInput)
     {
       infoLinkInput.value = instance.infoURL
+    }
+
+    const thisLinkInput = document.getElementById("this-link-input")
+    if (thisLinkInput)
+    {
+      thisLinkInput.value = instance.thisURL
     }
 
     history.pushState(instance.instance, undefined, instance.thisURL)
@@ -2135,26 +2420,26 @@ html, body
       return
     }
 
-    const thisUrl = new URL(instance.thisURL)
-    thisUrl.searchParams.delete("x")
-    thisUrl.searchParams.delete("n")
+    const thisURL = new URL(instance.thisURL)
+    thisURL.searchParams.delete("x")
+    thisURL.searchParams.delete("n")
     if (instance.instanceType === "public")
     {
-      thisUrl.searchParams.delete("i")
+      thisURL.searchParams.delete("i")
     }
-    const thisUrlAuto = new URL(instance.thisURL)
-    thisUrlAuto.searchParams.set("a", "true")
-    thisUrlAuto.searchParams.delete("x")
-    thisUrlAuto.searchParams.delete("n")
+    const thisURLAuto = new URL(instance.thisURL)
+    thisURLAuto.searchParams.set("a", "true")
+    thisURLAuto.searchParams.delete("x")
+    thisURLAuto.searchParams.delete("n")
     if (instance.instanceType === "public")
     {
-      thisUrlAuto.searchParams.delete("i")
+      thisURLAuto.searchParams.delete("i")
     }
     textChip.value =
       "### [" + world.title + "](" + instance.infoURL + ")" + "\n" +
       world.description + "\n" +
-      ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "**](" + thisUrlAuto.toString() + ")" + " --- " +
-      ":gear: [*Details*](" + thisUrl.toString() + ")" + " --- " +
+      ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "**](" + thisURLAuto.toString() + ")" + " --- " +
+      ":gear: [*Details*](" + thisURL.toString() + ")" + " --- " +
       ":information_source: [*Info*](" + instance.infoURL + ")"
 
   }
@@ -2678,6 +2963,8 @@ html, body
         setFormInput()
         initializeForms()
         initializeCopyButtons()
+        initializePasteButtons()
+        initializeFunctionButtons()
         updateWorld()
       })
 
@@ -2755,6 +3042,22 @@ html, body
     }
   }
 
+  const waitingBootstrap = () => new Promise(resolve =>
+  {
+    const __waitingBootstrap = () =>
+    {
+      if (window.bootstrap)
+      {
+        resolve()
+        return
+      }
+
+      setTimeout(__waitingBootstrap, 2000)
+    }
+
+    __waitingBootstrap()
+  })
+
   const isVoid = obj =>
   {
     if (!obj)
@@ -2793,6 +3096,22 @@ html, body
     }
 
     return false
+  }
+
+  const sanitizeVRChatText = text =>
+  {
+    return text
+      .replaceAll("⁄", "/")
+      .replaceAll("˸", ":")
+      .replaceAll("․", ".")
+      .replaceAll("＝", "=")
+      .replaceAll("≺", "<")
+      .replaceAll("≻", ">")
+      .replaceAll("＂", '"')
+      .replaceAll("＃", "#")
+      .replaceAll("＆", "&")
+      .replaceAll("｜", "|")
+      // .replaceAll("＝", "=")
   }
 
   main()
