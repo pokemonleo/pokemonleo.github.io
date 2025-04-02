@@ -18,9 +18,6 @@ rel="preload" means the resource is critical for render properly
 <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" crossorigin="anonymous">
 -->
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <!-- <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjUuMSBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMyBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggaWQ9InNldmVuIiBkPSJNMCA2NEMwIDQ2LjMgMTQuMyAzMiAzMiAzMkgyODhjMTEuNSAwIDIyIDYuMSAyNy43IDE2LjFzNS43IDIyLjItLjEgMzIuMWwtMjI0IDM4NGMtOC45IDE1LjMtMjguNSAyMC40LTQzLjggMTEuNXMtMjAuNC0yOC41LTExLjUtNDMuOEwyMzIuMyA5NkgzMkMxNC4zIDk2IDAgODEuNyAwIDY0eiIvPjx1c2UgZmlsbD0iIzAwMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEyLjUlIiBocmVmPSIjc2V2ZW4iLz4KPHVzZSBmaWxsPSIjMDAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMCIgaHJlZj0iI3NldmVuIi8+PC9zdmc+" sizes="any"> -->
 
 <meta name="theme-color" content="#fafafa">
@@ -60,8 +57,8 @@ html, body
 <section class="my-4">
   <div class="container">
     <h3 class="display-6 my-2" id="launching-title">
-      <div class="visually-hidden">Buttons of</div>
-      <div class="text-secondary" style="font-size: .6em;" id="launching-info">Launching...</div>
+      <span class="visually-hidden">Buttons of </span>
+      <span class="text-secondary" style="font-size: .6em;">Launching...</span>
     </h3>
     <div class="text-muted small fw-light my-2">These buttons do <strong>NOT</strong> open links on new tabs.</div>
     <div class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-start align-items-stretch gap-2 my-2">
@@ -75,17 +72,17 @@ html, body
         <ul class="dropdown-menu">
           <li><div class="dropdown-header">Copy Link of...</div></li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-primary);" data-copy-target="#game-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-primary); --bs-dropdown-link-hover-color: var(--bs-primary-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-primary-text-emphasis)" data-copy-target="#game-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-window-maximize fa-fw"></i> Launch Game
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity)); --bs-text-opacity: 0.8;" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity)); --bs-text-opacity: 0.8; --bs-dropdown-link-hover-color: var(--bs-primary-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-primary-text-emphasis)" data-copy-target="#web-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-globe fa-fw"></i> Launch Web
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-info);" data-copy-target="#info-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-info); --bs-dropdown-link-hover-color: var(--bs-info-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-info-text-emphasis)" data-copy-target="#info-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-circle-info fa-fw"></i> Information
             </button>
           </li>
@@ -93,19 +90,19 @@ html, body
           <li><hr class="dropdown-divider"></li>
           <li><div class="dropdown-header">Other Links</div></li>
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary);" data-copy-target="#launch-public-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary); --bs-dropdown-link-hover-color: var(--bs-secondary-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-secondary-text-emphasis)" data-copy-target="#launch-public-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-users-viewfinder fa-fw"></i> Launch Public
             </button>
           </li>
           -->
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary);" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary); --bs-dropdown-link-hover-color: var(--bs-secondary-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-secondary-text-emphasis)" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-gear fa-fw"></i> Current Page
             </button>
           </li>
           <!--
           <li>
-            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary);" data-copy-target="#this-public-input" data-tooltip-target="#copy-button-group">
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary); --bs-dropdown-link-hover-color: var(--bs-secondary-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-secondary-text-emphasis)" data-copy-target="#this-public-input" data-tooltip-target="#copy-button-group">
               <i class="fa-solid fa-users-gear fa-fw"></i> Publicize Current
             </button>
           </li>
@@ -2509,18 +2506,18 @@ html, body
     {
       thisURL.searchParams.delete("i")
     }
-    const thisURLAuto = new URL(instance.thisURL)
-    thisURLAuto.searchParams.set("a", "true")
-    thisURLAuto.searchParams.delete("x")
-    thisURLAuto.searchParams.delete("n")
-    if (instance.instanceType === "public")
-    {
-      thisURLAuto.searchParams.delete("i")
-    }
+    // const thisURLAuto = new URL(instance.thisURL)
+    // thisURLAuto.searchParams.set("a", "true")
+    // thisURLAuto.searchParams.delete("x")
+    // thisURLAuto.searchParams.delete("n")
+    // if (instance.instanceType === "public")
+    // {
+    //   thisURLAuto.searchParams.delete("i")
+    // }
     textChip.value =
       "### [" + world.title + "](" + instance.infoURL + ")" + "\n" +
       world.description + "\n" +
-      ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "**](" + thisURLAuto.toString() + ")" + " --- " +
+      ":globe_with_meridians: [Launch **" + instance.instanceReadableType + "**](" + instance.webURL + ")" + " --- " +
       ":gear: [*Details*](" + thisURL.toString() + ")" + " --- " +
       ":information_source: [*Info*](" + instance.infoURL + ")"
 
@@ -3219,6 +3216,8 @@ html, body
 })()
 </script>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 
 .debug-info
