@@ -98,7 +98,12 @@ html, body
           -->
           <li>
             <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary); --bs-dropdown-link-hover-color: var(--bs-secondary-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-secondary-text-emphasis)" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-solid fa-gear fa-fw"></i> Current Page
+              <i class="fa-regular fa-square-full"></i> Exact This Page
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-success); --bs-dropdown-link-hover-color: var(--bs-success-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-success-text-emphasis)" data-copy-target="#this-sharable-input" data-tooltip-target="#copy-button-group">
+              <i class="fa-regular fa-share-from-square"></i> Sharable This Page
             </button>
           </li>
           <!--
@@ -118,13 +123,15 @@ html, body
         <input type="hidden" id="info-link-input">
         <input type="hidden" id="launch-public-input">
         <input type="hidden" id="this-link-input">
+        <input type="hidden" id="this-sharable-input">
         <input type="hidden" id="this-public-input">
         <nav>
           <div class="nav nav-tabs px-2 pt-2 flex-nowrap overflow-x-auto overflow-y-hidden" id="nav-tab" role="tablist">
             <button class="nav-link text-nowrap active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true"><i class="fa-solid fa-cookie-bite"></i> Debug</button>
-            <button class="nav-link text-nowrap" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-pencil"></i> Manual Input</button>
-            <button class="nav-link text-nowrap" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World Chip</button>
-            <button class="nav-link text-nowrap" id="nav-text-tab" data-bs-toggle="tab" data-bs-target="#nav-text" type="button" role="tab" aria-controls="nav-text" aria-selected="false"><i class="fa-solid fa-clipboard"></i> Text Chip</button>
+            <button class="nav-link text-nowrap" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-gear"></i> Setup</button>
+            <button class="nav-link text-nowrap" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World</button>
+            <button class="nav-link text-nowrap" id="nav-discord-tab" data-bs-toggle="tab" data-bs-target="#nav-discord" type="button" role="tab" aria-controls="nav-discord" aria-selected="false"><i class="fa-brands fa-discord"></i> Discord</button>
+            <button class="nav-link text-nowrap" id="nav-twitter-tab" data-bs-toggle="tab" data-bs-target="#nav-twitter" type="button" role="tab" aria-controls="nav-twitter" aria-selected="false"><i class="fa-brands fa-twitter"></i> Twitter</button>
           </div>
         </nav>
         <div class="tab-content m-2" id="nav-tabContent">
@@ -283,14 +290,24 @@ html, body
             "https://www.youtube-nocookie.com/embed/" + data.previewYoutubeId
             -->
           </div>
-          <div class="tab-pane fade" id="nav-text" role="tabpanel" aria-labelledby="nav-text-tab" tabindex="0">
+          <div class="tab-pane fade" id="nav-discord" role="tabpanel" aria-labelledby="nav-discord-tab" tabindex="0">
             <div class="mb-2 d-flex justify-content-end gap-2">
-              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-textchip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
-              <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#text-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-discord-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
+              <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#discord-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
             <div class="form-floating shadow-sm">
-              <textarea class="form-control form-control-sm" placeholder="Text Chip for Copy" id="text-chip-textarea" style="height: 300px"></textarea>
-              <label for="text-chip-textarea">Text Chip for Copy</label>
+              <textarea class="form-control form-control-sm" placeholder="Text Chip for Discord" id="discord-chip-textarea" style="height: 300px"></textarea>
+              <label for="discord-chip-textarea">Text Chip for Discord</label>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-twitter" role="tabpanel" aria-labelledby="nav-twitter-tab" tabindex="0">
+            <div class="mb-2 d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-twitter-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
+              <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#twitter-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
+            </div>
+            <div class="form-floating shadow-sm">
+              <textarea class="form-control form-control-sm" placeholder="Text Chip for Twitter" id="twitter-chip-textarea" style="height: 300px"></textarea>
+              <label for="twitter-chip-textarea">Text Chip for Twitter</label>
             </div>
           </div>
         </div>
@@ -351,11 +368,37 @@ Used Resources:
 
 <div id="background-image"></div>
 
+<!-- Modal -->
+<div class="modal fade" id="lightbox-modal" tabindex="-1" aria-labelledby="lightbox-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="--bs-modal-bg: transparent">
+      <h1 class="modal-title visually-hidden" id="lightbox-modal-label">Modal title</h1>
+      <div id="lightbox-modal-contents">
+
+      </div>
+      <!--
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="lightbox-modal-label">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.0/basicLightbox.min.js" integrity="sha512-jIc3kBeyfyLXBTmzUIXnbGiVK2wgWGcDIkJwkFW4bQ6v2h/piOKLwIfy3wOmKHWIu8DgYSKVth0DMUvExMYcOw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script> -->
 <script>
 // https://vrchatapi.github.io/tutorials/instances/
 // https://thegreatpug.com/vrchat-link-generator/
@@ -805,43 +848,127 @@ Used Resources:
       return instanceId
     },
 
-    get gameLink()
+    get sharableInstanceId()
     {
-      if (this.worldId)
+      if (!this.instanceOwner && this.instanceAPIType !== "public")
       {
-        this.__gameParams.set("id", this.worldId + ":" + this.instanceId)
-        return this.__gameLink + "?" + this.__gameParams.toString()
+        // throw new Error("No instanceOwner")
+        console.error("No instanceOwner for non-public instance")
+        return ""
+      }
+
+      if (this.instanceAPIType === "group" && !this.instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        console.error("Instance Owner Must Be Valid Group ID for Group Instance")
+        return
+      }
+
+      if (this.instanceAPIType !== "group" && this.instanceAPIType !== "public" && !this.instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+      {
+        console.error("Instance Owner Must Be Valid User ID for Non-Group Instance")
+        return
+      }
+
+      let instanceId = ""
+
+      // Public links dont seem to allow owners any more?
+      if (this.instanceAPIType === "public")
+      {
+        instanceId = ""
       }
       else
       {
+        instanceId = "" + "~" + this.instanceAPIType + "(" + this.instanceOwner + ")"
+      }
+
+      //If the instance is invite+ we need to add in "~canRequestInvite()"
+      if (this.canRequestInvite === true)
+      {
+        instanceId += "~canRequestInvite"
+      }
+
+      if (this.groupAccessType)
+      {
+        instanceId += "~groupAccessType(" + this.groupAccessType + ")"
+      }
+
+      if (this.region)
+      {
+        instanceId += "~region(" + this.region + ")"
+      }
+
+      return instanceId
+    },
+
+    get gameLink()
+    {
+      if (!this.worldId)
+      {
         return this.__gameLink
       }
+
+      this.__gameParams.set("id", this.worldId + ":" + this.instanceId)
+      return this.__gameLink + "?" + this.__gameParams.toString()
     },
 
     get webURL()
     {
-      if (this.worldId)
-      {
-        this.__webURL.searchParams.set("worldId", this.worldId)
-        this.__webURL.searchParams.set("instanceId", this.instanceId)
-        return this.__webURL.toString()
-      }
-      else
+      if (!this.worldId)
       {
         return this.__homeURL.toString()
       }
+
+      this.__webURL.searchParams.set("worldId", this.worldId)
+      this.__webURL.searchParams.set("instanceId", this.instanceId)
+      return this.__webURL.toString()
     },
 
     get infoURL()
     {
-      if (this.worldId)
-      {
-        return this.__infoURL.origin + this.__infoURL.pathname.replace(/\/$/, "") + "/" + this.worldId
-      }
-      else
+      if (!this.worldId)
       {
         return this.__homeURL.toString()
       }
+
+      return this.__infoURL.origin + this.__infoURL.pathname.replace(/\/$/, "") + "/" + this.worldId
+    },
+
+    get thisHashURL()
+    {
+      const _u = new URL(location)
+      const params = _u.searchParams
+
+      for (const key of params.keys())
+      {
+        params.delete(key)
+      }
+
+      if (!this.worldId)
+      {
+        return _u.toString()
+      }
+
+      _u.hash = this.worldId + ":" + this.instanceId
+      return _u.toString()
+    },
+
+    get sharableHashURL()
+    {
+      const _u = new URL(location)
+      const params = _u.searchParams
+
+      for (key of params.keys())
+      {
+        params.delete(key)
+      }
+
+      if (!this.worldId)
+      {
+        return _u.toString()
+      }
+
+      _u.hash = this.worldId + ":" + this.sharableInstanceId
+      return _u.toString()
     },
 
     get thisURL()
@@ -994,6 +1121,17 @@ Used Resources:
       return this.data.previewYoutubeId
     },
 
+    // __thumbnailImageModalTemplateElement: (() =>
+    // {
+    //   const template = document.createElement("template")
+    //   return template
+    // })(),
+    // __thumbnailImageModalElement: (() =>
+    // {
+    //   const div = document.createElement("div")
+    //   div.classList.add("modal")
+    //   return div
+    // })(),
     __thumbnailImageThumbnailElement: (() =>
     {
       const img = document.createElement("img")
@@ -1017,6 +1155,23 @@ Used Resources:
       a.href = "#"
       a.referrerPolicy = "no-referrer"
       a.relList.add("nofollow", "noreferrer", "noopener")
+      // a.addEventListener("click", event =>
+      // {
+      //   if (!event)
+      //   {
+      //     return
+      //   }
+
+      //   if (!event.target)
+      //   {
+      //     return
+      //   }
+
+      //   if (event.target.href === "#")
+      //   {
+      //     event.preventDefault()
+      //   }
+      // })
       return a
     })(),
     __thumbnailImageElement: (() =>
@@ -1032,6 +1187,12 @@ Used Resources:
       this.__thumbnailImageThumbnailElement.alt = this.thumbnailImageUrl ? "Thumbnail of " + this.title : "No thumbnail for " + this.title
       return this.__thumbnailImageElement
     },
+    // get image()
+    // {
+    //   this.__thumbnailImageImageElement.src = this.imageUrl || "https://www.dummyimage.com/300x200/bbb/444.png&text=No thumbnail"
+    //   this.__thumbnailImageImageElement.alt = this.imageUrl ? "Thumbnail of " + this.title : "No thumbnail for " + this.title
+    //   return this.__thumbnailImageImageElement
+    // },
 
     __frameYoutubeElement: (() =>
     {
@@ -1123,6 +1284,23 @@ Used Resources:
       a.target = "_blank"
       a.referrerPolicy = "no-referrer"
       a.relList.add("nofollow", "noreferrer", "noopener")
+      a.addEventListener("click", event =>
+      {
+        if (!event)
+        {
+          return
+        }
+
+        if (!event.target)
+        {
+          return
+        }
+
+        if (event.target.href === "#")
+        {
+          event.preventDefault()
+        }
+      })
       return a
     })(),
     __worldChipAuthorIconElement: (() =>
@@ -1150,6 +1328,23 @@ Used Resources:
       a.target = "_blank"
       a.referrerPolicy = "no-referrer"
       a.relList.add("nofollow", "noreferrer", "noopener")
+      a.addEventListener("click", event =>
+      {
+        if (!event)
+        {
+          return
+        }
+
+        if (!event.target)
+        {
+          return
+        }
+
+        if (event.target.href === "#")
+        {
+          event.preventDefault()
+        }
+      })
       return a
     })(),
     __worldChipTitleElement: (() =>
@@ -1181,6 +1376,48 @@ Used Resources:
     initializeWorldChip: function()
     {
       this.__thumbnailLinkElement.append(this.__thumbnailImageThumbnailElement)
+
+      this.__thumbnailModalInstance = new bootstrap.Modal("#lightbox-modal")
+      this.__thumbnailLinkElement.addEventListener("click", (event) =>
+      {
+        event.preventDefault()
+
+        if (event && event.target && event.target.href === "#")
+        {
+          return
+        }
+
+        this.__thumbnailModalInstance.show()
+      })
+
+      // this.__thumbnailImageModalTemplateElement.append(this.__thumbnailImageModalElement)
+      // this.__thumbnailImageModalElement.append(this.__thumbnailImageImageElement)
+
+      // const lightboxModalContents = document.getElementById("lightbox-modal-contents")
+      // lightboxModalContents.append(this.__thumbnailImageImageElement)
+
+      // // console.log("__thumbnailImageImageElement", this.__thumbnailImageImageElement, this.__thumbnailImageImageElement.innerHTML)
+      // // console.log("__thumbnailImageThumbnailElement", this.__thumbnailImageThumbnailElement, this.__thumbnailImageThumbnailElement.innerHTML)
+      // document.body.append(this.__thumbnailImageModalTemplateElement)
+      // window.__thumbnailLightboxInstance = this.__thumbnailLightboxInstance = basicLightbox.create(this.__thumbnailImageModalTemplateElement)
+      // // window.__thumbnailImageImageElement = this.__thumbnailImageImageElement
+      // this.__thumbnailLinkElement.addEventListener("click", (event) =>
+      // {
+      //   event.preventDefault()
+      //   if (!this.imageUrl)
+      //   {
+      //     return
+      //   }
+
+      //   this.__thumbnailLightboxInstance.show()
+      // })
+      // // this.__thumbnailLightbox = new SimpleLightbox({ elements: [ this.__thumbnailLinkElement ]})
+      // // this.__thumbnailLightbox = new SimpleLightbox({ elements: document.querySelectorAll(".world-thumbnail a") })
+      // this.__thumbnailLinkElement.addEventListener("click", (event) =>
+      // {
+      //   event.preventDefault()
+      //   this.__thumbnailLightbox = SimpleLightbox.open({elements: '.imageGallery1 a'});
+      // })
       this.__thumbnailImageElement.append(this.__thumbnailLinkElement)
       this.__thumbnailYoutubeElement.append(this.__frameYoutubeElement)
       if (window.FontAwesome)
@@ -1245,6 +1482,8 @@ Used Resources:
         this.__initializedWorldChip = true
       }
 
+      // this.__thumbnailImageImageElement.src = this.imageUrl || "https://www.dummyimage.com/300x200/bbb/444.png&text=No thumbnail"
+      // this.__thumbnailImageImageElement.alt = this.imageUrl ? "Thumbnail of " + this.title : "No thumbnail for " + this.title
       if (this.previewYoutubeId)
       {
         this.thumbnailImage.remove()
@@ -2398,12 +2637,23 @@ Used Resources:
   {
     __initializeFunctionButtons(
     {
-      selector: "#reset-textchip-button",
+      selector: "#reset-discord-chip-button",
       title: "Resetted",
       clickedTitle: '<i class="fa-solid fa-check"></i> Resetted',
       callback: () =>
       {
-        updateTextChip()
+        updateDiscordChip()
+      },
+    })
+
+    __initializeFunctionButtons(
+    {
+      selector: "#reset-twitter-chip-button",
+      title: "Resetted",
+      clickedTitle: '<i class="fa-solid fa-check"></i> Resetted',
+      callback: () =>
+      {
+        updateTwitterChip()
       },
     })
 
@@ -2585,10 +2835,16 @@ Used Resources:
     const thisLinkInput = document.getElementById("this-link-input")
     if (thisLinkInput)
     {
-      thisLinkInput.value = instance.thisURL
+      thisLinkInput.value = instance.thisHashURL
     }
 
-    history.pushState(instance.instance, undefined, instance.thisURL)
+    const thisSharableInput = document.getElementById("this-sharable-input")
+    if (thisSharableInput)
+    {
+      thisSharableInput.value = instance.sharableHashURL
+    }
+
+    history.pushState(instance.instance, undefined, instance.thisHashURL)
     // history.pushState({ ... instance }, undefined, instance.thisURL)
 
   }
@@ -2653,6 +2909,14 @@ Used Resources:
     const img = document.createElement("img")
     return img
   })()
+
+  const modalImage = (() =>
+  {
+    const img = document.createElement("img")
+    img.classList.add("img-fluid", "rounded", "shadow-sm")
+    return img
+  })()
+
   const updateWorldChip = () =>
   {
     // if (!world.data)
@@ -2685,30 +2949,62 @@ Used Resources:
     //   launchingInfo.append(small)
     // }
 
-    const bg = document.getElementById("background-image")
     if (!world.imageUrl)
     {
       // bg.style.backgroundImage = "none"
       backgroundImage.remove()
+      modalImage.remove()
     }
     else
     {
       // bg.style.backgroundImage = "url(" + world.imageUrl + ")"
       backgroundImage.src = world.imageUrl
-      backgroundImage.alt = "Background Image of " + world.title
+      backgroundImage.alt = "Main Image of " + world.title
       backgroundImage.decoding = "async"
       backgroundImage.fetchPriority = "low"
       backgroundImage.width = 800
       backgroundImage.height = 600
       backgroundImage.loading = "lazy"
       backgroundImage.referrerPolicy = "no-referrer"
-      bg.append(backgroundImage)
+
+      modalImage.src = world.imageUrl
+      modalImage.alt = "Main Image of " + world.title
+      modalImage.decoding = "async"
+      modalImage.fetchPriority = "low"
+      modalImage.width = 800
+      modalImage.height = 600
+      modalImage.loading = "lazy"
+      modalImage.referrerPolicy = "no-referrer"
+
+      const bg = document.getElementById("background-image")
+      if (bg)
+      {
+        bg.append(backgroundImage)
+      }
+
+      const modal = document.getElementById("lightbox-modal-contents")
+      if (modal)
+      {
+        modal.append(modalImage)
+      }
+
+      const modalLabel = document.getElementById("lightbox-modal-label")
+      if (modalLabel)
+      {
+        modalLabel.textContent = world.title
+      }
     }
   }
 
   const updateTextChip = () =>
   {
-    const textChip = document.getElementById("text-chip-textarea")
+    updateDiscordChip()
+    updateTwitterChip()
+  }
+
+  const updateDiscordChip = () =>
+  {
+    const textChip = document.getElementById("discord-chip-textarea")
 
     if (!world.data)
     {
@@ -2723,22 +3019,34 @@ Used Resources:
     {
       thisURL.searchParams.delete("i")
     }
-    // const thisURLAuto = new URL(instance.thisURL)
-    // thisURLAuto.searchParams.set("a", "true")
-    // thisURLAuto.searchParams.delete("x")
-    // thisURLAuto.searchParams.delete("n")
-    // if (instance.instanceType === "public")
-    // {
-    //   thisURLAuto.searchParams.delete("i")
-    // }
+
+    const sharableHashURL = new URL(instance.sharableHashURL)
+    sharableHashURL.searchParams.set("a", "true") // Auto Redirect
+
     textChip.value =
       "### [" + world.title + "](<" + instance.infoURL + ">)" + "\n" +
       // "### " + world.title + "\n" +
       world.description + "\n" +
-      instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + instance.webURL + ">)" + " --- " +
+      instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + sharableHashURL + ">)" + " --- " +
       ":information_source: [*Details*](" + thisURL.toString() + ")" + " --- " +
       ":globe_with_meridians: [*Info*](" + instance.infoURL + ")"
 
+  }
+
+  const updateTwitterChip = () =>
+  {
+    const textChip = document.getElementById("twitter-chip-textarea")
+
+    if (!world.data)
+    {
+      textChip.value = ""
+      return
+    }
+
+    textChip.value =
+      "🌐 " + world.title + "\n" +
+      "👤 " + world.authorName + "\n" +
+      "🔗 " + instance.infoURL
   }
 
   // Generate a Random enough instance ID
@@ -2770,6 +3078,11 @@ Used Resources:
 
   const parsingInstanceId = instanceId =>
   {
+    if (!instanceId)
+    {
+      return {}
+    }
+
     let matches
     const instanceData = instanceId.split("~")
 
@@ -2883,6 +3196,12 @@ Used Resources:
         return { worldId, }
       }
 
+      if (matches = _url.pathname.match(/^\/home\/content\/worlds\/(wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})/))
+      {
+        const worldId = matches[1]
+        return { worldId, }
+      }
+
       if (_url.pathname.match(/^\/home\/launch/))
       {
         const worldId = _url.searchParams.get("worldId")
@@ -2897,10 +3216,45 @@ Used Resources:
     const _current = new URL(location)
     if (_current.origin + _current.pathname === _url.origin + _url.pathname || _url.hostname === "pokemonleo.github.io")
     {
+      const data = {}
+
       if (_url.pathname.match(/^\/vrchat-launcher\.html/))
       {
+        if (_url.hash)
+        {
+          const hash = _url.hash.replace(/^#/, "")
+          const [ worldId, instanceId, ..._unused ] = hash.split(":")
+          if (worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+          {
+            data.worldId = worldId
+          }
+
+          const parsed = parsingInstanceId(__instanceId)
+
+          if (parsed.instanceNumber && !data.instanceNumber)
+          {
+            data.instanceNumber = parsed.instanceNumber
+          }
+          if (parsed.instanceType && !data.instanceType)
+          {
+            data.instanceType = parsed.instanceType
+          }
+          if (parsed.instanceOwner && !data.instanceOwner)
+          {
+            data.instanceOwner = parsed.instanceOwner
+          }
+          if (parsed.region && !data.region)
+          {
+            data.region = parsed.region
+          }
+          if (parsed.nonce && !data.nonce)
+          {
+            data.nonce = parsed.nonce
+          }
+        }
+
         const __w = _url.searchParams.get("w")
-        if (__w)
+        if (__w && !data.worldId)
         {
           data.worldId = __w
         }
@@ -3204,6 +3558,39 @@ Used Resources:
         }
       }
 
+      if (getParamsFromURL.hash)
+      {
+        const hash = getParamsFromURL.hash.replace(/^#/, "")
+        const [ __worldId, __instanceId, ..._unused ] = hash.split(":")
+        if (__worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/) && !data.worldId)
+        {
+          data.worldId = __worldId
+        }
+
+        const parsed = parsingInstanceId(__instanceId)
+
+        if (!data.instanceNumber && parsed.instanceNumber)
+        {
+          data.instanceNumber = parsed.instanceNumber
+        }
+        if (!data.instanceType && parsed.instanceType)
+        {
+          data.instanceType = parsed.instanceType
+        }
+        if (!data.instanceOwner && parsed.instanceOwner)
+        {
+          data.instanceOwner = parsed.instanceOwner
+        }
+        if (!data.region && parsed.region)
+        {
+          data.region = parsed.region
+        }
+        if (!data.nonce && parsed.nonce)
+        {
+          data.nonce = parsed.nonce
+        }
+      }
+
       if (!data.worldId)
       {
         const __worldId = getParamsFromURL.searchParams.get("w")
@@ -3276,11 +3663,12 @@ Used Resources:
         updateLink()
         setDebugInput()
         setFormInput()
+        initializeLinkDetacher()
         initializeForms()
         initializeCopyButtons()
         initializePasteButtons()
         initializeFunctionButtons()
-        updateWorld()
+        updateWorld().then(openWorldChipTab)
         replacingVRChatIcons()
       })
 
@@ -3311,6 +3699,88 @@ Used Resources:
         }
       })
 
+  }
+
+  const initializeLinkDetacher = () =>
+  {
+    for (const _link of document.querySelectorAll("a"))
+    {
+      _link.addEventListener("click", event =>
+      {
+        if (!event)
+        {
+          return
+        }
+
+        if (!event.target)
+        {
+          return
+        }
+
+        if (event.target.href === "#")
+        {
+          event.preventDefault()
+        }
+      })
+    }
+  }
+
+  // const openWorldChipTab = () => new Promise(resolve =>
+  // {
+  //   if (!world.worldId)
+  //   {
+  //     resolve()
+  //     return
+  //   }
+
+  //   if (!world.data)
+  //   {
+  //     resolve()
+  //     return
+  //   }
+
+  //   const __openWorldChipTab = () =>
+  //   {
+  //     const navWorldTab = document.getElementById("nav-world-tab")
+  //     if (navWorldTab)
+  //     {
+  //       const navWorldTrigger = bootstrap.Tab.getInstance(navWorldTab)
+  //     console.log(navWorldTrigger)
+  //       if (navWorldTrigger)
+  //       {
+  //         navWorldTrigger.show()
+  //         resolve()
+  //         return
+  //       }
+  //     }
+
+  //     setTimeout(__openWorldChipTab, 500)
+  //   }
+
+  //   __openWorldChipTab()
+  // })
+
+  const openWorldChipTab = () =>
+  {
+    if (!world.worldId)
+    {
+      return
+    }
+
+    if (!world.data)
+    {
+      return
+    }
+
+    const navWorldTab = document.getElementById("nav-world-tab")
+    if (!navWorldTab)
+    {
+      return
+    }
+
+    const navWorldTrigger = new bootstrap.Tab(navWorldTab)
+    navWorldTrigger.show()
+    navWorldTrigger.dispose()
   }
 
   const replacingVRChatIcons = () =>
@@ -3502,13 +3972,13 @@ Used Resources:
 {
   .world-thumbnail
   {
-    max-width: 250px;
+    width: 250px;
     aspect-ratio: 4 / 3;
   }
 
   .world-preview-youtube
   {
-    max-width: 250px;
+    width: 250px;
     aspect-ratio: 16 / 9;
   }
 }
@@ -3525,6 +3995,7 @@ Used Resources:
   opacity: .2;
   pointer-events: none;
   user-select: none;
+  filter: blur(6px) contrast(1.5) brightness(1.5);
 }
 
 #background-image > img
@@ -3556,6 +4027,7 @@ Used Resources:
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.3.2/css/flag-icons.min.css" integrity="sha512-+WVTaUIzUw5LFzqIqXOT3JVAc5SrMuvHm230I9QAZa6s+QRk8NDPswbHo2miIZj3yiFyV9lAgzO1wVrjdoO4tw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.0/basicLightbox.min.css" integrity="sha512-C+KPK958JmUdU8B9SVr8YpEZtQ1T1XrFX/OLvE/lt336DFWXFHL5Y9/tUewMEU+Uy3dUAS363XXLdBine0WDyQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 <style>
 
 .tooltip:has(.no-contents)
