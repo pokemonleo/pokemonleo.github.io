@@ -3014,13 +3014,13 @@ Used Resources:
       return
     }
 
-    const thisURL = new URL(instance.thisURL)
-    thisURL.searchParams.delete("x")
-    thisURL.searchParams.delete("n")
-    if (instance.instanceType === "public")
-    {
-      thisURL.searchParams.delete("i")
-    }
+    // const thisURL = new URL(instance.thisURL)
+    // thisURL.searchParams.delete("x")
+    // thisURL.searchParams.delete("n")
+    // if (instance.instanceType === "public")
+    // {
+    //   thisURL.searchParams.delete("i")
+    // }
 
     const sharableHashURL = new URL(instance.sharableHashURL)
     sharableHashURL.searchParams.set("a", "true") // Auto Redirect
@@ -3030,7 +3030,7 @@ Used Resources:
       // "### " + world.title + "\n" +
       world.description + "\n" +
       instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + sharableHashURL + ">)" + " --- " +
-      ":information_source: [*Details*](" + thisURL.toString() + ")" + " --- " +
+      ":information_source: [*Details*](" + instance.sharableHashURL + ")" + " --- " +
       ":globe_with_meridians: [*Info*](" + instance.infoURL + ")"
 
   }
