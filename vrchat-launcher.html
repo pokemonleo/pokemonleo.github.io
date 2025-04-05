@@ -938,9 +938,11 @@ Used Resources:
       const _u = new URL(location)
       const params = _u.searchParams
 
-      for (const key of params.keys())
+      for (const key of Array.from(params.keys()))
       {
+        // console.log(key, params.size)
         params.delete(key)
+        // console.log(params.size)
       }
 
       if (!this.worldId)
