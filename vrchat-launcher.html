@@ -3650,18 +3650,19 @@ Used Resources:
       }
 
       const isAutomaticallyRedirect = getParamsFromURL.searchParams.get("a")
-      if (instance.webURL && !isVoid(isAutomaticallyRedirect))
-      {
-        setTimeout(() =>
-        {
-          history.replaceState(instance.instance, undefined, instance.thisURL)
-          location.href = instance.webURL
-          // location.assign(instance.webURL)
-        }, 0)
-      }
 
       document.addEventListener("DOMContentLoaded", () =>
       {
+        if (instance.webURL && !isVoid(isAutomaticallyRedirect))
+        {
+          setTimeout(() =>
+          {
+            history.replaceState(instance.instance, undefined, instance.thisURL)
+            location.href = instance.webURL
+            // location.assign(instance.webURL)
+          }, 0)
+        }
+
         updateLink()
         setDebugInput()
         setFormInput()
