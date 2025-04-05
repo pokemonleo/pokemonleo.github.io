@@ -2028,9 +2028,9 @@ Used Resources:
 
   const _parserInputProcess = async (url, element) =>
   {
-    const _url = new URL(url)
-    if (_url.origin === "https://t.co")
+    if (_url.match(/^https?:\/\/t\.co/))
     {
+      // const _url = new URL(url)
       const response = await fetch(url)
       const html = await response.text()
       const dom = new DOMParser().parseFromString(html, "text/html")
@@ -3240,6 +3240,15 @@ Used Resources:
   }
   const getDataFromUrl = url =>
   {
+    if (!url.match(/^https?:\/\//))
+    {
+      if (_url.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}(\/info)?$/))
+      {
+        const worldId = _url.replace(/\/info$/, "")
+        return { worldId, }
+      }
+    }
+
     const _url = new URL(url)
 
     if (_url.protocol === "vrchat:" && _url.pathname === "//launch")
