@@ -3028,10 +3028,12 @@ Used Resources:
     textChip.value =
       // "### [" + world.title + "](<" + instance.infoURL + ">)" + "\n" +
       "### " + world.title + "\n" +
-      world.description + "\n" +
+      // world.description + "\n" +
       instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + sharableHashURL + ">)" + " --- " +
       ":information_source: [*Details*](" + instance.sharableHashURL + ")" + " --- " +
-      ":globe_with_meridians: [*Info*](" + instance.infoURL + ")"
+      ":globe_with_meridians: [*Info*](" + instance.infoURL + ")" + "\n" +
+      ">>> "
+
 
   }
 
