@@ -2419,16 +2419,16 @@ Used Resources:
       nonceInput.addEventListener("paste", (event) => void _nonceInputProcess(event.clipboardData.getData("text")) )
     }
 
-    for (const textarea of document.querySelectorAll(".textchip-textarea"))
+    for (const textChip of document.querySelectorAll(".textchip-textarea"))
     {
-      textarea.addEventListener("change", () => { textarea.dataset.modified = "true" })
-      textarea.addEventListener("paste", () => { textarea.dataset.modified = "true" })
-      textarea.addEventListener("focus", () =>
+      textChip.addEventListener("change", () => { textChip.dataset.modified = "true" })
+      textChip.addEventListener("paste", () => { textChip.dataset.modified = "true" })
+      textChip.addEventListener("focus", () =>
       {
-        if (textarea.dataset.modified === "false")
+        if (textChip.dataset.modified === "false")
         {
-          textarea.selectionStart = 0
-          textarea.selectionEnd = textarea.value.length
+          textChip.selectionStart = 0
+          textChip.selectionEnd = textChip.value.length
         }
       })
     }
@@ -3109,6 +3109,8 @@ Used Resources:
       ":globe_with_meridians: [*Info*](" + instance.infoURL + ")" + "\n" +
       ">>> "
     textChip.dataset.modified = "false"
+    textChip.selectionStart = 0
+    textChip.selectionEnd = textChip.value.length
 
   }
 
@@ -3127,6 +3129,8 @@ Used Resources:
       "👤 " + world.authorName + "\n" +
       "🔗 " + instance.infoURL
     textChip.dataset.modified = "false"
+    textChip.selectionStart = 0
+    textChip.selectionEnd = textChip.value.length
   }
 
   // Generate a Random enough instance ID
