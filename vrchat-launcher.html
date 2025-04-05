@@ -3288,10 +3288,10 @@ Used Resources:
         if (_url.hash)
         {
           const hash = _url.hash.replace(/^#/, "")
-          const [ worldId, instanceId, ..._unused ] = hash.split(":")
-          if (worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
+          const [ __worldId, __instanceId, ..._unused ] = hash.split(":")
+          if (__worldId.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
           {
-            data.worldId = worldId
+            data.worldId = __worldId
           }
 
           const parsed = parsingInstanceId(__instanceId)
