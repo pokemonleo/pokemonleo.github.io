@@ -1952,8 +1952,8 @@ Used Resources:
     {
       worldidInput.value = instance.worldId || ""
 
-      worldidInput.selectionStart = 0
-      worldidInput.selectionEnd = worldidInput.value.length
+      // worldidInput.selectionStart = 0
+      // worldidInput.selectionEnd = worldidInput.value.length
     }
 
     const instancenumberInput = document.getElementById("instancenumber-input")
@@ -1979,8 +1979,8 @@ Used Resources:
       {
         instanceidInput.value = instance.instanceOwner || ""
 
-        instanceidInput.selectionStart = 0
-        instanceidInput.selectionEnd = instanceidInput.value.length
+        // instanceidInput.selectionStart = 0
+        // instanceidInput.selectionEnd = instanceidInput.value.length
       }
     }
 
@@ -2001,8 +2001,8 @@ Used Resources:
       {
         nonceInput.value = instance.nonce
 
-        nonceInput.selectionStart = 0
-        nonceInput.selectionEnd = nonceInput.value.length
+        // nonceInput.selectionStart = 0
+        // nonceInput.selectionEnd = nonceInput.value.length
       }
     }
 
@@ -2335,6 +2335,15 @@ Used Resources:
     for (const _input of document.querySelectorAll(".debug-info-text"))
     {
       _input.addEventListener("blur", () =>
+      {
+        _input.selectionStart = 0
+        _input.selectionEnd = _input.value.length
+      })
+    }
+
+    for (const _input of document.querySelectorAll(".manual-input-text"))
+    {
+      _input.addEventListener("focus", () =>
       {
         _input.selectionStart = 0
         _input.selectionEnd = _input.value.length
