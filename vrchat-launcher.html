@@ -1070,7 +1070,7 @@ Used Resources:
       {
         return
       }
-      return this.data.authorName
+      return sanitizeVRChatText(this.data.authorName)
     },
 
     get authorId()
