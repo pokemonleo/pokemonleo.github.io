@@ -203,9 +203,9 @@ html, body
               </div>
             </div>
             <div class="row mb-2 manual-input align-items-center">
-              <label for="instancetype-input" class="col-sm-4 col-form-label manual-input-title py-0">Instance Type</label>
+              <label for="instancetype-input-main" class="col-sm-4 col-form-label manual-input-title py-0">Instance Type</label>
               <div class="col-sm-8">
-                <select class="form-select form-select-lg" id="instancetype-input" class="form-control form-control-lg manual-input-text py-0" aria-label="Select Instance Type">
+                <select id="instancetype-input-main" class="form-select form-select-lg instancetype-input" aria-label="Select Instance Type">
                   <option value="public">Public</option>
                   <option value="friend+">Friends+</option>
                   <option value="friend">Friends</option>
@@ -299,6 +299,16 @@ html, body
                     <input type="text" id="parser-input-discord" class="form-control form-control-lg manual-input-text py-0 parser-input" placeholder="" aria-label="Paste Text to Parser" aria-describedby="parser-paste-button">
                     <label for="parser-input-discord" class="">URL Parser</label>
                   </div>
+                  <select id="instancetype-input-discord" class="form-select form-select-lg instancetype-input" aria-label="Select Instance Type">
+                    <option value="public">Public</option>
+                    <option value="friend+">Friends+</option>
+                    <option value="friend">Friends</option>
+                    <option value="invite+">Invite+</option>
+                    <option value="invite">Invite</option>
+                    <option value="group-public">Group Public</option>
+                    <option value="group+">Group+</option>
+                    <option value="group">Group</option>
+                  </select>
                 </div>
               </div>
               <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-discord-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
@@ -318,6 +328,16 @@ html, body
                     <input type="text" id="parser-input-twitter" class="form-control form-control-lg manual-input-text py-0 parser-input" placeholder="" aria-label="Paste Text to Parser" aria-describedby="parser-paste-button">
                     <label for="parser-input-twitter" class="">URL Parser</label>
                   </div>
+                  <select id="instancetype-input-twitter" class="form-select form-select-lg instancetype-input" aria-label="Select Instance Type">
+                    <option value="public">Public</option>
+                    <option value="friend+">Friends+</option>
+                    <option value="friend">Friends</option>
+                    <option value="invite+">Invite+</option>
+                    <option value="invite">Invite</option>
+                    <option value="group-public">Group Public</option>
+                    <option value="group+">Group+</option>
+                    <option value="group">Group</option>
+                  </select>
                 </div>
               </div>
               <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-twitter-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
@@ -1962,8 +1982,7 @@ Used Resources:
       instancenumberInput.value = instance.instanceNumber
     }
 
-    const instancetypeInput = document.getElementById("instancetype-input")
-    if (instancetypeInput)
+    for (const instancetypeInput of document.querySelectorAll(".instancetype-input"))
     {
       const options = Array.from(instancetypeInput.options).map(option => option.value)
       instancetypeInput.selectedIndex = options.indexOf(instance.instanceType)
@@ -1971,7 +1990,6 @@ Used Resources:
       // instancetypeInput.selectionStart = 0
       // instancetypeInput.selectionEnd = instancetypeInput.value.length
     }
-
     if (instance.instanceAPIType !== "public")
     {
       const instanceidInput = document.getElementById("instanceid-input")
@@ -2074,8 +2092,7 @@ Used Resources:
       {
         instance.instanceType = instanceType
 
-        const instancetypeInput = document.getElementById("instancetype-input")
-        if (instancetypeInput)
+        for (const instancetypeInput of document.querySelectorAll(".instancetype-input"))
         {
           const options = Array.from(instancetypeInput.options).map(option => option.value)
           instancetypeInput.selectedIndex = options.indexOf(instanceType)
@@ -2202,6 +2219,7 @@ Used Resources:
     }
 
     updateLink()
+    updateTextChip()
     updateLauncher()
     setDebugInput()
 
@@ -2236,6 +2254,12 @@ Used Resources:
     instance.instanceType = instanceType
     instance.defaultInstanceType = instanceType
 
+    for (const instancetypeInput of document.querySelectorAll(".instancetype-input"))
+    {
+      const options = Array.from(instancetypeInput.options).map(option => option.value)
+      instancetypeInput.selectedIndex = options.indexOf(instance.instanceType)
+    }
+
     // If current nonce isGenerated, regenerate NONCE once
     if (instance._isNonceGenerated)
     {
@@ -2243,6 +2267,7 @@ Used Resources:
     }
 
     updateLink()
+    updateTextChip()
     updateLauncher()
     setDebugInput()
   }
@@ -2273,6 +2298,7 @@ Used Resources:
     }
 
     updateLink()
+    updateTextChip()
     updateLauncher()
     setDebugInput()
   }
@@ -2303,6 +2329,7 @@ Used Resources:
     }
 
     updateLink()
+    updateTextChip()
     updateLauncher()
     setDebugInput()
   }
@@ -2321,6 +2348,7 @@ Used Resources:
 
     instance.nonce = nonce
     updateLink()
+    updateTextChip()
     updateLauncher()
     setDebugInput()
 
@@ -2369,8 +2397,7 @@ Used Resources:
       instancenumberInput.addEventListener("change", () => void _instancenumberInputProcess(instancenumberInput.value) )
       instancenumberInput.addEventListener("paste", (event) => void _instancenumberInputProcess(event.clipboardData.getData("text")) )
     }
-    const instancetypeInput = document.getElementById("instancetype-input")
-    if (instancetypeInput)
+    for (const instancetypeInput of document.querySelectorAll(".instancetype-input"))
     {
       instancetypeInput.addEventListener("change", () => void _instancetypeInputProcess(instancetypeInput) )
     }
