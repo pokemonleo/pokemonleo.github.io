@@ -175,11 +175,11 @@ html, body
           </div>
           <div class="tab-pane fade" id="nav-manual" role="tabpanel" aria-labelledby="nav-manual-tab" tabindex="0">
             <div class="row mb-2 manual-input align-items-center">
-              <label for="parser-input" class="col-sm-4 col-form-label manual-input-title py-0">URL Parser</label>
+              <label for="parser-input-main" class="col-sm-4 col-form-label manual-input-title py-0">URL Parser</label>
               <div class="col-sm-8">
                 <div class="input-group input-group-lg">
-                  <input type="text" id="parser-input" class="form-control form-control-lg manual-input-text py-0" placeholder="" aria-label="Paste Text to Parser" aria-describedby="parser-paste-button">
-                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#parser-input" type="button" id="parser-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                  <input type="text" id="parser-input-main" class="form-control form-control-lg manual-input-text py-0 parser-input" placeholder="" aria-label="Paste Text to Parser" aria-describedby="parser-paste-button">
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#parser-input-main" type="button" id="parser-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
                 </div>
               </div>
             </div>
@@ -292,6 +292,15 @@ html, body
           </div>
           <div class="tab-pane fade" id="nav-discord" role="tabpanel" aria-labelledby="nav-discord-tab" tabindex="0">
             <div class="mb-2 d-flex justify-content-end gap-2">
+              <div class="flex-grow-1">
+                <div class="input-group input-group-lg">
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#parser-input-discord" type="button" id="parser-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                  <div class="form-floating">
+                    <input type="text" id="parser-input-discord" class="form-control form-control-lg manual-input-text py-0 parser-input" placeholder="" aria-label="Paste Text to Parser" aria-describedby="parser-paste-button">
+                    <label for="parser-input-discord" class="">URL Parser</label>
+                  </div>
+                </div>
+              </div>
               <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-discord-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
               <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#discord-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
@@ -302,6 +311,15 @@ html, body
           </div>
           <div class="tab-pane fade" id="nav-twitter" role="tabpanel" aria-labelledby="nav-twitter-tab" tabindex="0">
             <div class="mb-2 d-flex justify-content-end gap-2">
+              <div class="flex-grow-1">
+                <div class="input-group input-group-lg">
+                  <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#parser-input-twitter" type="button" id="parser-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
+                  <div class="form-floating">
+                    <input type="text" id="parser-input-twitter" class="form-control form-control-lg manual-input-text py-0 parser-input" placeholder="" aria-label="Paste Text to Parser" aria-describedby="parser-paste-button">
+                    <label for="parser-input-twitter" class="">URL Parser</label>
+                  </div>
+                </div>
+              </div>
               <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-twitter-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
               <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#twitter-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
@@ -2001,8 +2019,11 @@ Used Resources:
       const title = dom.querySelector("title")
       url = title.textContent
 
-      parserInput = document.getElementById("parser-input")
-      parserInput.value = title.textContent
+      parserInputs = document.querySelectorAll(".parser-input")
+      for (const parserInput of parserInputs)
+      {
+        parserInput.value = title.textContent
+      }
     }
 
     const {
@@ -2316,8 +2337,8 @@ Used Resources:
       })
     }
 
-    const parserInput = document.getElementById("parser-input")
-    if (parserInput)
+    const parserInputs = document.querySelectorAll(".parser-input")
+    for (const parserInput of parserInputs)
     {
       parserInput.addEventListener("change", () => void _parserInputProcess(parserInput.value) )
       parserInput.addEventListener("paste", (event) => void _parserInputProcess(event.clipboardData.getData("text")) )
