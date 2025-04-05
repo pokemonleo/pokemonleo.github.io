@@ -315,7 +315,7 @@ html, body
               <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#discord-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
             <div class="form-floating shadow-sm">
-              <textarea class="form-control form-control-sm" placeholder="Text Chip for Discord" id="discord-chip-textarea" style="height: 300px"></textarea>
+              <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Discord" id="discord-chip-textarea" style="height: 300px"></textarea>
               <label for="discord-chip-textarea">Text Chip for Discord</label>
             </div>
           </div>
@@ -344,7 +344,7 @@ html, body
               <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#twitter-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
             </div>
             <div class="form-floating shadow-sm">
-              <textarea class="form-control form-control-sm" placeholder="Text Chip for Twitter" id="twitter-chip-textarea" style="height: 300px"></textarea>
+              <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Twitter" id="twitter-chip-textarea" style="height: 300px"></textarea>
               <label for="twitter-chip-textarea">Text Chip for Twitter</label>
             </div>
           </div>
@@ -2419,6 +2419,20 @@ Used Resources:
       nonceInput.addEventListener("paste", (event) => void _nonceInputProcess(event.clipboardData.getData("text")) )
     }
 
+    for (const textarea of document.querySelectorAll(".textchip-textarea"))
+    {
+      textarea.addEventListener("change", () => { textarea.dataset.modified = "true" })
+      textarea.addEventListener("paste", () => { textarea.dataset.modified = "true" })
+      textarea.addEventListener("focus", () =>
+      {
+        if (textarea.dataset.modified === "false")
+        {
+          _input.selectionStart = 0
+          _input.selectionEnd = _input.value.length
+        }
+      })
+    }
+
   }
 
   const regenerateInstaceNumber = () =>
@@ -3094,7 +3108,7 @@ Used Resources:
       ":information_source: [*Details*](" + instance.sharableHashURL + ")" + " --- " +
       ":globe_with_meridians: [*Info*](" + instance.infoURL + ")" + "\n" +
       ">>> "
-
+    textChip.dataset.modified = "false"
 
   }
 
@@ -3112,6 +3126,7 @@ Used Resources:
       "🌐 " + world.title + "\n" +
       "👤 " + world.authorName + "\n" +
       "🔗 " + instance.infoURL
+    textChip.dataset.modified = "false"
   }
 
   // Generate a Random enough instance ID
