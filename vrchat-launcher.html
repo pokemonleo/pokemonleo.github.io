@@ -3245,10 +3245,10 @@ Used Resources:
       "🌐 " + world.title + "\n" +
       "👤 " + world.authorName + "\n" +
       (
-        world.isRecentlyPublicated ? "🆕" + datetimeFormatter.format(world.publicationDate) + "\n" :
-        world.isRecentlyLabsPublicated ? "🆕" + datetimeFormatter.format(world.labsPublicationDate) + "\n" :
-        world.isRecentlyCreated ? "🆕" + datetimeFormatter.format(world.created_at) + "\n" :
-        world.isRecentlyUpdated ? "🆙" + datetimeFormatter.format(world.updated_at) + "\n" :
+        world.isRecentlyPublicated ? "🆕 " + datetimeFormatter.format(world.publicationDate) + "\n" :
+        world.isRecentlyLabsPublicated ? "🆕 " + datetimeFormatter.format(world.labsPublicationDate) + "\n" :
+        world.isRecentlyCreated ? "🆕 " + datetimeFormatter.format(world.created_at) + "\n" :
+        world.isRecentlyUpdated ? "🆙 " + datetimeFormatter.format(world.updated_at) + "\n" :
         ""
       ) +
       "🔗 " + instance.infoURL
