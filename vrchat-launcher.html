@@ -98,12 +98,12 @@ html, body
           -->
           <li>
             <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-secondary); --bs-dropdown-link-hover-color: var(--bs-secondary-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-secondary-text-emphasis)" data-copy-target="#this-link-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-regular fa-square-full"></i> Living Configs
+              <i class="fa-regular fa-square-full"></i> Living Config
             </button>
           </li>
           <li>
             <button type="button" class="dropdown-item py-2 copy-button" style="--bs-dropdown-link-color: var(--bs-success); --bs-dropdown-link-hover-color: var(--bs-success-text-emphasis); --bs-dropdown-link-active-bg: var(--bs-success-text-emphasis)" data-copy-target="#this-sharable-input" data-tooltip-target="#copy-button-group">
-              <i class="fa-regular fa-share-from-square"></i> Shareable Configs
+              <i class="fa-regular fa-share-from-square"></i> Shareable Config
             </button>
           </li>
           <!--
@@ -128,7 +128,7 @@ html, body
         <nav>
           <div class="nav nav-tabs px-2 pt-2 flex-nowrap overflow-x-auto overflow-y-hidden" id="nav-tab" role="tablist">
             <button class="nav-link text-nowrap active" id="nav-debug-tab" data-bs-toggle="tab" data-bs-target="#nav-debug" type="button" role="tab" aria-controls="nav-debug" aria-selected="true"><i class="fa-solid fa-cookie-bite"></i> Debug</button>
-            <button class="nav-link text-nowrap" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-gear"></i> Setup</button>
+            <button class="nav-link text-nowrap" id="nav-manual-tab" data-bs-toggle="tab" data-bs-target="#nav-manual" type="button" role="tab" aria-controls="nav-manual" aria-selected="false"><i class="fa-solid fa-gear"></i> Config</button>
             <button class="nav-link text-nowrap" id="nav-world-tab" data-bs-toggle="tab" data-bs-target="#nav-world" type="button" role="tab" aria-controls="nav-world" aria-selected="false"><i class="fa-solid fa-globe"></i> World</button>
             <button class="nav-link text-nowrap" id="nav-discord-tab" data-bs-toggle="tab" data-bs-target="#nav-discord" type="button" role="tab" aria-controls="nav-discord" aria-selected="false"><i class="fa-brands fa-discord"></i> Discord</button>
             <button class="nav-link text-nowrap" id="nav-twitter-tab" data-bs-toggle="tab" data-bs-target="#nav-twitter" type="button" role="tab" aria-controls="nav-twitter" aria-selected="false"><i class="fa-brands fa-twitter"></i> Twitter</button>
@@ -291,8 +291,8 @@ html, body
             -->
           </div>
           <div class="tab-pane fade" id="nav-discord" role="tabpanel" aria-labelledby="nav-discord-tab" tabindex="0">
-            <div class="mb-2 d-flex justify-content-end gap-2">
-              <div class="flex-grow-1">
+            <div class="mb-2 d-flex flex-column flex-md-row justify-content-md-end align-items-stretch gap-2">
+              <div class="flex-md-grow-1">
                 <div class="input-group input-group-lg">
                   <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#parser-input-discord" type="button" id="parser-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
                   <div class="form-floating">
@@ -311,8 +311,10 @@ html, body
                   </select>
                 </div>
               </div>
-              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-discord-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
-              <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#discord-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
+              <div class="flex-md-shrink-0 d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-discord-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> <span class="d-md-none d-lg-inline">Reset</span></button>
+                <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#discord-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
             </div>
             <div class="form-floating shadow-sm">
               <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Discord" id="discord-chip-textarea" style="height: 300px"></textarea>
@@ -320,7 +322,7 @@ html, body
             </div>
           </div>
           <div class="tab-pane fade" id="nav-twitter" role="tabpanel" aria-labelledby="nav-twitter-tab" tabindex="0">
-            <div class="mb-2 d-flex justify-content-end gap-2">
+            <div class="mb-2 d-flex flex-column flex-md-row justify-content-md-end align-items-stretch gap-2">
               <div class="flex-grow-1">
                 <div class="input-group input-group-lg">
                   <button class="btn btn-outline-secondary paste-button disabled" data-paste-target="#parser-input-twitter" type="button" id="parser-paste-button" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-paste"></i> <span class="d-none d-md-inline">Paste</span></button>
@@ -340,8 +342,10 @@ html, body
                   </select>
                 </div>
               </div>
-              <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-twitter-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
-              <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#twitter-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
+              <div class="flex-md-shrink-0 d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm" style="--bs-btn-bg: #fff;" id="reset-twitter-chip-button"><i class="fa-solid fa-arrow-rotate-left"></i> <span class="d-md-none d-lg-inline">Reset</span></button>
+                <button type="button" class="btn btn-outline-success btn-lg shadow-sm copy-button" style="--bs-btn-bg: #fff;" data-copy-target="#twitter-chip-textarea"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
             </div>
             <div class="form-floating shadow-sm">
               <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Twitter" id="twitter-chip-textarea" style="height: 300px"></textarea>
@@ -1111,6 +1115,110 @@ Used Resources:
       return "https://vrchat.com/home/user/" + this.authorId
     },
 
+    get created_at()
+    {
+      if (!this.data)
+      {
+        return
+      }
+
+      if (!this.data.created_at)
+      {
+        return
+      }
+
+      return new Date(this.data.created_at)
+    },
+
+    get labsPublicationDate()
+    {
+      if (!this.data)
+      {
+        return
+      }
+
+      if (!this.data.labsPublicationDate)
+      {
+        return
+      }
+
+      return new Date(this.data.labsPublicationDate)
+    },
+
+    get publicationDate()
+    {
+      if (!this.data)
+      {
+        return
+      }
+
+      if (!this.data.publicationDate)
+      {
+        return
+      }
+
+      return new Date(this.data.publicationDate)
+    },
+
+    get updated_at()
+    {
+      if (!this.data)
+      {
+        return
+      }
+
+      if (!this.data.updated_at)
+      {
+        return
+      }
+
+      return new Date(this.data.updated_at)
+    },
+
+    get isRecentlyPublicated() // Two Months
+    {
+      if (!this.publicationDate)
+      {
+        return false
+      }
+
+      const delta = (new Date()).valueOf() - this.publicationDate.valueOf()
+      return delta < 60 * 24 * 60 * 60 * 1000
+    },
+
+    get isRecentlyLabsPublicated() // Two Months
+    {
+      if (!this.labsPublicationDate)
+      {
+        return false
+      }
+
+      const delta = (new Date()).valueOf() - this.labsPublicationDate.valueOf()
+      return delta < 60 * 24 * 60 * 60 * 1000
+    },
+
+    get isRecentlyCreated() // Two Months
+    {
+      if (!this.created_at)
+      {
+        return false
+      }
+
+      const delta = (new Date()).valueOf() - this.created_at.valueOf()
+      return delta < 60 * 24 * 60 * 60 * 1000
+    },
+
+    get isRecentlyUpdated() // Two Weeks
+    {
+      if (!this.updated_at)
+      {
+        return false
+      }
+
+      const delta = (new Date()).valueOf() - this.updated_at.valueOf()
+      return delta < 14 * 24 * 60 * 60 * 1000
+    },
+
     get recommendedCapacity()
     {
       if (!this.data)
@@ -1422,9 +1530,18 @@ Used Resources:
       {
         event.preventDefault()
 
-        if (event && event.target && event.target.href === "#")
+        if (event && event.target)
         {
-          return
+          if (event.target.href === "#")
+          {
+            return
+          }
+
+          const href = new URL(event.target.href)
+          if (href.hostname === "www.dummyimage.com")
+          {
+            return
+          }
         }
 
         this.__thumbnailModalInstance.show()
@@ -3127,7 +3244,13 @@ Used Resources:
     textChip.value =
       "🌐 " + world.title + "\n" +
       "👤 " + world.authorName + "\n" +
-      "🔗 " + instance.infoURL
+      "🔗 " + instance.infoURL +
+      (
+        world.isRecentlyPublicated ? "\n" + "🆕" + datetimeFormatter.format(world.publicationDate) :
+        world.isRecentlyLabsPublicated ? "\n" + "🆕" + datetimeFormatter.format(world.labsPublicationDate) :
+        world.isRecentlyCreated ? "\n" + "🆕" + datetimeFormatter.format(world.created_at) :
+        world.isRecentlyUpdated ? "\n" + "🆙" + datetimeFormatter.format(world.updated_at) : ""
+      )
     textChip.dataset.modified = "false"
     textChip.selectionStart = 0
     textChip.selectionEnd = textChip.value.length
@@ -4024,6 +4147,152 @@ Used Resources:
       .replaceAll("｜", "|")
       // .replaceAll("＝", "=")
   }
+
+  // const currentLocale = window.Intl?.DateTimeFormat?.().resolvedOptions?.() ? Intl.DateTimeFormat().resolvedOptions().locale : (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.language
+  // const currentTimezone = window.Intl?.DateTimeFormat?.().resolvedOptions?.() ? Intl.DateTimeFormat().resolvedOptions().timeZone : undefined
+  const datetimeFormatter =
+  {
+    // _formatter: new Intl.DateTimeFormat(currentLocale),
+    resetFormatter: function()
+    {
+      console.log(this.Locale)
+
+      const timeZone = this.timeZone
+      this._formatter = new Intl.DateTimeFormat(this.locale,
+      {
+        timeZone,
+        year: this.Locale.year,
+        month: this.Locale.month,
+        day: this.Locale.day,
+        timeZoneName: "shortOffset",
+      })
+    },
+
+    format: function(...variables)
+    {
+      if (!this._formatter)
+      {
+        this.resetFormatter()
+      }
+
+      return this._formatter.format(...variables)
+    },
+
+    set timeZone(_timeZone)
+    {
+      if (!this._supportedTimeZones)
+      {
+        this._supportedTimeZones = Intl.supportedValuesOf("timeZone")
+      }
+
+      if (this._supportedTimeZones.indexOf(_timeZone) < 0)
+      {
+        console.error("Time Zone is not available")
+        return
+      }
+
+      this._timeZone = _timeZone
+      this.defaultTimeZone = _timeZone
+      this.resetFormatter()
+    },
+
+    get timeZone()
+    {
+      if (this._timeZone)
+      {
+        return this._timeZone
+      }
+
+      if (this.defaultTimeZone)
+      {
+        return this.defaultTimeZone
+      }
+
+      const resolvedOptions = window.Intl?.DateTimeFormat?.().resolvedOptions?.()
+      if (resolvedOptions?.timeZone)
+      {
+        return resolvedOptions.timeZone
+      }
+
+      return
+    },
+
+    set defaultTimeZone(_timeZone)
+    {
+      Cookies.set("defaultTimeZone", _timeZone, { expires: 365, path: "", })
+    },
+
+    get defaultTimeZone()
+    {
+      return Cookies.get("defaultTimeZone")
+    },
+
+    set locale(_locale)
+    {
+      try
+      {
+        const Locale = new Intl.Locale(_locale)
+        this._Locale = Locale
+        this._locale = Locale.baseName
+        this.defaultLocale = Locale.baseName
+        this.resetFormatter()
+      }
+      catch (error)
+      {
+        console.error("Set Locale Error")
+        console.log(error)
+      }
+    },
+
+    get locale()
+    {
+      if (this._locale)
+      {
+        return this._locale
+      }
+
+      if (this.defaultLocale)
+      {
+        return this.defaultLocale
+      }
+
+      const resolvedOptions = window.Intl?.DateTimeFormat?.().resolvedOptions?.()
+      if (resolvedOptions?.locale)
+      {
+        return resolvedOptions.locale
+      }
+
+      if (navigator.languages && navigator.languages.length)
+      {
+        navigator.languages[0]
+      }
+
+      return navigator.language
+    },
+
+    get Locale()
+    {
+      if (!this._Locale)
+      {
+        this._Locale = new Intl.Locale(this.locale)
+      }
+
+      return this._Locale
+    },
+
+    set defaultLocale(_locale)
+    {
+      Cookies.set("defaultLocale", _locale, { expires: 365, path: "", })
+    },
+
+    get defaultLocale()
+    {
+      return Cookies.get("defaultLocale")
+    },
+  }
+
+  window.setLocale = locale => { datetimeFormatter.locale = locale }
+  window.setTimeZone = timeZone => { datetimeFormatter.timeZone = timeZone }
 
   main()
 
