@@ -3887,6 +3887,12 @@ Used Resources:
         initializeFunctionButtons()
         updateWorld().then(openWorldChipTab)
         replacingVRChatIcons()
+
+        document.body.parentElement.lang = datetimeFormatter.locale
+        if (datetimeFormatter.timezone)
+        {
+          document.body.parentElement.dataset.currentTimeZone = datetimeFormatter.timezone
+        }
       })
 
       addEventListener("popstate", (event) =>
@@ -4156,7 +4162,7 @@ Used Resources:
     // _formatter: new Intl.DateTimeFormat(currentLocale),
     resetFormatter: function()
     {
-      console.log(this.Locale)
+      // console.log(this.Locale)
 
       const timeZone = this.timeZone
       this._formatter = new Intl.DateTimeFormat(this.locale,
@@ -4292,8 +4298,19 @@ Used Resources:
     },
   }
 
-  window.setLocale = locale => { datetimeFormatter.locale = locale }
-  window.setTimeZone = timeZone => { datetimeFormatter.timeZone = timeZone }
+  window.setLocale = locale =>
+  {
+    datetimeFormatter.locale = locale
+    document.body.parentElement.lang = datetimeFormatter.locale
+  }
+  window.setTimeZone = timeZone =>
+  {
+    datetimeFormatter.timeZone = timeZone
+    if (datetimeFormatter.timezone)
+    {
+      document.body.parentElement.dataset.currentTimeZone = datetimeFormatter.timezone
+    }
+  }
 
   main()
 
