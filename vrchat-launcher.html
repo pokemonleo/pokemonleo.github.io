@@ -3385,9 +3385,9 @@ Used Resources:
   {
     if (!url.match(/^https?:\/\//))
     {
-      if (_url.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}(\/info)?$/))
+      if (url.match(/^wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}(\/info)?$/))
       {
-        const worldId = _url.replace(/\/info$/, "")
+        const worldId = url.replace(/\/info$/, "")
         return { worldId, }
       }
     }
