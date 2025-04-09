@@ -116,6 +116,7 @@ html, body
         </ul>
       </div>
     </div>
+    <div id="error-messages-container"></div>
     <div class="mt-5 mb-2">
       <form class="border shadow-lg bg-white" style="--bs-bg-opacity: .8;">
         <input type="hidden" id="game-link-input">
@@ -839,19 +840,34 @@ Used Resources:
       {
         // throw new Error("No instanceOwner")
         console.error("No instanceOwner for non-public instance")
+        this.alertNoInstanceOwner.show(this.__alertElementNoInstanceOwner)
         return ""
+      }
+      else
+      {
+        this.alertNoInstanceOwner.hide(this.__alertElementNoInstanceOwner)
       }
 
       if (this.instanceAPIType === "group" && !this.instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
       {
         console.error("Instance Owner Must Be Valid Group ID for Group Instance")
+        this.alertNoInstanceOwner.show(this.__alertElementNotUserInstanceOwner)
         return
+      }
+      else
+      {
+        this.alertNoInstanceOwner.hide(this.__alertElementNotUserInstanceOwner)
       }
 
       if (this.instanceAPIType !== "group" && this.instanceAPIType !== "public" && !this.instanceOwner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
       {
         console.error("Instance Owner Must Be Valid User ID for Non-Group Instance")
+        this.alertNoInstanceOwner.show(this.__alertElementNotGroupInstanceOwner)
         return
+      }
+      else
+      {
+        this.alertNoInstanceOwner.hide(this.__alertElementNotGroupInstanceOwner)
       }
 
       let instanceId = ""
@@ -896,7 +912,12 @@ Used Resources:
       {
         // throw new Error("No instanceOwner")
         console.error("No instanceOwner for non-public instance")
+        this.alertNoInstanceOwner.show(this.__alertElementNoInstanceOwner)
         return ""
+      }
+      else
+      {
+        this.alertNoInstanceOwner.hide(this.__alertElementNoInstanceOwner)
       }
 
       if (this.instanceAPIType === "group" && !this.instanceOwner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
@@ -1051,7 +1072,62 @@ Used Resources:
       }
 
       return _u.toString()
-    }
+    },
+
+    __alertElementNoInstanceOwner: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("alert", "alert-danger")
+      div.role = "alert"
+      div.textContent = "Instance owner is necessary for non-public instance."
+      return div
+    })(),
+    __alertElementNotUserInstanceOwner: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("alert", "alert-danger")
+      div.role = "alert"
+      div.textContent = "Instance owner must be a valid user ID for non-group instance."
+      return div
+    })(),
+    __alertElementNotGroupInstanceOwner: (() =>
+    {
+      const div = document.createElement("div")
+      div.classList.add("alert", "alert-danger")
+      div.role = "alert"
+      div.textContent = "Instance owner must be a valid group ID for group instance."
+      return div
+    })(),
+
+    alertNoInstanceOwner:
+    {
+      get alertContainer()
+      {
+        if (this.__alertContainer)
+        {
+          return this.__alertContainer
+        }
+
+        this.__alertContainer = document.getElementById("error-messages-container")
+        return this.__alertContainer
+      },
+
+      show: function(...alertElements)
+      {
+        for (const element of alertElements)
+        {
+          this.alertContainer.append(element)
+        }
+      },
+
+      hide: function(...alertElements)
+      {
+        for (const element of alertElements)
+        {
+          element.remove()
+        }
+      },
+    },
   }
 
   const world =
