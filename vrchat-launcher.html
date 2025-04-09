@@ -2481,6 +2481,18 @@ Used Resources:
       regenerateNonce()
     }
 
+    if (instanceType !== "public" && instance.instanceOwner)
+    {
+      const instanceidInput = document.getElementById("instanceid-input")
+      if (instanceidInput)
+      {
+        if (instanceidInput.value !== instance.instanceOwner)
+        {
+          instanceidInput.value = instance.instanceOwner
+        }
+      }
+    }
+
     updateLink()
     updateTextChip()
     updateLauncher()
