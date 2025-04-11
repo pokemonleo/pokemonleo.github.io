@@ -503,7 +503,7 @@ Used Resources:
 
     set defaultInstanceType(type)
     {
-      Cookies.set("defaultInstanceType", type, { expires: 365, path: "", })
+      Cookies.set("defaultInstanceType", type, { expires: 365, })
     },
 
     get defaultInstanceType()
@@ -632,7 +632,7 @@ Used Resources:
 
     set defaultRegion(_region)
     {
-      Cookies.set("defaultRegion", _region, { expires: 365, path: "", })
+      Cookies.set("defaultRegion", _region, { expires: 365, })
     },
 
     get defaultRegion()
@@ -733,16 +733,16 @@ Used Resources:
     {
       if (this.instanceAPIType === "group" && owner.match(/^grp_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
       {
-        Cookies.set("defaultGroupInstanceOwner", owner, { expires: 365, path: "", })
+        Cookies.set("defaultGroupInstanceOwner", owner, { expires: 365, })
         return
       }
       if (this.instanceAPIType !== "group" && this.instanceAPIType !== "public" && owner.match(/^usr_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/))
       {
-        Cookies.set("defaultUserInstanceOwner", owner, { expires: 365, path: "", })
+        Cookies.set("defaultUserInstanceOwner", owner, { expires: 365, })
         return
       }
 
-      // Cookies.set("defaultInstanceOwner", owner, { expires: 365, path: "", })
+      // Cookies.set("defaultInstanceOwner", owner, { expires: 365, })
     },
 
     get defaultInstanceOwner()
@@ -1859,6 +1859,8 @@ Used Resources:
     __launchingTitleFirstLine: (() =>
     {
       const div = document.createElement("div")
+      // const div = document.createElement("span")
+      // div.classList.add("d-block")
       return div
     })(),
     __launchingTitleFirstLinePrefixPart1: (() =>
@@ -1889,12 +1891,15 @@ Used Resources:
     __launchingTitleFirstLineSuffix: (() =>
     {
       const suffix = document.createElement("span")
+      // suffix.style.whiteSpace = "pre"
       suffix.append(" of ")
       return suffix
     })(),
     __launchingTitleSecondLine: (() =>
     {
       const div = document.createElement("div")
+      // const div = document.createElement("span")
+      // div.classList.add("d-block")
       div.style.fontSize = "1.1em"
       return div
     })(),
@@ -4347,7 +4352,7 @@ Used Resources:
 
     set defaultTimeZone(_timeZone)
     {
-      Cookies.set("defaultTimeZone", _timeZone, { expires: 365, path: "", })
+      Cookies.set("defaultTimeZone", _timeZone, { expires: 365, })
     },
 
     get defaultTimeZone()
@@ -4410,7 +4415,7 @@ Used Resources:
 
     set defaultLocale(_locale)
     {
-      Cookies.set("defaultLocale", _locale, { expires: 365, path: "", })
+      Cookies.set("defaultLocale", _locale, { expires: 365, })
     },
 
     get defaultLocale()
