@@ -2280,6 +2280,12 @@ Used Resources:
       }
     }
 
+    const removeTracesInput = document.getElementById("remove-traces-from-chip")
+    if (removeTracesInput)
+    {
+      removeTracesInput.checked = !!instance.removeTraces
+    }
+
   }
 
   const _parserInputProcess = async (url, element) =>
