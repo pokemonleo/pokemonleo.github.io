@@ -318,8 +318,12 @@ html, body
               </div>
             </div>
             <div class="form-floating shadow-sm">
-              <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Discord" id="discord-chip-textarea" style="height: 300px"></textarea>
+              <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Discord" id="discord-chip-textarea" style="height: 230px"></textarea>
               <label for="discord-chip-textarea">Text Chip for Discord</label>
+            </div>
+            <div class="form-check form-switch mt-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="remove-traces-from-chip">
+              <label class="form-check-label" for="remove-traces-from-chip" style="user-select: none;">Remove traces.</label>
             </div>
           </div>
           <div class="tab-pane fade" id="nav-twitter" role="tabpanel" aria-labelledby="nav-twitter-tab" tabindex="0">
@@ -349,7 +353,7 @@ html, body
               </div>
             </div>
             <div class="form-floating shadow-sm">
-              <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Twitter" id="twitter-chip-textarea" style="height: 300px"></textarea>
+              <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Twitter" id="twitter-chip-textarea" style="height: 130px"></textarea>
               <label for="twitter-chip-textarea">Text Chip for Twitter</label>
             </div>
           </div>
@@ -1128,6 +1132,38 @@ Used Resources:
         }
       },
     },
+
+    set removeTraces(isRemoveTraces)
+    {
+      this._removeTraces = !!isRemoveTraces
+      this.defaultRemoveTraces = !!isRemoveTraces
+    },
+
+    get removeTraces()
+    {
+      if (this._removeTraces === true || this._removeTraces === false)
+      {
+        return this._removeTraces
+      }
+
+      if (this.defaultRemoveTraces === true || this.defaultRemoveTraces === false)
+      {
+        return this.defaultRemoveTraces
+      }
+
+      return
+    },
+
+    set defaultRemoveTraces(isRemoveTraces)
+    {
+      Cookies.set("defaultRemoveTraces", isRemoveTraces ? "1" : "0", { expires: 365, })
+    },
+
+    get defaultRemoveTraces()
+    {
+      return Cookies.get("defaultRemoveTraces") === "1" ? true : false
+    },
+
   }
 
   const world =
@@ -2665,6 +2701,16 @@ Used Resources:
       })
     }
 
+    const removeTracesInput = document.getElementById("remove-traces-from-chip")
+    if (removeTracesInput)
+    {
+      removeTracesInput.addEventListener("change", () =>
+      {
+        instance.removeTraces = removeTracesInput.checked
+        updateDiscordChip()
+      })
+    }
+
   }
 
   const regenerateInstaceNumber = () =>
@@ -3336,14 +3382,25 @@ Used Resources:
     const sharableHashURL = new URL(instance.sharableHashURL)
     sharableHashURL.searchParams.set("a", "true") // Auto Redirect
 
-    textChip.value =
-      // "### [" + world.title + "](<" + instance.infoURL + ">)" + "\n" +
-      "### " + world.title + "\n" +
-      // world.description + "\n" +
-      instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + sharableHashURL + ">)" + " --- " +
-      ":information_source: [*Details*](<" + instance.sharableHashURL + ">)" + " --- " +
-      ":globe_with_meridians: [*Info*](" + instance.infoURL + ")" + "\n" +
-      ">>> "
+    if (instance.removeTraces)
+    {
+      textChip.value =
+        "### " + world.title + "\n" +
+        instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + instance.webURL + ">)" + " --- " +
+        ":globe_with_meridians: [*Info*](" + instance.infoURL + ")" + "\n" +
+        ">>> "
+    }
+    else
+    {
+      textChip.value =
+        // "### [" + world.title + "](<" + instance.infoURL + ">)" + "\n" +
+        "### " + world.title + "\n" +
+        // world.description + "\n" +
+        instance.readableRegionDiscord + " [Launch **" + instance.instanceReadableType + "**](<" + sharableHashURL + ">)" + " --- " +
+        ":information_source: [*Details*](<" + instance.sharableHashURL + ">)" + " --- " +
+        ":globe_with_meridians: [*Info*](" + instance.infoURL + ")" + "\n" +
+        ">>> "
+    }
     textChip.dataset.modified = "false"
     textChip.selectionStart = 0
     textChip.selectionEnd = textChip.value.length
