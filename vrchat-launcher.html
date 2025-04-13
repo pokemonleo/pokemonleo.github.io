@@ -967,6 +967,18 @@ Used Resources:
       return instanceId
     },
 
+    get pubilcInstanceId()
+    {
+      let instanceId = ""
+
+      if (this.region)
+      {
+        instanceId += "~region(" + this.region + ")"
+      }
+
+      return instanceId
+    },
+
     get gameLink()
     {
       if (!this.worldId)
@@ -988,6 +1000,19 @@ Used Resources:
       this.__webURL.searchParams.set("worldId", this.worldId)
       this.__webURL.searchParams.set("instanceId", this.instanceId)
       return this.__webURL.toString()
+    },
+
+    get webPublicURL()
+    {
+      if (!this.worldId)
+      {
+        return this.__homeURL.toString()
+      }
+
+      const webPublicURL = new URL(this.__webURL.toString())
+      webPublicURL.searchParams.set("worldId", this.worldId)
+      webPublicURL.searchParams.set("instanceId", this.pubilcInstanceId)
+      return webPublicURL.toString()
     },
 
     get infoURL()
@@ -3385,19 +3410,20 @@ Used Resources:
     //   thisURL.searchParams.delete("i")
     // }
 
-    const sharableHashURL = new URL(instance.sharableHashURL)
-    sharableHashURL.searchParams.set("a", "true") // Auto Redirect
-
     if (instance.removeTraces)
     {
       textChip.value =
         "### " + world.title + "\n" +
         "[Launch **" + instance.instanceReadableType + "**](<" + instance.webURL + ">) " + instance.readableRegionDiscord + " --- " +
+        "[Launch **Public**](<" + instance.webPublicURL + ">) " + instance.readableRegionDiscord + " --- " +
         ":globe_with_meridians: [*Info*](" + instance.infoURL + ")" + "\n" +
         ">>> "
     }
     else
     {
+      const sharableHashURL = new URL(instance.sharableHashURL)
+      sharableHashURL.searchParams.set("a", "true") // Auto Redirect
+
       textChip.value =
         // "### [" + world.title + "](<" + instance.infoURL + ">)" + "\n" +
         "### " + world.title + "\n" +
