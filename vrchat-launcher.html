@@ -2428,12 +2428,31 @@ Used Resources:
       }
     }
 
+    if (!instanceNumber && anyUpdated)
+    {
+      // If current instance number isGenerated, regenerate once
+      if (instance._isInstanceNumberGenerated)
+      {
+        regenerateInstaceNumber()
+        const instancenumberInput = document.getElementById("instancenumber-input")
+        if (instancenumberInput)
+        {
+          instancenumberInput.value = instance.instanceNumber
+        }
+      }
+    }
+
     if (!nonce && anyUpdated)
     {
       // If current nonce isGenerated, regenerate NONCE once
       if (instance._isNonceGenerated)
       {
         regenerateNonce()
+        const nonceInput = document.getElementById("nonce-input")
+        if (nonceInput)
+        {
+          nonceInput.value = instance.nonce
+        }
       }
     }
 
