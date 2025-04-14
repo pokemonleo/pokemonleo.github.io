@@ -184,6 +184,14 @@ html, body
                 </div>
               </div>
             </div>
+            <div class="row mb-2">
+              <div class="offset-sm-4 col-sm-8">
+                <div class="form-check form-switch">
+                  <input class="form-check-input force-regenerate-randoms" type="checkbox" role="switch" id="force-regenerate-randoms-1">
+                  <label class="form-check-label" for="force-regenerate-randoms-1" style="user-select: none;">Force regenerate randoms.</label>
+                </div>
+              </div>
+            </div>
             <div class="row mb-2 manual-input align-items-center">
               <label for="worldid-input" class="col-sm-4 col-form-label manual-input-title py-0">World ID</label>
               <div class="col-sm-8">
@@ -321,9 +329,15 @@ html, body
               <textarea class="form-control form-control-sm textchip-textarea" placeholder="Text Chip for Discord" id="discord-chip-textarea" style="height: 230px"></textarea>
               <label for="discord-chip-textarea">Text Chip for Discord</label>
             </div>
-            <div class="form-check form-switch mt-2">
-              <input class="form-check-input" type="checkbox" role="switch" id="remove-traces-from-chip">
-              <label class="form-check-label" for="remove-traces-from-chip" style="user-select: none;">Remove traces.</label>
+            <div class="d-flex flex-wrap column-gap-4 mt-2">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="remove-traces-from-chip">
+                <label class="form-check-label" for="remove-traces-from-chip" style="user-select: none;">Remove traces.</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input force-regenerate-randoms" type="checkbox" role="switch" id="force-regenerate-randoms-2">
+                <label class="form-check-label" for="force-regenerate-randoms-2" style="user-select: none;">Force regenerate randoms.</label>
+              </div>
             </div>
           </div>
           <div class="tab-pane fade" id="nav-twitter" role="tabpanel" aria-labelledby="nav-twitter-tab" tabindex="0">
@@ -1187,6 +1201,37 @@ Used Resources:
     get defaultRemoveTraces()
     {
       return Cookies.get("defaultRemoveTraces") === "1" ? true : false
+    },
+
+    set forceRegenerateRandoms(isForceRegenerateRandoms)
+    {
+      this._forceRegenerateRandoms = !!isForceRegenerateRandoms
+      this.defaultRemoveTraces = !!isForceRegenerateRandoms
+    },
+
+    get forceRegenerateRandoms()
+    {
+      if (this._forceRegenerateRandoms === true || this._forceRegenerateRandoms === false)
+      {
+        return this._forceRegenerateRandoms
+      }
+
+      if (this.defaultForceRegenerateRandoms === true || this.defaultForceRegenerateRandoms === false)
+      {
+        return this.defaultForceRegenerateRandoms
+      }
+
+      return
+    },
+
+    set defaultForceRegenerateRandoms(isForceRegenerateRandoms)
+    {
+      Cookies.set("defaultForceRegenerateRandoms", isForceRegenerateRandoms ? "1" : "0", { expires: 365, })
+    },
+
+    get defaultForceRegenerateRandoms()
+    {
+      return Cookies.get("defaultForceRegenerateRandoms") === "1" ? true : false
     },
 
   }
@@ -2244,6 +2289,7 @@ Used Resources:
     }
 
   }
+
   const setFormInput = () =>
   {
 
@@ -2310,6 +2356,11 @@ Used Resources:
       removeTracesInput.checked = !!instance.removeTraces
     }
 
+    for (const forceRegenerateInput of document.querySelectorAll(".force-regenerate-randoms"))
+    {
+      forceRegenerateInput.checked = !!instance.forceRegenerateRandoms
+    }
+
   }
 
   const _parserInputProcess = async (url, element) =>
@@ -2345,6 +2396,9 @@ Used Resources:
 
     let anyUpdated = false
 
+    let isInstanceNumberAlreadyChanged = false
+    let isNonceAlreadyChanged = false
+
     if (worldId)
     {
       if (instance.worldId !== worldId)
@@ -2369,6 +2423,7 @@ Used Resources:
         {
           instancenumberInput.value = instanceNumber
         }
+        isInstanceNumberAlreadyChanged = true
         anyUpdated = true
       }
     }
@@ -2424,6 +2479,7 @@ Used Resources:
         {
           nonceInput.value = nonce
         }
+        isNonceAlreadyChanged = true
         anyUpdated = true
       }
     }
@@ -2434,6 +2490,7 @@ Used Resources:
       if (instance._isInstanceNumberGenerated)
       {
         regenerateInstaceNumber()
+        isInstanceNumberAlreadyChanged = true
         const instancenumberInput = document.getElementById("instancenumber-input")
         if (instancenumberInput)
         {
@@ -2448,6 +2505,32 @@ Used Resources:
       if (instance._isNonceGenerated)
       {
         regenerateNonce()
+        isNonceAlreadyChanged = true
+        const nonceInput = document.getElementById("nonce-input")
+        if (nonceInput)
+        {
+          nonceInput.value = instance.nonce
+        }
+      }
+    }
+
+    if (instance.forceRegenerateRandoms)
+    {
+      if (!isInstanceNumberAlreadyChanged)
+      {
+        regenerateInstaceNumber()
+        isInstanceNumberAlreadyChanged = true
+        const instancenumberInput = document.getElementById("instancenumber-input")
+        if (instancenumberInput)
+        {
+          instancenumberInput.value = instance.instanceNumber
+        }
+      }
+
+      if (!isNonceAlreadyChanged)
+      {
+        regenerateNonce()
+        isNonceAlreadyChanged = true
         const nonceInput = document.getElementById("nonce-input")
         if (nonceInput)
         {
@@ -2758,6 +2841,58 @@ Used Resources:
       {
         instance.removeTraces = removeTracesInput.checked
         updateDiscordChip()
+      })
+    }
+
+    for (const forceRegenerateInput of document.querySelectorAll(".force-regenerate-randoms"))
+    {
+      forceRegenerateInput.addEventListener("change", () =>
+      {
+        instance.forceRegenerateRandoms = forceRegenerateInput.checked
+
+        for (const _forceRegenerateInput of document.querySelectorAll(".force-regenerate-randoms"))
+        {
+          _forceRegenerateInput.checked = instance.forceRegenerateRandoms
+        }
+
+        if (forceRegenerateInput.checked)
+        {
+
+          let isChanged = false
+
+          if (!instance._isInstanceNumberGenerated)
+          {
+            regenerateInstaceNumber()
+            isChanged = true
+            const instancenumberInput = document.getElementById("instancenumber-input")
+            if (instancenumberInput)
+            {
+              instancenumberInput.value = instance.instanceNumber
+            }
+          }
+
+          if (!instance._isNonceGenerated)
+          {
+            regenerateNonce()
+            isChanged = true
+            const nonceInput = document.getElementById("nonce-input")
+            if (nonceInput)
+            {
+              nonceInput.value = instance.nonce
+            }
+          }
+
+          if (isChanged)
+          {
+            updateLink()
+            updateTextChip()
+            updateLauncher()
+            setDebugInput()
+          }
+
+        }
+
+
       })
     }
 
