@@ -1206,7 +1206,7 @@ Used Resources:
     set forceRegenerateRandoms(isForceRegenerateRandoms)
     {
       this._forceRegenerateRandoms = !!isForceRegenerateRandoms
-      this.defaultRemoveTraces = !!isForceRegenerateRandoms
+      this.defaultForceRegenerateRandoms = !!isForceRegenerateRandoms
     },
 
     get forceRegenerateRandoms()
@@ -1231,7 +1231,19 @@ Used Resources:
 
     get defaultForceRegenerateRandoms()
     {
-      return Cookies.get("defaultForceRegenerateRandoms") === "1" ? true : false
+      const _defaultForceRegenerateRandoms = Cookies.get("defaultForceRegenerateRandoms")
+
+      if (_defaultForceRegenerateRandoms === "1")
+      {
+        return true
+      }
+
+      if (_defaultForceRegenerateRandoms === "0")
+      {
+        return false
+      }
+
+      return
     },
 
   }
@@ -2891,7 +2903,6 @@ Used Resources:
           }
 
         }
-
 
       })
     }
