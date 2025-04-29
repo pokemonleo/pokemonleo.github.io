@@ -3772,6 +3772,12 @@ Used Resources:
         const worldId = url.replace(/\/info$/, "")
         return { worldId, }
       }
+
+      const _matches = url.match(/(?<=\b|_)wrld_[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}(?=\b|_)/)
+      if (_matches[0])
+      {
+        return { worldId: _matches[0], }
+      }
     }
 
     const _url = new URL(url)
