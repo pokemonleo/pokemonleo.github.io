@@ -4090,11 +4090,14 @@ Used Resources:
     // }
 
     // https://github.com/pphosting/cors-proxies-list
-    const proxy = new URL("https://www.whateverorigin.org/get")
-    proxy.searchParams.set("url", url)
+    // const proxy = new URL("https://www.whateverorigin.org/get")
+    // proxy.searchParams.set("url", url)
+    const proxy = new URL("https://test.cors.workers.dev/?" + url)
 
     try
     {
+      console.log("Fetching URL:", url)
+      console.log("Fetching Proxied URL:", proxy.toString())
       const response = await fetch(proxy)
       if (!response.ok)
       {
